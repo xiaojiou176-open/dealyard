@@ -53,3 +53,13 @@ site-dist/
 !site/data/*.json
 !.env.example
 !.env.production.example
+
+# Codex / Kiro / Claude rollout JSONL — 这类文件会包含 token / secret，永远不能 commit
+.archive/sessions/
+.archive/**/sessions/
+.archive/**/*.jsonl
+.codex/sessions/
+.kiro/sessions/
+.claude/sessions/
+**/rollout-*.jsonl
+**/session-*.jsonl
