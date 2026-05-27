@@ -1,0 +1,75 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: dealyard-postgres
+    environment:
+      POSTGRES_DB: dealyard
+      POSTGRES_USER: dealyard
+      POSTGRES_PASSWORD: dealyard
+      PGDATA: /data/postgres
+    ports:
+      - "${POSTGRES_PORT:-15432}:5432"
+    volumes:
+      - dealyard-postgres:/data/postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dealyard -d dealyard"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      target: runtime
+    container_name: dealyard-api
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://dealyard:dealyard@postgres:5432/dealyard
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./.runtime-cache:/app/.runtime-cache
+    ports:
+      - "${API_PORT:-8000}:8000"
+    command: ["python", "-m", "dealyard", "server"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  worker:
+    build:
+      context: .
+      target: runtime
+    container_name: dealyard-worker
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://dealyard:dealyard@postgres:5432/dealyard
+    depends_on:
+      postgres:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    volumes:
+      - ./.runtime-cache:/app/.runtime-cache
+    command: ["python", "-m", "dealyard", "worker"]
+
+  frontend:
+    image: node:22-bookworm-slim
+    container_name: dealyard-frontend
+    working_dir: /app/frontend
+    environment:
+      CI: "true"
+    volumes:
+      - ./.pnpm-store:/app/.pnpm-store
+      - ./frontend:/app/frontend
+    ports:
+      - "${WEBUI_PORT:-5173}:5173"
+    command: ["sh", "-lc", "corepack enable && pnpm install --config.confirmModulesPurge=false && pnpm dev --host 0.0.0.0"]
+
+volumes:
+  dealyard-postgres:

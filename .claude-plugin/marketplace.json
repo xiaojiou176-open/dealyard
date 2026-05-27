@@ -1,0 +1,12 @@
+{
+  "name": "dealyard-builders",
+  "owner": {
+    "name": "xiaojiou176-open"
+  },
+  "plugins": [
+    {
+      "name": "dealyard-builder-pack",
+      "source": "./plugins/dealyard-builder-pack"
+    }
+  ]
+}
