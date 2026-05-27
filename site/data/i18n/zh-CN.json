@@ -978,8 +978,8 @@
       "statusProofSummary": "公共 claims 站在仓库证据、proof 页面和验证门槛后面，而不是单靠话术。",
       "trackerTitle": "普通 tracker",
       "trackerSummary": "你先粘一个链接，希望它就是正确目标，之后才发现这个长期记录到底值不值得保留。",
-      "dealwatchTitle": "DealWatch",
-      "dealwatchSummary": "你先比较多个 URL，检查规范化候选、分数输入和 why-like / why-unlike 理由，再决定是创建单任务，还是把候选保留在 compare-aware watch group 里。",
+      "dealyardTitle": "DealWatch",
+      "dealyardSummary": "你先比较多个 URL，检查规范化候选、分数输入和 why-like / why-unlike 理由，再决定是创建单任务，还是把候选保留在 compare-aware watch group 里。",
       "tableTitle": "功能对比",
       "tableSummary": "这是解释 DealWatch 为什么更像产品、而不只是 scraper 的最短诚实路径。",
       "columnCapability": "能力",
@@ -1021,13 +1021,13 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "DealWatch vs. 普通价格追踪器 | 先 Compare，再进入跟踪",
-        "url": "https://xiaojiou176-open.github.io/dealwatch/compare-vs-tracker.html",
+        "url": "https://xiaojiou176-open.github.io/dealyard/compare-vs-tracker.html",
         "description": "看看 DealWatch 如何从 Compare Preview、compare-aware watch groups、AI 辅助解释，以及面向 Codex、Claude Code、OpenHands、OpenCode、OpenClaw 的带 proof 只读表面出发，与普通价格追踪器拉开差距。",
         "keywords": "DealWatch, 普通价格追踪器, compare-first, Compare Preview, compare-aware watch groups, 只读 proof surface, Claude Code, Codex, OpenHands, OpenCode, OpenClaw",
         "isPartOf": {
           "@type": "WebSite",
           "name": "DealWatch",
-          "url": "https://xiaojiou176-open.github.io/dealwatch/"
+          "url": "https://xiaojiou176-open.github.io/dealyard/"
         },
         "about": [
           "compare-first 杂货价格情报",
@@ -1082,9 +1082,9 @@
         "name": "DealWatch",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web, macOS, Linux, Windows",
-        "url": "https://xiaojiou176-open.github.io/dealwatch/",
+        "url": "https://xiaojiou176-open.github.io/dealyard/",
         "description": "以 compare-first 为核心的价格情报产品，推荐先走 Compare Preview，再看 Proof，再进入本地 Quick Start，另外保留一条专业 Builders 路线。",
-        "softwareHelp": "https://xiaojiou176-open.github.io/dealwatch/faq.html",
+        "softwareHelp": "https://xiaojiou176-open.github.io/dealyard/faq.html",
         "keywords": "DealWatch, Compare Preview, Proof, Quick Start, Builders, compare-first 价格情报",
         "featureList": [
           "以 compare-first 为核心的商品 URL 验证",
@@ -1197,13 +1197,13 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "DealWatch Compare Preview | 先 Compare，再进入跟踪",
-        "url": "https://xiaojiou176-open.github.io/dealwatch/compare-preview.html",
+        "url": "https://xiaojiou176-open.github.io/dealyard/compare-preview.html",
         "description": "打开一个只读样例 Compare Preview，然后按你的目标选择 Quick Start、Proof 或 Builders：分别对应本地运行栈、验证链路和只读 agent 接线。",
         "keywords": "DealWatch Compare Preview, compare-first, 只读样例, Quick Start, Proof, Builders",
         "isPartOf": {
           "@type": "WebSite",
           "name": "DealWatch",
-          "url": "https://xiaojiou176-open.github.io/dealwatch/"
+          "url": "https://xiaojiou176-open.github.io/dealyard/"
         },
         "about": [
           "以 compare-first 为核心的商品 URL 验证",
@@ -1335,7 +1335,7 @@
         "@type": "TechArticle",
         "headline": "DealWatch Proof | AI 解释、恢复指引与只读 MCP 证据",
         "name": "DealWatch Proof | AI 解释、恢复指引与只读 MCP 证据",
-        "url": "https://xiaojiou176-open.github.io/dealwatch/proof.html",
+        "url": "https://xiaojiou176-open.github.io/dealyard/proof.html",
         "description": "查看 DealWatch 的 AI 辅助 compare 解释、面向 Claude Code、Codex、OpenHands、OpenCode 的只读 MCP/API 访问、运行命令与 recommendation 边界背后的证据。",
         "keywords": "DealWatch proof, 只读 MCP, Claude Code, Codex, OpenHands, OpenCode, AI 辅助解释, compare-first",
         "about": [
@@ -1347,7 +1347,7 @@
         "isPartOf": {
           "@type": "WebSite",
           "name": "DealWatch",
-          "url": "https://xiaojiou176-open.github.io/dealwatch/"
+          "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       },
       "statusAdapterTitle": "Live adapter 证据",
@@ -1416,7 +1416,7 @@
       "claimRowAiProof": "Compare、watch-group 和 recovery 的 AI envelope，建立在 `decision_explain`、match reasons、`reason` 和 `recommended_action` 这些确定性证据锚点之上",
       "claimRowAiWhy": "公共访问者可以确认 AI 的职责是解释和决策支持，而不是黑箱替代产品真相。",
       "claimRowMcpTitle": "只读 MCP 安全访问是真的",
-      "claimRowMcpProof": "`python -m dealwatch.mcp list-tools --json`、`python -m dealwatch.mcp client-starters --json`、`python -m dealwatch.mcp serve --transport stdio`、`GET /api/runtime/builder-starter-pack`、`src/dealwatch/mcp/server.py` 里的注册只读工具清单，以及仓库中 `docs/integrations/` 下的 builder starter pack 和 skill cards",
+      "claimRowMcpProof": "`python -m dealyard.mcp list-tools --json`、`python -m dealyard.mcp client-starters --json`、`python -m dealyard.mcp serve --transport stdio`、`GET /api/runtime/builder-starter-pack`、`src/dealyard/mcp/server.py` 里的注册只读工具清单，以及仓库中 `docs/integrations/` 下的 builder starter pack 和 skill cards",
       "claimRowMcpWhy": "说明 agent 访问已经存在，同时没有把产品变成可写自动化表面。",
       "claimRowRecommendationTitle": "Recommendation 仍然处于 defer",
       "claimRowRecommendationProof": "本地 Compare Preview runtime 现在已经有一张建立在 deterministic compare evidence 之上的保守 recommendation 卡，但更广的 task/group/MCP 扩张仍然处于 gated 状态。",
@@ -1710,7 +1710,7 @@
         "@type": "TechArticle",
         "headline": "DealWatch Builders | 只读 Builder 前门与 Runtime 路线",
         "name": "DealWatch Builders",
-        "url": "https://xiaojiou176-open.github.io/dealwatch/builders.html",
+        "url": "https://xiaojiou176-open.github.io/dealyard/builders.html",
         "description": "通过一条诚实路线来理解 DealWatch 这个 local-first 的只读决策后端：先走 human path，再走 machine path，最后才进入本地 runtime export 表面。",
         "keywords": "DealWatch builders, read-only builder frontdoor, llms.txt, sitemap.xml, builder starter pack JSON, Codex MCP, Claude Code MCP, OpenHands MCP, OpenCode MCP, OpenClaw MCP",
         "about": [
@@ -1725,7 +1725,7 @@
         "isPartOf": {
           "@type": "WebSite",
           "name": "DealWatch",
-          "url": "https://xiaojiou176-open.github.io/dealwatch/"
+          "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       }
     },
@@ -1796,7 +1796,7 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "DealWatch Use Cases",
-        "url": "https://xiaojiou176-open.github.io/dealwatch/use-cases.html",
+        "url": "https://xiaojiou176-open.github.io/dealyard/use-cases.html",
         "description": "查看 compare-first 生鲜比较、compare-aware watch groups、返现感知跟踪、AI 辅助解释与运维恢复的使用场景。",
         "about": [
           "跨门店生鲜比较",
@@ -1808,7 +1808,7 @@
         "isPartOf": {
           "@type": "WebSite",
           "name": "DealWatch",
-          "url": "https://xiaojiou176-open.github.io/dealwatch/"
+          "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       }
     },
@@ -1938,7 +1938,7 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "DealWatch Community",
-        "url": "https://xiaojiou176-open.github.io/dealwatch/community.html",
+        "url": "https://xiaojiou176-open.github.io/dealyard/community.html",
         "description": "DealWatch 的公开入口：讨论、路线图问题、门店请求、发布更新与支持流程。",
         "about": [
           "GitHub Discussions",
@@ -1949,7 +1949,7 @@
         "isPartOf": {
           "@type": "WebSite",
           "name": "DealWatch",
-          "url": "https://xiaojiou176-open.github.io/dealwatch/"
+          "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       }
     },
@@ -1969,12 +1969,12 @@
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "DealWatch | 页面不存在",
-        "url": "https://xiaojiou176-open.github.io/dealwatch/404.html",
+        "url": "https://xiaojiou176-open.github.io/dealyard/404.html",
         "description": "你要找的页面不存在。请改去 DealWatch 首页、Quick Start 或 FAQ。",
         "isPartOf": {
           "@type": "WebSite",
           "name": "DealWatch",
-          "url": "https://xiaojiou176-open.github.io/dealwatch/"
+          "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       }
     }

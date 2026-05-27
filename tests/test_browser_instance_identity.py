@@ -11,21 +11,21 @@ from scripts.shared.browser_instance_identity import (
 
 def test_build_browser_identity_page_html_contains_required_fields() -> None:
     html = build_browser_identity_page_html(
-        repo_label="dealwatch",
-        repo_root="/tmp/dealwatch",
+        repo_label="dealyard",
+        repo_root="/tmp/dealyard",
         cdp_url="http://127.0.0.1:9333",
         cdp_port=9333,
         user_data_dir="/tmp/chrome-user-data",
-        profile_name="dealwatch",
+        profile_name="dealyard",
         profile_directory="Profile 21",
         accent="#0f766e",
         monogram="DW",
         quick_links=[("Target account", "https://www.target.com/account")],
     )
 
-    assert "dealwatch · 9333 · browser lane" in html
+    assert "dealyard · 9333 · browser lane" in html
     assert "http://127.0.0.1:9333" in html
-    assert "/tmp/dealwatch" in html
+    assert "/tmp/dealyard" in html
     assert "/tmp/chrome-user-data" in html
     assert "Profile 21" in html
     assert "Target account" in html
@@ -42,7 +42,7 @@ def test_write_browser_identity_page_writes_under_runtime_cache(tmp_path: Path) 
         cdp_url="http://127.0.0.1:9333",
         cdp_port=9333,
         user_data_dir="/tmp/chrome-user-data",
-        profile_name="dealwatch",
+        profile_name="dealyard",
         profile_directory="Profile 21",
         quick_links=[("Walmart account", "https://www.walmart.com/account")],
     )

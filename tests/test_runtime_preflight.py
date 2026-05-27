@@ -19,11 +19,11 @@ def test_parse_env_file_reads_key_values(tmp_path: Path) -> None:
 
 def test_validate_runtime_accepts_complete_render_payload() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://user:pass@db.example.invalid/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://user:pass@db.example.invalid/dealyard",
         "OWNER_EMAIL": "alerts@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "super-secret-token",
-        "APP_BASE_URL": "https://dealwatch-api.onrender.com",
-        "WEBUI_DEV_URL": "https://dealwatch-webui.onrender.com",
+        "APP_BASE_URL": "https://dealyard-api.onrender.com",
+        "WEBUI_DEV_URL": "https://dealyard-webui.onrender.com",
         "ZIP_CODE": "98004",
         "POSTMARK_FROM_EMAIL": "alerts@example.com",
         "POSTMARK_SERVER_TOKEN": "pm-token",
@@ -39,13 +39,13 @@ def test_validate_runtime_accepts_complete_render_payload() -> None:
 
 def test_validate_runtime_rejects_placeholders() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://dealwatch:dealwatch@localhost:15432/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://dealyard:dealyard@localhost:15432/dealyard",
         "OWNER_EMAIL": "owner@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "change-me",
         "APP_BASE_URL": "http://localhost:8000",
         "WEBUI_DEV_URL": "http://localhost:5173",
         "ZIP_CODE": "00000",
-        "POSTMARK_FROM_EMAIL": "dealwatch@example.com",
+        "POSTMARK_FROM_EMAIL": "dealyard@example.com",
         "POSTMARK_SERVER_TOKEN": "",
         "SMTP_HOST": "",
         "SMTP_USER": "",
@@ -63,13 +63,13 @@ def test_validate_runtime_rejects_placeholders() -> None:
 
 def test_validate_runtime_accepts_ci_smoke_payload() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://dealwatch:dealwatch@127.0.0.1:15432/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://dealyard:dealyard@127.0.0.1:15432/dealyard",
         "OWNER_EMAIL": "owner@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "smoke-token",
         "APP_BASE_URL": "http://127.0.0.1:8000",
         "WEBUI_DEV_URL": "http://localhost:5173",
         "ZIP_CODE": "98004",
-        "POSTMARK_FROM_EMAIL": "dealwatch@example.com",
+        "POSTMARK_FROM_EMAIL": "dealyard@example.com",
         "POSTMARK_MESSAGE_STREAM": "outbound",
         "ENABLED_STORES": "weee",
         "WORKER_POLL_SECONDS": "60",
@@ -83,7 +83,7 @@ def test_validate_runtime_accepts_ci_smoke_payload() -> None:
 
 def test_validate_runtime_accepts_startup_payload() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://dealwatch:dealwatch@127.0.0.1:15432/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://dealyard:dealyard@127.0.0.1:15432/dealyard",
         "OWNER_EMAIL": "owner@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "change-me",
         "APP_BASE_URL": "http://127.0.0.1:8000",
@@ -109,7 +109,7 @@ def test_validate_runtime_accepts_startup_payload() -> None:
 
 def test_validate_runtime_warns_on_legacy_path_drift() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://dealwatch:dealwatch@127.0.0.1:15432/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://dealyard:dealyard@127.0.0.1:15432/dealyard",
         "OWNER_EMAIL": "owner@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "change-me",
         "APP_BASE_URL": "http://127.0.0.1:8000",
@@ -118,7 +118,7 @@ def test_validate_runtime_warns_on_legacy_path_drift() -> None:
         "ENABLED_STORES": "weee",
         "CACHE_BUDGET_BYTES": "4294967296",
         "USE_LLM": "false",
-        "DB_PATH": ".runtime-cache/cache/data/dealwatch.db",
+        "DB_PATH": ".runtime-cache/cache/data/dealyard.db",
         "BACKUPS_DIR": ".runtime-cache/cache/backups",
     }
     _checks, warnings = check_runtime_env.validate_runtime(payload, target="startup")
@@ -129,7 +129,7 @@ def test_validate_runtime_warns_on_legacy_path_drift() -> None:
 
 def test_validate_runtime_warns_on_placeholder_zip_only_when_startup_zip_is_default() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://dealwatch:dealwatch@127.0.0.1:15432/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://dealyard:dealyard@127.0.0.1:15432/dealyard",
         "OWNER_EMAIL": "owner@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "change-me",
         "APP_BASE_URL": "http://127.0.0.1:8000",
@@ -146,7 +146,7 @@ def test_validate_runtime_warns_on_placeholder_zip_only_when_startup_zip_is_defa
 
 def test_validate_runtime_rejects_partial_browser_profile_contract() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://dealwatch:dealwatch@127.0.0.1:15432/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://dealyard:dealyard@127.0.0.1:15432/dealyard",
         "OWNER_EMAIL": "owner@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "change-me",
         "APP_BASE_URL": "http://127.0.0.1:8000",
@@ -156,7 +156,7 @@ def test_validate_runtime_rejects_partial_browser_profile_contract() -> None:
         "CACHE_BUDGET_BYTES": "4294967296",
         "USE_LLM": "false",
         "CHROME_USER_DATA_DIR": DEFAULT_SHARED_CHROME_ROOT,
-        "CHROME_PROFILE_NAME": "dealwatch",
+        "CHROME_PROFILE_NAME": "dealyard",
         "CHROME_PROFILE_DIRECTORY": "",
     }
 
@@ -165,9 +165,9 @@ def test_validate_runtime_rejects_partial_browser_profile_contract() -> None:
     assert any(result.key == "browser_profile_contract" and not result.ok for result in checks)
 
 
-def test_validate_runtime_rejects_legacy_shared_chrome_root_for_dealwatch() -> None:
+def test_validate_runtime_rejects_legacy_shared_chrome_root_for_dealyard() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://dealwatch:dealwatch@127.0.0.1:15432/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://dealyard:dealyard@127.0.0.1:15432/dealyard",
         "OWNER_EMAIL": "owner@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "change-me",
         "APP_BASE_URL": "http://127.0.0.1:8000",
@@ -177,7 +177,7 @@ def test_validate_runtime_rejects_legacy_shared_chrome_root_for_dealwatch() -> N
         "CACHE_BUDGET_BYTES": "4294967296",
         "USE_LLM": "false",
         "CHROME_USER_DATA_DIR": DEFAULT_SHARED_CHROME_ROOT,
-        "CHROME_PROFILE_NAME": "dealwatch",
+        "CHROME_PROFILE_NAME": "dealyard",
         "CHROME_PROFILE_DIRECTORY": "Profile 21",
     }
 
@@ -188,7 +188,7 @@ def test_validate_runtime_rejects_legacy_shared_chrome_root_for_dealwatch() -> N
 
 def test_validate_runtime_accepts_dedicated_chrome_root_contract() -> None:
     payload = {
-        "DATABASE_URL": "postgresql+psycopg://dealwatch:dealwatch@127.0.0.1:15432/dealwatch",
+        "DATABASE_URL": "postgresql+psycopg://dealyard:dealyard@127.0.0.1:15432/dealyard",
         "OWNER_EMAIL": "owner@example.com",
         "OWNER_BOOTSTRAP_TOKEN": "change-me",
         "APP_BASE_URL": "http://127.0.0.1:8000",
@@ -197,8 +197,8 @@ def test_validate_runtime_accepts_dedicated_chrome_root_contract() -> None:
         "ENABLED_STORES": "weee",
         "CACHE_BUDGET_BYTES": "4294967296",
         "USE_LLM": "false",
-        "CHROME_USER_DATA_DIR": "~/.cache/dealwatch/browser/chrome-user-data",
-        "CHROME_PROFILE_NAME": "dealwatch",
+        "CHROME_USER_DATA_DIR": "~/.cache/dealyard/browser/chrome-user-data",
+        "CHROME_PROFILE_NAME": "dealyard",
         "CHROME_PROFILE_DIRECTORY": "Profile 21",
     }
 

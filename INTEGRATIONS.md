@@ -6,8 +6,8 @@ Start here:
 
 - [`llms-install.md`](./llms-install.md)
 - [`docs/integrations/README.md`](./docs/integrations/README.md)
-- [`docs/roadmaps/dealwatch-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealwatch-api-mcp-substrate-phase1.md)
-- [`plugins/dealwatch-builder-pack/README.md`](./plugins/dealwatch-builder-pack/README.md)
+- [`docs/roadmaps/dealyard-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealyard-api-mcp-substrate-phase1.md)
+- [`plugins/dealyard-builder-pack/README.md`](./plugins/dealyard-builder-pack/README.md)
 
 Truthful status:
 

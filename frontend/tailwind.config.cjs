@@ -22,7 +22,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        dealwatch: {
+        dealyard: {
           primary: "#1b61c9",
           secondary: "#14804a",
           accent: "#7355ff",

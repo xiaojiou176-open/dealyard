@@ -96,7 +96,7 @@ export function AppShell(props: { children: ComponentChildren }) {
   ];
 
   return (
-    <div class="shell-root bg-mesh grid-fade" data-theme="dealwatch">
+    <div class="shell-root bg-mesh grid-fade" data-theme="dealyard">
       <a class="skip-link" href="#main-content">
         {t("common.skipToMain")}
       </a>

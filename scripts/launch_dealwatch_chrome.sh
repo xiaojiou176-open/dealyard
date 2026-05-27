@@ -8,7 +8,7 @@ OPEN_BIN="${DEALWATCH_OPEN_BIN:-open}"
 PYTHON_BIN="${DEALWATCH_PYTHON_BIN:-python3}"
 READY_RETRIES="${DEALWATCH_READY_RETRIES:-20}"
 MAX_BROWSER_INSTANCES="${DEALWATCH_MAX_BROWSER_INSTANCES:-6}"
-ENSURE_TABS_SCRIPT="${ROOT_DIR}/scripts/open_dealwatch_account_pages.py"
+ENSURE_TABS_SCRIPT="${ROOT_DIR}/scripts/open_dealyard_account_pages.py"
 
 read_env_json() {
   "${PYTHON_BIN}" - "${ENV_FILE}" <<'PY'

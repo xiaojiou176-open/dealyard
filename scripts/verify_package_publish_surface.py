@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PYPROJECT = ROOT / "pyproject.toml"
 README = ROOT / "README.md"
 SERVER_JSON = ROOT / "server.json"
-EXPECTED_MCP_NAME = "io.github.xiaojiou176-open/dealwatch"
+EXPECTED_MCP_NAME = "io.github.xiaojiou176-open/dealyard"
 
 REQUIRED_URLS = {
     "Homepage",
@@ -23,8 +23,8 @@ REQUIRED_URLS = {
 }
 
 REQUIRED_SCRIPTS = {
-    "dealwatch": "dealwatch.cli:main",
-    "dealwatch-mcp": "dealwatch.mcp.server:main",
+    "dealyard": "dealyard.cli:main",
+    "dealyard-mcp": "dealyard.mcp.server:main",
 }
 
 REQUIRED_SERVER_FIELDS = {

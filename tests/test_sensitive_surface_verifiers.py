@@ -33,12 +33,12 @@ def test_find_sensitive_text_hits_detects_host_paths_and_personal_markers() -> N
 
 
 def test_find_sensitive_text_hits_ignores_placeholder_emails_and_generic_profile_names() -> None:
-    hits = find_sensitive_text_hits("owner@example.com Profile 21 dealwatch")
+    hits = find_sensitive_text_hits("owner@example.com Profile 21 dealyard")
     assert hits == []
 
 
 def test_scan_path_flags_runtime_artifacts(tmp_path: Path) -> None:
-    artifact = tmp_path / ".runtime-cache" / "logs" / "dealwatch.log"
+    artifact = tmp_path / ".runtime-cache" / "logs" / "dealyard.log"
     artifact.parent.mkdir(parents=True)
     artifact.write_text("ok", encoding="utf-8")
     findings = verify_sensitive_surface.scan_path(artifact)

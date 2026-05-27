@@ -64,13 +64,13 @@ In plain English:
 ## Local runtime entrypoints
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch --help
-PYTHONPATH=src uv run python -m dealwatch builder-starter-pack --json
-PYTHONPATH=src uv run python -m dealwatch server
-PYTHONPATH=src uv run python -m dealwatch worker
-PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json
-PYTHONPATH=src uv run python -m dealwatch.mcp client-starters --json
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard --help
+PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json
+PYTHONPATH=src uv run python -m dealyard server
+PYTHONPATH=src uv run python -m dealyard worker
+PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 ## Builder onboarding order
@@ -86,8 +86,8 @@ PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
 
 ### MCP-first path
 
-1. run `python -m dealwatch.mcp list-tools --json`
-2. register `python -m dealwatch.mcp serve --transport stdio`
+1. run `python -m dealyard.mcp list-tools --json`
+2. register `python -m dealyard.mcp serve --transport stdio`
 3. call `get_runtime_readiness`
 4. call `compare_preview`
 5. if the compare result is useful, move to detail reads such as watch tasks, watch groups, recovery inbox, notification settings, store bindings, and store onboarding cockpit
@@ -102,7 +102,7 @@ That order matters for the same reason a workshop visit starts at the front benc
 
 A surface is treated as **phase-1 stable** here only when all of the following are true:
 
-- it already ships in `src/dealwatch/api/app.py` or `src/dealwatch/mcp/server.py`
+- it already ships in `src/dealyard/api/app.py` or `src/dealyard/mcp/server.py`
 - it fits the current local-first, single-owner runtime truth
 - it is read-only, or in the special case of compare preview, it does **not** create durable product state
 - we can point to one canonical route or tool name for new integrations
@@ -121,13 +121,13 @@ A surface is **not** stable here when any of the following are true:
 
 | Surface | Status | Why it is safe now |
 | --- | --- | --- |
-| `python -m dealwatch --help` | stable now | prints the builder-relevant command banner with a normal help exit path |
-| `python -m dealwatch builder-starter-pack --json` | stable now | prints the repo-owned builder contract without requiring an already running server |
-| `python -m dealwatch server` | stable now | boots the HTTP runtime builders consume |
-| `python -m dealwatch worker` | stable now for local bring-up | useful when a builder wants the full runtime loop running locally |
-| `python -m dealwatch.mcp list-tools --json` | stable now | fastest honest MCP inventory surface |
-| `python -m dealwatch.mcp client-starters --json` | stable now | prints repo-owned local launch snippets and prompt anchors for named clients |
-| `python -m dealwatch.mcp serve --transport stdio` | stable now | canonical local stdio MCP launch path |
+| `python -m dealyard --help` | stable now | prints the builder-relevant command banner with a normal help exit path |
+| `python -m dealyard builder-starter-pack --json` | stable now | prints the repo-owned builder contract without requiring an already running server |
+| `python -m dealyard server` | stable now | boots the HTTP runtime builders consume |
+| `python -m dealyard worker` | stable now for local bring-up | useful when a builder wants the full runtime loop running locally |
+| `python -m dealyard.mcp list-tools --json` | stable now | fastest honest MCP inventory surface |
+| `python -m dealyard.mcp client-starters --json` | stable now | prints repo-owned local launch snippets and prompt anchors for named clients |
+| `python -m dealyard.mcp serve --transport stdio` | stable now | canonical local stdio MCP launch path |
 
 ### Stable HTTP surfaces
 
@@ -181,8 +181,8 @@ These surfaces may exist in code, but builders should not treat them as part of 
 
 | Surface | Why it stays internal-only |
 | --- | --- |
-| `python -m dealwatch maintenance --dry-run|--apply` | runtime hygiene tool, not builder API |
-| `python -m dealwatch bootstrap-owner` | owner bootstrap path gated by `OWNER_BOOTSTRAP_TOKEN` |
+| `python -m dealyard maintenance --dry-run|--apply` | runtime hygiene tool, not builder API |
+| `python -m dealyard bootstrap-owner` | owner bootstrap path gated by `OWNER_BOOTSTRAP_TOKEN` |
 | Postmark webhook route and provider-secret plumbing | provider callback internals, not generic builder auth |
 | legacy bridge commands | deprecated SQLite bridge maintenance, outside the product-facing builder story |
 
@@ -211,11 +211,11 @@ If you want exact repo anchors instead of prose, use:
 
 | Need | Canonical repo anchor |
 | --- | --- |
-| HTTP route inventory | `src/dealwatch/api/app.py` |
-| named request/response models | `src/dealwatch/api/schemas.py` |
-| MCP tool registry | `src/dealwatch/mcp/server.py` |
-| MCP CLI entrypoint | `src/dealwatch/mcp/__main__.py` |
-| CLI discovery and bootstrap paths | `src/dealwatch/cli.py` |
+| HTTP route inventory | `src/dealyard/api/app.py` |
+| named request/response models | `src/dealyard/api/schemas.py` |
+| MCP tool registry | `src/dealyard/mcp/server.py` |
+| MCP CLI entrypoint | `src/dealyard/mcp/__main__.py` |
+| CLI discovery and bootstrap paths | `src/dealyard/cli.py` |
 | environment contract | `.env.example` |
 | builder starter pack | `docs/integrations/README.md` |
 | builder examples | `docs/integrations/examples/README.md` |

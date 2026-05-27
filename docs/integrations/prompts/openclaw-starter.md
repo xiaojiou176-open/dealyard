@@ -12,8 +12,8 @@ The current saved-registry translation lives in [`../recipes/openclaw.md`](../re
 ## Repo-verified local handoff
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 The commands above are repo-verified.

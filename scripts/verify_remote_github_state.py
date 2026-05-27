@@ -7,7 +7,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 
-BASE = "https://api.github.com/repos/xiaojiou176-open/dealwatch"
+BASE = "https://api.github.com/repos/xiaojiou176-open/dealyard"
 GRAPHQL_ENDPOINT = "https://api.github.com/graphql"
 ORG_SECURITY_CONFIGURATION_ENDPOINT = (
     "https://api.github.com/orgs/xiaojiou176-open/code-security/configurations/240284"
@@ -17,9 +17,9 @@ ORG_SECURITY_REPOSITORIES_ENDPOINT = (
 )
 EXPECTED_OWNER_LOGIN = "xiaojiou176-open"
 EXPECTED_OWNER_TYPE = "Organization"
-EXPECTED_HTML_URL = "https://github.com/xiaojiou176-open/dealwatch"
+EXPECTED_HTML_URL = "https://github.com/xiaojiou176-open/dealyard"
 EXPECTED_DESCRIPTION = "Open-source compare-first grocery price tracking with compare-aware watch groups, effective price, health, and alert history."
-EXPECTED_HOMEPAGE = "https://xiaojiou176-open.github.io/dealwatch/"
+EXPECTED_HOMEPAGE = "https://xiaojiou176-open.github.io/dealyard/"
 EXPECTED_ORG_SECURITY_CONFIGURATION_ID = 240284
 EXPECTED_ORG_SECURITY_SETTINGS = {
     "advanced_security": "enabled",
@@ -38,7 +38,7 @@ EXPECTED_TOPICS = {
     "apscheduler",
     "cashback",
     "deal-finder",
-    "dealwatch",
+    "dealyard",
     "fastapi",
     "grocery",
     "notifications",
@@ -69,10 +69,10 @@ EXPECTED_LABELS = {"store-request", "compare-preview", "public-surface", "releas
 EXPECTED_LATEST_RELEASE = "v0.1.2"
 EXPECTED_PUBLIC_RELEASES = {"v0.1.2"}
 EXPECTED_DISCUSSION_ENTRYPOINTS = {
-    "https://github.com/xiaojiou176-open/dealwatch/discussions",
-    "https://github.com/xiaojiou176-open/dealwatch/discussions/categories/announcements",
-    "https://github.com/xiaojiou176-open/dealwatch/discussions/categories/q-a",
-    "https://github.com/xiaojiou176-open/dealwatch/discussions/categories/show-and-tell",
+    "https://github.com/xiaojiou176-open/dealyard/discussions",
+    "https://github.com/xiaojiou176-open/dealyard/discussions/categories/announcements",
+    "https://github.com/xiaojiou176-open/dealyard/discussions/categories/q-a",
+    "https://github.com/xiaojiou176-open/dealyard/discussions/categories/show-and-tell",
 }
 EXPECTED_DISCUSSION_CATEGORY_SLUGS = {"announcements", "q-a", "show-and-tell"}
 TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
@@ -81,7 +81,7 @@ TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
 def build_headers() -> dict[str, str]:
     headers = {
         "Accept": "application/vnd.github+json",
-        "User-Agent": "dealwatch-remote-verifier",
+        "User-Agent": "dealyard-remote-verifier",
     }
     if TOKEN:
         headers["Authorization"] = f"Bearer {TOKEN}"
@@ -159,7 +159,7 @@ def main() -> int:
         discussions_status, discussions_payload = fetch_graphql(
             """
             query {
-              repository(owner: "xiaojiou176-open", name: "dealwatch") {
+              repository(owner: "xiaojiou176-open", name: "dealyard") {
                 discussionCategories(first: 20) {
                   nodes {
                     slug
@@ -426,8 +426,8 @@ def main() -> int:
                 "org_security_attached_repos="
                 + ",".join(name for name in attached_repo_names if name)
             )
-            if "dealwatch" not in attached_repo_names:
-                findings.append("dealwatch must stay attached to the enforced org security configuration")
+            if "dealyard" not in attached_repo_names:
+                findings.append("dealyard must stay attached to the enforced org security configuration")
         else:
             findings.append("org security attachment inventory must return 200 with authenticated access")
 

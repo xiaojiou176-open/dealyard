@@ -16,7 +16,7 @@ from scripts.shared.browser_lane_contract import DEFAULT_SHARED_CHROME_ROOT
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "scripts" / "launch_dealwatch_chrome.sh"
+SCRIPT = ROOT / "scripts" / "launch_dealyard_chrome.sh"
 
 
 class ReusableTCPServer(socketserver.TCPServer):
@@ -34,7 +34,7 @@ def _write_env(env_file: Path, *, root: Path, profile_directory: str = "Profile 
         "\n".join(
             [
                 f'CHROME_USER_DATA_DIR="{root}"',
-                "CHROME_PROFILE_NAME=dealwatch",
+                "CHROME_PROFILE_NAME=dealyard",
                 f"CHROME_PROFILE_DIRECTORY={profile_directory}",
                 f"CHROME_REMOTE_DEBUG_PORT={port}",
             ]
@@ -141,7 +141,7 @@ def test_launch_script_rejects_legacy_shared_root(tmp_path: Path) -> None:
         "\n".join(
             [
                 f'CHROME_USER_DATA_DIR="{DEFAULT_SHARED_CHROME_ROOT}"',
-                "CHROME_PROFILE_NAME=dealwatch",
+                "CHROME_PROFILE_NAME=dealyard",
                 "CHROME_PROFILE_DIRECTORY=Profile 21",
             ]
         )

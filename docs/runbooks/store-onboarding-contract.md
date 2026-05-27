@@ -17,10 +17,10 @@ This runbook does not define "how to write elegant code." It defines:
 
 Every new store must provide all of the following:
 
-1. A live adapter in `src/dealwatch/stores/<store>/adapter.py`
+1. A live adapter in `src/dealyard/stores/<store>/adapter.py`
 2. A parser contract path covered by `tests/test_adapter_contracts.py`
-3. An entry in `src/dealwatch/stores/manifest.py`
-4. A registry entry in `src/dealwatch/stores/__init__.py`
+3. An entry in `src/dealyard/stores/manifest.py`
+4. A registry entry in `src/dealyard/stores/__init__.py`
 5. A clear answer to:
    - how discovery works
    - how parsing works
@@ -169,8 +169,8 @@ New stores should stay disabled by default until:
 
 ## Related files
 
-- [`src/dealwatch/stores/manifest.py`](../../src/dealwatch/stores/manifest.py)
-- [`src/dealwatch/stores/__init__.py`](../../src/dealwatch/stores/__init__.py)
-- [`src/dealwatch/persistence/store_bindings.py`](../../src/dealwatch/persistence/store_bindings.py)
+- [`src/dealyard/stores/manifest.py`](../../src/dealyard/stores/manifest.py)
+- [`src/dealyard/stores/__init__.py`](../../src/dealyard/stores/__init__.py)
+- [`src/dealyard/persistence/store_bindings.py`](../../src/dealyard/persistence/store_bindings.py)
 - [`tests/test_adapter_contracts.py`](../../tests/test_adapter_contracts.py)
 - [`scripts/verify_store_capability_registry.py`](../../scripts/verify_store_capability_registry.py)

@@ -11,7 +11,7 @@ This pack treats OpenCode as a generic local MCP/API client unless a stricter cl
 ## Registration fact that is actually verified here
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 The command above is repo-verified.

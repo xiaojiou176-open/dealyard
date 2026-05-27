@@ -7,22 +7,22 @@ from pathlib import Path
 
 import pytest
 
-from dealwatch.application.services import ProductService
-from dealwatch.builder_contract import (
+from dealyard.application.services import ProductService
+from dealyard.builder_contract import (
     build_builder_client_configs_payload,
     build_public_builder_client_catalog_payload,
     build_public_builder_client_configs_payload,
     build_public_builder_client_starters_payload,
     build_public_builder_starter_pack_payload,
 )
-from dealwatch.core.models import Offer, PriceContext
-from dealwatch.infra.config import Settings
-from dealwatch.mcp import server as mcp_server_module
-from dealwatch.persistence.session import get_session_factory, init_product_database
-from dealwatch.persistence.store_bindings import sync_store_adapter_bindings
-from dealwatch.providers.cashback.base import CashbackQuoteResult
-from dealwatch.providers.email.base import EmailDispatchResult
-from dealwatch.stores.manifest import STORE_CAPABILITY_REGISTRY
+from dealyard.core.models import Offer, PriceContext
+from dealyard.infra.config import Settings
+from dealyard.mcp import server as mcp_server_module
+from dealyard.persistence.session import get_session_factory, init_product_database
+from dealyard.persistence.store_bindings import sync_store_adapter_bindings
+from dealyard.providers.cashback.base import CashbackQuoteResult
+from dealyard.providers.email.base import EmailDispatchResult
+from dealyard.stores.manifest import STORE_CAPABILITY_REGISTRY
 
 
 class _FakeCashbackProvider:
@@ -366,12 +366,12 @@ async def test_mcp_runtime_reads_compare_and_store_cockpit(monkeypatch, tmp_path
     assert bundle_payload["read_surfaces"]["mcp_tool"] == "list_builder_client_configs"
     assert builder_payload["client_wrapper_surfaces"]["openhands"] == "config_toml_mcp_stdio_servers"
     assert builder_payload["launch_contract"]["mcp_streamable_http"].endswith(
-        "dealwatch.mcp serve --transport streamable-http"
+        "dealyard.mcp serve --transport streamable-http"
     )
     assert builder_payload["launch_contract"]["mcp_streamable_http_endpoint"] == "http://127.0.0.1:8000/mcp"
     assert "get_builder_starter_pack" in builder_payload["safe_first_loops"]["mcp"]
     assert builder_payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
-    assert builder_payload["skill_pack"]["path"] == "docs/integrations/skills/dealwatch-readonly-builder-skill.md"
+    assert builder_payload["skill_pack"]["path"] == "docs/integrations/skills/dealyard-readonly-builder-skill.md"
     assert cockpit_payload["summary"]["supported_store_count"] == len(STORE_CAPABILITY_REGISTRY)
     assert cockpit_payload["summary"]["enabled_store_count"] == 2
     assert cockpit_payload["consistency"]["registry_matches_capability_registry"] is True

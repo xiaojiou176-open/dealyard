@@ -9,14 +9,14 @@ from urllib.parse import urlparse
 
 from sqlalchemy import select
 
-from dealwatch.application.services import ProductService
-from dealwatch.core.models import Offer, PriceContext
-from dealwatch.infra.config import Settings
-from dealwatch.persistence.models import DeliveryEvent, PriceObservation, TaskRun, WatchTask
-from dealwatch.persistence.session import get_session_factory, init_product_database
-from dealwatch.persistence.store_bindings import sync_store_adapter_bindings
-from dealwatch.providers.cashback.base import CashbackQuoteResult
-from dealwatch.providers.email.base import EmailDispatchResult
+from dealyard.application.services import ProductService
+from dealyard.core.models import Offer, PriceContext
+from dealyard.infra.config import Settings
+from dealyard.persistence.models import DeliveryEvent, PriceObservation, TaskRun, WatchTask
+from dealyard.persistence.session import get_session_factory, init_product_database
+from dealyard.persistence.store_bindings import sync_store_adapter_bindings
+from dealyard.providers.cashback.base import CashbackQuoteResult
+from dealyard.providers.email.base import EmailDispatchResult
 
 
 class _SmokeCashbackProvider:

@@ -11,7 +11,7 @@
 ## Repo-owned launch command
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 ## Claude Code wrapper example
@@ -26,9 +26,9 @@ When the config file lives at the repo root, the current DealWatch translation l
 ```json
 {
   "mcpServers": {
-    "dealwatch": {
+    "dealyard": {
       "command": "uv",
-      "args": ["run", "python", "-m", "dealwatch.mcp", "serve", "--transport", "stdio"],
+      "args": ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
       "env": {
         "PYTHONPATH": "src"
       }
@@ -43,7 +43,7 @@ If you prefer the Claude Code CLI path, the current documented command shape tra
 
 ```bash
 claude mcp add --transport stdio --scope project -e PYTHONPATH=src \
-  dealwatch -- uv run python -m dealwatch.mcp serve --transport stdio
+  dealyard -- uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 ## Evidence basis

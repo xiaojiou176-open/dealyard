@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from dealwatch.jobs.recommendation_evaluation import (
+from dealyard.jobs.recommendation_evaluation import (
     DEFAULT_RECOMMENDATION_EVAL_WORKSPACE,
     list_pending_recommendation_reviews,
     record_recommendation_review,

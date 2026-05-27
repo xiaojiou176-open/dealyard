@@ -36,13 +36,13 @@ These five clients are marked `official_wrapper_documented` only because the lin
 Most recipes in this directory start from the same repo-verified `stdio` launch command:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 Codex is the one exception today because the official Codex docs publish a URL-first MCP wrapper. For Codex, the repo also owns:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport streamable-http
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http
 ```
 
 with the locally verified endpoint:

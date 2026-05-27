@@ -1,17 +1,17 @@
 {
-  "name": "dealwatch",
+  "name": "dealyard",
   "transport": "stdio",
   "command": "uv",
   "args": [
     "run",
     "python",
     "-m",
-    "dealwatch.mcp",
+    "dealyard.mcp",
     "serve",
     "--transport",
     "stdio"
   ],
-  "cwd": "/absolute/path/to/dealwatch",
+  "cwd": "/absolute/path/to/dealyard",
   "env": {
     "PYTHONPATH": "src"
   },

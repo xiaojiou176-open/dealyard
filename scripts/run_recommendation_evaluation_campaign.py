@@ -6,7 +6,7 @@ import asyncio
 import json
 from pathlib import Path
 
-from dealwatch.jobs.recommendation_evaluation import (
+from dealyard.jobs.recommendation_evaluation import (
     DEFAULT_RECOMMENDATION_EVAL_WORKSPACE,
     generate_recommendation_replay_campaign,
 )

@@ -4,23 +4,23 @@ from pathlib import Path
 
 from sqlalchemy import select
 
-import dealwatch.persistence.session as session_module
-import dealwatch.infra.config as config_module
-import dealwatch.server as server
-from dealwatch.infra.config import (
+import dealyard.persistence.session as session_module
+import dealyard.infra.config as config_module
+import dealyard.server as server
+from dealyard.infra.config import (
     Settings,
     load_enabled_stores_from_yaml,
     _load_enabled_stores_legacy,
     configure_logging,
 )
-from dealwatch.infra.mailer import EmailNotifier
-import dealwatch.infra.mailer as mailer
-from dealwatch.legacy.db_repo import DatabaseRepository
-from dealwatch.persistence.models import StoreAdapterBinding
-from dealwatch.persistence.store_bindings import sync_store_adapter_bindings
-from dealwatch.infra import playwright_client
-from dealwatch.infra.retry_budget import RetryBudget
-from dealwatch.stores import STORE_REGISTRY
+from dealyard.infra.mailer import EmailNotifier
+import dealyard.infra.mailer as mailer
+from dealyard.legacy.db_repo import DatabaseRepository
+from dealyard.persistence.models import StoreAdapterBinding
+from dealyard.persistence.store_bindings import sync_store_adapter_bindings
+from dealyard.infra import playwright_client
+from dealyard.infra.retry_budget import RetryBudget
+from dealyard.stores import STORE_REGISTRY
 import pytest
 
 
@@ -83,14 +83,14 @@ enabled_stores:
 
 
 def test_config_db_path_normalization(tmp_path) -> None:
-    settings = Settings(DB_PATH=".runtime-cache/cache/data/dealwatch.db")
+    settings = Settings(DB_PATH=".runtime-cache/cache/data/dealyard.db")
     assert settings.DB_PATH.is_absolute() is True
 
 
 def test_migrate_default_legacy_storage_moves_previous_default_paths(tmp_path, monkeypatch) -> None:
-    old_db_path = tmp_path / ".runtime-cache" / "cache" / "data" / "dealwatch.db"
+    old_db_path = tmp_path / ".runtime-cache" / "cache" / "data" / "dealyard.db"
     old_backup_dir = tmp_path / ".runtime-cache" / "cache" / "backups"
-    new_db_path = tmp_path / ".legacy-runtime" / "data" / "dealwatch.db"
+    new_db_path = tmp_path / ".legacy-runtime" / "data" / "dealyard.db"
     new_backup_dir = tmp_path / ".legacy-runtime" / "backups"
 
     old_db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -114,9 +114,9 @@ def test_migrate_default_legacy_storage_moves_previous_default_paths(tmp_path, m
 
 
 def test_migrate_default_legacy_storage_matches_relative_default_equivalent_paths(tmp_path, monkeypatch) -> None:
-    old_db_path = tmp_path / ".runtime-cache" / "cache" / "data" / "dealwatch.db"
+    old_db_path = tmp_path / ".runtime-cache" / "cache" / "data" / "dealyard.db"
     old_backup_dir = tmp_path / ".runtime-cache" / "cache" / "backups"
-    new_db_path = tmp_path / ".legacy-runtime" / "data" / "dealwatch.db"
+    new_db_path = tmp_path / ".legacy-runtime" / "data" / "dealyard.db"
     new_backup_dir = tmp_path / ".legacy-runtime" / "backups"
 
     old_db_path.parent.mkdir(parents=True, exist_ok=True)
@@ -131,7 +131,7 @@ def test_migrate_default_legacy_storage_matches_relative_default_equivalent_path
     monkeypatch.setattr(config_module, "DEFAULT_BACKUPS_DIR", new_backup_dir)
 
     config_module.migrate_default_legacy_storage(
-        db_path=Path(".legacy-runtime/data/dealwatch.db"),
+        db_path=Path(".legacy-runtime/data/dealyard.db"),
         backups_dir=Path(".legacy-runtime/backups"),
     )
 
@@ -142,7 +142,7 @@ def test_migrate_default_legacy_storage_matches_relative_default_equivalent_path
 
 
 def test_database_repository_normalizes_relative_db_path_to_default_location(tmp_path, monkeypatch) -> None:
-    new_db_path = tmp_path / ".legacy-runtime" / "data" / "dealwatch.db"
+    new_db_path = tmp_path / ".legacy-runtime" / "data" / "dealyard.db"
     new_backup_dir = tmp_path / ".legacy-runtime" / "backups"
 
     monkeypatch.setattr(config_module, "PROJECT_ROOT", tmp_path)
@@ -150,7 +150,7 @@ def test_database_repository_normalizes_relative_db_path_to_default_location(tmp
     monkeypatch.setattr(config_module, "DEFAULT_BACKUPS_DIR", new_backup_dir)
     monkeypatch.setattr(config_module.settings, "BACKUPS_DIR", Path(".legacy-runtime/backups"))
 
-    repo = DatabaseRepository(db_path=Path(".legacy-runtime/data/dealwatch.db"))
+    repo = DatabaseRepository(db_path=Path(".legacy-runtime/data/dealyard.db"))
 
     assert repo.db_path == new_db_path
     assert repo.db_path.is_absolute() is True
@@ -317,9 +317,9 @@ def test_configure_logging_writes_runtime_log(tmp_path, monkeypatch) -> None:
     log_dir = tmp_path / "logs"
     monkeypatch.setattr(config_module.settings, "LOGS_DIR", log_dir)
     configure_logging("INFO")
-    logger = logging.getLogger("dealwatch.test")
+    logger = logging.getLogger("dealyard.test")
     logger.info("runtime-log-check")
-    log_file = log_dir / "dealwatch.log"
+    log_file = log_dir / "dealyard.log"
     assert log_file.exists() is True
     assert "runtime-log-check" in log_file.read_text(encoding="utf-8")
 
@@ -334,7 +334,7 @@ async def test_init_product_database_uses_migrations_for_postgres(monkeypatch) -
     monkeypatch.setattr(session_module, "run_product_migrations", _fake_upgrade)
     await session_module.init_product_database(
         Settings(
-            DATABASE_URL="postgresql+psycopg://dealwatch:dealwatch@localhost:15432/dealwatch",
+            DATABASE_URL="postgresql+psycopg://dealyard:dealyard@localhost:15432/dealyard",
             PRODUCT_AUTO_CREATE_SCHEMA=False,
         )
     )
@@ -434,7 +434,7 @@ def test_server_prefers_render_port(monkeypatch) -> None:
     server.main()
 
     assert captured == {
-        "app_path": "dealwatch.server:app",
+        "app_path": "dealyard.server:app",
         "host": "0.0.0.0",
         "port": 10000,
         "reload": False,

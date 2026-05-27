@@ -2,10 +2,10 @@ from datetime import datetime, timezone
 
 import pytest
 
-from dealwatch.core.models import Offer, PriceContext, SkipReason
-from dealwatch.core.pipeline import MonitoringPipeline
-from dealwatch.infra.config import Settings
-from dealwatch.stores.base_adapter import BaseStoreAdapter, SkipParse
+from dealyard.core.models import Offer, PriceContext, SkipReason
+from dealyard.core.pipeline import MonitoringPipeline
+from dealyard.infra.config import Settings
+from dealyard.stores.base_adapter import BaseStoreAdapter, SkipParse
 
 
 class _DummyRepo:

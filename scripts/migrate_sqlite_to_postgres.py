@@ -6,10 +6,10 @@ from datetime import datetime, timezone
 
 from sqlalchemy import select
 
-from dealwatch.application.urls import resolve_store_for_url
-from dealwatch.domain.enums import ResolutionStatus, WatchTaskStatus
-from dealwatch.infra.config import migrate_default_legacy_storage, settings
-from dealwatch.persistence.models import (
+from dealyard.application.urls import resolve_store_for_url
+from dealyard.domain.enums import ResolutionStatus, WatchTaskStatus
+from dealyard.infra.config import migrate_default_legacy_storage, settings
+from dealyard.persistence.models import (
     NotificationRule,
     PriceObservation,
     TaskRun,
@@ -18,7 +18,7 @@ from dealwatch.persistence.models import (
     WatchTarget,
     WatchTask,
 )
-from dealwatch.persistence.session import create_session_factory, init_product_database
+from dealyard.persistence.session import create_session_factory, init_product_database
 
 
 async def migrate() -> None:

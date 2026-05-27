@@ -13,8 +13,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ENV_FILE = PROJECT_ROOT / ".env"
 _MACOS_SHARED_CHROME_ROOT_PARTS = ("Library", "Application Support", "Google", "Chrome")
 DEFAULT_SOURCE_ROOT = Path.home().joinpath(*_MACOS_SHARED_CHROME_ROOT_PARTS)
-DEFAULT_TARGET_ROOT = Path("~/.cache/dealwatch/browser/chrome-user-data").expanduser()
-EXPECTED_PROFILE_NAME = "dealwatch"
+DEFAULT_TARGET_ROOT = Path("~/.cache/dealyard/browser/chrome-user-data").expanduser()
+EXPECTED_PROFILE_NAME = "dealyard"
 DEFAULT_REMOTE_DEBUG_PORT = 9333
 PROFILE_KEYS = (
     "CHROME_USER_DATA_DIR",
@@ -78,7 +78,7 @@ def discover_source() -> ChromeProfileSource:
             profile_directory = str(directory)
             break
     if not profile_directory:
-        raise SystemExit("DealWatch Chrome migration failed: could not locate the 'dealwatch' profile in Local State")
+        raise SystemExit("DealWatch Chrome migration failed: could not locate the 'dealyard' profile in Local State")
 
     profile_path = DEFAULT_SOURCE_ROOT / profile_directory
     if not profile_path.is_dir():

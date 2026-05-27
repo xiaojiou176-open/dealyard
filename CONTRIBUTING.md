@@ -28,7 +28,7 @@ The goal is not to add noise. The best contribution is one that makes DealWatch 
 ./scripts/bootstrap.sh
 cp .env.example .env
 python3 scripts/install_git_hooks.py
-PYTHONPATH=src uv run python -m dealwatch maintenance --dry-run
+PYTHONPATH=src uv run python -m dealyard maintenance --dry-run
 pre-commit run --all-files
 ```
 
@@ -58,7 +58,7 @@ boundary.
 ```bash
 nvm use
 corepack enable
-PYTHONPATH=src uv run python -m dealwatch maintenance --dry-run
+PYTHONPATH=src uv run python -m dealyard maintenance --dry-run
 pre-commit run --all-files
 ```
 
@@ -114,7 +114,7 @@ uvx --from zizmor==1.23.1 zizmor --persona regular --no-progress .github/workflo
 If your branch touches runtime hygiene, cache cleanup, or repo-local rebuildables, also run:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch maintenance --dry-run
+PYTHONPATH=src uv run python -m dealyard maintenance --dry-run
 python3 scripts/cleanup_local_rebuildables.py --dry-run
 python3 scripts/verify_host_process_safety.py
 ```
@@ -210,7 +210,7 @@ trufflehog git --no-update file://"$PWD"
 
 Repository note:
 
-- `.gitleaksignore` is intentionally kept to suppress the known `server-main` false positive in `src/dealwatch/server.py`.
+- `.gitleaksignore` is intentionally kept to suppress the known `server-main` false positive in `src/dealyard/server.py`.
 - `.gitleaks.toml` now excludes gitignored local-only namespaces such as `.agents/`, `.codex/`, `.claude/`, and `.runtime-cache/` from filesystem-style scans so `gitleaks dir .` stays focused on the public/tracked surface instead of local developer noise.
 - Do not add new suppressions unless the finding is reproducibly false and the reason is documented in the pull request.
 
@@ -224,14 +224,14 @@ Repository note:
 
 DealWatch's canonical maintainer browser lane is now a repo-owned Google Chrome instance:
 
-- dedicated root: `~/.cache/dealwatch/browser/chrome-user-data`
-- canonical profile: `dealwatch` / `Profile 21`
+- dedicated root: `~/.cache/dealyard/browser/chrome-user-data`
+- canonical profile: `dealyard` / `Profile 21`
 - canonical CDP lane: `http://127.0.0.1:9333`
 
 Use the launcher first:
 
 ```bash
-./scripts/launch_dealwatch_chrome.sh
+./scripts/launch_dealyard_chrome.sh
 ```
 
 That helper launches or reuses one dedicated DealWatch browser lane and ensures:
@@ -243,13 +243,13 @@ That helper launches or reuses one dedicated DealWatch browser lane and ensures:
 If you only need to re-anchor the current browser lane tabs without relaunching Chrome:
 
 ```bash
-python3 scripts/open_dealwatch_account_pages.py --env-file .env
+python3 scripts/open_dealyard_account_pages.py --env-file .env
 ```
 
 If you want a lightweight login-state snapshot after attach:
 
 ```bash
-PYTHONPATH=src .venv/bin/python scripts/report_dealwatch_login_state.py --env-file .env --json
+PYTHONPATH=src .venv/bin/python scripts/report_dealyard_login_state.py --env-file .env --json
 ```
 
 Optional human-facing identity overrides:

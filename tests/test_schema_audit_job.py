@@ -2,8 +2,8 @@ import sqlite3
 
 import pytest
 
-from dealwatch.legacy.db_repo import DatabaseRepository
-from dealwatch.jobs.schema_audit import SchemaAuditJob
+from dealyard.legacy.db_repo import DatabaseRepository
+from dealyard.jobs.schema_audit import SchemaAuditJob
 
 
 class _FakeRepo:
@@ -30,7 +30,7 @@ class _FakeRepo:
 
 @pytest.mark.asyncio
 async def test_schema_audit_job_pass(tmp_path) -> None:
-    repo = DatabaseRepository(tmp_path / "dealwatch.db")
+    repo = DatabaseRepository(tmp_path / "dealyard.db")
     await repo.initialize()
 
     job = SchemaAuditJob(repo=repo, apply_migrations=False)
@@ -48,7 +48,7 @@ async def test_schema_audit_job_missing_db(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_schema_audit_job_strict_failure(tmp_path) -> None:
-    db_path = tmp_path / "dealwatch.db"
+    db_path = tmp_path / "dealyard.db"
     conn = sqlite3.connect(str(db_path))
     try:
         conn.execute(
@@ -75,7 +75,7 @@ async def test_schema_audit_job_strict_failure(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_schema_audit_job_non_strict_with_issues(tmp_path) -> None:
-    repo = _FakeRepo(tmp_path / "dealwatch.db")
+    repo = _FakeRepo(tmp_path / "dealyard.db")
     repo._issues = ["missing table"]
     repo.db_path.write_text("", encoding="utf-8")
     job = SchemaAuditJob(repo=repo, apply_migrations=False, strict=False)
@@ -85,7 +85,7 @@ async def test_schema_audit_job_non_strict_with_issues(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_schema_audit_job_strict_without_issues(tmp_path) -> None:
-    repo = _FakeRepo(tmp_path / "dealwatch.db")
+    repo = _FakeRepo(tmp_path / "dealyard.db")
     repo._issues = []
     repo.db_path.write_text("", encoding="utf-8")
     job = SchemaAuditJob(repo=repo, apply_migrations=False, strict=True)
@@ -95,7 +95,7 @@ async def test_schema_audit_job_strict_without_issues(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_schema_audit_job_backup_and_migrate(tmp_path) -> None:
-    repo = _FakeRepo(tmp_path / "dealwatch.db")
+    repo = _FakeRepo(tmp_path / "dealyard.db")
     repo._issues = []
     backup_dir = tmp_path / "backups"
     job = SchemaAuditJob(repo=repo, backup_dir=backup_dir, apply_migrations=True, strict=False)
@@ -107,7 +107,7 @@ async def test_schema_audit_job_backup_and_migrate(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_schema_audit_job_strict_version_mismatch(tmp_path) -> None:
-    db_path = tmp_path / "dealwatch.db"
+    db_path = tmp_path / "dealyard.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 

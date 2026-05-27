@@ -140,22 +140,22 @@ def main() -> int:
             findings.append(f"{path.relative_to(ROOT)} missing expected OG image: {asset}")
 
     robots = (SITE / "robots.txt").read_text(encoding="utf-8") if (SITE / "robots.txt").exists() else ""
-    if "Sitemap: https://xiaojiou176-open.github.io/dealwatch/sitemap.xml" not in robots:
+    if "Sitemap: https://xiaojiou176-open.github.io/dealyard/sitemap.xml" not in robots:
         findings.append("site/robots.txt missing canonical sitemap URL")
 
     sitemap = (SITE / "sitemap.xml").read_text(encoding="utf-8") if (SITE / "sitemap.xml").exists() else ""
     for required_url in (
-        "https://xiaojiou176-open.github.io/dealwatch/",
-        "https://xiaojiou176-open.github.io/dealwatch/builders.html",
-        "https://xiaojiou176-open.github.io/dealwatch/quick-start.html",
-        "https://xiaojiou176-open.github.io/dealwatch/compare-preview.html",
-        "https://xiaojiou176-open.github.io/dealwatch/compare-vs-tracker.html",
-        "https://xiaojiou176-open.github.io/dealwatch/proof.html",
-        "https://xiaojiou176-open.github.io/dealwatch/use-cases.html",
-        "https://xiaojiou176-open.github.io/dealwatch/community.html",
-        "https://xiaojiou176-open.github.io/dealwatch/faq.html",
-        "https://xiaojiou176-open.github.io/dealwatch/feed.xml",
-        "https://xiaojiou176-open.github.io/dealwatch/llms.txt",
+        "https://xiaojiou176-open.github.io/dealyard/",
+        "https://xiaojiou176-open.github.io/dealyard/builders.html",
+        "https://xiaojiou176-open.github.io/dealyard/quick-start.html",
+        "https://xiaojiou176-open.github.io/dealyard/compare-preview.html",
+        "https://xiaojiou176-open.github.io/dealyard/compare-vs-tracker.html",
+        "https://xiaojiou176-open.github.io/dealyard/proof.html",
+        "https://xiaojiou176-open.github.io/dealyard/use-cases.html",
+        "https://xiaojiou176-open.github.io/dealyard/community.html",
+        "https://xiaojiou176-open.github.io/dealyard/faq.html",
+        "https://xiaojiou176-open.github.io/dealyard/feed.xml",
+        "https://xiaojiou176-open.github.io/dealyard/llms.txt",
     ):
         if required_url not in sitemap:
             findings.append(f"site/sitemap.xml missing URL: {required_url}")

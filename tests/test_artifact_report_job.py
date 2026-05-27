@@ -1,7 +1,7 @@
 import json
 from datetime import datetime, timedelta, timezone
 
-from dealwatch.jobs.artifact_report import ArtifactReportJob
+from dealyard.jobs.artifact_report import ArtifactReportJob
 
 
 def _write_ndjson(path, entries) -> None:
@@ -246,7 +246,7 @@ def test_artifact_report_job_cli_main(monkeypatch, tmp_path) -> None:
         ],
     )
 
-    from dealwatch.jobs import artifact_report
+    from dealyard.jobs import artifact_report
 
     try:
         artifact_report.main()

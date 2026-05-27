@@ -18,7 +18,7 @@ if str(ROOT) not in sys.path:
 from scripts.shared.sensitive_surface_patterns import find_sensitive_text_hits
 
 
-BASE = "https://api.github.com/repos/xiaojiou176-open/dealwatch"
+BASE = "https://api.github.com/repos/xiaojiou176-open/dealyard"
 TOKEN = os.environ.get("GITHUB_TOKEN", "").strip()
 GH = shutil.which("gh")
 
@@ -26,7 +26,7 @@ GH = shutil.which("gh")
 def build_headers() -> dict[str, str]:
     headers = {
         "Accept": "application/vnd.github+json",
-        "User-Agent": "dealwatch-remote-public-hygiene",
+        "User-Agent": "dealyard-remote-public-hygiene",
     }
     if TOKEN:
         headers["Authorization"] = f"Bearer {TOKEN}"

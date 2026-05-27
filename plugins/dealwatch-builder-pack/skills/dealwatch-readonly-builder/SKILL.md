@@ -1,5 +1,5 @@
 ---
-name: dealwatch-readonly-builder
+name: dealyard-readonly-builder
 description: Safe-first builder route for DealWatch. Start with runtime readiness and the builder starter pack before deeper reads.
 ---
 

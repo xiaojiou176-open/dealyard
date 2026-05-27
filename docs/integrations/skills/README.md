@@ -12,7 +12,7 @@ Current skill cards:
 
 - `claude-code-readonly-builder-skill.md`
 - `codex-readonly-builder-skill.md`
-- `dealwatch-readonly-builder-skill.md`
+- `dealyard-readonly-builder-skill.md`
 - `openhands-readonly-builder-skill.md`
 - `opencode-readonly-builder-skill.md`
 - `openclaw-readonly-builder-skill.md`

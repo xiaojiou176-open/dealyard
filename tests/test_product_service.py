@@ -8,12 +8,12 @@ from pathlib import Path
 import pytest
 from sqlalchemy import select
 
-from dealwatch.application import services as services_module
-from dealwatch.application.services import ProductService
-from dealwatch.core.models import Offer, PriceContext
-from dealwatch.infra.config import Settings, settings
-import dealwatch.persistence.store_bindings as store_bindings_module
-from dealwatch.persistence.models import (
+from dealyard.application import services as services_module
+from dealyard.application.services import ProductService
+from dealyard.core.models import Offer, PriceContext
+from dealyard.infra.config import Settings, settings
+import dealyard.persistence.store_bindings as store_bindings_module
+from dealyard.persistence.models import (
     CanonicalProduct,
     DeliveryEvent,
     EffectivePriceSnapshot,
@@ -25,10 +25,10 @@ from dealwatch.persistence.models import (
     WatchGroupRun,
     WatchTask,
 )
-from dealwatch.persistence.session import create_session_factory, get_session_factory, init_product_database
-from dealwatch.persistence.store_bindings import sync_store_adapter_bindings
-from dealwatch.providers.cashback.base import CashbackQuoteResult
-from dealwatch.providers.email.base import EmailDispatchResult
+from dealyard.persistence.session import create_session_factory, get_session_factory, init_product_database
+from dealyard.persistence.store_bindings import sync_store_adapter_bindings
+from dealyard.providers.cashback.base import CashbackQuoteResult
+from dealyard.providers.email.base import EmailDispatchResult
 
 
 class _FakeCashbackProvider:
@@ -2023,7 +2023,7 @@ async def test_product_service_watch_group_detail_includes_fake_ai_explain(tmp_p
             ZIP_CODE="98004",
             USE_LLM=True,
             AI_PROVIDER="fake",
-            AI_MODEL="dealwatch-fake-v1",
+            AI_MODEL="dealyard-fake-v1",
             AI_GROUP_EXPLAIN_ENABLED=True,
         ),
         cashback_provider=_FakeCashbackProvider(),
@@ -2437,9 +2437,9 @@ async def test_product_service_builder_starter_pack_reports_current_builder_cont
     payload = await service.get_builder_starter_pack()
 
     assert payload["surface_version"] == "phase1"
-    assert payload["launch_contract"]["mcp_inventory"].endswith("dealwatch.mcp list-tools --json")
-    assert payload["launch_contract"]["cli_builder_starter_pack"].endswith("dealwatch builder-starter-pack --json")
-    assert payload["launch_contract"]["mcp_client_starters"].endswith("dealwatch.mcp client-starters --json")
+    assert payload["launch_contract"]["mcp_inventory"].endswith("dealyard.mcp list-tools --json")
+    assert payload["launch_contract"]["cli_builder_starter_pack"].endswith("dealyard builder-starter-pack --json")
+    assert payload["launch_contract"]["mcp_client_starters"].endswith("dealyard.mcp client-starters --json")
     assert payload["client_starters"]["openclaw"] == "docs/integrations/prompts/openclaw-starter.md"
     assert (
         payload["client_skill_cards"]["openclaw"]
@@ -2459,13 +2459,13 @@ async def test_product_service_builder_starter_pack_reports_current_builder_cont
     assert payload["client_wrapper_examples"]["openclaw"] == "docs/integrations/examples/openclaw-mcp-servers.json"
     assert payload["client_wrapper_sources"]["openclaw"] == "https://docs.openclaw.ai/cli/mcp"
     assert payload["client_wrapper_surfaces"]["openhands"] == "config_toml_mcp_stdio_servers"
-    assert payload["launch_contract"]["mcp_streamable_http"].endswith("dealwatch.mcp serve --transport streamable-http")
+    assert payload["launch_contract"]["mcp_streamable_http"].endswith("dealyard.mcp serve --transport streamable-http")
     assert payload["launch_contract"]["mcp_streamable_http_endpoint"] == "http://127.0.0.1:8000/mcp"
     assert "write-side MCP" in payload["deferred"]
     assert payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
     assert payload["docs"]["skills"] == "docs/integrations/skills/README.md"
     assert payload["public_builder_page"] == "site/builders.html"
-    assert payload["skill_pack"]["path"] == "docs/integrations/skills/dealwatch-readonly-builder-skill.md"
+    assert payload["skill_pack"]["path"] == "docs/integrations/skills/dealyard-readonly-builder-skill.md"
 
 
 @pytest.mark.asyncio
@@ -2611,7 +2611,7 @@ async def test_product_service_store_onboarding_cockpit_reports_real_store_truth
     assert payload["onboarding_contract"]["runtime_binding_truth"] != []
     assert payload["onboarding_contract"]["limited_support_contract"] != []
     assert "./scripts/test.sh -q tests/test_adapter_contracts.py" in payload["onboarding_contract"]["verification_commands"]
-    assert payload["onboarding_contract"]["required_files"][0]["path_template"] == "src/dealwatch/stores/<store>/adapter.py"
+    assert payload["onboarding_contract"]["required_files"][0]["path_template"] == "src/dealyard/stores/<store>/adapter.py"
 
 
 @pytest.mark.asyncio
@@ -2921,7 +2921,7 @@ async def test_product_service_recovery_inbox_includes_fake_ai_copilot(tmp_path)
             ZIP_CODE="98004",
             USE_LLM=True,
             AI_PROVIDER="fake",
-            AI_MODEL="dealwatch-fake-v1",
+            AI_MODEL="dealyard-fake-v1",
             AI_RECOVERY_COPILOT_ENABLED=True,
         ),
     )

@@ -2,9 +2,9 @@ import json
 
 import pytest
 
-from dealwatch.core.models import PriceContext, SkipReason
-from dealwatch.stores.base_adapter import SkipParse
-from dealwatch.stores.weee.parser import WeeeParser
+from dealyard.core.models import PriceContext, SkipReason
+from dealyard.stores.base_adapter import SkipParse
+from dealyard.stores.weee.parser import WeeeParser
 
 
 class _FakeLocator:

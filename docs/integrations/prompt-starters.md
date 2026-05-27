@@ -6,9 +6,9 @@ They are intentionally read-first and local-first.
 
 Before you use any client-specific starter, do this first:
 
-1. read `docs/roadmaps/dealwatch-api-mcp-substrate-phase1.md`
-2. run `PYTHONPATH=src uv run python -m dealwatch --help`
-3. run `PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json`
+1. read `docs/roadmaps/dealyard-api-mcp-substrate-phase1.md`
+2. run `PYTHONPATH=src uv run python -m dealyard --help`
+3. run `PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json`
 4. inspect the builder starter pack contract
 5. skim `docs/integrations/config-recipes.md`
 6. skim `docs/integrations/examples/README.md`
@@ -61,7 +61,7 @@ Do not invent write-side MCP, hosted auth, SDK packaging, generic operator contr
 - `docs/integrations/recipes/opencode.md`
 - `docs/integrations/recipes/openclaw.md`
 - `docs/integrations/skills/README.md`
-- `docs/integrations/skills/dealwatch-readonly-builder-skill.md`
+- `docs/integrations/skills/dealyard-readonly-builder-skill.md`
 - `docs/integrations/skills/claude-code-readonly-builder-skill.md`
 - `docs/integrations/skills/codex-readonly-builder-skill.md`
 - `docs/integrations/skills/openhands-readonly-builder-skill.md`

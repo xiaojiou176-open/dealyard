@@ -12,7 +12,7 @@ from typing import Final, Literal
 
 ROOT = Path(__file__).resolve().parents[1]
 EXTERNAL_CACHE_DIR = Path(
-    os.environ.get("EXTERNAL_CACHE_DIR", "~/.cache/dealwatch")
+    os.environ.get("EXTERNAL_CACHE_DIR", "~/.cache/dealyard")
 ).expanduser()
 PERSISTENT_BROWSER_ROOT = EXTERNAL_CACHE_DIR / "browser" / "chrome-user-data"
 Classification = Literal[

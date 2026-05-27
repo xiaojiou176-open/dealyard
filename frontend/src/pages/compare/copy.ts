@@ -1,4 +1,4 @@
-export const EVIDENCE_STORAGE_KEY = "dealwatch.compare.savedEvidencePackages";
+export const EVIDENCE_STORAGE_KEY = "dealyard.compare.savedEvidencePackages";
 export const MAX_SAVED_EVIDENCE_PACKAGES = 12;
 export const STRONG_MATCH_SCORE = 85;
 export const REVIEW_MATCH_SCORE = 70;

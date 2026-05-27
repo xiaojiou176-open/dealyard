@@ -5,13 +5,13 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-COMPOSE_PROJECT_NAME="${COMPOSE_PROJECT_NAME:-dealwatch}"
+COMPOSE_PROJECT_NAME="${COMPOSE_PROJECT_NAME:-dealyard}"
 COMPOSE_DEFAULT_NETWORK="${COMPOSE_PROJECT_NAME}_default"
 POSTGRES_PORT="${POSTGRES_PORT:-55432}"
-POSTGRES_USER="${POSTGRES_USER:-dealwatch}"
-POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-dealwatch}"
-POSTGRES_DB="${POSTGRES_DB:-dealwatch}"
-POSTGRES_CONTAINER="${POSTGRES_CONTAINER:-dealwatch-postgres}"
+POSTGRES_USER="${POSTGRES_USER:-dealyard}"
+POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-dealyard}"
+POSTGRES_DB="${POSTGRES_DB:-dealyard}"
+POSTGRES_CONTAINER="${POSTGRES_CONTAINER:-dealyard-postgres}"
 # Maximum number of 1-second wait attempts for short operations such as
 # container and network create/remove.
 MAX_SHORT_WAIT_ATTEMPTS=30

@@ -4,21 +4,21 @@ from pathlib import Path
 
 import pytest
 
-from dealwatch.core.models import PriceContext
-from dealwatch.core.validator import DataValidator
-from dealwatch.infra.config import PROJECT_ROOT
-from dealwatch.stores import (
+from dealyard.core.models import PriceContext
+from dealyard.core.validator import DataValidator
+from dealyard.infra.config import PROJECT_ROOT
+from dealyard.stores import (
     STORE_CAPABILITY_REGISTRY,
     STORE_REGISTRY,
     derive_missing_capabilities,
     derive_runtime_binding_blockers,
     is_runtime_binding_eligible,
 )
-from dealwatch.stores.ranch99.parser import Ranch99Parser
-from dealwatch.stores.safeway.parser import SafewayParser
-from dealwatch.stores.target.parser import TargetParser
-from dealwatch.stores.walmart.parser import WalmartParser
-from dealwatch.stores.weee.parser import WeeeParser
+from dealyard.stores.ranch99.parser import Ranch99Parser
+from dealyard.stores.safeway.parser import SafewayParser
+from dealyard.stores.target.parser import TargetParser
+from dealyard.stores.walmart.parser import WalmartParser
+from dealyard.stores.weee.parser import WeeeParser
 
 
 class _FakeLocator:
