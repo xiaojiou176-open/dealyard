@@ -2,8 +2,8 @@ from datetime import datetime, timezone
 
 import pytest
 
-from dealyard.core.models import RunStats
-from dealyard.infra.obs.health_check import HealthMonitor
+from dealwatcherer.core.models import RunStats
+from dealwatcherer.infra.obs.health_check import HealthMonitor
 
 
 class _DummyRepo:
@@ -174,7 +174,7 @@ async def test_health_monitor_send_alert(monkeypatch) -> None:
     async def _direct(func, *args, **kwargs):
         return func(*args, **kwargs)
 
-    monkeypatch.setattr("dealyard.infra.obs.health_check.asyncio.to_thread", _direct)
+    monkeypatch.setattr("dealwatcherer.infra.obs.health_check.asyncio.to_thread", _direct)
     await monitor.send_alert_email("PARSE_RATE_LOW", "<div>details</div>")
 
 
@@ -210,5 +210,5 @@ async def test_health_monitor_send_alert_error(monkeypatch) -> None:
     async def _direct(func, *args, **kwargs):
         return func(*args, **kwargs)
 
-    monkeypatch.setattr("dealyard.infra.obs.health_check.asyncio.to_thread", _direct)
+    monkeypatch.setattr("dealwatcherer.infra.obs.health_check.asyncio.to_thread", _direct)
     await monitor.send_alert_email("PARSE_RATE_LOW", "<div>details</div>")

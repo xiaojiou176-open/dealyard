@@ -1,4 +1,4 @@
-const LOCALE_STORAGE_KEY = "dealyard.locale";
+const LOCALE_STORAGE_KEY = "dealwatcherer.locale";
 const DEFAULT_LOCALE = "en";
 const SUPPORTED_LOCALES = new Set(["en", "zh-CN"]);
 
@@ -135,7 +135,7 @@ function applyCatalog() {
   });
 
   document.dispatchEvent(
-    new CustomEvent("dealyard:localechange", {
+    new CustomEvent("dealwatcherer:localechange", {
       detail: {
         catalog: currentCatalog,
         locale: currentLocale,
@@ -173,7 +173,7 @@ function t(key, fallback = key) {
   return lookupMessage(currentCatalog, key) || fallback;
 }
 
-window.dealyardSiteI18n = {
+window.dealwatchererSiteI18n = {
   get locale() {
     return currentLocale;
   },

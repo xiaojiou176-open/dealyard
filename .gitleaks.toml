@@ -1,4 +1,4 @@
-title = "Dealyard local-only path allowlist"
+title = "Dealwatcher local-only path allowlist"
 
 [[allowlists]]
 description = "Ignore gitignored local-only namespaces during filesystem-style scans"

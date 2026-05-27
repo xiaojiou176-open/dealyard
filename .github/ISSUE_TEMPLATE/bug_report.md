@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a reproducible Dealyard defect
+about: Report a reproducible Dealwatcher defect
 title: "[Bug] "
 labels: bug
 assignees: ""

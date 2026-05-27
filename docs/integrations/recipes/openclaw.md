@@ -1,8 +1,8 @@
-# Dealyard Recipe For OpenClaw
+# Dealwatcher Recipe For OpenClaw
 
 ## Honest status
 
-- Dealyard launch record: `repo-verified`
+- Dealwatcher launch record: `repo-verified`
 - OpenClaw wrapper syntax: `official_wrapper_documented`
 - Recipe kind: `official`
 - Current posture: `local-first`, `read-only-first`, `compare-first`
@@ -10,21 +10,21 @@
 ## Repo-owned launch command
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio
 ```
 
 ## OpenClaw wrapper example
 
 OpenClaw's MCP docs currently document saved MCP server definitions under `mcp.servers`.
-The current Dealyard translation looks like:
+The current Dealwatcher translation looks like:
 
 ```json
 {
   "mcp": {
     "servers": {
-      "dealyard": {
+      "dealwatcherer": {
         "command": "uv",
-        "args": ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
+        "args": ["run", "python", "-m", "dealwatcherer.mcp", "serve", "--transport", "stdio"],
         "env": {
           "PYTHONPATH": "src"
         }
@@ -38,7 +38,7 @@ The same example lives in repo-owned form at [`../examples/openclaw-mcp-servers.
 
 ## What is actually stable here
 
-The stable part is the Dealyard side:
+The stable part is the Dealwatcher side:
 
 - local MCP launch
 - builder starter pack contract
@@ -47,12 +47,12 @@ The stable part is the Dealyard side:
 - safe-first flow
 
 OpenClaw's own docs now publish both `openclaw mcp serve` and the saved `mcp.servers` registry shape, so this config wrapper can be treated as official syntax.
-That still does **not** upgrade Dealyard into an OpenClaw runtime base or official plugin.
+That still does **not** upgrade Dealwatcher into an OpenClaw runtime base or official plugin.
 
 ## Evidence basis
 
 - Current repo-owned contract:
-  - local Dealyard launch command
+  - local Dealwatcher launch command
   - builder starter pack contract
   - repo-owned prompt starter and skill card
 

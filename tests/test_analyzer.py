@@ -4,8 +4,8 @@ import builtins
 
 import pytest
 
-from dealyard.core.ai_analyzer import AIAnalyzer
-from dealyard.infra.config import Settings
+from dealwatcherer.core.ai_analyzer import AIAnalyzer
+from dealwatcherer.infra.config import Settings
 
 
 def test_ai_normalize_model_name() -> None:

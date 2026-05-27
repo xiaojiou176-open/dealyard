@@ -1,21 +1,21 @@
 ---
-name: dealyard-readonly-builder
-description: Teach the agent how to connect the published Dealyard MCP package, choose the right read-only tool, and guide the user through the compare-first safe path without claiming hosted or write-capable features.
+name: dealwatcherer-readonly-builder
+description: Teach the agent how to connect the published Dealwatcher MCP package, choose the right read-only tool, and guide the user through the compare-first safe path without claiming hosted or write-capable features.
 triggers:
-  - dealyard
-  - dealyard setup
-  - dealyard mcp
+  - dealwatcherer
+  - dealwatcherer setup
+  - dealwatcherer mcp
   - compare preview
   - watch group
 ---
 
-# Dealyard Read-only Builder
+# Dealwatcher Read-only Builder
 
-Use this skill when the user wants the shortest truthful path into Dealyard.
+Use this skill when the user wants the shortest truthful path into Dealwatcher.
 
 ## What this skill teaches
 
-- how to install the published Dealyard MCP package
+- how to install the published Dealwatcher MCP package
 - how to choose the right read-only tool for the current job
 - how to start with runtime readiness and compare preview before deeper reads
 - how to keep the answer inside the current local-first boundary
@@ -24,8 +24,8 @@ Use this skill when the user wants the shortest truthful path into Dealyard.
 
 Use this skill when the user asks to:
 
-- connect Dealyard to OpenHands or OpenClaw
-- check whether Dealyard is ready for a local read-only session
+- connect Dealwatcher to OpenHands or OpenClaw
+- check whether Dealwatcher is ready for a local read-only session
 - compare grocery product URLs before creating durable state
 - inspect watch tasks, watch groups, or recovery state without mutating anything
 

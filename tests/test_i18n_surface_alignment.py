@@ -104,7 +104,7 @@ def test_public_comparison_page_metadata_is_bound_to_shared_keys() -> None:
 
     assert 'data-i18n-key="site.comparisonPage.title"' in html
     assert 'data-i18n-key="site.comparisonPage.description"' in html
-    assert '<link rel="canonical" href="https://xiaojiou176-open.github.io/dealyard/compare-vs-tracker.html"' in html
+    assert '<link rel="canonical" href="https://xiaojiou176-open.github.io/dealwatcherer/compare-vs-tracker.html"' in html
     assert 'property="og:title"' in html and 'data-i18n-key="site.comparisonPage.title"' in html
     assert 'property="og:description"' in html and 'data-i18n-key="site.comparisonPage.description"' in html
     assert 'name="twitter:title"' in html and 'data-i18n-key="site.comparisonPage.title"' in html
@@ -285,7 +285,7 @@ def test_builder_route_order_matches_machine_reader_contract() -> None:
     builders_starters = builders_route_start + builders_route.index("./data/builder-client-starters.json")
     builders_pack = builders_route_start + builders_route.index("./data/builder-starter-pack.json")
     builders_bundle = builders_route_start + builders_route.index("./data/builder-client-configs.json")
-    builders_contract = builders_route_start + builders_route.index("dealyard-api-mcp-substrate-phase1.md")
+    builders_contract = builders_route_start + builders_route.index("dealwatcherer-api-mcp-substrate-phase1.md")
     builders_runtime_title = builders_html.index('data-i18n="site.buildersPage.launchContractTitle"')
     assert builders_catalog < builders_starters < builders_pack < builders_bundle < builders_contract < builders_runtime_title
 

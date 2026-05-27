@@ -1,10 +1,10 @@
-# Dealyard Client Config Recipes
+# Dealwatcher Client Config Recipes
 
-This file is the builder-side recipe ledger for Dealyard.
+This file is the builder-side recipe ledger for Dealwatcher.
 
 In plain English:
 
-- `client-starters --json` tells you what Dealyard ships
+- `client-starters --json` tells you what Dealwatcher ships
 - this recipe ledger tells you how far each client can be wired honestly today
 - the key split is whether the client wrapper syntax is backed by current official docs and which repo-owned transport it sits on top of
 
@@ -14,8 +14,8 @@ Last verified: `2026-04-05`
 
 | Status | What it means |
 | --- | --- |
-| `official_wrapper_documented` | the surrounding client wrapper shape is backed by current official client docs and the repo-owned Dealyard launch command |
-| `official_local_config_documented` | the client's local config surface is documented by the official client docs, but Dealyard still only claims a local-first read-only adapter pattern |
+| `official_wrapper_documented` | the surrounding client wrapper shape is backed by current official client docs and the repo-owned Dealwatcher launch command |
+| `official_local_config_documented` | the client's local config surface is documented by the official client docs, but Dealwatcher still only claims a local-first read-only adapter pattern |
 
 After the current wrapper-status sync, every shipped client in this ledger now lands in the `official_wrapper_documented` bucket.
 
@@ -36,13 +36,13 @@ These five clients are marked `official_wrapper_documented` only because the lin
 Most recipes in this directory start from the same repo-verified `stdio` launch command:
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio
 ```
 
 Codex is the one exception today because the official Codex docs publish a URL-first MCP wrapper. For Codex, the repo also owns:
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport streamable-http
 ```
 
 with the locally verified endpoint:
@@ -73,7 +73,7 @@ Concrete wrapper examples that are currently safe to mirror live under:
 ## How to read these recipes
 
 - If a recipe says `official`, the surrounding wrapper syntax is documented by the current official client docs.
-- If the client's own docs recommend a proxy, remote bridge, or production hardening layer, Dealyard still keeps its story smaller: local-first, read-only-first, compare-first.
+- If the client's own docs recommend a proxy, remote bridge, or production hardening layer, Dealwatcher still keeps its story smaller: local-first, read-only-first, compare-first.
 
 ## Boundary reminder
 
@@ -82,6 +82,6 @@ These recipes do **not** mean:
 - every builder host already has a live first-party listing
 - every client wrapper schema is frozen forever
 - write-side MCP is ready
-- Dealyard runs on Claude Code, Codex, OpenHands, OpenCode, or OpenClaw
+- Dealwatcher runs on Claude Code, Codex, OpenHands, OpenCode, or OpenClaw
 
-The honest reading is smaller: Dealyard now has a mixed state. PyPI and the Official MCP Registry are live; OpenClaw still lacks fresh public ClawHub listing proof; OpenHands `#151` is closed and unmerged; MCP.so is filed but not publicly listed; Claude Code, Codex, OpenCode, and the Chrome Web Store still remain repo-owned or pending rather than first-party live listings.
+The honest reading is smaller: Dealwatcher now has a mixed state. PyPI and the Official MCP Registry are live; OpenClaw still lacks fresh public ClawHub listing proof; OpenHands `#151` is closed and unmerged; MCP.so is filed but not publicly listed; Claude Code, Codex, OpenCode, and the Chrome Web Store still remain repo-owned or pending rather than first-party live listings.

@@ -7,7 +7,7 @@ export type AppLocale = "en" | "zh-CN";
 type Catalog = typeof enCatalog;
 
 const DEFAULT_LOCALE: AppLocale = "en";
-const LOCALE_STORAGE_KEY = "dealyard.locale";
+const LOCALE_STORAGE_KEY = "dealwatcherer.locale";
 
 const catalogs: Record<AppLocale, Catalog> = {
   en: enCatalog,

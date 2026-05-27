@@ -21,7 +21,7 @@ from playwright.async_api import (
     async_playwright,
 )
 
-from dealyard.infra.retry_budget import RetryBudget
+from dealwatcherer.infra.retry_budget import RetryBudget
 
 #########################################################
 # Constants

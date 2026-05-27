@@ -3,12 +3,12 @@ from datetime import datetime, timezone
 
 import pytest
 
-from dealyard.core.models import Offer, PriceContext
-from dealyard.infra.config import Settings
-from dealyard.stores.target import adapter as target_adapter_module
-from dealyard.stores.target.adapter import TargetAdapter
-from dealyard.stores.target.discovery import TargetDiscovery
-from dealyard.stores.target.parser import TargetParser
+from dealwatcherer.core.models import Offer, PriceContext
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.stores.target import adapter as target_adapter_module
+from dealwatcherer.stores.target.adapter import TargetAdapter
+from dealwatcherer.stores.target.discovery import TargetDiscovery
+from dealwatcherer.stores.target.parser import TargetParser
 
 
 class _FakePage:

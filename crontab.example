@@ -1,4 +1,4 @@
-# Dealyard crontab example
+# Dealwatcher crontab example
 #
 # How to use it:
 # 1. Copy the block you need.
@@ -6,19 +6,19 @@
 # 3. Paste it and replace the placeholder path.
 # 4. Save and exit.
 #
-# Replace `/path/to/dealyard` with the real repository path.
+# Replace `/path/to/dealwatcherer` with the real repository path.
 # If the real path contains spaces or parentheses, keep the quoted style below.
 
 #########################################################
 # Daily price scan (9 AM and 5 PM)
 #########################################################
 # Format: minute hour day month weekday command
-0 9,17 * * * PROJECT_DIR='/path/to/dealyard' && cd "$PROJECT_DIR" && PYTHONPATH=src "$PROJECT_DIR/.venv/bin/python" -m dealyard legacy --store weee --zip 98004 >> "$PROJECT_DIR/.runtime-cache/logs/run.log" 2>&1
+0 9,17 * * * PROJECT_DIR='/path/to/dealwatcherer' && cd "$PROJECT_DIR" && PYTHONPATH=src "$PROJECT_DIR/.venv/bin/python" -m dealwatcherer legacy --store weee --zip 98004 >> "$PROJECT_DIR/.runtime-cache/logs/run.log" 2>&1
 
 #########################################################
 # Weekly legacy data cleanup (Sunday at 3 AM)
 #########################################################
-0 3 * * 0 PROJECT_DIR='/path/to/dealyard' && cd "$PROJECT_DIR" && PYTHONPATH=src "$PROJECT_DIR/.venv/bin/python" -m dealyard legacy --cleanup >> "$PROJECT_DIR/.runtime-cache/logs/cleanup.log" 2>&1
+0 3 * * 0 PROJECT_DIR='/path/to/dealwatcherer' && cd "$PROJECT_DIR" && PYTHONPATH=src "$PROJECT_DIR/.venv/bin/python" -m dealwatcherer legacy --cleanup >> "$PROJECT_DIR/.runtime-cache/logs/cleanup.log" 2>&1
 
 #########################################################
 # Notes:

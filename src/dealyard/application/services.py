@@ -13,15 +13,15 @@ from uuid import UUID, uuid4
 from sqlalchemy import desc, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
-from dealyard.core.models import AnomalyReason, Offer
-from dealyard.core.rules import RulesEngine
-from dealyard.builder_contract import (
+from dealwatcherer.core.models import AnomalyReason, Offer
+from dealwatcherer.core.rules import RulesEngine
+from dealwatcherer.builder_contract import (
     build_builder_client_config_payload,
     build_builder_client_configs_payload,
     build_builder_starter_pack_payload,
 )
-from dealyard.compare.matching import build_candidate_key, build_candidate_snapshot, build_match_details
-from dealyard.domain.enums import (
+from dealwatcherer.compare.matching import build_candidate_key, build_candidate_snapshot, build_match_details
+from dealwatcherer.domain.enums import (
     DeliveryStatus,
     FailureKind,
     HealthStatus,
@@ -30,10 +30,10 @@ from dealyard.domain.enums import (
     ThresholdType,
     WatchTaskStatus,
 )
-from dealyard.infra.config import PROJECT_ROOT, Settings, settings
-from dealyard.infra.playwright_client import PlaywrightClient
-from dealyard.infra.retry_budget import RetryBudget
-from dealyard.persistence.models import (
+from dealwatcherer.infra.config import PROJECT_ROOT, Settings, settings
+from dealwatcherer.infra.playwright_client import PlaywrightClient
+from dealwatcherer.infra.retry_budget import RetryBudget
+from dealwatcherer.persistence.models import (
     CashbackQuote,
     CanonicalProduct,
     DeliveryEvent,
@@ -51,15 +51,15 @@ from dealyard.persistence.models import (
     WatchTarget,
     WatchTask,
 )
-from dealyard.providers.cashback import CashbackMonitorProvider, CashbackProvider, CashbackQuotePayload
-from dealyard.providers.email import (
+from dealwatcherer.providers.cashback import CashbackMonitorProvider, CashbackProvider, CashbackQuotePayload
+from dealwatcherer.providers.email import (
     EmailProvider,
     PostmarkEmailProvider,
     SmtpFallbackEmailProvider,
 )
-from dealyard.runtime_preflight import is_placeholder, load_settings_values, validate_runtime
-from dealyard.stores import STORE_CAPABILITY_REGISTRY, STORE_REGISTRY
-from dealyard.stores.base_adapter import SkipParse
+from dealwatcherer.runtime_preflight import is_placeholder, load_settings_values, validate_runtime
+from dealwatcherer.stores import STORE_CAPABILITY_REGISTRY, STORE_REGISTRY
+from dealwatcherer.stores.base_adapter import SkipParse
 
 from .ai_integration import AiNarrativeService
 from .compare_evidence import (

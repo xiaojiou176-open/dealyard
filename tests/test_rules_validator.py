@@ -1,6 +1,6 @@
-from dealyard.core.models import AnomalyReason, Offer, PriceContext
-from dealyard.core.rules import RulesEngine
-from dealyard.core.validator import DataValidator
+from dealwatcherer.core.models import AnomalyReason, Offer, PriceContext
+from dealwatcherer.core.rules import RulesEngine
+from dealwatcherer.core.validator import DataValidator
 from datetime import datetime, timezone
 
 

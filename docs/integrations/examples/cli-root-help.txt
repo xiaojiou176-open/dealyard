@@ -1,4 +1,4 @@
-Usage: python -m dealyard <command> [...].
+Usage: python -m dealwatcherer <command> [...].
 
 Runtime commands:
   server             Run the FastAPI product API.

@@ -1,8 +1,8 @@
-# Dealyard Recipe For OpenHands
+# Dealwatcher Recipe For OpenHands
 
 ## Honest status
 
-- Dealyard launch record: `repo-verified`
+- Dealwatcher launch record: `repo-verified`
 - OpenHands wrapper syntax: `official_wrapper_documented`
 - Recipe kind: `official`
 - Current posture: `observation-first`, `local-first`, `read-only-first`
@@ -10,18 +10,18 @@
 ## Repo-owned launch command
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio
 ```
 
 ## OpenHands wrapper example
 
 OpenHands documents MCP server entries in `~/.openhands/config.toml`, including local `stdio_servers`.
-The current local Dealyard translation looks like:
+The current local Dealwatcher translation looks like:
 
 ```toml
 [mcp]
 stdio_servers = [
-  { name = "dealyard", command = "uv", args = ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"], env = { PYTHONPATH = "src" } }
+  { name = "dealwatcherer", command = "uv", args = ["run", "python", "-m", "dealwatcherer.mcp", "serve", "--transport", "stdio"], env = { PYTHONPATH = "src" } }
 ]
 ```
 
@@ -29,14 +29,14 @@ The same example lives in repo-owned form at [`../examples/openhands-config.toml
 
 ## What is actually stable here
 
-The stable part is the Dealyard side:
+The stable part is the Dealwatcher side:
 
 - local stdio MCP launch
 - read-only builder surface
 - compare-first safe-first flow
 
 OpenHands' own docs also document broader MCP server management.
-Dealyard keeps the story smaller here:
+Dealwatcher keeps the story smaller here:
 
 - local-first
 - direct read-first MCP entry

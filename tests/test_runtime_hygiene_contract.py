@@ -19,17 +19,17 @@ def _entry_map(entries: list[audit_script.AuditEntry]) -> dict[str, audit_script
 def test_collect_entries_classifies_repo_local_targets(monkeypatch, tmp_path: Path) -> None:
     monkeypatch.setattr(audit_script, "ROOT", tmp_path)
     _touch(tmp_path / ".venv" / "pyvenv.cfg", text="venv")
-    _touch(tmp_path / ".runtime-cache" / "logs" / "dealyard.log", text="log")
+    _touch(tmp_path / ".runtime-cache" / "logs" / "dealwatcherer.log", text="log")
     _touch(
         tmp_path / ".runtime-cache" / "runs" / "watch-tasks" / "task-1" / "summary.json",
         text="{}",
     )
     _touch(tmp_path / ".runtime-cache" / "browser-identity" / "index.html", text="<html></html>")
     _touch(tmp_path / ".runtime-cache" / "operator" / "browser-debug" / "bundle.json", text="{}")
-    _touch(tmp_path / "build" / "lib" / "dealyard.py", text="compiled")
+    _touch(tmp_path / "build" / "lib" / "dealwatcherer.py", text="compiled")
     _touch(tmp_path / "frontend" / "dist" / "index.html", text="<html></html>")
     _touch(tmp_path / ".pytest_cache" / "state", text="cache")
-    _touch(tmp_path / ".legacy-runtime" / "data" / "dealyard.db", text="legacy")
+    _touch(tmp_path / ".legacy-runtime" / "data" / "dealwatcherer.db", text="legacy")
 
     entries, missing_count = audit_script.collect_entries()
     entry_map = _entry_map(entries)
@@ -97,9 +97,9 @@ def test_cleanup_local_rebuildables_defaults_include_build(monkeypatch, tmp_path
     _touch(tmp_path / ".pytest_cache" / "state")
     _touch(tmp_path / ".runtime-cache" / "operator" / "temp" / "note.txt")
     _touch(tmp_path / ".runtime-cache" / "browser-identity" / "index.html")
-    _touch(tmp_path / "build" / "lib" / "dealyard.py")
+    _touch(tmp_path / "build" / "lib" / "dealwatcherer.py")
     _touch(tmp_path / "frontend" / "dist" / "index.html")
-    _touch(tmp_path / ".runtime-cache" / "logs" / "dealyard.log")
+    _touch(tmp_path / ".runtime-cache" / "logs" / "dealwatcherer.log")
     _touch(tmp_path / ".runtime-cache" / "runs" / "watch-tasks" / "run.json")
     _touch(tmp_path / ".pnpm-store" / "v10" / "keep")
     _touch(tmp_path / ".venv" / "pyvenv.cfg")

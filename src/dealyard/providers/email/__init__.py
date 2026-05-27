@@ -1,6 +1,6 @@
-from dealyard.providers.email.base import EmailDispatchPayload, EmailDispatchResult, EmailProvider
-from dealyard.providers.email.postmark import PostmarkEmailProvider
-from dealyard.providers.email.smtp import SmtpFallbackEmailProvider
+from dealwatcherer.providers.email.base import EmailDispatchPayload, EmailDispatchResult, EmailProvider
+from dealwatcherer.providers.email.postmark import PostmarkEmailProvider
+from dealwatcherer.providers.email.smtp import SmtpFallbackEmailProvider
 
 __all__ = [
     "EmailDispatchPayload",

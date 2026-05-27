@@ -8,12 +8,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FEED = ROOT / "site" / "feed.xml"
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
-CANONICAL_SITE_URL = "https://xiaojiou176-open.github.io/dealyard/"
+CANONICAL_SITE_URL = "https://xiaojiou176-open.github.io/dealwatcherer/"
 CANONICAL_FEED_URL = f"{CANONICAL_SITE_URL}feed.xml"
 REQUIRED_ENTRIES = {
-    "Latest release notes": "https://github.com/xiaojiou176-open/dealyard/releases/latest",
-    "Release history": "https://github.com/xiaojiou176-open/dealyard/releases",
-    "Changelog": "https://github.com/xiaojiou176-open/dealyard/blob/main/CHANGELOG.md",
+    "Latest release notes": "https://github.com/xiaojiou176-open/dealwatcherer/releases/latest",
+    "Release history": "https://github.com/xiaojiou176-open/dealwatcherer/releases",
+    "Changelog": "https://github.com/xiaojiou176-open/dealwatcherer/blob/main/CHANGELOG.md",
 }
 
 
@@ -40,8 +40,8 @@ def main() -> int:
         findings.append("site/feed.xml root element must be Atom <feed>")
 
     feed_title = get_text(root.find("atom:title", ATOM_NS))
-    if feed_title != "Dealyard Updates":
-        findings.append("site/feed.xml missing canonical feed title: Dealyard Updates")
+    if feed_title != "Dealwatcher Updates":
+        findings.append("site/feed.xml missing canonical feed title: Dealwatcher Updates")
 
     feed_id = get_text(root.find("atom:id", ATOM_NS))
     if feed_id != CANONICAL_FEED_URL:

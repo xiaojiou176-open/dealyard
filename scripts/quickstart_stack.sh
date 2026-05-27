@@ -32,6 +32,6 @@ if [ "${1:-}" = "--check" ]; then
   exit 0
 fi
 
-echo "Starting Dealyard local stack..."
+echo "Starting Dealwatcher local stack..."
 echo "Open http://127.0.0.1:5173/#compare after the services are ready."
 exec docker compose up --build "$@"

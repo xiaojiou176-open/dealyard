@@ -8,8 +8,8 @@ from typing import Mapping, Sequence
 
 BROWSER_IDENTITY_RUNTIME_DIRNAME = "browser-identity"
 DEFAULT_IDENTITY_TITLE_SUFFIX = "browser lane"
-DEFAULT_DEALYARD_IDENTITY_LABEL = "Dealyard"
-DEFAULT_DEALYARD_IDENTITY_MONOGRAM = "DW"
+DEFAULT_DEALWATCHER_IDENTITY_LABEL = "Dealwatcher"
+DEFAULT_DEALWATCHER_IDENTITY_MONOGRAM = "DW"
 HEX_COLOR_PATTERN = re.compile(r"^#(?:[\da-fA-F]{3}|[\da-fA-F]{6})$")
 
 
@@ -43,7 +43,7 @@ def derive_identity_monogram(label: str) -> str:
         if token
     ]
     if not tokens:
-        return DEFAULT_DEALYARD_IDENTITY_MONOGRAM
+        return DEFAULT_DEALWATCHER_IDENTITY_MONOGRAM
     if len(tokens) == 1:
         return tokens[0][:2].upper()
     return f"{tokens[0][0]}{tokens[1][0]}".upper()
@@ -76,11 +76,11 @@ class BrowserIdentityPage:
 def resolve_identity_label(
     env: Mapping[str, str] | None = None,
     *,
-    fallback: str = DEFAULT_DEALYARD_IDENTITY_LABEL,
+    fallback: str = DEFAULT_DEALWATCHER_IDENTITY_LABEL,
 ) -> str:
     if env is None:
         return fallback
-    value = str(env.get("DEALYARD_BROWSER_IDENTITY_LABEL", "")).strip()
+    value = str(env.get("DEALWATCHER_BROWSER_IDENTITY_LABEL", "")).strip()
     return value or fallback
 
 
@@ -90,7 +90,7 @@ def resolve_identity_accent(
     label: str,
 ) -> str:
     if env is not None:
-        value = str(env.get("DEALYARD_BROWSER_IDENTITY_ACCENT", "")).strip()
+        value = str(env.get("DEALWATCHER_BROWSER_IDENTITY_ACCENT", "")).strip()
         if value and HEX_COLOR_PATTERN.fullmatch(value):
             return value
     return derive_identity_accent(label)
@@ -286,7 +286,7 @@ def build_browser_identity_page_html(
           <h1>{_escape_html(repo_label)}</h1>
           <p class="lede">
             This is the repo-owned browser lane identity tab. Keep it as the left-most anchor so you can tell this
-            Dealyard Chrome window apart from other repos at a glance.
+            Dealwatcher Chrome window apart from other repos at a glance.
           </p>
           <p class="callout">
             Manual one-time polish: pin this tab yourself if you want a tighter visual anchor.

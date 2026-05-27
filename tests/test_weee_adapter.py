@@ -3,13 +3,13 @@ from datetime import datetime, timezone
 
 import pytest
 
-from dealyard.core.models import Offer, PriceContext, SkipReason
-from dealyard.infra.config import Settings
-from dealyard.stores.base_adapter import SkipParse
-from dealyard.stores.weee import adapter as weee_adapter_module
-from dealyard.stores.weee.adapter import WeeeAdapter
-from dealyard.stores.weee.discovery import WeeeDiscovery
-from dealyard.stores.weee.parser import WeeeParser
+from dealwatcherer.core.models import Offer, PriceContext, SkipReason
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.stores.base_adapter import SkipParse
+from dealwatcherer.stores.weee import adapter as weee_adapter_module
+from dealwatcherer.stores.weee.adapter import WeeeAdapter
+from dealwatcherer.stores.weee.discovery import WeeeDiscovery
+from dealwatcherer.stores.weee.parser import WeeeParser
 
 
 class _FakePage:

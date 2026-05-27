@@ -15,11 +15,11 @@ from urllib.parse import urlsplit, urlunsplit
 
 from playwright.async_api import Page
 
-from dealyard.core.artifacts import ArtifactManager
-from dealyard.core.models import Offer, SkipReason
-from dealyard.infra.config import Settings
-from dealyard.infra.playwright_client import PlaywrightClient
-from dealyard.infra.retry_budget import RetryBudget
+from dealwatcherer.core.artifacts import ArtifactManager
+from dealwatcherer.core.models import Offer, SkipReason
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.infra.playwright_client import PlaywrightClient
+from dealwatcherer.infra.retry_budget import RetryBudget
 
 
 #########################################################
@@ -68,7 +68,7 @@ class BaseStoreAdapter(ABC):
     def __init__(self, client: PlaywrightClient, settings: Settings) -> None:
         self.client = client
         self.settings = settings
-        self.logger = logging.getLogger(f"dealyard.stores.{self.store_id}")
+        self.logger = logging.getLogger(f"dealwatcherer.stores.{self.store_id}")
 
     def __repr__(self) -> str:
         return f"StoreAdapter(id={self.store_id})"
@@ -106,7 +106,7 @@ class BaseStoreAdapter(ABC):
         settings = Settings()
         adapter_cls = None
 
-        from dealyard.stores import STORE_REGISTRY
+        from dealwatcherer.stores import STORE_REGISTRY
 
         for candidate in STORE_REGISTRY.values():
             if url.startswith(candidate.base_url):

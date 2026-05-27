@@ -11,21 +11,21 @@ from scripts.shared.browser_instance_identity import (
 
 def test_build_browser_identity_page_html_contains_required_fields() -> None:
     html = build_browser_identity_page_html(
-        repo_label="dealyard",
-        repo_root="/tmp/dealyard",
+        repo_label="dealwatcherer",
+        repo_root="/tmp/dealwatcherer",
         cdp_url="http://127.0.0.1:9333",
         cdp_port=9333,
         user_data_dir="/tmp/chrome-user-data",
-        profile_name="dealyard",
+        profile_name="dealwatcherer",
         profile_directory="Profile 21",
         accent="#0f766e",
         monogram="DW",
         quick_links=[("Target account", "https://www.target.com/account")],
     )
 
-    assert "dealyard · 9333 · browser lane" in html
+    assert "dealwatcherer · 9333 · browser lane" in html
     assert "http://127.0.0.1:9333" in html
-    assert "/tmp/dealyard" in html
+    assert "/tmp/dealwatcherer" in html
     assert "/tmp/chrome-user-data" in html
     assert "Profile 21" in html
     assert "Target account" in html
@@ -36,13 +36,13 @@ def test_write_browser_identity_page_writes_under_runtime_cache(tmp_path: Path) 
     result = write_browser_identity_page(
         repo_root=tmp_path,
         env={
-            "DEALYARD_BROWSER_IDENTITY_LABEL": "Dealyard Lane",
-            "DEALYARD_BROWSER_IDENTITY_ACCENT": "#2563eb",
+            "DEALWATCHER_BROWSER_IDENTITY_LABEL": "Dealwatcher Lane",
+            "DEALWATCHER_BROWSER_IDENTITY_ACCENT": "#2563eb",
         },
         cdp_url="http://127.0.0.1:9333",
         cdp_port=9333,
         user_data_dir="/tmp/chrome-user-data",
-        profile_name="dealyard",
+        profile_name="dealwatcherer",
         profile_directory="Profile 21",
         quick_links=[("Walmart account", "https://www.walmart.com/account")],
     )
@@ -52,6 +52,6 @@ def test_write_browser_identity_page_writes_under_runtime_cache(tmp_path: Path) 
     assert result.identity_url.startswith("file://")
 
     payload = result.identity_path.read_text(encoding="utf-8")
-    assert "Dealyard Lane" in payload
+    assert "Dealwatcher Lane" in payload
     assert "#2563eb" in payload
     assert "/tmp/chrome-user-data" in payload

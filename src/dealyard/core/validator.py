@@ -5,7 +5,7 @@ import re
 from dataclasses import dataclass, field
 from typing import Final
 
-from dealyard.core.models import Offer
+from dealwatcherer.core.models import Offer
 
 
 #########################################################

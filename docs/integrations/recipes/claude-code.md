@@ -1,8 +1,8 @@
-# Dealyard Recipe For Claude Code
+# Dealwatcher Recipe For Claude Code
 
 ## Honest status
 
-- Dealyard launch record: `repo-verified`
+- Dealwatcher launch record: `repo-verified`
 - Claude Code wrapper syntax: `official_wrapper_documented`
 - Recipe kind: `official`
 - Current posture: `local-first`, `read-only-first`, `compare-first`
@@ -11,7 +11,7 @@
 ## Repo-owned launch command
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio
 ```
 
 ## Claude Code wrapper example
@@ -21,14 +21,14 @@ Claude Code's MCP docs currently describe both:
 - project-scoped `.mcp.json` with `mcpServers`, `command`, `args`, and `env`
 - `claude mcp add --transport stdio --scope project <name> -- <command> [args...]`
 
-When the config file lives at the repo root, the current Dealyard translation looks like:
+When the config file lives at the repo root, the current Dealwatcher translation looks like:
 
 ```json
 {
   "mcpServers": {
-    "dealyard": {
+    "dealwatcherer": {
       "command": "uv",
-      "args": ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
+      "args": ["run", "python", "-m", "dealwatcherer.mcp", "serve", "--transport", "stdio"],
       "env": {
         "PYTHONPATH": "src"
       }
@@ -43,7 +43,7 @@ If you prefer the Claude Code CLI path, the current documented command shape tra
 
 ```bash
 claude mcp add --transport stdio --scope project -e PYTHONPATH=src \
-  dealyard -- uv run python -m dealyard.mcp serve --transport stdio
+  dealwatcherer -- uv run python -m dealwatcherer.mcp serve --transport stdio
 ```
 
 ## Evidence basis

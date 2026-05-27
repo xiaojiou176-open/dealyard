@@ -2,10 +2,10 @@ from datetime import datetime, timezone
 
 import pytest
 
-from dealyard.core.models import Offer, PriceContext
-from dealyard.core.pipeline import MonitoringPipeline
-from dealyard.infra.config import Settings
-from dealyard.stores.base_adapter import BaseStoreAdapter
+from dealwatcherer.core.models import Offer, PriceContext
+from dealwatcherer.core.pipeline import MonitoringPipeline
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.stores.base_adapter import BaseStoreAdapter
 
 
 class _DummyRepo:

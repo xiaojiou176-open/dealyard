@@ -4,8 +4,8 @@ import json
 
 import pytest
 
-from dealyard.application.ai_integration import AiNarrativeService
-from dealyard.infra.config import Settings
+from dealwatcherer.application.ai_integration import AiNarrativeService
+from dealwatcherer.infra.config import Settings
 
 
 class _FakeResponse:
@@ -68,7 +68,7 @@ async def test_switchyard_service_provider_byok_success(monkeypatch) -> None:
         )
     }
     monkeypatch.setattr(
-        "dealyard.application.ai_integration.httpx.AsyncClient",
+        "dealwatcherer.application.ai_integration.httpx.AsyncClient",
         lambda **kwargs: _FakeAsyncClient([_FakeResponse(200, payload)], captured, **kwargs),
     )
     settings = _make_settings()
@@ -100,7 +100,7 @@ async def test_switchyard_service_provider_user_action_required_degrades(monkeyp
         }
     }
     monkeypatch.setattr(
-        "dealyard.application.ai_integration.httpx.AsyncClient",
+        "dealwatcherer.application.ai_integration.httpx.AsyncClient",
         lambda **kwargs: _FakeAsyncClient([_FakeResponse(409, error_payload)], captured, **kwargs),
     )
     settings = _make_settings()

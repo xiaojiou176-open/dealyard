@@ -35,7 +35,7 @@ __pycache__/
 .codex/
 .claude/
 .cursor/
-# Local MCP / tool state that does not belong to Dealyard runtime governance.
+# Local MCP / tool state that does not belong to Dealwatcher runtime governance.
 .serena/
 .agents/local-artifacts/smoke/
 .agents/local-artifacts/temp/
@@ -63,3 +63,15 @@ site-dist/
 .claude/sessions/
 **/rollout-*.jsonl
 **/session-*.jsonl
+
+# Common secret files (patch 2026-05-27)
+*.key
+*.pem
+id_rsa
+id_ed25519
+*.p12
+*.pfx
+
+
+# .archive/ 全部 ignore（5/27 v3 加固）
+.archive/

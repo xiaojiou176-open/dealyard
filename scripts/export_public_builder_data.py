@@ -11,7 +11,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from dealyard.builder_contract import (  # noqa: E402
+from dealwatcherer.builder_contract import (  # noqa: E402
     build_public_builder_client_catalog_payload,
     build_public_builder_client_configs_payload,
     build_public_builder_client_starters_payload,

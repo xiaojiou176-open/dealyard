@@ -2,9 +2,9 @@
 #    uv export --format requirements-txt --no-dev --no-hashes
 -e .
 aiosqlite==0.20.0
-    # via dealyard
+    # via dealwatcherer
 alembic==1.16.5
-    # via dealyard
+    # via dealwatcherer
 annotated-doc==0.0.4
     # via fastapi
 annotated-types==0.7.0
@@ -16,7 +16,7 @@ anyio==4.13.0
     #   sse-starlette
     #   starlette
 apscheduler==3.10.4
-    # via dealyard
+    # via dealwatcherer
 attrs==26.1.0
     # via
     #   jsonschema
@@ -46,11 +46,11 @@ deprecated==1.3.1
 dnspython==2.8.0
     # via email-validator
 email-validator==2.2.0
-    # via dealyard
+    # via dealwatcherer
 extruct==0.18.0
-    # via dealyard
+    # via dealwatcherer
 fastapi==0.121.3
-    # via dealyard
+    # via dealwatcherer
 greenlet==3.3.2
     # via
     #   playwright
@@ -69,7 +69,7 @@ httpcore==1.0.9
     # via httpx
 httpx==0.28.1
     # via
-    #   dealyard
+    #   dealwatcherer
     #   mcp
 httpx-sse==0.4.3
     # via mcp
@@ -101,35 +101,35 @@ mako==1.3.11
 markupsafe==3.0.3
     # via mako
 mcp==1.26.0
-    # via dealyard
+    # via dealwatcherer
 mf2py==2.0.1
     # via extruct
 opentelemetry-api==1.31.1
     # via
-    #   dealyard
+    #   dealwatcherer
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
 opentelemetry-sdk==1.31.1
-    # via dealyard
+    # via dealwatcherer
 opentelemetry-semantic-conventions==0.52b1
     # via opentelemetry-sdk
 orjson==3.11.7
-    # via dealyard
+    # via dealwatcherer
 playwright==1.58.0
-    # via dealyard
+    # via dealwatcherer
 price-parser==0.5.1
-    # via dealyard
+    # via dealwatcherer
 prometheus-client==0.21.1
-    # via dealyard
+    # via dealwatcherer
 psycopg==3.2.13
-    # via dealyard
+    # via dealwatcherer
 psycopg-binary==3.2.13 ; implementation_name != 'pypy'
     # via psycopg
 pycparser==3.0 ; implementation_name != 'PyPy' and platform_python_implementation != 'PyPy'
     # via cffi
 pydantic==2.12.5
     # via
-    #   dealyard
+    #   dealwatcherer
     #   fastapi
     #   mcp
     #   pydantic-settings
@@ -137,7 +137,7 @@ pydantic-core==2.41.5
     # via pydantic
 pydantic-settings==2.13.1
     # via
-    #   dealyard
+    #   dealwatcherer
     #   mcp
 pyee==13.0.1
     # via playwright
@@ -151,16 +151,16 @@ python-dotenv==1.2.2
     # via pydantic-settings
 python-multipart==0.0.26
     # via
-    #   dealyard
+    #   dealwatcherer
     #   mcp
 pytz==2026.1.post1
     # via apscheduler
 pywin32==311 ; sys_platform == 'win32'
     # via mcp
 pyyaml==6.0.3
-    # via dealyard
+    # via dealwatcherer
 rapidfuzz==3.12.2
-    # via dealyard
+    # via dealwatcherer
 rdflib==7.6.0
     # via
     #   extruct
@@ -178,7 +178,7 @@ rpds-py==0.30.0
     #   jsonschema
     #   referencing
 selectolax==0.3.34
-    # via dealyard
+    # via dealwatcherer
 six==1.17.0
     # via
     #   apscheduler
@@ -188,7 +188,7 @@ soupsieve==2.8.3
 sqlalchemy==2.0.48
     # via
     #   alembic
-    #   dealyard
+    #   dealwatcherer
 sse-starlette==3.3.4
     # via mcp
 starlette==0.50.0
@@ -197,7 +197,7 @@ starlette==0.50.0
     #   mcp
     #   sse-starlette
 tenacity==9.0.0
-    # via dealyard
+    # via dealwatcherer
 typing-extensions==4.15.0
     # via
     #   aiosqlite
@@ -222,7 +222,7 @@ typing-inspection==0.4.2
     #   pydantic-settings
 tzdata==2024.2
     # via
-    #   dealyard
+    #   dealwatcherer
     #   psycopg
     #   tzlocal
 tzlocal==5.3.1
@@ -231,7 +231,7 @@ urllib3==2.6.3
     # via requests
 uvicorn==0.37.0
     # via
-    #   dealyard
+    #   dealwatcherer
     #   mcp
 w3lib==2.4.1
     # via extruct

@@ -1,8 +1,8 @@
-# Dealyard Decision Memo
+# Dealwatcher Decision Memo
 
 ## Purpose
 
-This memo is the post-archive strategic SSOT for the current Dealyard execution phase.
+This memo is the post-archive strategic SSOT for the current Dealwatcher execution phase.
 
 In plain English:
 
@@ -35,9 +35,9 @@ What was still missing was a single document that says:
 
 | Area | Locked decision | Why it matters |
 | --- | --- | --- |
-| Brand | `Dealyard` remains the only live product name | We are strengthening the product story, not restarting brand identity around `.ai` naming |
+| Brand | `Dealwatcher` remains the only live product name | We are strengthening the product story, not restarting brand identity around `.ai` naming |
 | Product core | The product remains `WebUI + API + worker + PostgreSQL` | This is the engine; plugin or agent shells are optional outer layers, not the product body |
-| Product shape | Dealyard stays compare-first | The product starts by validating the target before creating long-lived state |
+| Product shape | Dealwatcher stays compare-first | The product starts by validating the target before creating long-lived state |
 | AI boundary | AI remains real but narrow: explanation, recovery guidance, and distribution leverage | AI helps explain evidence; it does not replace deterministic product truth or become the main product identity |
 | Public operating mode | Current primary operating mode is `local-first + GitHub Pages` | The public surface should stay honest about what is reachable now without pretending there is a hosted SaaS |
 | Render role | Render stays an optional blueprint, not the current guaranteed runtime story | Render drift should not silently regain mainline status just because the blueprint still exists |
@@ -53,7 +53,7 @@ What was still missing was a single document that says:
 These are intentionally **not** reopened by this memo:
 
 - rename the repo or product to an AI-first brand
-- reposition Dealyard as a hosted SaaS
+- reposition Dealwatcher as a hosted SaaS
 - promote Render back to a default guarantee
 - ship write-side MCP
 - ship broader or autonomous buy / wait recommendation beyond the local Compare Preview advisory v1
@@ -62,7 +62,7 @@ These are intentionally **not** reopened by this memo:
 
 ## Integration Positioning
 
-Dealyard should relate to external agent ecosystems in the safest truthful way:
+Dealwatcher should relate to external agent ecosystems in the safest truthful way:
 
 - as a product/runtime that can expose stable truth through API and read-only MCP
 - as a backend that tools such as Claude Code, Codex, OpenHands, or similar clients can consume
@@ -70,8 +70,8 @@ Dealyard should relate to external agent ecosystems in the safest truthful way:
 
 In plain English:
 
-> the right relationship is "agent clients consume Dealyard truth"  
-> not "Dealyard only exists as a skin on someone else's runtime"
+> the right relationship is "agent clients consume Dealwatcher truth"  
+> not "Dealwatcher only exists as a skin on someone else's runtime"
 
 ## Truth Layers
 

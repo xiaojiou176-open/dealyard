@@ -1,1 +1,1 @@
-"""Dealyard MCP package."""
+"""Dealwatcher MCP package."""

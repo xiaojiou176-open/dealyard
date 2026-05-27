@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Propose a public Dealyard improvement
+about: Propose a public Dealwatcher improvement
 title: "[Feature] "
 labels: enhancement
 assignees: ""

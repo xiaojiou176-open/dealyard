@@ -12,7 +12,7 @@ PLACEHOLDER_VALUES = {
     "",
     "change-me",
     "owner@example.com",
-    "dealyard@example.com",
+    "dealwatcherer@example.com",
     "__required_database_url__",
     "__required_owner_email__",
     "__required_owner_bootstrap_token__",
@@ -307,14 +307,14 @@ def validate_runtime(values: dict[str, str], *, target: str) -> tuple[list[Check
         )
     if (
         all(profile_contract_values.values())
-        and profile_contract_values["CHROME_PROFILE_NAME"] == "dealyard"
+        and profile_contract_values["CHROME_PROFILE_NAME"] == "dealwatcherer"
         and _is_legacy_shared_chrome_root(profile_contract_values["CHROME_USER_DATA_DIR"])
     ):
         checks.append(
             CheckResult(
                 ok=False,
                 key="browser_profile_root",
-                message="The legacy shared Chrome root is no longer allowed for the dealyard profile. Migrate to ~/.cache/dealyard/browser/chrome-user-data and use the dedicated single-instance CDP attach path.",
+                message="The legacy shared Chrome root is no longer allowed for the dealwatcherer profile. Migrate to ~/.cache/dealwatcherer/browser/chrome-user-data and use the dedicated single-instance CDP attach path.",
             )
         )
 
@@ -335,7 +335,7 @@ def validate_runtime(values: dict[str, str], *, target: str) -> tuple[list[Check
 
 def render_report(checks: list[CheckResult], warnings: list[CheckResult], *, env_source: str, target: str) -> str:
     lines = [
-        "Dealyard Runtime Preflight",
+        "Dealwatcher Runtime Preflight",
         f"target={target}",
         f"source={env_source}",
         "",
@@ -384,7 +384,7 @@ def ensure_runtime_contract_from_settings(settings_obj: Any, target: str) -> Non
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Dealyard runtime environment preflight")
+    parser = argparse.ArgumentParser(description="Dealwatcher runtime environment preflight")
     parser.add_argument("--env-file", type=Path, default=None, help="Path to a dotenv-style file to validate")
     parser.add_argument("--target", default="render", choices=["render", "generic", "ci-smoke", "startup"], help="Validation profile")
     args = parser.parse_args()

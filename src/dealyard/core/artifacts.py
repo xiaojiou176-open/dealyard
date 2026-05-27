@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Final, List
 
-from dealyard.core.models import DealEvent
+from dealwatcherer.core.models import DealEvent
 
 
 #########################################################
@@ -217,7 +217,7 @@ class ArtifactManager:
             "th{background:#f2f2f2;}"
             "h2{margin-top:24px;}"
             "</style></head><body>"
-            "<h1>Dealyard Run Dashboard</h1>"
+            "<h1>Dealwatcher Run Dashboard</h1>"
             "<h2>Confirmed Deals</h2>"
             "<table>"
             "<tr><th>Store</th><th>Confirmed</th><th>Total Checked</th><th>JSON</th><th>CSV</th></tr>"

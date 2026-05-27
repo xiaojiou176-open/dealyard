@@ -1,9 +1,9 @@
-from dealyard.stores.target.adapter import TargetAdapter
-from dealyard.stores.ranch99.adapter import Ranch99Adapter
-from dealyard.stores.safeway.adapter import SafewayAdapter
-from dealyard.stores.walmart.adapter import WalmartAdapter
-from dealyard.stores.weee.adapter import WeeeAdapter
-from dealyard.stores.manifest import (
+from dealwatcherer.stores.target.adapter import TargetAdapter
+from dealwatcherer.stores.ranch99.adapter import Ranch99Adapter
+from dealwatcherer.stores.safeway.adapter import SafewayAdapter
+from dealwatcherer.stores.walmart.adapter import WalmartAdapter
+from dealwatcherer.stores.weee.adapter import WeeeAdapter
+from dealwatcherer.stores.manifest import (
     OFFICIAL_SUPPORT_TIERS,
     STORE_CAPABILITY_REGISTRY,
     build_next_onboarding_step,

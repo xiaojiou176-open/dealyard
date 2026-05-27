@@ -2,7 +2,7 @@
 
 ## Why this exists
 
-Dealyard no longer treats “add a new store” as tribal knowledge.
+Dealwatcher no longer treats “add a new store” as tribal knowledge.
 
 In plain English:
 
@@ -11,16 +11,16 @@ In plain English:
 
 This runbook does not define "how to write elegant code." It defines:
 
-> **What counts as a real Dealyard product-path store onboarding.**
+> **What counts as a real Dealwatcher product-path store onboarding.**
 
 ## Minimum contract
 
 Every new store must provide all of the following:
 
-1. A live adapter in `src/dealyard/stores/<store>/adapter.py`
+1. A live adapter in `src/dealwatcherer/stores/<store>/adapter.py`
 2. A parser contract path covered by `tests/test_adapter_contracts.py`
-3. An entry in `src/dealyard/stores/manifest.py`
-4. A registry entry in `src/dealyard/stores/__init__.py`
+3. An entry in `src/dealwatcherer/stores/manifest.py`
+4. A registry entry in `src/dealwatcherer/stores/__init__.py`
 5. A clear answer to:
    - how discovery works
    - how parsing works
@@ -35,7 +35,7 @@ Every new store must provide all of the following:
 
 ## Official support tiers
 
-Dealyard now treats official store support like shelf labels, not hallway folklore.
+Dealwatcher now treats official store support like shelf labels, not hallway folklore.
 
 - `official_full`: the store has capability metadata, adapter contract coverage, compare intake, single watch task, compare-aware watch group, recovery support, and cashback-aware evaluation aligned enough to claim the full current product path.
 - `official_partial`: the store is real and officially supported for part of the product path, but at least one major product-path capability is still intentionally missing.
@@ -47,7 +47,7 @@ That means a store can still be `official_full` for the **current product path**
 
 ## Runtime binding truth
 
-Dealyard now treats runtime enablement as a second gate on top of support labels.
+Dealwatcher now treats runtime enablement as a second gate on top of support labels.
 
 In plain English:
 
@@ -84,7 +84,7 @@ Tests and smoke are still required before an operator flips `ENABLED_STORES`, bu
 
 ## Limited support contract
 
-Dealyard also needs an honest answer for URLs that are not fully onboarded official stores yet.
+Dealwatcher also needs an honest answer for URLs that are not fully onboarded official stores yet.
 
 - Unknown-host or unsupported-path URLs may still enter compare preview as **limited-support, evidence-only** rows.
 - Limited-support rows may stay in compare review and repo-local compare evidence packages.
@@ -169,8 +169,8 @@ New stores should stay disabled by default until:
 
 ## Related files
 
-- [`src/dealyard/stores/manifest.py`](../../src/dealyard/stores/manifest.py)
-- [`src/dealyard/stores/__init__.py`](../../src/dealyard/stores/__init__.py)
-- [`src/dealyard/persistence/store_bindings.py`](../../src/dealyard/persistence/store_bindings.py)
+- [`src/dealwatcherer/stores/manifest.py`](../../src/dealwatcherer/stores/manifest.py)
+- [`src/dealwatcherer/stores/__init__.py`](../../src/dealwatcherer/stores/__init__.py)
+- [`src/dealwatcherer/persistence/store_bindings.py`](../../src/dealwatcherer/persistence/store_bindings.py)
 - [`tests/test_adapter_contracts.py`](../../tests/test_adapter_contracts.py)
 - [`scripts/verify_store_capability_registry.py`](../../scripts/verify_store_capability_registry.py)

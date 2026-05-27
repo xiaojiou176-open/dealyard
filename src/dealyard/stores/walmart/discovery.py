@@ -20,7 +20,7 @@ class WalmartDiscovery:
     logger: logging.Logger = field(init=False, repr=False)
 
     def __post_init__(self) -> None:
-        self.logger = logging.getLogger("dealyard.stores.walmart.discovery")
+        self.logger = logging.getLogger("dealwatcherer.stores.walmart.discovery")
 
     async def discover_deals(self) -> list[str]:
         self.logger.info("Walmart discovery is intentionally deferred in C1; manual product-detail intake is the supported path.")

@@ -4,12 +4,12 @@ import argparse
 import asyncio
 from typing import List, Optional
 
-from dealyard.core.models import Offer, PriceContext
-from dealyard.infra.config import Settings
-from dealyard.infra.playwright_client import PlaywrightClient
-from dealyard.stores.base_adapter import BaseStoreAdapter, SkipParse, safe_parse
-from dealyard.stores.weee.discovery import WeeeDiscovery
-from dealyard.stores.weee.parser import WeeeParser
+from dealwatcherer.core.models import Offer, PriceContext
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.infra.playwright_client import PlaywrightClient
+from dealwatcherer.stores.base_adapter import BaseStoreAdapter, SkipParse, safe_parse
+from dealwatcherer.stores.weee.discovery import WeeeDiscovery
+from dealwatcherer.stores.weee.parser import WeeeParser
 
 
 #########################################################

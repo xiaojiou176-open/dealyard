@@ -13,16 +13,16 @@ import pytest
 
 from playwright.async_api import Error as PlaywrightError
 
-from dealyard.core.ai_analyzer import AIAnalyzer
-from dealyard.core.artifacts import ArtifactManager
-from dealyard.core.models import Offer, PriceContext
-from dealyard.core.pipeline import MonitoringPipeline
-from dealyard.infra.config import Settings
-from dealyard.legacy.db_repo import DatabaseRepository
-from dealyard.infra.mailer import EmailNotifier
-from dealyard.infra.obs.health_check import HealthMonitor
-from dealyard.stores.base_adapter import BaseStoreAdapter
-from dealyard.infra.playwright_client import PlaywrightClient
+from dealwatcherer.core.ai_analyzer import AIAnalyzer
+from dealwatcherer.core.artifacts import ArtifactManager
+from dealwatcherer.core.models import Offer, PriceContext
+from dealwatcherer.core.pipeline import MonitoringPipeline
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.legacy.db_repo import DatabaseRepository
+from dealwatcherer.infra.mailer import EmailNotifier
+from dealwatcherer.infra.obs.health_check import HealthMonitor
+from dealwatcherer.stores.base_adapter import BaseStoreAdapter
+from dealwatcherer.infra.playwright_client import PlaywrightClient
 
 
 class _E2EAdapter(BaseStoreAdapter):
@@ -125,7 +125,7 @@ def _site_text(locale: str, key: str) -> str:
 
 @pytest.mark.asyncio
 async def test_e2e_pipeline_artifacts_ai(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     settings = Settings(
         DB_PATH=db_path,
         USE_LLM=False,
@@ -204,7 +204,7 @@ async def test_e2e_playwright_local_site(tmp_path, monkeypatch) -> None:
 
     server, base_url = _start_http_server(site_dir)
     try:
-        db_path = tmp_path / "dealyard.db"
+        db_path = tmp_path / "dealwatcherer.db"
         settings = Settings(
             DB_PATH=db_path,
             USE_LLM=False,
@@ -279,7 +279,7 @@ def test_public_comparison_page_switches_locale_and_keeps_assets() -> None:
                 page = browser.new_page(viewport={"width": 1440, "height": 1400})
                 page.goto(f"{base_url}/compare-vs-tracker.html", wait_until="networkidle")
 
-                expect_title = "Why Dealyard is not just another generic price tracker"
+                expect_title = "Why Dealwatcher is not just another generic price tracker"
                 expect_builder = "Why builders and AI tool users care"
                 expect_description = _site_text("en", "site.comparisonPage.description")
                 assert expect_title in page.locator("h1").inner_text()
@@ -446,7 +446,7 @@ def test_public_proof_page_schema_switches_locale() -> None:
 
                 assert "Public claims, AI guidance, and evidence in one place" in page.locator("h1").inner_text()
                 schema = json.loads(page.locator("script[type='application/ld+json']").first.text_content() or "{}")
-                assert schema["headline"] == "Dealyard Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence"
+                assert schema["headline"] == "Dealwatcher Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence"
                 assert "Codex" in schema["keywords"]
 
                 page.locator('[data-locale-option="zh-CN"]').click()
@@ -522,7 +522,7 @@ def test_public_proof_page_schema_switches_locale() -> None:
 
                 assert "Public claims, AI guidance, and evidence in one place" in page.locator("h1").inner_text()
                 schema = json.loads(page.locator("script[type='application/ld+json']").first.text_content() or "{}")
-                assert schema["headline"] == "Dealyard Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence"
+                assert schema["headline"] == "Dealwatcher Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence"
                 assert "Codex" in schema["keywords"]
 
                 page.locator('[data-locale-option="zh-CN"]').click()

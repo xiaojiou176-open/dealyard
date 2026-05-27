@@ -9,7 +9,7 @@ If you want a high-signal first contribution, start with one of these:
 - Strengthen task detail, effective price, or notification evidence in the UI.
 - Tighten docs and verification so public claims keep matching product reality.
 
-The goal is not to add noise. The best contribution is one that makes Dealyard easier to trust, use, or extend.
+The goal is not to add noise. The best contribution is one that makes Dealwatcher easier to trust, use, or extend.
 
 ## Ground Rules
 
@@ -18,8 +18,8 @@ The goal is not to add noise. The best contribution is one that makes Dealyard e
 - Do not track `.agents/`, `.agent/`, `.codex/`, `.claude/`, `.runtime-cache/`, `logs/`, `log/`, or `*.log`.
 - Do not commit secrets, local databases, browser state, or runtime artifacts.
 - Do not commit host-specific absolute paths, macOS temp-path literals, or personal sample markers into tracked text files.
-- Do not introduce `killall`, `pkill`, broad `kill -9`, `osascript`, `System Events`, direct `process.kill(...)`, or direct `os.kill(...)`; Dealyard must stay on repo-owned browser/runtime cleanup entrypoints.
-- Do not use `scripts/clean.py`; it is a hard-stop legacy entrypoint and no longer participates in Dealyard cleanup.
+- Do not introduce `killall`, `pkill`, broad `kill -9`, `osascript`, `System Events`, direct `process.kill(...)`, or direct `os.kill(...)`; Dealwatcher must stay on repo-owned browser/runtime cleanup entrypoints.
+- Do not use `scripts/clean.py`; it is a hard-stop legacy entrypoint and no longer participates in Dealwatcher cleanup.
 - Keep changes surgical.
 
 ## Local Setup
@@ -28,7 +28,7 @@ The goal is not to add noise. The best contribution is one that makes Dealyard e
 ./scripts/bootstrap.sh
 cp .env.example .env
 python3 scripts/install_git_hooks.py
-PYTHONPATH=src uv run python -m dealyard maintenance --dry-run
+PYTHONPATH=src uv run python -m dealwatcherer maintenance --dry-run
 pre-commit run --all-files
 ```
 
@@ -42,7 +42,7 @@ pre-commit run --all-files
 
 ### Required Development
 
-Dealyard now uses a five-layer verification contract. Think of it like airport security:
+Dealwatcher now uses a five-layer verification contract. Think of it like airport security:
 
 - `pre-commit` = the fast bag scan
 - `pre-push` = the gate before the plane leaves
@@ -58,7 +58,7 @@ boundary.
 ```bash
 nvm use
 corepack enable
-PYTHONPATH=src uv run python -m dealyard maintenance --dry-run
+PYTHONPATH=src uv run python -m dealwatcherer maintenance --dry-run
 pre-commit run --all-files
 ```
 
@@ -114,7 +114,7 @@ uvx --from zizmor==1.23.1 zizmor --persona regular --no-progress .github/workflo
 If your branch touches runtime hygiene, cache cleanup, or repo-local rebuildables, also run:
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard maintenance --dry-run
+PYTHONPATH=src uv run python -m dealwatcherer maintenance --dry-run
 python3 scripts/cleanup_local_rebuildables.py --dry-run
 python3 scripts/verify_host_process_safety.py
 ```
@@ -181,7 +181,7 @@ python3 scripts/verify_public_demo_interaction.py
 
 ## Dependency Maintenance Wave
 
-Dealyard treats automated dependency PRs as a **separate maintenance wave**, not as default cargo for a product, closure, or governance-hardening branch.
+Dealwatcher treats automated dependency PRs as a **separate maintenance wave**, not as default cargo for a product, closure, or governance-hardening branch.
 
 The practical rule is:
 
@@ -210,7 +210,7 @@ trufflehog git --no-update file://"$PWD"
 
 Repository note:
 
-- `.gitleaksignore` is intentionally kept to suppress the known `server-main` false positive in `src/dealyard/server.py`.
+- `.gitleaksignore` is intentionally kept to suppress the known `server-main` false positive in `src/dealwatcherer/server.py`.
 - `.gitleaks.toml` now excludes gitignored local-only namespaces such as `.agents/`, `.codex/`, `.claude/`, and `.runtime-cache/` from filesystem-style scans so `gitleaks dir .` stays focused on the public/tracked surface instead of local developer noise.
 - Do not add new suppressions unless the finding is reproducibly false and the reason is documented in the pull request.
 
@@ -222,19 +222,19 @@ Repository note:
 
 ## Dedicated Browser Lane
 
-Dealyard's canonical maintainer browser lane is now a repo-owned Google Chrome instance:
+Dealwatcher's canonical maintainer browser lane is now a repo-owned Google Chrome instance:
 
-- dedicated root: `~/.cache/dealyard/browser/chrome-user-data`
-- canonical profile: `dealyard` / `Profile 21`
+- dedicated root: `~/.cache/dealwatcherer/browser/chrome-user-data`
+- canonical profile: `dealwatcherer` / `Profile 21`
 - canonical CDP lane: `http://127.0.0.1:9333`
 
 Use the launcher first:
 
 ```bash
-./scripts/launch_dealyard_chrome.sh
+./scripts/launch_dealwatcherer_chrome.sh
 ```
 
-That helper launches or reuses one dedicated Dealyard browser lane and ensures:
+That helper launches or reuses one dedicated Dealwatcher browser lane and ensures:
 
 - a generated local identity tab under `.runtime-cache/browser-identity/index.html`
 - canonical account/order tabs for Target / Safeway / Walmart / Weee
@@ -243,19 +243,19 @@ That helper launches or reuses one dedicated Dealyard browser lane and ensures:
 If you only need to re-anchor the current browser lane tabs without relaunching Chrome:
 
 ```bash
-python3 scripts/open_dealyard_account_pages.py --env-file .env
+python3 scripts/open_dealwatcherer_account_pages.py --env-file .env
 ```
 
 If you want a lightweight login-state snapshot after attach:
 
 ```bash
-PYTHONPATH=src .venv/bin/python scripts/report_dealyard_login_state.py --env-file .env --json
+PYTHONPATH=src .venv/bin/python scripts/report_dealwatcherer_login_state.py --env-file .env --json
 ```
 
 Optional human-facing identity overrides:
 
-- `DEALYARD_BROWSER_IDENTITY_LABEL`
-- `DEALYARD_BROWSER_IDENTITY_ACCENT`
+- `DEALWATCHER_BROWSER_IDENTITY_LABEL`
+- `DEALWATCHER_BROWSER_IDENTITY_ACCENT`
 
 Treat the identity tab as the human-facing anchor for this repo's browser lane:
 
@@ -267,5 +267,5 @@ Treat the identity tab as the human-facing anchor for this repo's browser lane:
 
 - Include fresh verification evidence.
 - Update `README.md`, `SECURITY.md`, and `SUPPORT.md` when public behavior changes.
-- Prefer product-facing improvements that help a first-time visitor understand why Dealyard exists and how to try it.
+- Prefer product-facing improvements that help a first-time visitor understand why Dealwatcher exists and how to try it.
 - Confirm every commit in the pull request includes `Signed-off-by:`.

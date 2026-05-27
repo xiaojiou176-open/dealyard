@@ -1,6 +1,6 @@
 import pytest
 
-from dealyard.stores.ranch99.discovery import Ranch99Discovery
+from dealwatcherer.stores.ranch99.discovery import Ranch99Discovery
 
 
 class _FakeResponse:
@@ -45,7 +45,7 @@ async def test_ranch99_discovery_aggregates_sitemaps(monkeypatch) -> None:
         """,
     ]
     monkeypatch.setattr(
-        "dealyard.stores.ranch99.discovery.httpx.AsyncClient",
+        "dealwatcherer.stores.ranch99.discovery.httpx.AsyncClient",
         lambda **kwargs: _FakeClient(responses),
     )
 

@@ -11,14 +11,14 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Final, Iterator
 
-from dealyard.infra.config import (
+from dealwatcherer.infra.config import (
     DEFAULT_DEDICATED_CHROME_USER_DATA_DIR,
     DEFAULT_EXTERNAL_CACHE_DIR,
     DEFAULT_LOGS_DIR,
     DEFAULT_OPERATOR_DIR,
     DEFAULT_RUNS_DIR,
 )
-from dealyard.legacy.db_repo import DatabaseRepository
+from dealwatcherer.legacy.db_repo import DatabaseRepository
 
 try:
     import fcntl
@@ -70,7 +70,7 @@ class MaintenanceSummary:
     def render_text(self) -> str:
         mode = "dry-run" if self.dry_run else "apply"
         lines = [
-            "Dealyard maintenance",
+            "Dealwatcher maintenance",
             f"mode={mode}",
             f"matched={self.matched_count}",
             f"estimated_reclaim_bytes={self.estimated_bytes}",

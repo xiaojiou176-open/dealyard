@@ -4,13 +4,13 @@ from datetime import datetime, timedelta, timezone
 import aiosqlite
 import pytest
 
-from dealyard.core.models import Offer, PriceContext, RunStats
-from dealyard.legacy.db_repo import DatabaseRepository
+from dealwatcherer.core.models import Offer, PriceContext, RunStats
+from dealwatcherer.legacy.db_repo import DatabaseRepository
 
 
 @pytest.mark.asyncio
 async def test_db_repo_ensure_columns(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
 
     async with aiosqlite.connect(str(db_path)) as conn:
@@ -74,14 +74,14 @@ async def test_db_repo_execute_with_retry_handles_lock() -> None:
 
 
 def test_db_repo_resolve_db_path(tmp_path) -> None:
-    repo = DatabaseRepository(tmp_path / "dealyard.db")
+    repo = DatabaseRepository(tmp_path / "dealwatcherer.db")
     resolved = repo._resolve_db_path(None)
     assert resolved.is_absolute() is True
 
 
 @pytest.mark.asyncio
 async def test_db_repo_get_last_price_no_fallback(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -105,7 +105,7 @@ async def test_db_repo_get_last_price_no_fallback(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_basic_ops(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -162,7 +162,7 @@ async def test_db_repo_basic_ops(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_last_price_respects_max_age(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -202,7 +202,7 @@ async def test_db_repo_last_price_respects_max_age(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_insert_price_point_validation(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -228,7 +228,7 @@ async def test_db_repo_insert_price_point_validation(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_can_use_legacy_fallback(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -251,7 +251,7 @@ async def test_db_repo_can_use_legacy_fallback(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_error_paths(monkeypatch, tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -294,7 +294,7 @@ async def test_db_repo_error_paths(monkeypatch, tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_backup_db(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -316,7 +316,7 @@ async def test_db_repo_backup_db_missing(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_audit_schema_missing_tables(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
 
     conn = sqlite3.connect(str(db_path))
     try:
@@ -344,7 +344,7 @@ async def test_db_repo_audit_schema_missing_tables(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_audit_schema_missing_columns(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     conn = sqlite3.connect(str(db_path))
     try:
         conn.execute(
@@ -405,7 +405,7 @@ async def test_db_repo_audit_schema_missing_columns(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_audit_schema_error(monkeypatch, tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
 
     class _BadConn:
@@ -422,7 +422,7 @@ async def test_db_repo_audit_schema_error(monkeypatch, tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_cleanup_price_history_keeps_recent(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -467,7 +467,7 @@ async def test_db_repo_cleanup_price_history_keeps_recent(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_cleanup_price_history_keeps_global_low(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -519,7 +519,7 @@ async def test_db_repo_cleanup_price_history_keeps_global_low(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_vacuum_error(monkeypatch, tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -538,7 +538,7 @@ async def test_db_repo_vacuum_error(monkeypatch, tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_schema_version_insert(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -548,7 +548,7 @@ async def test_db_repo_schema_version_insert(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_price_series_error(monkeypatch, tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 

@@ -7,22 +7,22 @@ from pathlib import Path
 
 import pytest
 
-from dealyard.application.services import ProductService
-from dealyard.builder_contract import (
+from dealwatcherer.application.services import ProductService
+from dealwatcherer.builder_contract import (
     build_builder_client_configs_payload,
     build_public_builder_client_catalog_payload,
     build_public_builder_client_configs_payload,
     build_public_builder_client_starters_payload,
     build_public_builder_starter_pack_payload,
 )
-from dealyard.core.models import Offer, PriceContext
-from dealyard.infra.config import Settings
-from dealyard.mcp import server as mcp_server_module
-from dealyard.persistence.session import get_session_factory, init_product_database
-from dealyard.persistence.store_bindings import sync_store_adapter_bindings
-from dealyard.providers.cashback.base import CashbackQuoteResult
-from dealyard.providers.email.base import EmailDispatchResult
-from dealyard.stores.manifest import STORE_CAPABILITY_REGISTRY
+from dealwatcherer.core.models import Offer, PriceContext
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.mcp import server as mcp_server_module
+from dealwatcherer.persistence.session import get_session_factory, init_product_database
+from dealwatcherer.persistence.store_bindings import sync_store_adapter_bindings
+from dealwatcherer.providers.cashback.base import CashbackQuoteResult
+from dealwatcherer.providers.email.base import EmailDispatchResult
+from dealwatcherer.stores.manifest import STORE_CAPABILITY_REGISTRY
 
 
 class _FakeCashbackProvider:
@@ -324,7 +324,7 @@ async def test_mcp_runtime_reads_compare_and_store_cockpit(monkeypatch, tmp_path
     monkeypatch.setattr(mcp_server_module, "prepare_product_runtime", _noop_prepare)
     monkeypatch.setattr(mcp_server_module, "get_product_service", lambda: service)
 
-    runtime = mcp_server_module.DealyardMcpRuntime()
+    runtime = mcp_server_module.DealwatcherMcpRuntime()
     compare_payload = await runtime.compare_preview(
         submitted_urls=[
             "https://www.sayweee.com/zh/product/Asian-Honey-Pears-3ct/5869",
@@ -366,12 +366,12 @@ async def test_mcp_runtime_reads_compare_and_store_cockpit(monkeypatch, tmp_path
     assert bundle_payload["read_surfaces"]["mcp_tool"] == "list_builder_client_configs"
     assert builder_payload["client_wrapper_surfaces"]["openhands"] == "config_toml_mcp_stdio_servers"
     assert builder_payload["launch_contract"]["mcp_streamable_http"].endswith(
-        "dealyard.mcp serve --transport streamable-http"
+        "dealwatcherer.mcp serve --transport streamable-http"
     )
     assert builder_payload["launch_contract"]["mcp_streamable_http_endpoint"] == "http://127.0.0.1:8000/mcp"
     assert "get_builder_starter_pack" in builder_payload["safe_first_loops"]["mcp"]
     assert builder_payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
-    assert builder_payload["skill_pack"]["path"] == "docs/integrations/skills/dealyard-readonly-builder-skill.md"
+    assert builder_payload["skill_pack"]["path"] == "docs/integrations/skills/dealwatcherer-readonly-builder-skill.md"
     assert cockpit_payload["summary"]["supported_store_count"] == len(STORE_CAPABILITY_REGISTRY)
     assert cockpit_payload["summary"]["enabled_store_count"] == 2
     assert cockpit_payload["consistency"]["registry_matches_capability_registry"] is True

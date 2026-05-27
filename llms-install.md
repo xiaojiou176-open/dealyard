@@ -1,10 +1,10 @@
-# Dealyard MCP Install For Cline
+# Dealwatcher MCP Install For Cline
 
 This file is the shortest reviewer-facing install path for Cline.
 
 In plain English:
 
-- Dealyard is a **local-first, read-only-first** MCP server
+- Dealwatcher is a **local-first, read-only-first** MCP server
 - the current honest Cline path is **local stdio**
 - this repo is **not** a hosted remote control plane and **not** a write-side automation server
 
@@ -22,7 +22,7 @@ From the repo root:
 cp .env.example .env
 docker compose up -d postgres
 uv sync --frozen
-PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json
 ```
 
 Why these two commands matter:
@@ -48,9 +48,9 @@ Add this entry inside `mcpServers`:
 ```json
 {
   "mcpServers": {
-    "dealyard": {
+    "dealwatcherer": {
       "command": "uv",
-      "args": ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
+      "args": ["run", "python", "-m", "dealwatcherer.mcp", "serve", "--transport", "stdio"],
       "env": {
         "PYTHONPATH": "src",
         "OWNER_BOOTSTRAP_TOKEN": "set-a-local-random-string"
@@ -63,13 +63,13 @@ Add this entry inside `mcpServers`:
 
 Important detail:
 
-- open the cloned Dealyard repo as the working folder before you use the server
+- open the cloned Dealwatcher repo as the working folder before you use the server
 - the `PYTHONPATH=src` setting is required because the module is launched from this repo checkout
 - `OWNER_BOOTSTRAP_TOKEN` must be a **non-empty local secret string** so the runtime preflight can start; it is a local bootstrap guard, not a public hosted credential
 
 ## 3. What success looks like
 
-After Cline reloads MCP settings, Dealyard should appear as a local MCP server.
+After Cline reloads MCP settings, Dealwatcher should appear as a local MCP server.
 
 The first honest tool flow is:
 
@@ -88,7 +88,7 @@ The first honest tool flow is:
 ## Troubleshooting
 
 - If port `15432` is already occupied on your machine, start the local PostgreSQL service on another free port and point `DATABASE_URL` at that port before launching the MCP server.
-- If the server exits immediately, re-run `PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json` first; that is the fastest way to confirm the local runtime and MCP surface are both reachable.
+- If the server exits immediately, re-run `PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json` first; that is the fastest way to confirm the local runtime and MCP surface are both reachable.
 
 ## Read next
 

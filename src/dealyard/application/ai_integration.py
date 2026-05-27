@@ -8,7 +8,7 @@ from typing import Any, Protocol
 import httpx
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
-from dealyard.infra.config import Settings
+from dealwatcherer.infra.config import Settings
 
 
 @dataclass(slots=True, frozen=True)
@@ -141,7 +141,7 @@ class SwitchyardServiceNarrativeProvider:
                 ensure_ascii=False,
             ),
             "system": (
-                "You are Dealyard's AI explanation layer.\n"
+                "You are Dealwatcher's AI explanation layer.\n"
                 "Hard rules:\n"
                 "1) Never change deterministic product truth.\n"
                 "2) Never invent prices, winners, health states, or missing evidence.\n"
@@ -258,7 +258,7 @@ class OpenAiCompatibleNarrativeProvider:
                 {
                     "role": "system",
                     "content": (
-                        "You are Dealyard's AI explanation layer.\n"
+                        "You are Dealwatcher's AI explanation layer.\n"
                         "Hard rules:\n"
                         "1) Never change deterministic product truth.\n"
                         "2) Never invent prices, winners, health states, or missing evidence.\n"
@@ -285,7 +285,7 @@ class OpenAiCompatibleNarrativeProvider:
             "response_format": {
                 "type": "json_schema",
                 "json_schema": {
-                    "name": "dealyard_ai_narrative",
+                    "name": "dealwatcherer_ai_narrative",
                     "strict": True,
                     "schema": _AiNarrativeModel.model_json_schema(),
                 },
@@ -491,7 +491,7 @@ class AiNarrativeService:
         if provider_name in {"", "disabled", "none"}:
             return None
         if provider_name == "fake":
-            model_name = str(self.settings.AI_MODEL or "").strip() or "dealyard-fake-explainer-v1"
+            model_name = str(self.settings.AI_MODEL or "").strip() or "dealwatcherer-fake-explainer-v1"
             return FakeAiNarrativeProvider(model_name=model_name)
         if provider_name == "switchyard_service":
             model_name = str(self.settings.AI_MODEL or "").strip() or None

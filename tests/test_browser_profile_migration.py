@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-import scripts.migrate_dealyard_chrome_profile as migration_script
+import scripts.migrate_dealwatcherer_chrome_profile as migration_script
 
 
 def _write_source_profile(root: Path, *, profile_directory: str = "Profile 21") -> migration_script.ChromeProfileSource:
@@ -16,7 +16,7 @@ def _write_source_profile(root: Path, *, profile_directory: str = "Profile 21") 
             {
                 "profile": {
                     "info_cache": {
-                        profile_directory: {"name": "dealyard"},
+                        profile_directory: {"name": "dealwatcherer"},
                     }
                 }
             }
@@ -29,7 +29,7 @@ def _write_source_profile(root: Path, *, profile_directory: str = "Profile 21") 
     return migration_script.ChromeProfileSource(
         source_root=root,
         local_state_path=local_state,
-        profile_name="dealyard",
+        profile_name="dealwatcherer",
         profile_directory=profile_directory,
         profile_path=profile_path,
     )
@@ -40,7 +40,7 @@ def test_detect_active_default_chrome_processes_filters_non_default_user_data_di
         stdout = "\n".join(
             [
                 "1234 Google /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --remote-debugging-port=9222",
-                "5678 Google /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --user-data-dir=/tmp/not-dealyard-root",
+                "5678 Google /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --user-data-dir=/tmp/not-dealwatcherer-root",
                 "9012 Python /tmp/fake-uv run something --chrome-path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
             ]
         )
@@ -78,7 +78,7 @@ def test_apply_migration_copies_profile_and_writes_env(tmp_path: Path) -> None:
     assert (target_root / "Profile 21" / "Preferences").is_file() is True
     payload = env_file.read_text(encoding="utf-8")
     assert 'CHROME_USER_DATA_DIR="' in payload
-    assert "CHROME_PROFILE_NAME=dealyard" in payload
+    assert "CHROME_PROFILE_NAME=dealwatcherer" in payload
     assert "CHROME_PROFILE_DIRECTORY=Profile 21" in payload
     assert "CHROME_ATTACH_MODE=browser" in payload
     assert "CHROME_CDP_URL=http://127.0.0.1:9333" in payload
@@ -110,7 +110,7 @@ def test_update_env_file_overwrites_existing_contract_keys(tmp_path: Path) -> No
 
     payload = env_file.read_text(encoding="utf-8")
     assert 'CHROME_USER_DATA_DIR="' in payload
-    assert "CHROME_PROFILE_NAME=dealyard" in payload
+    assert "CHROME_PROFILE_NAME=dealwatcherer" in payload
     assert "CHROME_PROFILE_DIRECTORY=Profile 21" in payload
     assert "CHROME_ATTACH_MODE=browser" in payload
     assert "CHROME_CDP_URL=http://127.0.0.1:9333" in payload

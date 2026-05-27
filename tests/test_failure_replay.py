@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from dealyard.jobs.failure_replay import FailureReplayJob
+from dealwatcherer.jobs.failure_replay import FailureReplayJob
 
 
 @pytest.mark.asyncio
@@ -278,7 +278,7 @@ async def test_failure_replay_run_with_playwright_dummy(monkeypatch, tmp_path) -
         async def fetch_page(self, url: str, return_page: bool = False):
             return "<html></html>"
 
-    monkeypatch.setattr("dealyard.jobs.failure_replay.PlaywrightClient", _DummyClient)
+    monkeypatch.setattr("dealwatcherer.jobs.failure_replay.PlaywrightClient", _DummyClient)
 
     job = FailureReplayJob(runs_dir=tmp_path / "runs", build_report=False)
     output_dir = await job.run("2026-02-03")
@@ -374,6 +374,6 @@ def test_failure_replay_cli_main(monkeypatch, tmp_path) -> None:
         ],
     )
 
-    from dealyard.jobs import failure_replay
+    from dealwatcherer.jobs import failure_replay
 
     failure_replay.main()

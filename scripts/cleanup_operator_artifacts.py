@@ -115,7 +115,7 @@ def render_report(decisions: list[ArtifactDecision], *, dry_run: bool) -> str:
     delete_targets = [item for item in decisions if item.action == "delete"]
     total_bytes = sum(item.size_bytes for item in delete_targets)
     lines = [
-        "Dealyard operator artifacts cleanup",
+        "Dealwatcher operator artifacts cleanup",
         f"mode={'dry-run' if dry_run else 'apply'}",
         f"keep_count={keep_count}",
         f"delete_count={len(delete_targets)}",

@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from dealyard.core.artifacts import ArtifactManager
-from dealyard.core.models import DealEvent, Offer, PriceContext
+from dealwatcherer.core.artifacts import ArtifactManager
+from dealwatcherer.core.models import DealEvent, Offer, PriceContext
 
 
 def _deal(drop_pct: float, title: str = "Item") -> DealEvent:

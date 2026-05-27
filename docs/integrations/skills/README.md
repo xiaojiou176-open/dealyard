@@ -1,18 +1,18 @@
-# Dealyard Builder Skill Pack
+# Dealwatcher Builder Skill Pack
 
-This directory is for copyable skill cards that help coding agents stay inside the current Dealyard builder contract.
+This directory is for copyable skill cards that help coding agents stay inside the current Dealwatcher builder contract.
 
 In plain English:
 
 - prompt starters tell an agent what to do first in one session
 - skill cards tell an agent what rules to keep following across the session
-- neither one alone proves every host registry is live, and neither one upgrades Dealyard into a hosted integration or SDK promise
+- neither one alone proves every host registry is live, and neither one upgrades Dealwatcher into a hosted integration or SDK promise
 
 Current skill cards:
 
 - `claude-code-readonly-builder-skill.md`
 - `codex-readonly-builder-skill.md`
-- `dealyard-readonly-builder-skill.md`
+- `dealwatcherer-readonly-builder-skill.md`
 - `openhands-readonly-builder-skill.md`
 - `opencode-readonly-builder-skill.md`
 - `openclaw-readonly-builder-skill.md`

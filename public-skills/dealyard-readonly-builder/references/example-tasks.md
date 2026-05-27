@@ -2,9 +2,9 @@
 
 Use this skill bundle for tasks like:
 
-- “Connect Dealyard to OpenHands and check whether the runtime is ready.”
+- “Connect Dealwatcher to OpenHands and check whether the runtime is ready.”
 - “Compare these grocery product URLs before creating any watch task.”
-- “Show me which Dealyard read-only tool I should call first.”
+- “Show me which Dealwatcher read-only tool I should call first.”
 - “Inspect one watch task or watch group without mutating state.”
 
 Return shapes should stay short and operational:

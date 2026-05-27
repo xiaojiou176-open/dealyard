@@ -2,12 +2,12 @@ import sys
 
 import pytest
 
-from dealyard.core.models import Offer, PriceContext
-from dealyard.infra.config import Settings
-from dealyard.stores.safeway import adapter as safeway_adapter_module
-from dealyard.stores.safeway.adapter import SafewayAdapter
-from dealyard.stores.safeway.discovery import SafewayDiscovery
-from dealyard.stores.safeway.parser import SafewayParser
+from dealwatcherer.core.models import Offer, PriceContext
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.stores.safeway import adapter as safeway_adapter_module
+from dealwatcherer.stores.safeway.adapter import SafewayAdapter
+from dealwatcherer.stores.safeway.discovery import SafewayDiscovery
+from dealwatcherer.stores.safeway.parser import SafewayParser
 
 
 class _FakePage:

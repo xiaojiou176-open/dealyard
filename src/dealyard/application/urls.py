@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from urllib.parse import urlsplit, urlunsplit
 
-from dealyard.stores import STORE_REGISTRY
+from dealwatcherer.stores import STORE_REGISTRY
 @dataclass(slots=True)
 class ResolvedTarget:
     submitted_url: str

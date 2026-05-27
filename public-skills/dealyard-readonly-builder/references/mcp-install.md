@@ -1,11 +1,11 @@
-# Install The Published Dealyard MCP
+# Install The Published Dealwatcher MCP
 
 Use the published PyPI package, not a repo-local `PYTHONPATH=src` shortcut.
 
 ## Published package
 
-- package: `dealyard==1.0.1`
-- executable: `dealyard-mcp`
+- package: `dealwatcherer==1.0.1`
+- executable: `dealwatcherer-mcp`
 - transport: `stdio`
 
 ## OpenHands example
@@ -15,7 +15,7 @@ Add the server to `~/.openhands/config.toml`:
 ```toml
 [mcp]
 stdio_servers = [
-  { name = "dealyard", command = "uvx", args = ["--from", "dealyard==1.0.1", "dealyard-mcp", "serve"] }
+  { name = "dealwatcherer", command = "uvx", args = ["--from", "dealwatcherer==1.0.1", "dealwatcherer-mcp", "serve"] }
 ]
 ```
 
@@ -27,9 +27,9 @@ Add the server to your saved MCP server config:
 {
   "mcp": {
     "servers": {
-      "dealyard": {
+      "dealwatcherer": {
         "command": "uvx",
-        "args": ["--from", "dealyard==1.0.1", "dealyard-mcp", "serve"]
+        "args": ["--from", "dealwatcherer==1.0.1", "dealwatcherer-mcp", "serve"]
       }
     }
   }
@@ -39,7 +39,7 @@ Add the server to your saved MCP server config:
 ## Smoke check
 
 ```bash
-uvx --from dealyard==1.0.1 dealyard-mcp list-tools --json
+uvx --from dealwatcherer==1.0.1 dealwatcherer-mcp list-tools --json
 ```
 
 If that command returns the tool inventory, the published MCP package is wired

@@ -7,8 +7,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Final
 
-from dealyard.infra.config import Settings
-from dealyard.legacy.db_repo import DatabaseRepository
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.legacy.db_repo import DatabaseRepository
 
 
 #########################################################

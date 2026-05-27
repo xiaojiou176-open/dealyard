@@ -25,7 +25,7 @@ DEFAULT_REPORTS_DIR: Final[Path] = DEFAULT_RUNS_DIR / "reports"
 DEFAULT_STORAGE_STATE_DIR: Final[Path] = DEFAULT_CACHE_DIR / "state"
 DEFAULT_LOGS_DIR: Final[Path] = DEFAULT_RUNTIME_DIR / "logs"
 DEFAULT_MAINTENANCE_LOCK_PATH: Final[Path] = DEFAULT_RUNTIME_DIR / "maintenance.lock"
-DEFAULT_EXTERNAL_CACHE_DIR: Final[Path] = Path("~/.cache/dealyard").expanduser()
+DEFAULT_EXTERNAL_CACHE_DIR: Final[Path] = Path("~/.cache/dealwatcherer").expanduser()
 DEFAULT_DEDICATED_CHROME_USER_DATA_DIR: Final[Path] = (
     DEFAULT_EXTERNAL_CACHE_DIR / "browser" / "chrome-user-data"
 )
@@ -33,22 +33,22 @@ DEFAULT_BROWSER_DEBUG_BUNDLE_DIR: Final[Path] = DEFAULT_OPERATOR_DIR / "browser-
 DEFAULT_LEGACY_DIR: Final[Path] = PROJECT_ROOT / ".legacy-runtime"
 DEFAULT_LEGACY_DATA_DIR: Final[Path] = DEFAULT_LEGACY_DIR / "data"
 DEFAULT_LEGACY_BACKUPS_DIR: Final[Path] = DEFAULT_LEGACY_DIR / "backups"
-DEFAULT_DB_PATH: Final[Path] = DEFAULT_LEGACY_DATA_DIR / "dealyard.db"
+DEFAULT_DB_PATH: Final[Path] = DEFAULT_LEGACY_DATA_DIR / "dealwatcherer.db"
 DEFAULT_BACKUPS_DIR: Final[Path] = DEFAULT_LEGACY_BACKUPS_DIR
-DEFAULT_PREVIOUS_DB_PATH: Final[Path] = DEFAULT_PREVIOUS_LEGACY_DATA_DIR / "dealyard.db"
+DEFAULT_PREVIOUS_DB_PATH: Final[Path] = DEFAULT_PREVIOUS_LEGACY_DATA_DIR / "dealwatcherer.db"
 DEFAULT_ENV_FILE: Final[Path] = PROJECT_ROOT / ".env"
 DEFAULT_CONFIG_FILE: Final[Path] = PROJECT_ROOT / "config.yaml"
 
 LOG_FORMAT: Final[str] = "%(asctime)s | %(levelname)s | %(service_name)s | %(correlation_id)s | %(name)s | %(message)s"
 DATE_FORMAT: Final[str] = "%Y-%m-%d %H:%M:%S"
-DEFAULT_SERVICE_NAME: Final[str] = "dealyard"
+DEFAULT_SERVICE_NAME: Final[str] = "dealwatcherer"
 DEFAULT_CORRELATION_ID: Final[str] = "-"
 _SERVICE_NAME_VAR: Final[contextvars.ContextVar[str]] = contextvars.ContextVar(
-    "dealyard_service_name",
+    "dealwatcherer_service_name",
     default=DEFAULT_SERVICE_NAME,
 )
 _CORRELATION_ID_VAR: Final[contextvars.ContextVar[str]] = contextvars.ContextVar(
-    "dealyard_correlation_id",
+    "dealwatcherer_correlation_id",
     default=DEFAULT_CORRELATION_ID,
 )
 
@@ -58,7 +58,7 @@ _CORRELATION_ID_VAR: Final[contextvars.ContextVar[str]] = contextvars.ContextVar
 #########################################################
 class Settings(BaseSettings):
     DB_PATH: Path = Field(default=DEFAULT_DB_PATH)
-    DATABASE_URL: str = "postgresql+psycopg://dealyard:dealyard@localhost:15432/dealyard"
+    DATABASE_URL: str = "postgresql+psycopg://dealwatcherer:dealwatcherer@localhost:15432/dealwatcherer"
     RUNS_DIR: Path = Field(default=DEFAULT_RUNS_DIR)
     REPORTS_DIR: Path = Field(default=DEFAULT_REPORTS_DIR)
     STORAGE_STATE_DIR: Path = Field(default=DEFAULT_STORAGE_STATE_DIR)
@@ -95,7 +95,7 @@ class Settings(BaseSettings):
     POSTMARK_WEBHOOK_TOKEN: SecretStr = SecretStr("")
     POSTMARK_MESSAGE_STREAM: str = "outbound"
     OWNER_EMAIL: str = "owner@example.com"
-    OWNER_DISPLAY_NAME: str = "Dealyard Owner"
+    OWNER_DISPLAY_NAME: str = "Dealwatcher Owner"
     OWNER_BOOTSTRAP_TOKEN: SecretStr = SecretStr("")
     APP_BASE_URL: str = "http://127.0.0.1:8000"
     API_HOST: str = "0.0.0.0"
@@ -106,7 +106,7 @@ class Settings(BaseSettings):
         default=False,
         description="Temporary SQLite/bootstrap bridge. Disabled by default for the product runtime.",
     )
-    POSTMARK_FROM_EMAIL: str = "dealyard@example.com"
+    POSTMARK_FROM_EMAIL: str = "dealwatcherer@example.com"
     LOG_LEVEL: str = "INFO"
     LOG_MAX_BYTES: int = 1_000_000
     LOG_BACKUP_COUNT: int = 5
@@ -264,7 +264,7 @@ def configure_logging(log_level: str) -> None:
     handlers: list[logging.Handler] = [
         logging.StreamHandler(),
         RotatingFileHandler(
-            settings.LOGS_DIR / "dealyard.log",
+            settings.LOGS_DIR / "dealwatcherer.log",
             maxBytes=max(int(settings.LOG_MAX_BYTES), 1),
             backupCount=max(int(settings.LOG_BACKUP_COUNT), 1),
             encoding="utf-8",

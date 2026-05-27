@@ -1,9 +1,9 @@
 import pytest
 
-from dealyard.core.models import PriceContext, SkipReason
-from dealyard.core.validator import DataValidator
-from dealyard.stores.base_adapter import SkipParse
-from dealyard.stores.walmart.parser import WalmartParser
+from dealwatcherer.core.models import PriceContext, SkipReason
+from dealwatcherer.core.validator import DataValidator
+from dealwatcherer.stores.base_adapter import SkipParse
+from dealwatcherer.stores.walmart.parser import WalmartParser
 
 
 class _FakePage:

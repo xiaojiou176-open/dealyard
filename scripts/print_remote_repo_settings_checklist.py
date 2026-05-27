@@ -55,7 +55,7 @@ def main() -> int:
         discussions_status, discussions_payload = fetch_graphql(
             """
             query {
-              repository(owner: "xiaojiou176-open", name: "dealyard") {
+              repository(owner: "xiaojiou176-open", name: "dealwatcherer") {
                 discussions(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}) {
                   nodes {
                     url
@@ -66,7 +66,7 @@ def main() -> int:
             """
         )
 
-    print("Dealyard Remote Repository Settings Checklist")
+    print("Dealwatcher Remote Repository Settings Checklist")
     print("")
     print(f"authenticated={'yes' if bool(TOKEN) else 'no'}")
     print("")

@@ -10,8 +10,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Final
 
-from dealyard.infra.config import DEFAULT_REPORTS_DIR, Settings
-from dealyard.legacy.db_repo import DatabaseRepository
+from dealwatcherer.infra.config import DEFAULT_REPORTS_DIR, Settings
+from dealwatcherer.legacy.db_repo import DatabaseRepository
 
 
 #########################################################
@@ -282,7 +282,7 @@ class RunReportJob:
             "th,td{border:1px solid #ddd;padding:8px;text-align:left;font-size:14px;}"
             "th{background:#f2f2f2;}"
             "</style></head><body>"
-            "<h1>Dealyard Run Report</h1>"
+            "<h1>Dealwatcher Run Report</h1>"
             f"<p>Recent Runs: {recent.get('runs', 0)}</p>"
             f"<p>Recent Parse Rate: {recent.get('parse_rate', 0.0)}</p>"
             f"<p>Recent Error Rate: {recent.get('error_rate', 0.0)}</p>"

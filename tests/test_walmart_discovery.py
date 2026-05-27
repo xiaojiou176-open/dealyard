@@ -1,6 +1,6 @@
 import pytest
 
-from dealyard.stores.walmart.discovery import WalmartDiscovery
+from dealwatcherer.stores.walmart.discovery import WalmartDiscovery
 
 
 @pytest.mark.asyncio

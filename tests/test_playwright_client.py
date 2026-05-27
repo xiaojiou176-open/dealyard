@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from dealyard.infra import playwright_client
-from dealyard.infra.playwright_client import PlaywrightClient
+from dealwatcherer.infra import playwright_client
+from dealwatcherer.infra.playwright_client import PlaywrightClient
 
 
 class _FakePage:

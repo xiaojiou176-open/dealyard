@@ -1,3 +1,3 @@
-from dealyard.stores.walmart.adapter import WalmartAdapter
+from dealwatcherer.stores.walmart.adapter import WalmartAdapter
 
 __all__ = ["WalmartAdapter"]

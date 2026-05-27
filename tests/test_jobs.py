@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 
-from dealyard.jobs.maintenance import MaintenanceJob, MaintenanceSummary
+from dealwatcherer.jobs.maintenance import MaintenanceJob, MaintenanceSummary
 
 
 class _DummyRepo:
@@ -266,8 +266,8 @@ def test_cleanup_backups_by_stamp(tmp_path: Path) -> None:
 
     old_stamp = (datetime.now(timezone.utc) - timedelta(days=40)).strftime("%Y%m%d_%H%M%S")
     new_stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    old_file = backups_dir / f"dealyard_{old_stamp}.db"
-    new_file = backups_dir / f"dealyard_{new_stamp}.db"
+    old_file = backups_dir / f"dealwatcherer_{old_stamp}.db"
+    new_file = backups_dir / f"dealwatcherer_{new_stamp}.db"
     old_file.write_text("old", encoding="utf-8")
     new_file.write_text("new", encoding="utf-8")
 
@@ -310,9 +310,9 @@ def test_cleanup_backups_mtime_fallback(tmp_path: Path) -> None:
 def test_cleanup_logs_keeps_active_file_and_prunes_old_rotated(tmp_path: Path) -> None:
     repo = _DummyRepo()
     logs_dir = tmp_path / "logs"
-    active_log = _make_log(logs_dir, "dealyard.log", age_days=40)
-    rotated_old = _make_log(logs_dir, "dealyard.log.1", age_days=40)
-    rotated_new = _make_log(logs_dir, "dealyard.log.2", age_days=2)
+    active_log = _make_log(logs_dir, "dealwatcherer.log", age_days=40)
+    rotated_old = _make_log(logs_dir, "dealwatcherer.log.1", age_days=40)
+    rotated_new = _make_log(logs_dir, "dealwatcherer.log.2", age_days=2)
 
     job = MaintenanceJob(
         repo=repo,
@@ -337,7 +337,7 @@ async def test_legacy_cleanup_does_not_touch_runtime_namespace(tmp_path: Path) -
     runs_dir.mkdir()
     runtime_old = _make_run_dir(runs_dir, datetime.now(timezone.utc) - timedelta(days=50))
     backups_dir = _make_backups_dir(tmp_path)
-    old_backup = backups_dir / "dealyard_20240101_000000.db"
+    old_backup = backups_dir / "dealwatcherer_20240101_000000.db"
     old_backup.write_text("backup", encoding="utf-8")
     old_time = (datetime.now(timezone.utc) - timedelta(days=40)).timestamp()
     os.utime(old_backup, (old_time, old_time))
@@ -380,7 +380,7 @@ async def test_budget_cleanup_reclaims_operator_and_external_cache(tmp_path: Pat
     operator_dir = runtime_root / "operator"
     external_cache_dir = tmp_path / ".external-cache"
 
-    _make_log(logs_dir, "dealyard.log", age_days=0)
+    _make_log(logs_dir, "dealwatcherer.log", age_days=0)
     (operator_dir / "temp").mkdir(parents=True, exist_ok=True)
     (operator_dir / "temp" / "stale.txt").write_text("x" * 1024, encoding="utf-8")
     (external_cache_dir / "browser-debug").mkdir(parents=True, exist_ok=True)
@@ -414,7 +414,7 @@ async def test_budget_cleanup_reports_protected_when_no_candidates(tmp_path: Pat
     logs_dir = runtime_root / "logs"
     operator_dir = runtime_root / "operator"
 
-    _make_log(logs_dir, "dealyard.log", age_days=0)
+    _make_log(logs_dir, "dealwatcherer.log", age_days=0)
     (operator_dir / "gemini-audit").mkdir(parents=True, exist_ok=True)
     (operator_dir / "gemini-audit" / "proof.json").write_text("x" * 4096, encoding="utf-8")
 

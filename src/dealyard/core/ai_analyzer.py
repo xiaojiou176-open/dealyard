@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Final, List
 
-from dealyard.infra.config import Settings
+from dealwatcherer.infra.config import Settings
 
 
 #########################################################

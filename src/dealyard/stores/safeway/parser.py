@@ -11,8 +11,8 @@ from urllib.parse import urlsplit
 
 from playwright.async_api import Page
 
-from dealyard.core.models import Offer, PriceContext, SkipReason
-from dealyard.stores.base_adapter import SkipParse
+from dealwatcherer.core.models import Offer, PriceContext, SkipReason
+from dealwatcherer.stores.base_adapter import SkipParse
 
 
 _PRODUCT_ID_RE: Final[re.Pattern[str]] = re.compile(
@@ -42,7 +42,7 @@ class SafewayParser:
     last_debug: dict[str, str] = field(init=False, default_factory=dict)
 
     def __post_init__(self) -> None:
-        self.logger = logging.getLogger("dealyard.stores.safeway.parser")
+        self.logger = logging.getLogger("dealwatcherer.stores.safeway.parser")
 
     async def parse(self, page: Page) -> Offer | None:
         self.last_debug = {"url": page.url}

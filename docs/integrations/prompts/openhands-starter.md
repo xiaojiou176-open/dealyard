@@ -1,6 +1,6 @@
-# Dealyard Starter Prompt For OpenHands
+# Dealwatcher Starter Prompt For OpenHands
 
-Use this when OpenHands is consuming Dealyard through local MCP or local HTTP read paths.
+Use this when OpenHands is consuming Dealwatcher through local MCP or local HTTP read paths.
 The current wrapper translation lives in [`../recipes/openhands.md`](../recipes/openhands.md).
 
 ## What OpenHands should optimize for
@@ -26,7 +26,7 @@ The current wrapper translation lives in [`../recipes/openhands.md`](../recipes/
 ## Starter prompt
 
 ```text
-Treat Dealyard as a local-first backend that exposes read-only compare, watch, runtime, notification, and store-onboarding truth.
+Treat Dealwatcher as a local-first backend that exposes read-only compare, watch, runtime, notification, and store-onboarding truth.
 Always check runtime readiness first.
 Inspect the builder starter pack contract before you widen the plan.
 Use compare_preview as the safe first product action.

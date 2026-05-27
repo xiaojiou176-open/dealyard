@@ -9,7 +9,7 @@ export type AppRoute =
   | "watch-group-detail"
   | "settings";
 
-const WATCH_TASK_DRAFT_STORAGE_KEY = "dealyard.watchTaskDraft";
+const WATCH_TASK_DRAFT_STORAGE_KEY = "dealwatcherer.watchTaskDraft";
 
 function isWatchTaskDraft(value: unknown): value is WatchTaskDraft {
   if (!value || typeof value !== "object") {

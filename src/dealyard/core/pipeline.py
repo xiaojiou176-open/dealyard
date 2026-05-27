@@ -6,13 +6,13 @@ import math
 from datetime import datetime, timezone
 from typing import Final, List
 
-from dealyard.core.models import DealEvent, Offer, RunStats
-from dealyard.core.rules import RulesEngine
-from dealyard.core.validator import DataValidator
-from dealyard.infra.config import Settings
-from dealyard.infra.playwright_client import PlaywrightClient
-from dealyard.legacy.db_repo import DatabaseRepository
-from dealyard.stores.base_adapter import BaseStoreAdapter, SkipParse
+from dealwatcherer.core.models import DealEvent, Offer, RunStats
+from dealwatcherer.core.rules import RulesEngine
+from dealwatcherer.core.validator import DataValidator
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.infra.playwright_client import PlaywrightClient
+from dealwatcherer.legacy.db_repo import DatabaseRepository
+from dealwatcherer.stores.base_adapter import BaseStoreAdapter, SkipParse
 
 
 #########################################################

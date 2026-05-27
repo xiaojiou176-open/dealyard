@@ -1,10 +1,10 @@
-# Dealyard Builder Skill For Codex
+# Dealwatcher Builder Skill For Codex
 
-Use this skill when Codex is connected to Dealyard through the local MCP server or local HTTP runtime.
+Use this skill when Codex is connected to Dealwatcher through the local MCP server or local HTTP runtime.
 
 ## Goal
 
-Treat Dealyard as a local-first, compare-first, read-only decision backend.
+Treat Dealwatcher as a local-first, compare-first, read-only decision backend.
 
 ## Do first
 
@@ -16,8 +16,8 @@ Treat Dealyard as a local-first, compare-first, read-only decision backend.
 
 ## Hard boundaries
 
-- Do not present Dealyard as a hosted SaaS.
-- Do not present Dealyard as an official Codex plugin.
-- Do not claim Dealyard runs on Codex.
+- Do not present Dealwatcher as a hosted SaaS.
+- Do not present Dealwatcher as an official Codex plugin.
+- Do not claim Dealwatcher runs on Codex.
 - Do not invent write-side MCP.
 - Do not bypass compare preview and jump straight to durable state assumptions.

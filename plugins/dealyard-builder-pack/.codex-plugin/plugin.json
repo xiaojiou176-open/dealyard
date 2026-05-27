@@ -1,7 +1,7 @@
 {
-  "name": "dealyard-builder-pack",
-  "displayName": "Dealyard Builder Pack",
-  "description": "Read-only builder frontdoor for Dealyard with local MCP wiring and compare-first guidance.",
+  "name": "dealwatcherer-builder-pack",
+  "displayName": "Dealwatcher Builder Pack",
+  "description": "Read-only builder frontdoor for Dealwatcher with local MCP wiring and compare-first guidance.",
   "version": "0.1.0",
   "skills": "./skills/",
   "mcpServers": "./.mcp.json"

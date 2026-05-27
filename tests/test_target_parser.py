@@ -1,9 +1,9 @@
 import pytest
 
-from dealyard.core.models import PriceContext, SkipReason
-from dealyard.core.validator import DataValidator
-from dealyard.stores.base_adapter import SkipParse
-from dealyard.stores.target.parser import TargetParser
+from dealwatcherer.core.models import PriceContext, SkipReason
+from dealwatcherer.core.validator import DataValidator
+from dealwatcherer.stores.base_adapter import SkipParse
+from dealwatcherer.stores.target.parser import TargetParser
 
 
 class _FakeLocator:

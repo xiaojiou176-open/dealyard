@@ -43,16 +43,16 @@ fi
 
 if [[ -z "${DATABASE_URL:-}" ]]; then
   export POSTGRES_PORT="${POSTGRES_PORT:-55432}"
-  export POSTGRES_USER="${POSTGRES_USER:-dealyard}"
-  export POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-dealyard}"
-  export POSTGRES_DB="${POSTGRES_DB:-dealyard}"
+  export POSTGRES_USER="${POSTGRES_USER:-dealwatcherer}"
+  export POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-dealwatcherer}"
+  export POSTGRES_DB="${POSTGRES_DB:-dealwatcherer}"
   export DATABASE_URL="postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@127.0.0.1:${POSTGRES_PORT}/${POSTGRES_DB}"
 fi
 
 export OWNER_EMAIL="${OWNER_EMAIL:-owner@example.com}"
-export OWNER_DISPLAY_NAME="${OWNER_DISPLAY_NAME:-Dealyard Owner}"
+export OWNER_DISPLAY_NAME="${OWNER_DISPLAY_NAME:-Dealwatcher Owner}"
 export OWNER_BOOTSTRAP_TOKEN="${OWNER_BOOTSTRAP_TOKEN:-smoke-token}"
-export POSTMARK_FROM_EMAIL="${POSTMARK_FROM_EMAIL:-dealyard@example.com}"
+export POSTMARK_FROM_EMAIL="${POSTMARK_FROM_EMAIL:-dealwatcherer@example.com}"
 export POSTMARK_MESSAGE_STREAM="${POSTMARK_MESSAGE_STREAM:-outbound}"
 export ZIP_CODE="${ZIP_CODE:-98004}"
 export WEBUI_DEV_URL="${WEBUI_DEV_URL:-http://127.0.0.1:5173}"
@@ -64,7 +64,7 @@ mkdir -p "${SMOKE_LOG_DIR}"
 rm -f "${API_SMOKE_LOG}" "${WORKER_SMOKE_LOG}"
 
 echo "==> Bootstrapping owner CLI"
-PYTHONPATH=src "$PYTHON_BIN" -m dealyard bootstrap-owner \
+PYTHONPATH=src "$PYTHON_BIN" -m dealwatcherer bootstrap-owner \
   --email "$OWNER_EMAIL" \
   --display-name "$OWNER_DISPLAY_NAME" \
   --token "$OWNER_BOOTSTRAP_TOKEN"
@@ -73,7 +73,7 @@ echo "==> Running product data smoke"
 PYTHONPATH=src "$PYTHON_BIN" scripts/product_smoke.py
 
 echo "==> Booting API"
-PYTHONPATH=src "$PYTHON_BIN" -m dealyard server > "${API_SMOKE_LOG}" 2>&1 &
+PYTHONPATH=src "$PYTHON_BIN" -m dealwatcherer server > "${API_SMOKE_LOG}" 2>&1 &
 API_PID="$!"
 
 "$PYTHON_BIN" - <<'PY'
@@ -102,7 +102,7 @@ sys.exit(1)
 PY
 
 echo "==> Booting worker"
-PYTHONPATH=src "$PYTHON_BIN" -m dealyard worker > "${WORKER_SMOKE_LOG}" 2>&1 &
+PYTHONPATH=src "$PYTHON_BIN" -m dealwatcherer worker > "${WORKER_SMOKE_LOG}" 2>&1 &
 WORKER_PID="$!"
 sleep 5
 

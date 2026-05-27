@@ -5,9 +5,9 @@ from pathlib import Path
 from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-PUBLIC_SITE_ROOT = "https://xiaojiou176-open.github.io/dealyard"
-PUBLIC_GITHUB_BLOB_ROOT = "https://github.com/xiaojiou176-open/dealyard/blob/main"
-PUBLIC_GITHUB_TREE_ROOT = "https://github.com/xiaojiou176-open/dealyard/tree/main"
+PUBLIC_SITE_ROOT = "https://xiaojiou176-open.github.io/dealwatcherer"
+PUBLIC_GITHUB_BLOB_ROOT = "https://github.com/xiaojiou176-open/dealwatcherer/blob/main"
+PUBLIC_GITHUB_TREE_ROOT = "https://github.com/xiaojiou176-open/dealwatcherer/tree/main"
 
 _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
     {
@@ -22,7 +22,7 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         "wrapper_source_url": "https://docs.anthropic.com/en/docs/claude-code/mcp",
         "wrapper_example_path": "docs/integrations/examples/claude-code.mcp.json",
         "recommended_transport": "stdio",
-        "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
+        "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
         "safe_first_flow": [
             "get_runtime_readiness",
             "get_builder_starter_pack",
@@ -37,10 +37,10 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         "distribution_candidate": "marketplace_submission_candidate",
         "listing_status": "not_officially_listed",
         "repo_distribution_artifacts": [
-            "plugins/dealyard-builder-pack/.claude-plugin/plugin.json",
+            "plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json",
             ".claude-plugin/marketplace.json",
-            "plugins/dealyard-builder-pack/.mcp.json",
-            "plugins/dealyard-builder-pack/skills/dealyard-readonly-builder/SKILL.md",
+            "plugins/dealwatcherer-builder-pack/.mcp.json",
+            "plugins/dealwatcherer-builder-pack/skills/dealwatcherer-readonly-builder/SKILL.md",
         ],
         "plugin_status": (
             "Repo-owned Claude Code plugin bundle plus builder pack. "
@@ -48,7 +48,7 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         ),
         "boundary_reminders": [
             "Do not assume write-side MCP exists.",
-            "Do not present Dealyard as a hosted SaaS.",
+            "Do not present Dealwatcher as a hosted SaaS.",
             "Do not claim recommendation is available through builder or MCP surfaces.",
         ],
     },
@@ -64,7 +64,7 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         "wrapper_source_url": "https://developers.openai.com/codex/mcp/",
         "wrapper_example_path": "docs/integrations/examples/codex-mcp-config.toml",
         "recommended_transport": "streamable_http",
-        "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http",
+        "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport streamable-http",
         "safe_first_flow": [
             "get_runtime_readiness",
             "get_builder_starter_pack",
@@ -79,10 +79,10 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         "distribution_candidate": "plugin_directory_candidate",
         "listing_status": "not_officially_listed",
         "repo_distribution_artifacts": [
-            "plugins/dealyard-builder-pack/.codex-plugin/plugin.json",
+            "plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json",
             "marketplace.json",
-            "plugins/dealyard-builder-pack/.mcp.json",
-            "plugins/dealyard-builder-pack/skills/dealyard-readonly-builder/SKILL.md",
+            "plugins/dealwatcherer-builder-pack/.mcp.json",
+            "plugins/dealwatcherer-builder-pack/skills/dealwatcherer-readonly-builder/SKILL.md",
         ],
         "plugin_status": (
             "Repo-owned Codex plugin bundle plus repo marketplace entry. "
@@ -106,7 +106,7 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         "wrapper_source_url": "https://docs.openhands.dev/openhands/usage/cli/mcp-servers",
         "wrapper_example_path": "docs/integrations/examples/openhands-config.toml",
         "recommended_transport": "stdio",
-        "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
+        "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
         "safe_first_flow": [
             "get_runtime_readiness",
             "get_builder_starter_pack",
@@ -148,7 +148,7 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         "wrapper_source_url": "https://opencode.ai/docs/mcp-servers/",
         "wrapper_example_path": "docs/integrations/examples/opencode.jsonc",
         "recommended_transport": "stdio",
-        "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
+        "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
         "safe_first_flow": [
             "get_runtime_readiness",
             "get_builder_starter_pack",
@@ -189,7 +189,7 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         "wrapper_source_url": "https://docs.openclaw.ai/cli/mcp",
         "wrapper_example_path": "docs/integrations/examples/openclaw-mcp-servers.json",
         "recommended_transport": "stdio",
-        "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
+        "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
         "safe_first_flow": [
             "get_runtime_readiness",
             "get_builder_starter_pack",
@@ -207,16 +207,16 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
             "docs/integrations/prompts/openclaw-starter.md",
             "docs/integrations/skills/openclaw-readonly-builder-skill.md",
             "docs/integrations/recipes/openclaw.md",
-            "plugins/dealyard-builder-pack/.claude-plugin/plugin.json",
-            "plugins/dealyard-builder-pack/.codex-plugin/plugin.json",
+            "plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json",
+            "plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json",
         ],
         "plugin_status": (
             "Repo-owned OpenClaw skill packet exists, but current public ClawHub search/API does not provide "
-            "fresh listing proof for dealyard-readonly-builder. Treat ClawHub as the intended host surface, "
+            "fresh listing proof for dealwatcherer-readonly-builder. Treat ClawHub as the intended host surface, "
             "not as confirmed live listing proof."
         ),
         "boundary_reminders": [
-            "Do not treat Dealyard as an OpenClaw runtime base.",
+            "Do not treat Dealwatcher as an OpenClaw runtime base.",
             "Do not assume write-side MCP or operator automation is ready.",
             "Do not treat local-first proof surfaces as hosted control plane guarantees.",
         ],
@@ -273,7 +273,7 @@ def build_builder_client_config_payload(client: str) -> dict[str, Any]:
         "listing_status": starter["listing_status"],
         "repo_distribution_artifacts": list(starter["repo_distribution_artifacts"]),
         "read_surfaces": {
-            "cli": f"PYTHONPATH=src uv run python -m dealyard builder-client-config {starter['client']} --json",
+            "cli": f"PYTHONPATH=src uv run python -m dealwatcherer builder-client-config {starter['client']} --json",
             "http": f"GET /api/runtime/builder-client-config/{starter['client']}",
             "mcp_tool": "get_builder_client_config",
         },
@@ -303,7 +303,7 @@ def build_builder_client_configs_payload() -> dict[str, Any]:
         "clients": clients,
         "client_ids": [item["client"] for item in _CLIENT_STARTER_SPECS],
         "read_surfaces": {
-            "cli": "PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json",
+            "cli": "PYTHONPATH=src uv run python -m dealwatcherer builder-client-config --all --json",
             "http": "GET /api/runtime/builder-client-configs",
             "mcp_tool": "list_builder_client_configs",
         },
@@ -379,7 +379,7 @@ def build_public_builder_client_catalog_payload() -> dict[str, Any]:
                     "recipe_url": _github_blob_url(starter["recipe_path"]),
                 },
                 "read_surfaces": {
-                    "cli": f"PYTHONPATH=src uv run python -m dealyard builder-client-config {client} --json",
+                    "cli": f"PYTHONPATH=src uv run python -m dealwatcherer builder-client-config {client} --json",
                     "http": f"GET /api/runtime/builder-client-config/{client}",
                     "mcp_tool": "get_builder_client_config",
                 },
@@ -500,14 +500,14 @@ def build_public_builder_starter_pack_payload() -> dict[str, Any]:
             "page_url": f"{PUBLIC_SITE_ROOT}/builders.html",
             "mirror_url": f"{PUBLIC_SITE_ROOT}/data/builder-starter-pack.json",
             "repo_distribution_artifacts": {
-                "claude_code_bundle": "plugins/dealyard-builder-pack/.claude-plugin/plugin.json",
-                "codex_bundle": "plugins/dealyard-builder-pack/.codex-plugin/plugin.json",
+                "claude_code_bundle": "plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json",
+                "codex_bundle": "plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json",
                 "claude_marketplace": ".claude-plugin/marketplace.json",
                 "codex_marketplace": "marketplace.json",
             },
             "repo_distribution_artifact_urls": {
-                "claude_code_bundle": _github_repo_url("plugins/dealyard-builder-pack/.claude-plugin/plugin.json"),
-                "codex_bundle": _github_repo_url("plugins/dealyard-builder-pack/.codex-plugin/plugin.json"),
+                "claude_code_bundle": _github_repo_url("plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json"),
+                "codex_bundle": _github_repo_url("plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json"),
                 "claude_marketplace": _github_repo_url(".claude-plugin/marketplace.json"),
                 "codex_marketplace": _github_repo_url("marketplace.json"),
             },
@@ -558,21 +558,21 @@ def build_builder_starter_pack_payload() -> dict[str, Any]:
     return {
         "surface_version": "phase1",
         "product_shape": {
-            "name": "Dealyard",
+            "name": "Dealwatcher",
             "positioning": "AI-enhanced, compare-first grocery price intelligence",
             "runtime": "local-first",
             "builder_posture": "read-only-first",
         },
         "launch_contract": {
-            "cli_discovery": "PYTHONPATH=src uv run python -m dealyard --help",
-            "cli_builder_starter_pack": "PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json",
-            "cli_builder_client_config": "PYTHONPATH=src uv run python -m dealyard builder-client-config <client> --json",
-            "cli_builder_client_configs": "PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json",
-            "http_server": "PYTHONPATH=src uv run python -m dealyard server",
-            "mcp_inventory": "PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json",
-            "mcp_client_starters": "PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json",
-            "mcp_stdio": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
-            "mcp_streamable_http": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http",
+            "cli_discovery": "PYTHONPATH=src uv run python -m dealwatcherer --help",
+            "cli_builder_starter_pack": "PYTHONPATH=src uv run python -m dealwatcherer builder-starter-pack --json",
+            "cli_builder_client_config": "PYTHONPATH=src uv run python -m dealwatcherer builder-client-config <client> --json",
+            "cli_builder_client_configs": "PYTHONPATH=src uv run python -m dealwatcherer builder-client-config --all --json",
+            "http_server": "PYTHONPATH=src uv run python -m dealwatcherer server",
+            "mcp_inventory": "PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json",
+            "mcp_client_starters": "PYTHONPATH=src uv run python -m dealwatcherer.mcp client-starters --json",
+            "mcp_stdio": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
+            "mcp_streamable_http": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport streamable-http",
             "mcp_streamable_http_endpoint": "http://127.0.0.1:8000/mcp",
             "http_builder_client_config": "GET /api/runtime/builder-client-config/{client}",
             "http_builder_client_configs": "GET /api/runtime/builder-client-configs",
@@ -640,8 +640,8 @@ def build_builder_starter_pack_payload() -> dict[str, Any]:
             _client_key(item["client"]): item["wrapper_surface"] for item in starters
         },
         "skill_pack": {
-            "path": "docs/integrations/skills/dealyard-readonly-builder-skill.md",
-            "intent": "Copyable builder skill card for coding agents that should stay inside the current read-only Dealyard contract.",
+            "path": "docs/integrations/skills/dealwatcherer-readonly-builder-skill.md",
+            "intent": "Copyable builder skill card for coding agents that should stay inside the current read-only Dealwatcher contract.",
         },
         "docs": {
             "builder_pack": "docs/integrations/README.md",
@@ -649,17 +649,17 @@ def build_builder_starter_pack_payload() -> dict[str, Any]:
             "prompt_starters": "docs/integrations/prompt-starters.md",
             "examples": "docs/integrations/examples/README.md",
             "skills": "docs/integrations/skills/README.md",
-            "substrate_phase1": "docs/roadmaps/dealyard-api-mcp-substrate-phase1.md",
+            "substrate_phase1": "docs/roadmaps/dealwatcherer-api-mcp-substrate-phase1.md",
         },
         "public_builder_page": "site/builders.html",
         "warning": (
-            "Treat Dealyard as a local-first read-only decision backend. "
+            "Treat Dealwatcher as a local-first read-only decision backend. "
             "Do not present it as a hosted SaaS, formal SDK, official listing, "
             "or write-capable remote control plane."
         ),
         "repo_distribution_artifacts": {
-            "claude_code_bundle": "plugins/dealyard-builder-pack/.claude-plugin/plugin.json",
-            "codex_bundle": "plugins/dealyard-builder-pack/.codex-plugin/plugin.json",
+            "claude_code_bundle": "plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json",
+            "codex_bundle": "plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json",
             "claude_marketplace": ".claude-plugin/marketplace.json",
             "codex_marketplace": "marketplace.json",
         },
