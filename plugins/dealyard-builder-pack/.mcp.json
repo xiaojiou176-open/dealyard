@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "dealyard": {
+      "command": "uv",
+      "args": [
+        "run",
+        "python",
+        "-m",
+        "dealyard.mcp",
+        "serve",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "PYTHONPATH": "src"
+      }
+    }
+  }
+}
