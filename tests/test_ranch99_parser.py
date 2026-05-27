@@ -2,9 +2,9 @@ import json
 
 import pytest
 
-from dealyard.core.models import PriceContext, SkipReason
-from dealyard.stores.base_adapter import SkipParse
-from dealyard.stores.ranch99.parser import Ranch99Parser
+from dealwatcherer.core.models import PriceContext, SkipReason
+from dealwatcherer.stores.base_adapter import SkipParse
+from dealwatcherer.stores.ranch99.parser import Ranch99Parser
 
 
 class _FakeLocator:

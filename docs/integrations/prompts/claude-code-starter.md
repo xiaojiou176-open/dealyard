@@ -1,14 +1,14 @@
-# Dealyard Starter Prompt For Claude Code
+# Dealwatcher Starter Prompt For Claude Code
 
 Use this after registering the local stdio MCP server from [`../recipes/claude-code.md`](../recipes/claude-code.md):
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio
 ```
 
 ## Safe first objective
 
-Use Dealyard as a read-only compare-first truth source.
+Use Dealwatcher as a read-only compare-first truth source.
 
 ## Must do
 
@@ -20,13 +20,13 @@ Use Dealyard as a read-only compare-first truth source.
 ## Must not do
 
 - Do not assume write-side MCP exists.
-- Do not present Dealyard as a hosted SaaS.
+- Do not present Dealwatcher as a hosted SaaS.
 - Do not claim recommendation is available through builder or MCP surfaces.
 
 ## Starter prompt
 
 ```text
-Use Dealyard as a local-first, read-only product truth source.
+Use Dealwatcher as a local-first, read-only product truth source.
 First call get_runtime_readiness.
 Then call get_builder_starter_pack so the current repo-owned contract is explicit.
 If the runtime is healthy enough, call compare_preview before making any assumptions about product identity.

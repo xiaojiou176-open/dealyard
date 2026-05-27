@@ -7,7 +7,7 @@ def test_public_skill_manifest_has_single_version_key() -> None:
     manifest = (
         Path(__file__).resolve().parents[1]
         / "public-skills"
-        / "dealyard-readonly-builder"
+        / "dealwatcherer-readonly-builder"
         / "manifest.yaml"
     )
     lines = manifest.read_text(encoding="utf-8").splitlines()

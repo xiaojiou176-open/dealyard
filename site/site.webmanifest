@@ -1,8 +1,8 @@
 {
-  "name": "Dealyard",
-  "short_name": "Dealyard",
+  "name": "Dealwatcher",
+  "short_name": "Dealwatcher",
   "description": "Cross-store grocery price tracking with compare preview, compare-aware watch groups, effective price, health, and alert history.",
-  "start_url": "/dealyard/",
+  "start_url": "/dealwatcherer/",
   "display": "standalone",
   "background_color": "#fcfaf5",
   "theme_color": "#14213d",

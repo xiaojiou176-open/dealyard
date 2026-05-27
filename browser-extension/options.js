@@ -8,17 +8,17 @@ function normalizeBaseUrl(raw) {
 async function init() {
   const input = document.getElementById("base-url");
   const status = document.getElementById("status");
-  const payload = await chrome.storage.sync.get({ dealyardBaseUrl: DEFAULT_BASE_URL });
-  input.value = normalizeBaseUrl(payload.dealyardBaseUrl);
+  const payload = await chrome.storage.sync.get({ dealwatchererBaseUrl: DEFAULT_BASE_URL });
+  input.value = normalizeBaseUrl(payload.dealwatchererBaseUrl);
 
   document.getElementById("save").addEventListener("click", async () => {
-    await chrome.storage.sync.set({ dealyardBaseUrl: normalizeBaseUrl(input.value) });
+    await chrome.storage.sync.set({ dealwatchererBaseUrl: normalizeBaseUrl(input.value) });
     status.textContent = "Saved.";
   });
 
   document.getElementById("reset").addEventListener("click", async () => {
     input.value = DEFAULT_BASE_URL;
-    await chrome.storage.sync.set({ dealyardBaseUrl: DEFAULT_BASE_URL });
+    await chrome.storage.sync.set({ dealwatchererBaseUrl: DEFAULT_BASE_URL });
     status.textContent = "Reset to the default local runtime URL.";
   });
 }

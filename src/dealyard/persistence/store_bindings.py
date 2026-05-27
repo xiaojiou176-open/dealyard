@@ -3,9 +3,9 @@ from __future__ import annotations
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
-from dealyard.infra.config import Settings, settings
-from dealyard.persistence.models import StoreAdapterBinding
-from dealyard.stores import STORE_CAPABILITY_REGISTRY, STORE_REGISTRY, is_runtime_binding_eligible
+from dealwatcherer.infra.config import Settings, settings
+from dealwatcherer.persistence.models import StoreAdapterBinding
+from dealwatcherer.stores import STORE_CAPABILITY_REGISTRY, STORE_REGISTRY, is_runtime_binding_eligible
 
 
 async def sync_store_adapter_bindings(

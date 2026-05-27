@@ -1,25 +1,25 @@
-# Dealyard Builder Integrations
+# Dealwatcher Builder Integrations
 
 ## Purpose
 
-This directory is the repo-native builder starter pack for Dealyard.
+This directory is the repo-native builder starter pack for Dealwatcher.
 
 In plain English:
 
 - the API, MCP, and CLI doors already exist
 - this pack tells developers and agent-builders which door to use first
-- it gives local-first examples without pretending Dealyard is already an SDK or hosted builder platform
+- it gives local-first examples without pretending Dealwatcher is already an SDK or hosted builder platform
 - it includes a client config recipe ledger so wrapper honesty is part of the contract instead of tribal knowledge
 
 Use this directory when the question is:
 
-> "I am wiring Claude Code, Codex, Cline, OpenHands, OpenCode, OpenClaw, or a similar client to Dealyard. Where do I start, what is safe, and what should I not assume yet?"
+> "I am wiring Claude Code, Codex, Cline, OpenHands, OpenCode, OpenClaw, or a similar client to Dealwatcher. Where do I start, what is safe, and what should I not assume yet?"
 
 ## What this pack is
 
 - a local-first onboarding pack
 - a read-only-first builder pack
-- a practical companion to [`../roadmaps/dealyard-api-mcp-substrate-phase1.md`](../roadmaps/dealyard-api-mcp-substrate-phase1.md)
+- a practical companion to [`../roadmaps/dealwatcherer-api-mcp-substrate-phase1.md`](../roadmaps/dealwatcherer-api-mcp-substrate-phase1.md)
 - a place for concrete request and response shapes, starter prompts, config recipes, skill cards, and a repo-owned MCP inventory snapshot
 
 ## What this pack is not
@@ -34,18 +34,18 @@ Use this directory when the question is:
 Use these commands as the stable local-first launch contract:
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard --help
-PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json
-PYTHONPATH=src uv run python -m dealyard builder-client-config codex --json
-PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json
-PYTHONPATH=src uv run python -m dealyard server
-PYTHONPATH=src uv run python -m dealyard worker
-PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
-PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json
-PYTHONPATH=src uv run python -m dealyard.mcp client-config --client codex --json
-PYTHONPATH=src uv run python -m dealyard.mcp client-config --all --json
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http
+PYTHONPATH=src uv run python -m dealwatcherer --help
+PYTHONPATH=src uv run python -m dealwatcherer builder-starter-pack --json
+PYTHONPATH=src uv run python -m dealwatcherer builder-client-config codex --json
+PYTHONPATH=src uv run python -m dealwatcherer builder-client-config --all --json
+PYTHONPATH=src uv run python -m dealwatcherer server
+PYTHONPATH=src uv run python -m dealwatcherer worker
+PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealwatcherer.mcp client-starters --json
+PYTHONPATH=src uv run python -m dealwatcherer.mcp client-config --client codex --json
+PYTHONPATH=src uv run python -m dealwatcherer.mcp client-config --all --json
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport streamable-http
 ```
 
 These commands mean:
@@ -70,13 +70,13 @@ These commands mean:
 
 If you are new, do this in order instead of wandering through the repo:
 
-1. read [`../roadmaps/dealyard-api-mcp-substrate-phase1.md`](../roadmaps/dealyard-api-mcp-substrate-phase1.md)
-2. run `PYTHONPATH=src uv run python -m dealyard --help`
-3. run `PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json`
-4. run `PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json`
-5. run `PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json`
-6. run `PYTHONPATH=src uv run python -m dealyard builder-client-config codex --json`
-7. run `PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json`
+1. read [`../roadmaps/dealwatcherer-api-mcp-substrate-phase1.md`](../roadmaps/dealwatcherer-api-mcp-substrate-phase1.md)
+2. run `PYTHONPATH=src uv run python -m dealwatcherer --help`
+3. run `PYTHONPATH=src uv run python -m dealwatcherer builder-starter-pack --json`
+4. run `PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json`
+5. run `PYTHONPATH=src uv run python -m dealwatcherer.mcp client-starters --json`
+6. run `PYTHONPATH=src uv run python -m dealwatcherer builder-client-config codex --json`
+7. run `PYTHONPATH=src uv run python -m dealwatcherer builder-client-config --all --json`
 8. inspect `GET /api/runtime/builder-starter-pack`
 9. inspect `GET /api/runtime/builder-client-config/codex`
 10. inspect `GET /api/runtime/builder-client-configs`
@@ -155,8 +155,8 @@ The stable part is:
 | Claude Code | register the local stdio MCP command, then read the substrate doc | `get_runtime_readiness` -> `get_builder_starter_pack` -> `compare_preview` -> `list_watch_tasks` or `list_watch_groups` | no write-side MCP, no hosted remote control plane |
 | Codex | point Codex at the local runtime plus the streamable-HTTP MCP contract | `get_runtime_readiness` -> `get_builder_starter_pack` -> `compare_preview` -> one detail read | no SDK, no multi-tenant auth story |
 | OpenHands | keep the client in observation mode first even though the repo-owned skill packet already exists | runtime readiness -> builder starter pack -> compare preview -> recovery or store cockpit reads | `OpenHands/extensions#151` is currently closed and unmerged; do not call it an active accepted host surface |
-| OpenCode | treat Dealyard as a local product truth source, not as a hosted platform service | MCP discovery -> builder starter pack -> compare preview -> watch or group detail | ecosystem-listing candidate only, no first-party store claim |
-| OpenClaw | treat Dealyard as a local compare-first truth backend or workflow shell dependency, not as a runtime base | `get_runtime_readiness` -> `get_builder_starter_pack` -> `compare_preview` -> watch or group reads -> recovery or store cockpit reads | ClawHub is still the intended public host surface, but current public search/API evidence is not strong enough to claim a live listing |
+| OpenCode | treat Dealwatcher as a local product truth source, not as a hosted platform service | MCP discovery -> builder starter pack -> compare preview -> watch or group detail | ecosystem-listing candidate only, no first-party store claim |
+| OpenClaw | treat Dealwatcher as a local compare-first truth backend or workflow shell dependency, not as a runtime base | `get_runtime_readiness` -> `get_builder_starter_pack` -> `compare_preview` -> watch or group reads -> recovery or store cockpit reads | ClawHub is still the intended public host surface, but current public search/API evidence is not strong enough to claim a live listing |
 
 Use the recipe ledger when you need the next level of honesty:
 
@@ -169,8 +169,8 @@ Use the recipe ledger when you need the next level of honesty:
 
 Use the export surfaces when you want the next level of convenience:
 
-- `PYTHONPATH=src uv run python -m dealyard builder-client-config codex --json`
-- `PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json`
+- `PYTHONPATH=src uv run python -m dealwatcherer builder-client-config codex --json`
+- `PYTHONPATH=src uv run python -m dealwatcherer builder-client-config --all --json`
 - `GET /api/runtime/builder-client-config/codex`
 - `GET /api/runtime/builder-client-configs`
 - `get_builder_client_config`
@@ -178,17 +178,17 @@ Use the export surfaces when you want the next level of convenience:
 
 ## Official distribution reality by client
 
-This is the shortest honest matrix for what the official platform surface is, what Dealyard
+This is the shortest honest matrix for what the official platform surface is, what Dealwatcher
 ships in-repo today, and what we still must **not** claim.
 
 | Client | Official public surface | Repo-owned artifact now | Honest status today |
 | --- | --- | --- | --- |
-| Claude Code | official marketplace + custom marketplaces | [`plugins/dealyard-builder-pack/.claude-plugin/plugin.json`](../../plugins/dealyard-builder-pack/.claude-plugin/plugin.json), [`.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) | marketplace-submission candidate, **not officially listed** |
-| Codex | Plugin Directory + repo/personal marketplace | [`plugins/dealyard-builder-pack/.codex-plugin/plugin.json`](../../plugins/dealyard-builder-pack/.codex-plugin/plugin.json), [`../../marketplace.json`](../../marketplace.json) | Plugin Directory candidate, **not officially listed** |
-| Cline | MCP Marketplace issue intake | [`../../llms-install.md`](../../llms-install.md), [`../../assets/marketplace/dealyard-cline-logo-400.png`](../../assets/marketplace/dealyard-cline-logo-400.png) | marketplace-submission candidate, **not officially listed** |
+| Claude Code | official marketplace + custom marketplaces | [`plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json`](../../plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json), [`.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) | marketplace-submission candidate, **not officially listed** |
+| Codex | Plugin Directory + repo/personal marketplace | [`plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json`](../../plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json), [`../../marketplace.json`](../../marketplace.json) | Plugin Directory candidate, **not officially listed** |
+| Cline | MCP Marketplace issue intake | [`../../llms-install.md`](../../llms-install.md), [`../../assets/marketplace/dealwatcherer-cline-logo-400.png`](../../assets/marketplace/dealwatcherer-cline-logo-400.png) | marketplace-submission candidate, **not officially listed** |
 | OpenHands | global skill registry | [`./skills/openhands-readonly-builder-skill.md`](./skills/openhands-readonly-builder-skill.md) | `OpenHands/extensions#151` is closed and unmerged after maintainer-requested changes; [`#152`](https://github.com/OpenHands/extensions/pull/152) is the retired predecessor |
 | OpenCode | ecosystem listing | [`./recipes/opencode.md`](./recipes/opencode.md), [`./examples/opencode.jsonc`](./examples/opencode.jsonc) | ecosystem-listing candidate, **not officially listed** |
-| OpenClaw | ClawHub public registry | [`./recipes/openclaw.md`](./recipes/openclaw.md), [`./skills/openclaw-readonly-builder-skill.md`](./skills/openclaw-readonly-builder-skill.md), compatible bundle assets under [`plugins/dealyard-builder-pack/`](../../plugins/dealyard-builder-pack/) | repo-owned OpenClaw cargo is ready, but current public ClawHub search/API evidence is not strong enough to claim a live listing |
+| OpenClaw | ClawHub public registry | [`./recipes/openclaw.md`](./recipes/openclaw.md), [`./skills/openclaw-readonly-builder-skill.md`](./skills/openclaw-readonly-builder-skill.md), compatible bundle assets under [`plugins/dealwatcherer-builder-pack/`](../../plugins/dealwatcherer-builder-pack/) | repo-owned OpenClaw cargo is ready, but current public ClawHub search/API evidence is not strong enough to claim a live listing |
 
 ## Official MCP Registry reality
 
@@ -200,19 +200,19 @@ The protocol itself now also has an official public registry surface:
   - `https://modelcontextprotocol.io/registry/quickstart`
   - `https://modelcontextprotocol.io/registry/package-types`
   - `https://modelcontextprotocol.io/specification/draft/basic/server-discovery`
-- repo-owned Dealyard reality today:
+- repo-owned Dealwatcher reality today:
   - the local read-only MCP server already exists
   - the Python package metadata now includes publish-oriented `readme`, `license`, `project.urls`, and console-script entrypoints in `pyproject.toml`
   - CI now also guards that package surface through `scripts/verify_package_publish_surface.py` plus an sdist/wheel build in the main `test` lane
   - the builder docs and bundle assets already describe the local-first launch path
 - honest status today:
-  - public package is live on PyPI as `dealyard==1.0.1`
-  - the Official MCP Registry entry is live as `io.github.xiaojiou176-open/dealyard`
+  - public package is live on PyPI as `dealwatcherer==1.0.1`
+  - the Official MCP Registry entry is live as `io.github.xiaojiou176-open/dealwatcherer`
   - the repo still stays local-first and read-only even though the registry layer is now published
 
 In plain English:
 
-Dealyard now has both halves of the MCP story: the product side and the registry/package side are both public.
+Dealwatcher now has both halves of the MCP story: the product side and the registry/package side are both public.
 
 That means the remaining stop line is no longer “publish the first package.”
 It is:
@@ -225,7 +225,7 @@ It is:
 
 Start here:
 
-- [`../roadmaps/dealyard-api-mcp-substrate-phase1.md`](../roadmaps/dealyard-api-mcp-substrate-phase1.md)
+- [`../roadmaps/dealwatcherer-api-mcp-substrate-phase1.md`](../roadmaps/dealwatcherer-api-mcp-substrate-phase1.md)
 - [`./config-recipes.md`](./config-recipes.md)
 - [`./examples/README.md`](./examples/README.md)
 - [`./prompt-starters.md`](./prompt-starters.md)
@@ -282,7 +282,7 @@ Shared prompt summary:
 Copyable builder skill card:
 
 - [`./skills/README.md`](./skills/README.md)
-- [`./skills/dealyard-readonly-builder-skill.md`](./skills/dealyard-readonly-builder-skill.md)
+- [`./skills/dealwatcherer-readonly-builder-skill.md`](./skills/dealwatcherer-readonly-builder-skill.md)
 
 Per-client skill files:
 
@@ -294,7 +294,7 @@ Per-client skill files:
 
 ## Repo-owned builder pack, native bundle candidates, and listing-prep assets
 
-Dealyard now ships a **repo-owned builder pack**, **native plugin bundle candidates where the
+Dealwatcher now ships a **repo-owned builder pack**, **native plugin bundle candidates where the
 platform already supports them**, and **listing-prep assets** for the broader builder/public
 frontdoor.
 
@@ -305,7 +305,7 @@ The honest current shape is still local-first:
 - one repo-owned client starter registry plus a builder starter pack read surface
 - one starter prompt file per named client
 - one shared skill card plus client-specific skill cards
-- one shared native bundle at [`../../plugins/dealyard-builder-pack/`](../../plugins/dealyard-builder-pack/) for Claude Code and Codex, plus repo marketplaces at [`../../.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) and [`../../marketplace.json`](../../marketplace.json)
+- one shared native bundle at [`../../plugins/dealwatcherer-builder-pack/`](../../plugins/dealwatcherer-builder-pack/) for Claude Code and Codex, plus repo marketplaces at [`../../.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) and [`../../marketplace.json`](../../marketplace.json)
 - one crawlable public frontdoor across `builders.html`, `llms.txt`, `feed.xml`, `sitemap.xml`, and the social preview asset
 
 Not every client has a native package today:

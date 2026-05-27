@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from dealyard.application.store_onboarding import (
+from dealwatcherer.application.store_onboarding import (
     _LIMITED_SUPPORT_TRUTH_SOURCES,
     _build_store_truth_sources,
 )
-from dealyard.infra.config import PROJECT_ROOT
+from dealwatcherer.infra.config import PROJECT_ROOT
 
 
 def test_store_onboarding_truth_sources_point_to_existing_files() -> None:

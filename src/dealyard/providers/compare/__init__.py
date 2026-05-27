@@ -1,3 +1,3 @@
-from dealyard.providers.compare.matcher import score_candidate
+from dealwatcherer.providers.compare.matcher import score_candidate
 
 __all__ = ["score_candidate"]

@@ -8,8 +8,8 @@ from typing import Any
 
 from playwright.async_api import Page
 
-from dealyard.core.models import Offer, PriceContext, SkipReason
-from dealyard.stores.base_adapter import SkipParse
+from dealwatcherer.core.models import Offer, PriceContext, SkipReason
+from dealwatcherer.stores.base_adapter import SkipParse
 
 
 @dataclass(slots=True)
@@ -20,7 +20,7 @@ class Ranch99Parser:
     last_debug: dict[str, str] = field(init=False, default_factory=dict)
 
     def __post_init__(self) -> None:
-        self.logger = logging.getLogger("dealyard.stores.ranch99.parser")
+        self.logger = logging.getLogger("dealwatcherer.stores.ranch99.parser")
 
     async def parse(self, page: Page) -> Offer | None:
         self.last_debug = {"url": page.url}

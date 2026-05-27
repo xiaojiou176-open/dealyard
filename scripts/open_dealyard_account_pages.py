@@ -33,12 +33,12 @@ from scripts.shared.browser_lane_targets import (
     target_matches_existing_url,
     target_matches_existing_url_for_mode,
 )
-from dealyard.infra.output_redaction import sanitize_local_output
+from dealwatcherer.infra.output_redaction import sanitize_local_output
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Write the Dealyard browser identity tab and ensure canonical account pages exist in the live browser lane."
+        description="Write the Dealwatcher browser identity tab and ensure canonical account pages exist in the live browser lane."
     )
     parser.add_argument(
         "--env-file",
@@ -70,14 +70,14 @@ def fetch_json(url: str, *, method: str = "GET") -> Any:
             return json.loads(response.read().decode("utf-8"))
     except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as exc:
         raise SystemExit(
-            f"Dealyard canonical account opener failed: {method} {url} is not reachable right now ({exc})."
+            f"Dealwatcher canonical account opener failed: {method} {url} is not reachable right now ({exc})."
         ) from exc
 
 
 def list_page_targets(cdp_url: str) -> list[dict[str, Any]]:
     payload = fetch_json(f"{cdp_url}/json/list")
     if not isinstance(payload, list):
-        raise SystemExit(f"Dealyard canonical account opener failed: {cdp_url}/json/list did not return a target list.")
+        raise SystemExit(f"Dealwatcher canonical account opener failed: {cdp_url}/json/list did not return a target list.")
     return [item for item in payload if isinstance(item, dict) and item.get("type") == "page"]
 
 
@@ -85,7 +85,7 @@ def create_target(cdp_url: str, target_url: str) -> dict[str, Any]:
     encoded_url = urllib.parse.quote(target_url, safe="")
     payload = fetch_json(f"{cdp_url}/json/new?{encoded_url}", method="PUT")
     if not isinstance(payload, dict):
-        raise SystemExit(f"Dealyard canonical account opener failed: could not create target for {target_url}.")
+        raise SystemExit(f"Dealwatcher canonical account opener failed: could not create target for {target_url}.")
     return payload
 
 
@@ -174,7 +174,7 @@ def ensure_targets(
             created = True
             if existing is None:
                 raise SystemExit(
-                    f"Dealyard canonical account opener failed: {target.label} did not appear in the CDP target list after createTarget."
+                    f"Dealwatcher canonical account opener failed: {target.label} did not appear in the CDP target list after createTarget."
                 )
             target_list = list_page_targets(contract.cdp_url)
         results.append(
@@ -241,7 +241,7 @@ def build_payload(
 def render_text(payload: dict[str, Any]) -> str:
     payload = sanitize_local_output(payload)
     lines = [
-        "Dealyard canonical browser lane helper",
+        "Dealwatcher canonical browser lane helper",
         f"status={payload['status']}",
         f"identity_page_path={payload['identity_page_path']}",
         f"identity_page_url={payload['identity_page_url']}",
@@ -269,7 +269,7 @@ def main() -> int:
     contract = resolve_contract(
         values,
         env_file=env_file,
-        caller_name="Dealyard canonical account opener",
+        caller_name="Dealwatcher canonical account opener",
     )
     payload = build_payload(
         contract=contract,

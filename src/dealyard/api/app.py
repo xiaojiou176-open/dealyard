@@ -14,8 +14,8 @@ from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.requests import Request
 
-from dealyard.api.deps import get_db_session, get_product_service, prepare_product_runtime, shutdown_product_runtime
-from dealyard.api.schemas import (
+from dealwatcherer.api.deps import get_db_session, get_product_service, prepare_product_runtime, shutdown_product_runtime
+from dealwatcherer.api.schemas import (
     ComparePreviewResponse,
     CompareEvidencePackageCreateRequest,
     CompareProductsRequest,
@@ -31,10 +31,10 @@ from dealyard.api.schemas import (
     UpdateWatchTaskRequest,
     WatchGroupDetailResponse,
 )
-from dealyard.application import ProductService
-from dealyard.domain.enums import DeliveryStatus
-from dealyard.infra.config import clear_log_context, set_log_context, settings
-from dealyard.persistence.models import DeliveryEvent, TaskRun
+from dealwatcherer.application import ProductService
+from dealwatcherer.domain.enums import DeliveryStatus
+from dealwatcherer.infra.config import clear_log_context, set_log_context, settings
+from dealwatcherer.persistence.models import DeliveryEvent, TaskRun
 
 _LOOPBACK_HOST_ALIASES = ("127.0.0.1", "localhost")
 _CLIENT_ERROR_CODE_RE = re.compile(r"^[a-z0-9_]+$")
@@ -55,7 +55,7 @@ async def lifespan(_: FastAPI):
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="Dealyard API", version="1.0.0", lifespan=lifespan)
+    app = FastAPI(title="Dealwatcher API", version="1.0.0", lifespan=lifespan)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=_build_allowed_origins(settings.WEBUI_DEV_URL, settings.APP_BASE_URL),
@@ -470,7 +470,7 @@ def create_app() -> FastAPI:
             expected_token = str(configured_token).strip()
         if not expected_token:
             raise HTTPException(status_code=503, detail="postmark_webhook_not_configured")
-        provided_token = request.headers.get("X-Dealyard-Webhook-Token", "").strip()
+        provided_token = request.headers.get("X-Dealwatcher-Webhook-Token", "").strip()
         if not provided_token or not compare_digest(provided_token, expected_token):
             raise HTTPException(status_code=401, detail="invalid_postmark_webhook_signature")
 

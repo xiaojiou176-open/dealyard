@@ -1,15 +1,15 @@
-# Dealyard API / MCP Substrate Phase 1
+# Dealwatcher API / MCP Substrate Phase 1
 
 ## Status
 
 > **Status:** active phase-1.1 reference for developers and agent-builders.
-> This is the formal builder-facing contract for the current Dealyard API / MCP substrate.
+> This is the formal builder-facing contract for the current Dealwatcher API / MCP substrate.
 > It describes what an external builder can consume **today** from a local-first runtime.
 > It does **not** claim hosted maturity, SDK packaging, multi-tenant auth, write-side MCP, or builder-facing recommendation parity beyond the shipped local Compare Preview advisory slice.
 
 ## What this document is for
 
-Think of this file as the front desk for the current Dealyard builder story.
+Think of this file as the front desk for the current Dealwatcher builder story.
 
 It answers four practical questions:
 
@@ -25,9 +25,9 @@ This is intentionally a **builder contract**, not a hosted platform page and not
 ### Intended readers
 
 1. **Developers**
-   - people calling the local Dealyard runtime over HTTP
+   - people calling the local Dealwatcher runtime over HTTP
 2. **Agent-builders**
-   - people wiring a local MCP client or automation loop against Dealyard read surfaces
+   - people wiring a local MCP client or automation loop against Dealwatcher read surfaces
   - common examples today: Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or a custom MCP/API client
 
 ### Not the intended promise set
@@ -58,19 +58,19 @@ Phase 1 still assumes the current repo truth:
 
 In plain English:
 
-> Dealyard already has a real front door.
+> Dealwatcher already has a real front door.
 > It does not yet have a hotel-style hosted reception desk with keys for many tenants.
 
 ## Local runtime entrypoints
 
 ```bash
-PYTHONPATH=src uv run python -m dealyard --help
-PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json
-PYTHONPATH=src uv run python -m dealyard server
-PYTHONPATH=src uv run python -m dealyard worker
-PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
-PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json
-PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealwatcherer --help
+PYTHONPATH=src uv run python -m dealwatcherer builder-starter-pack --json
+PYTHONPATH=src uv run python -m dealwatcherer server
+PYTHONPATH=src uv run python -m dealwatcherer worker
+PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealwatcherer.mcp client-starters --json
+PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio
 ```
 
 ## Builder onboarding order
@@ -86,8 +86,8 @@ PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 
 ### MCP-first path
 
-1. run `python -m dealyard.mcp list-tools --json`
-2. register `python -m dealyard.mcp serve --transport stdio`
+1. run `python -m dealwatcherer.mcp list-tools --json`
+2. register `python -m dealwatcherer.mcp serve --transport stdio`
 3. call `get_runtime_readiness`
 4. call `compare_preview`
 5. if the compare result is useful, move to detail reads such as watch tasks, watch groups, recovery inbox, notification settings, store bindings, and store onboarding cockpit
@@ -102,7 +102,7 @@ That order matters for the same reason a workshop visit starts at the front benc
 
 A surface is treated as **phase-1 stable** here only when all of the following are true:
 
-- it already ships in `src/dealyard/api/app.py` or `src/dealyard/mcp/server.py`
+- it already ships in `src/dealwatcherer/api/app.py` or `src/dealwatcherer/mcp/server.py`
 - it fits the current local-first, single-owner runtime truth
 - it is read-only, or in the special case of compare preview, it does **not** create durable product state
 - we can point to one canonical route or tool name for new integrations
@@ -121,13 +121,13 @@ A surface is **not** stable here when any of the following are true:
 
 | Surface | Status | Why it is safe now |
 | --- | --- | --- |
-| `python -m dealyard --help` | stable now | prints the builder-relevant command banner with a normal help exit path |
-| `python -m dealyard builder-starter-pack --json` | stable now | prints the repo-owned builder contract without requiring an already running server |
-| `python -m dealyard server` | stable now | boots the HTTP runtime builders consume |
-| `python -m dealyard worker` | stable now for local bring-up | useful when a builder wants the full runtime loop running locally |
-| `python -m dealyard.mcp list-tools --json` | stable now | fastest honest MCP inventory surface |
-| `python -m dealyard.mcp client-starters --json` | stable now | prints repo-owned local launch snippets and prompt anchors for named clients |
-| `python -m dealyard.mcp serve --transport stdio` | stable now | canonical local stdio MCP launch path |
+| `python -m dealwatcherer --help` | stable now | prints the builder-relevant command banner with a normal help exit path |
+| `python -m dealwatcherer builder-starter-pack --json` | stable now | prints the repo-owned builder contract without requiring an already running server |
+| `python -m dealwatcherer server` | stable now | boots the HTTP runtime builders consume |
+| `python -m dealwatcherer worker` | stable now for local bring-up | useful when a builder wants the full runtime loop running locally |
+| `python -m dealwatcherer.mcp list-tools --json` | stable now | fastest honest MCP inventory surface |
+| `python -m dealwatcherer.mcp client-starters --json` | stable now | prints repo-owned local launch snippets and prompt anchors for named clients |
+| `python -m dealwatcherer.mcp serve --transport stdio` | stable now | canonical local stdio MCP launch path |
 
 ### Stable HTTP surfaces
 
@@ -181,8 +181,8 @@ These surfaces may exist in code, but builders should not treat them as part of 
 
 | Surface | Why it stays internal-only |
 | --- | --- |
-| `python -m dealyard maintenance --dry-run|--apply` | runtime hygiene tool, not builder API |
-| `python -m dealyard bootstrap-owner` | owner bootstrap path gated by `OWNER_BOOTSTRAP_TOKEN` |
+| `python -m dealwatcherer maintenance --dry-run|--apply` | runtime hygiene tool, not builder API |
+| `python -m dealwatcherer bootstrap-owner` | owner bootstrap path gated by `OWNER_BOOTSTRAP_TOKEN` |
 | Postmark webhook route and provider-secret plumbing | provider callback internals, not generic builder auth |
 | legacy bridge commands | deprecated SQLite bridge maintenance, outside the product-facing builder story |
 
@@ -205,17 +205,17 @@ Once the API server is running, FastAPI exposes:
 - `/docs`
 - `/redoc`
 
-Use them as discovery aids, not as the only source of truth for what Dealyard promises to builders.
+Use them as discovery aids, not as the only source of truth for what Dealwatcher promises to builders.
 
 If you want exact repo anchors instead of prose, use:
 
 | Need | Canonical repo anchor |
 | --- | --- |
-| HTTP route inventory | `src/dealyard/api/app.py` |
-| named request/response models | `src/dealyard/api/schemas.py` |
-| MCP tool registry | `src/dealyard/mcp/server.py` |
-| MCP CLI entrypoint | `src/dealyard/mcp/__main__.py` |
-| CLI discovery and bootstrap paths | `src/dealyard/cli.py` |
+| HTTP route inventory | `src/dealwatcherer/api/app.py` |
+| named request/response models | `src/dealwatcherer/api/schemas.py` |
+| MCP tool registry | `src/dealwatcherer/mcp/server.py` |
+| MCP CLI entrypoint | `src/dealwatcherer/mcp/__main__.py` |
+| CLI discovery and bootstrap paths | `src/dealwatcherer/cli.py` |
 | environment contract | `.env.example` |
 | builder starter pack | `docs/integrations/README.md` |
 | builder examples | `docs/integrations/examples/README.md` |
@@ -242,28 +242,28 @@ The stable contract is:
 
 ## Ecosystem framing
 
-Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar clients are best understood as **consumers** of Dealyard.
+Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar clients are best understood as **consumers** of Dealwatcher.
 
 That means you can honestly say:
 
-- Dealyard exposes a read-only API / MCP surface those clients can consume
+- Dealwatcher exposes a read-only API / MCP surface those clients can consume
 
 Do **not** flip the relationship and say:
 
-- Dealyard runs on Claude Code
-- Dealyard is built on Codex
+- Dealwatcher runs on Claude Code
+- Dealwatcher is built on Codex
 - OpenHands, OpenCode, or OpenClaw is the runtime base
 
 ## Ownership and auth boundary
 
-Dealyard currently behaves like a **single-owner, local-first runtime**, not a multi-tenant hosted platform.
+Dealwatcher currently behaves like a **single-owner, local-first runtime**, not a multi-tenant hosted platform.
 
 Important consequences:
 
 - `DATABASE_URL` is runtime wiring, not an end-user API key
 - `OWNER_BOOTSTRAP_TOKEN` is owner setup only, not a general builder credential
 - `POSTMARK_WEBHOOK_TOKEN` is provider callback verification, not a general API token
-- `POSTMARK_SERVER_TOKEN` is provider plumbing, not Dealyard API auth
+- `POSTMARK_SERVER_TOKEN` is provider plumbing, not Dealwatcher API auth
 - the current API surface does **not** establish a generic bearer-token or tenant auth contract
 
 The practical rule is simple:

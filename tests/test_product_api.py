@@ -9,13 +9,13 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import select
 
-from dealyard.application import services as services_module
-from dealyard.api import deps
-from dealyard.api.app import create_app
-from dealyard.core.models import Offer, PriceContext
-from dealyard.infra.config import settings
-from dealyard.persistence.models import StoreAdapterBinding, TaskRun, WatchGroup, WatchGroupRun, WatchTask
-from dealyard.providers.cashback.base import CashbackQuoteResult
+from dealwatcherer.application import services as services_module
+from dealwatcherer.api import deps
+from dealwatcherer.api.app import create_app
+from dealwatcherer.core.models import Offer, PriceContext
+from dealwatcherer.infra.config import settings
+from dealwatcherer.persistence.models import StoreAdapterBinding, TaskRun, WatchGroup, WatchGroupRun, WatchTask
+from dealwatcherer.providers.cashback.base import CashbackQuoteResult
 
 
 class _ApiFakeEmailProvider:
@@ -985,7 +985,7 @@ def test_product_api_create_and_run_watch_group_and_webhook(tmp_path, monkeypatc
         assert group_delivery["watch_group_id"] == group_id
         webhook_response = client.post(
             "/api/webhooks/postmark",
-            headers={"X-Dealyard-Webhook-Token": "test-webhook-token"},
+            headers={"X-Dealwatcher-Webhook-Token": "test-webhook-token"},
             json={"RecordType": "Delivery", "MessageID": group_delivery["message_id"]},
         )
         assert webhook_response.status_code == 200
@@ -1526,7 +1526,7 @@ def test_product_api_builder_starter_pack_endpoint(tmp_path, monkeypatch) -> Non
     payload = response.json()
     assert payload["surface_version"] == "phase1"
     assert payload["client_starters"]["openclaw"] == "docs/integrations/prompts/openclaw-starter.md"
-    assert payload["launch_contract"]["cli_builder_starter_pack"].endswith("dealyard builder-starter-pack --json")
+    assert payload["launch_contract"]["cli_builder_starter_pack"].endswith("dealwatcherer builder-starter-pack --json")
     assert (
         payload["client_skill_cards"]["openclaw"]
         == "docs/integrations/skills/openclaw-readonly-builder-skill.md"
@@ -1541,13 +1541,13 @@ def test_product_api_builder_starter_pack_endpoint(tmp_path, monkeypatch) -> Non
     assert payload["client_wrapper_examples"]["openclaw"] == "docs/integrations/examples/openclaw-mcp-servers.json"
     assert payload["client_wrapper_sources"]["codex"] == "https://developers.openai.com/codex/mcp/"
     assert payload["client_wrapper_surfaces"]["openhands"] == "config_toml_mcp_stdio_servers"
-    assert payload["launch_contract"]["mcp_streamable_http"].endswith("dealyard.mcp serve --transport streamable-http")
+    assert payload["launch_contract"]["mcp_streamable_http"].endswith("dealwatcherer.mcp serve --transport streamable-http")
     assert payload["launch_contract"]["mcp_streamable_http_endpoint"] == "http://127.0.0.1:8000/mcp"
-    assert payload["launch_contract"]["mcp_client_starters"].endswith("dealyard.mcp client-starters --json")
+    assert payload["launch_contract"]["mcp_client_starters"].endswith("dealwatcherer.mcp client-starters --json")
     assert payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
     assert payload["docs"]["skills"] == "docs/integrations/skills/README.md"
     assert payload["public_builder_page"] == "site/builders.html"
-    assert payload["skill_pack"]["path"] == "docs/integrations/skills/dealyard-readonly-builder-skill.md"
+    assert payload["skill_pack"]["path"] == "docs/integrations/skills/dealwatcherer-readonly-builder-skill.md"
     assert "get_builder_starter_pack" in payload["safe_first_loops"]["mcp"]
 
 
@@ -1569,9 +1569,9 @@ def test_product_api_builder_client_config_endpoint(tmp_path, monkeypatch) -> No
     assert payload["client"] == "codex"
     assert payload["recommended_transport"] == "streamable_http"
     assert payload["wrapper_example_path"] == "docs/integrations/examples/codex-mcp-config.toml"
-    assert payload["recipe_markdown"].startswith("# Dealyard Recipe For Codex")
+    assert payload["recipe_markdown"].startswith("# Dealwatcher Recipe For Codex")
     assert payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
-    assert payload["read_surfaces"]["cli"].endswith("dealyard builder-client-config codex --json")
+    assert payload["read_surfaces"]["cli"].endswith("dealwatcherer builder-client-config codex --json")
     assert payload["read_surfaces"]["http"] == "GET /api/runtime/builder-client-config/codex"
     assert "http://127.0.0.1:8000/mcp" in payload["wrapper_example_content"]
 
@@ -1608,7 +1608,7 @@ def test_product_api_recovery_inbox_endpoint(tmp_path, monkeypatch) -> None:
     monkeypatch.setattr(settings, "SMTP_HOST", "")
     monkeypatch.setattr(settings, "USE_LLM", True)
     monkeypatch.setattr(settings, "AI_PROVIDER", "fake")
-    monkeypatch.setattr(settings, "AI_MODEL", "dealyard-fake-v1")
+    monkeypatch.setattr(settings, "AI_MODEL", "dealwatcherer-fake-v1")
     monkeypatch.setattr(settings, "AI_RECOVERY_COPILOT_ENABLED", True)
     app = create_app()
     service = deps.get_product_service()

@@ -16,7 +16,7 @@ All notable changes to this project will be documented in this file.
 - A page-level social preview matrix for Home, Quick Start, Compare Preview, Proof, FAQ, and Comparison so high-intent shares no longer collapse into one card.
 - A dedicated public demo interaction verifier so the sample compare preview can be checked as a real clickable flow, not just a static HTML promise.
 - A dedicated host/process safety verifier so dangerous cleanup and desktop-control primitives are blocked in executable repo paths before they land.
-- A hard-stop replacement for `scripts/clean.py` plus a browser-instance ceiling in the Chrome launcher so Dealyard can no longer wide-delete protected evidence or keep opening lanes into an already crowded host.
+- A hard-stop replacement for `scripts/clean.py` plus a browser-instance ceiling in the Chrome launcher so Dealwatcher can no longer wide-delete protected evidence or keep opening lanes into an already crowded host.
 
 ### Changed
 
@@ -37,13 +37,13 @@ All notable changes to this project will be documented in this file.
 - Quick Start now separates the public sample compare preview from the live local stack so “look first” and “run locally” are no longer mixed into one path.
 - Comparison, Proof, Community, FAQ, and Use Cases now expose page-level `h1` titles so the public Pages surface has a complete semantic skeleton.
 - Remote GitHub verification now distinguishes unauthenticated blind spots from authenticated checks instead of treating every `403` as configuration failure.
-- AGENTS, README, CONTRIBUTING, browser-debug guidance, CI, and pre-commit now treat host-level process control as a first-class Dealyard safety contract instead of an implied convention.
+- AGENTS, README, CONTRIBUTING, browser-debug guidance, CI, and pre-commit now treat host-level process control as a first-class Dealwatcher safety contract instead of an implied convention.
 
 ## [v0.1.2] - 2026-03-25
 
 ### Added
 
-- A dedicated comparison page that explains how Dealyard differs from a generic single-link price watcher.
+- A dedicated comparison page that explains how Dealwatcher differs from a generic single-link price watcher.
 - A proof page that ties public claims back to commands, routes, screenshots, and verification gates.
 - `llms.txt` and `feed.xml` so the public surface is easier to consume by AI agents and feed readers.
 - A dedicated Community page that acts like a front desk for issues, discussions, store requests, and release updates.
@@ -78,10 +78,10 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- `dealyard` is now the only live repository and package name.
+- `dealwatcherer` is now the only live repository and package name.
 - Product runtime surface is fully `.runtime-cache/` + PostgreSQL; `var/` is no longer part of the runtime contract.
 - Docker and Compose topology target API + worker + frontend + PostgreSQL.
 - Public documentation now leads with product value, screenshots, and release-driven trust signals.
-- `python -m dealyard` requires an explicit product subcommand.
+- `python -m dealwatcherer` requires an explicit product subcommand.
 - The repository public story is product-first; SQLite remains import-only.
 - The AI analyzer now treats `dspy` as an optional runtime dependency instead of a required base install.

@@ -1,15 +1,15 @@
 from __future__ import annotations
 
-import dealyard.application.urls as url_module
+import dealwatcherer.application.urls as url_module
 
-from dealyard.application.urls import normalize_url, resolve_store_for_url
-from dealyard.compare.matching import (
+from dealwatcherer.application.urls import normalize_url, resolve_store_for_url
+from dealwatcherer.compare.matching import (
     build_candidate_key,
     build_candidate_snapshot,
     build_match_details,
     compute_match_score,
 )
-from dealyard.stores.walmart.adapter import WalmartAdapter
+from dealwatcherer.stores.walmart.adapter import WalmartAdapter
 
 
 def test_normalize_url_strips_query_and_fragment() -> None:

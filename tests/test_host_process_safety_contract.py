@@ -16,7 +16,7 @@ def test_scan_repository_flags_shell_primitives(tmp_path: Path) -> None:
         "\n".join(
             [
                 "killall Google Chrome",
-                "pkill -f dealyard",
+                "pkill -f dealwatcherer",
                 "kill -9 12345",
             ]
         ),

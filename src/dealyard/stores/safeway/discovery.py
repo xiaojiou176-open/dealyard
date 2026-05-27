@@ -20,7 +20,7 @@ class SafewayDiscovery:
     logger: logging.Logger = field(init=False, repr=False)
 
     def __post_init__(self) -> None:
-        self.logger = logging.getLogger("dealyard.stores.safeway.discovery")
+        self.logger = logging.getLogger("dealwatcherer.stores.safeway.discovery")
 
     async def discover_deals(self) -> list[str]:
         self.logger.info("Safeway discovery is intentionally deferred in C1; compare-first intake is the supported path.")

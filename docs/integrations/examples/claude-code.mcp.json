@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "dealyard": {
+    "dealwatcherer": {
       "command": "uv",
-      "args": ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
+      "args": ["run", "python", "-m", "dealwatcherer.mcp", "serve", "--transport", "stdio"],
       "env": {
         "PYTHONPATH": "src"
       }

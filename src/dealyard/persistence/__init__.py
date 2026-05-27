@@ -1,5 +1,5 @@
-from dealyard.persistence.base import Base
-from dealyard.persistence.models import (
+from dealwatcherer.persistence.base import Base
+from dealwatcherer.persistence.models import (
     CashbackQuote,
     CanonicalProduct,
     DeliveryEvent,

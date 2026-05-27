@@ -1,21 +1,21 @@
 {
   "surface_version": "phase1",
   "product_shape": {
-    "name": "Dealyard",
+    "name": "Dealwatcher",
     "positioning": "AI-enhanced, compare-first grocery price intelligence",
     "runtime": "local-first",
     "builder_posture": "read-only-first"
   },
   "launch_contract": {
-    "cli_discovery": "PYTHONPATH=src uv run python -m dealyard --help",
-    "cli_builder_starter_pack": "PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json",
-    "cli_builder_client_config": "PYTHONPATH=src uv run python -m dealyard builder-client-config <client> --json",
-    "cli_builder_client_configs": "PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json",
-    "http_server": "PYTHONPATH=src uv run python -m dealyard server",
-    "mcp_inventory": "PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json",
-    "mcp_client_starters": "PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json",
-    "mcp_stdio": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
-    "mcp_streamable_http": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http",
+    "cli_discovery": "PYTHONPATH=src uv run python -m dealwatcherer --help",
+    "cli_builder_starter_pack": "PYTHONPATH=src uv run python -m dealwatcherer builder-starter-pack --json",
+    "cli_builder_client_config": "PYTHONPATH=src uv run python -m dealwatcherer builder-client-config <client> --json",
+    "cli_builder_client_configs": "PYTHONPATH=src uv run python -m dealwatcherer builder-client-config --all --json",
+    "http_server": "PYTHONPATH=src uv run python -m dealwatcherer server",
+    "mcp_inventory": "PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json",
+    "mcp_client_starters": "PYTHONPATH=src uv run python -m dealwatcherer.mcp client-starters --json",
+    "mcp_stdio": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
+    "mcp_streamable_http": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport streamable-http",
     "mcp_streamable_http_endpoint": "http://127.0.0.1:8000/mcp",
     "http_builder_client_config": "GET /api/runtime/builder-client-config/{client}",
     "http_builder_client_configs": "GET /api/runtime/builder-client-configs",
@@ -121,8 +121,8 @@
     "openclaw": "mcp_servers_registry_json"
   },
   "skill_pack": {
-    "path": "docs/integrations/skills/dealyard-readonly-builder-skill.md",
-    "intent": "Copyable builder skill card for coding agents that should stay inside the current read-only Dealyard contract."
+    "path": "docs/integrations/skills/dealwatcherer-readonly-builder-skill.md",
+    "intent": "Copyable builder skill card for coding agents that should stay inside the current read-only Dealwatcher contract."
   },
   "docs": {
     "builder_pack": "docs/integrations/README.md",
@@ -130,13 +130,13 @@
     "prompt_starters": "docs/integrations/prompt-starters.md",
     "examples": "docs/integrations/examples/README.md",
     "skills": "docs/integrations/skills/README.md",
-    "substrate_phase1": "docs/roadmaps/dealyard-api-mcp-substrate-phase1.md"
+    "substrate_phase1": "docs/roadmaps/dealwatcherer-api-mcp-substrate-phase1.md"
   },
   "public_builder_page": "site/builders.html",
-  "warning": "Treat Dealyard as a local-first read-only decision backend. Do not present it as a hosted SaaS, formal SDK, official listing, or write-capable remote control plane.",
+  "warning": "Treat Dealwatcher as a local-first read-only decision backend. Do not present it as a hosted SaaS, formal SDK, official listing, or write-capable remote control plane.",
   "repo_distribution_artifacts": {
-    "claude_code_bundle": "plugins/dealyard-builder-pack/.claude-plugin/plugin.json",
-    "codex_bundle": "plugins/dealyard-builder-pack/.codex-plugin/plugin.json",
+    "claude_code_bundle": "plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json",
+    "codex_bundle": "plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json",
     "claude_marketplace": ".claude-plugin/marketplace.json",
     "codex_marketplace": "marketplace.json"
   }

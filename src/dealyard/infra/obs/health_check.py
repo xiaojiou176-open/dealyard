@@ -9,9 +9,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Optional
 
-from dealyard.core.models import RunStats
-from dealyard.infra.mailer import EmailNotifier
-from dealyard.legacy.db_repo import DatabaseRepository
+from dealwatcherer.core.models import RunStats
+from dealwatcherer.infra.mailer import EmailNotifier
+from dealwatcherer.legacy.db_repo import DatabaseRepository
 
 
 #########################################################

@@ -5,9 +5,9 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
-from dealyard.infra.config import settings
-from dealyard.persistence.base import Base
-from dealyard.persistence import models  # noqa: F401
+from dealwatcherer.infra.config import settings
+from dealwatcherer.persistence.base import Base
+from dealwatcherer.persistence import models  # noqa: F401
 
 config = context.config
 if not config.get_main_option("sqlalchemy.url"):

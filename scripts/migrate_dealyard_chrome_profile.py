@@ -13,8 +13,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ENV_FILE = PROJECT_ROOT / ".env"
 _MACOS_SHARED_CHROME_ROOT_PARTS = ("Library", "Application Support", "Google", "Chrome")
 DEFAULT_SOURCE_ROOT = Path.home().joinpath(*_MACOS_SHARED_CHROME_ROOT_PARTS)
-DEFAULT_TARGET_ROOT = Path("~/.cache/dealyard/browser/chrome-user-data").expanduser()
-EXPECTED_PROFILE_NAME = "dealyard"
+DEFAULT_TARGET_ROOT = Path("~/.cache/dealwatcherer/browser/chrome-user-data").expanduser()
+EXPECTED_PROFILE_NAME = "dealwatcherer"
 DEFAULT_REMOTE_DEBUG_PORT = 9333
 PROFILE_KEYS = (
     "CHROME_USER_DATA_DIR",
@@ -38,26 +38,26 @@ class ChromeProfileSource:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Clone the real Dealyard Chrome profile into the dedicated repo-owned browser root."
+        description="Clone the real Dealwatcher Chrome profile into the dedicated repo-owned browser root."
     )
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--dry-run", action="store_true", help="Show the migration plan without copying files.")
-    mode.add_argument("--apply", action="store_true", help="Copy Local State + the real Dealyard profile and update the local .env.")
+    mode.add_argument("--apply", action="store_true", help="Copy Local State + the real Dealwatcher profile and update the local .env.")
     parser.add_argument(
         "--env-file",
         default=str(DEFAULT_ENV_FILE),
-        help="Path to the local .env file that should receive the Dealyard Chrome contract.",
+        help="Path to the local .env file that should receive the Dealwatcher Chrome contract.",
     )
     parser.add_argument(
         "--target-root",
         default=str(DEFAULT_TARGET_ROOT),
-        help="Dedicated Chrome user-data root for Dealyard.",
+        help="Dedicated Chrome user-data root for Dealwatcher.",
     )
     parser.add_argument(
         "--remote-debug-port",
         type=int,
         default=DEFAULT_REMOTE_DEBUG_PORT,
-        help="Remote debugging port to write into the local Dealyard browser contract.",
+        help="Remote debugging port to write into the local Dealwatcher browser contract.",
     )
     return parser.parse_args()
 
@@ -65,12 +65,12 @@ def parse_args() -> argparse.Namespace:
 def discover_source() -> ChromeProfileSource:
     local_state_path = DEFAULT_SOURCE_ROOT / "Local State"
     if not local_state_path.is_file():
-        raise SystemExit(f"Dealyard Chrome migration failed: missing Local State at {local_state_path}")
+        raise SystemExit(f"Dealwatcher Chrome migration failed: missing Local State at {local_state_path}")
 
     payload = json.loads(local_state_path.read_text(encoding="utf-8"))
     info_cache = payload.get("profile", {}).get("info_cache", {})
     if not isinstance(info_cache, dict):
-        raise SystemExit("Dealyard Chrome migration failed: Chrome Local State has no profile info_cache")
+        raise SystemExit("Dealwatcher Chrome migration failed: Chrome Local State has no profile info_cache")
 
     profile_directory = ""
     for directory, raw_info in info_cache.items():
@@ -78,12 +78,12 @@ def discover_source() -> ChromeProfileSource:
             profile_directory = str(directory)
             break
     if not profile_directory:
-        raise SystemExit("Dealyard Chrome migration failed: could not locate the 'dealyard' profile in Local State")
+        raise SystemExit("Dealwatcher Chrome migration failed: could not locate the 'dealwatcherer' profile in Local State")
 
     profile_path = DEFAULT_SOURCE_ROOT / profile_directory
     if not profile_path.is_dir():
         raise SystemExit(
-            f"Dealyard Chrome migration failed: discovered profile directory does not exist: {profile_path}"
+            f"Dealwatcher Chrome migration failed: discovered profile directory does not exist: {profile_path}"
         )
 
     return ChromeProfileSource(
@@ -128,7 +128,7 @@ def ensure_target_root_ready(target_root: Path) -> None:
         entries = [child for child in target_root.iterdir()]
         if entries:
             raise SystemExit(
-                f"Dealyard Chrome migration failed: target root already exists and is not empty: {target_root}"
+                f"Dealwatcher Chrome migration failed: target root already exists and is not empty: {target_root}"
             )
     else:
         target_root.parent.mkdir(parents=True, exist_ok=True)
@@ -190,7 +190,7 @@ def render_summary(
     active_processes: list[str],
 ) -> str:
     lines = [
-        "Dealyard Chrome profile migration",
+        "Dealwatcher Chrome profile migration",
         f"mode={mode}",
         f"source_root={source.source_root}",
         f"source_profile_name={source.profile_name}",
@@ -245,7 +245,7 @@ def main() -> int:
     )
     if active_processes:
         raise SystemExit(
-            "Dealyard Chrome migration refused: the default Chrome user-data root is still in use by active Chrome processes."
+            "Dealwatcher Chrome migration refused: the default Chrome user-data root is still in use by active Chrome processes."
         )
     ensure_target_root_ready(target_root)
     if args.apply:

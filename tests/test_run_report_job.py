@@ -3,9 +3,9 @@ from pathlib import Path
 
 import pytest
 
-from dealyard.core.models import RunStats
-from dealyard.legacy.db_repo import DatabaseRepository
-from dealyard.jobs.run_report import RunReportJob
+from dealwatcherer.core.models import RunStats
+from dealwatcherer.legacy.db_repo import DatabaseRepository
+from dealwatcherer.jobs.run_report import RunReportJob
 
 
 class _FakeRepo:
@@ -23,7 +23,7 @@ class _FakeRepo:
 
 @pytest.mark.asyncio
 async def test_run_report_job_generates(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -88,7 +88,7 @@ async def test_run_report_job_generates(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_db_repo_recent_runs_order(tmp_path) -> None:
-    db_path = tmp_path / "dealyard.db"
+    db_path = tmp_path / "dealwatcherer.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
 
@@ -367,11 +367,11 @@ def test_run_report_cli_success(monkeypatch, tmp_path) -> None:
             "--deal-drop",
             "0.3",
             "--db",
-            str(tmp_path / "dealyard.db"),
+            str(tmp_path / "dealwatcherer.db"),
         ],
     )
 
-    from dealyard.jobs import run_report
+    from dealwatcherer.jobs import run_report
 
     try:
         run_report.main()
@@ -398,7 +398,7 @@ def test_run_report_cli_failure(monkeypatch, tmp_path) -> None:
         ],
     )
 
-    from dealyard.jobs import run_report
+    from dealwatcherer.jobs import run_report
 
     try:
         run_report.main()

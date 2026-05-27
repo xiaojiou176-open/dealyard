@@ -14,7 +14,7 @@ from scripts.shared.browser_lane_contract import DEFAULT_SHARED_CHROME_ROOT
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "scripts" / "open_dealyard_account_pages.py"
+SCRIPT = ROOT / "scripts" / "open_dealwatcherer_account_pages.py"
 
 
 class ReusableTCPServer(socketserver.TCPServer):
@@ -32,12 +32,12 @@ def _write_env(env_file: Path, *, root: Path, port: int) -> None:
         "\n".join(
             [
                 f'CHROME_USER_DATA_DIR="{root}"',
-                "CHROME_PROFILE_NAME=dealyard",
+                "CHROME_PROFILE_NAME=dealwatcherer",
                 "CHROME_PROFILE_DIRECTORY=Profile 21",
                 f"CHROME_CDP_URL=http://127.0.0.1:{port}",
                 f"CHROME_REMOTE_DEBUG_PORT={port}",
-                "DEALYARD_BROWSER_IDENTITY_LABEL=Dealyard Lane",
-                "DEALYARD_BROWSER_IDENTITY_ACCENT=#2563eb",
+                "DEALWATCHER_BROWSER_IDENTITY_LABEL=Dealwatcher Lane",
+                "DEALWATCHER_BROWSER_IDENTITY_ACCENT=#2563eb",
             ]
         )
         + "\n",
@@ -45,7 +45,7 @@ def _write_env(env_file: Path, *, root: Path, port: int) -> None:
     )
 
 
-def test_open_dealyard_account_pages_writes_identity_and_creates_targets(tmp_path: Path) -> None:
+def test_open_dealwatcherer_account_pages_writes_identity_and_creates_targets(tmp_path: Path) -> None:
     env_file = tmp_path / ".env"
     target_root = tmp_path / "chrome-user-data"
     target_root.mkdir(parents=True)
@@ -109,7 +109,7 @@ def test_open_dealyard_account_pages_writes_identity_and_creates_targets(tmp_pat
     assert result.returncode == 0, result.stderr
     payload = json.loads(result.stdout)
     assert payload["ok"] is True
-    assert payload["identity_label"] == "Dealyard Lane"
+    assert payload["identity_label"] == "Dealwatcher Lane"
     assert payload["identity_accent"] == "#2563eb"
     assert payload["identity_page_path"].endswith(".runtime-cache/browser-identity/index.html")
     assert payload["identity_page_url"].startswith("file://")
@@ -121,7 +121,7 @@ def test_open_dealyard_account_pages_writes_identity_and_creates_targets(tmp_pat
     assert actions["weee"] == "created"
 
 
-def test_open_dealyard_account_pages_reuses_safeway_sign_in_gate_when_no_account_tab_exists(tmp_path: Path) -> None:
+def test_open_dealwatcherer_account_pages_reuses_safeway_sign_in_gate_when_no_account_tab_exists(tmp_path: Path) -> None:
     env_file = tmp_path / ".env"
     target_root = tmp_path / "chrome-user-data"
     target_root.mkdir(parents=True)
@@ -205,7 +205,7 @@ def test_open_dealyard_account_pages_reuses_safeway_sign_in_gate_when_no_account
     assert safeway["matched_url"] == "https://www.safeway.com/account/sign-in.html"
 
 
-def test_open_dealyard_account_pages_prefers_safeway_account_target_over_sign_in_gate(tmp_path: Path) -> None:
+def test_open_dealwatcherer_account_pages_prefers_safeway_account_target_over_sign_in_gate(tmp_path: Path) -> None:
     env_file = tmp_path / ".env"
     target_root = tmp_path / "chrome-user-data"
     target_root.mkdir(parents=True)
@@ -298,13 +298,13 @@ def test_open_dealyard_account_pages_prefers_safeway_account_target_over_sign_in
     assert safeway_create_attempts["value"] == 0
 
 
-def test_open_dealyard_account_pages_rejects_legacy_shared_root(tmp_path: Path) -> None:
+def test_open_dealwatcherer_account_pages_rejects_legacy_shared_root(tmp_path: Path) -> None:
     env_file = tmp_path / ".env"
     env_file.write_text(
         "\n".join(
             [
                 f'CHROME_USER_DATA_DIR="{DEFAULT_SHARED_CHROME_ROOT}"',
-                "CHROME_PROFILE_NAME=dealyard",
+                "CHROME_PROFILE_NAME=dealwatcherer",
                 "CHROME_PROFILE_DIRECTORY=Profile 21",
                 "CHROME_CDP_URL=http://127.0.0.1:9333",
             ]

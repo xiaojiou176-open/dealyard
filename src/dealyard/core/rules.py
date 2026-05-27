@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from statistics import mean, pstdev
 from typing import Optional
 
-from dealyard.core.models import AnomalyReason, DealEvent, Offer
+from dealwatcherer.core.models import AnomalyReason, DealEvent, Offer
 
 
 #########################################################

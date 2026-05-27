@@ -1,22 +1,22 @@
 {
-  "name": "dealyard",
+  "name": "dealwatcherer",
   "transport": "stdio",
   "command": "uv",
   "args": [
     "run",
     "python",
     "-m",
-    "dealyard.mcp",
+    "dealwatcherer.mcp",
     "serve",
     "--transport",
     "stdio"
   ],
-  "cwd": "/absolute/path/to/dealyard",
+  "cwd": "/absolute/path/to/dealwatcherer",
   "env": {
     "PYTHONPATH": "src"
   },
   "notes": [
     "This is a client-agnostic launch record, not an official config syntax for any single tool.",
-    "Use it to map the Dealyard MCP stdio process into Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or another stdio-capable client."
+    "Use it to map the Dealwatcher MCP stdio process into Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or another stdio-capable client."
   ]
 }

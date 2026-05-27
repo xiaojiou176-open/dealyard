@@ -6,11 +6,11 @@ from typing import cast
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.ext.asyncio import async_sessionmaker
 
-from dealyard.application import ProductService
-from dealyard.persistence.session import dispose_session_factory, get_session_factory, init_product_database
-from dealyard.persistence.store_bindings import sync_store_adapter_bindings
-from dealyard.infra.config import settings
-from dealyard.runtime_preflight import ensure_runtime_contract_from_settings
+from dealwatcherer.application import ProductService
+from dealwatcherer.persistence.session import dispose_session_factory, get_session_factory, init_product_database
+from dealwatcherer.persistence.store_bindings import sync_store_adapter_bindings
+from dealwatcherer.infra.config import settings
+from dealwatcherer.runtime_preflight import ensure_runtime_contract_from_settings
 
 
 _SERVICE: ProductService | None = None

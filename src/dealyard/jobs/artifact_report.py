@@ -9,7 +9,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Final
 
-from dealyard.infra.config import DEFAULT_REPORTS_DIR, DEFAULT_RUNS_DIR
+from dealwatcherer.infra.config import DEFAULT_REPORTS_DIR, DEFAULT_RUNS_DIR
 
 #########################################################
 # Constants

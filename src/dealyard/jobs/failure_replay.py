@@ -13,10 +13,10 @@ from pathlib import Path
 from typing import Awaitable, Callable, Final
 from urllib.parse import urlsplit
 
-from dealyard.infra.config import DEFAULT_RUNS_DIR, Settings
-from dealyard.infra.playwright_client import PlaywrightClient
-from dealyard.infra.retry_budget import RetryBudget
-from dealyard.stores.base_adapter import BaseStoreAdapter
+from dealwatcherer.infra.config import DEFAULT_RUNS_DIR, Settings
+from dealwatcherer.infra.playwright_client import PlaywrightClient
+from dealwatcherer.infra.retry_budget import RetryBudget
+from dealwatcherer.stores.base_adapter import BaseStoreAdapter
 
 
 #########################################################

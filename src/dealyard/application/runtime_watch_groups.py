@@ -7,9 +7,9 @@ from typing import Any
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from dealyard.domain.enums import HealthStatus, TaskRunStatus
-from dealyard.stores.base_adapter import SkipParse
-from dealyard.persistence.models import (
+from dealwatcherer.domain.enums import HealthStatus, TaskRunStatus
+from dealwatcherer.stores.base_adapter import SkipParse
+from dealwatcherer.persistence.models import (
     DeliveryEvent,
     WatchGroup,
     WatchGroupMember,

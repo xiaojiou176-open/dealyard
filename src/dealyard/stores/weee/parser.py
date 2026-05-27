@@ -9,8 +9,8 @@ from typing import Final, Optional
 
 from playwright.async_api import Page
 
-from dealyard.core.models import Offer, PriceContext, SkipReason
-from dealyard.stores.base_adapter import SkipParse
+from dealwatcherer.core.models import Offer, PriceContext, SkipReason
+from dealwatcherer.stores.base_adapter import SkipParse
 
 
 #########################################################
@@ -65,7 +65,7 @@ class WeeeParser:
     last_debug: dict[str, str] = field(init=False, default_factory=dict)
 
     def __post_init__(self) -> None:
-        self.logger = logging.getLogger("dealyard.stores.weee.parser")
+        self.logger = logging.getLogger("dealwatcherer.stores.weee.parser")
 
     async def parse(self, page: Page) -> Optional[Offer]:
         url = page.url

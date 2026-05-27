@@ -7,7 +7,7 @@ from pathlib import Path
 
 DEFAULT_ENV_FILE = Path(__file__).resolve().parents[2] / ".env"
 DEFAULT_DEDICATED_CHROME_USER_DATA_DIR = str(
-    Path("~/.cache/dealyard/browser/chrome-user-data").expanduser()
+    Path("~/.cache/dealwatcherer/browser/chrome-user-data").expanduser()
 )
 _MACOS_SHARED_CHROME_ROOT_PARTS = ("Library", "Application Support", "Google", "Chrome")
 DEFAULT_SHARED_CHROME_ROOT = str(Path.home().joinpath(*_MACOS_SHARED_CHROME_ROOT_PARTS))
@@ -68,9 +68,9 @@ def resolve_contract(
             f"{caller_name} refused: CHROME_USER_DATA_DIR, CHROME_PROFILE_NAME, and CHROME_PROFILE_DIRECTORY must all be configured."
         )
     normalized_user_data_dir = _normalize_browser_root(user_data_dir) or user_data_dir
-    if profile_name == "dealyard" and is_legacy_shared_chrome_root(normalized_user_data_dir):
+    if profile_name == "dealwatcherer" and is_legacy_shared_chrome_root(normalized_user_data_dir):
         raise SystemExit(
-            f"{caller_name} refused: CHROME_USER_DATA_DIR must not point at the legacy shared Chrome root when CHROME_PROFILE_NAME=dealyard. Migrate to {DEFAULT_DEDICATED_CHROME_USER_DATA_DIR} and reuse the dedicated Dealyard browser lane instead."
+            f"{caller_name} refused: CHROME_USER_DATA_DIR must not point at the legacy shared Chrome root when CHROME_PROFILE_NAME=dealwatcherer. Migrate to {DEFAULT_DEDICATED_CHROME_USER_DATA_DIR} and reuse the dedicated Dealwatcher browser lane instead."
         )
     remote_debug_port = int(str(values.get("CHROME_REMOTE_DEBUG_PORT", "")).strip() or "9333")
     cdp_url = str(values.get("CHROME_CDP_URL", "")).strip() or f"http://127.0.0.1:{remote_debug_port}"

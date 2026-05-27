@@ -1,4 +1,4 @@
-const CONTEXT_MENU_ID = "dealyard-open-compare";
+const CONTEXT_MENU_ID = "dealwatcherer-open-compare";
 const DEFAULT_BASE_URL = "http://127.0.0.1:5173";
 
 function normalizeBaseUrl(raw) {
@@ -7,15 +7,15 @@ function normalizeBaseUrl(raw) {
 }
 
 async function getBaseUrl() {
-  const payload = await chrome.storage.sync.get({ dealyardBaseUrl: DEFAULT_BASE_URL });
-  return normalizeBaseUrl(payload.dealyardBaseUrl);
+  const payload = await chrome.storage.sync.get({ dealwatchererBaseUrl: DEFAULT_BASE_URL });
+  return normalizeBaseUrl(payload.dealwatchererBaseUrl);
 }
 
 function buildCompareUrl(baseUrl, submittedUrl) {
   const target = new URL(baseUrl);
   target.hash = "#compare";
   if (submittedUrl) {
-    target.searchParams.set("dealyard_submitted_url", submittedUrl);
+    target.searchParams.set("dealwatcherer_submitted_url", submittedUrl);
   }
   return target.toString();
 }
@@ -23,7 +23,7 @@ function buildCompareUrl(baseUrl, submittedUrl) {
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: CONTEXT_MENU_ID,
-    title: "Open in Dealyard Compare",
+    title: "Open in Dealwatcher Compare",
     contexts: ["page", "link"],
   });
 });

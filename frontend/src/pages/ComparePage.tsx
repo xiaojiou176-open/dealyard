@@ -97,8 +97,8 @@ function readComparePrefillFromUrl(): { rawUrls: string; used: boolean } {
   }
 
   const current = new URL(window.location.href);
-  const batch = current.searchParams.get("dealyard_submitted_urls");
-  const single = current.searchParams.get("dealyard_submitted_url");
+  const batch = current.searchParams.get("dealwatcherer_submitted_urls");
+  const single = current.searchParams.get("dealwatcherer_submitted_url");
   const raw = batch ?? single;
   if (!raw) {
     return { rawUrls: defaultUrls, used: false };
@@ -169,8 +169,8 @@ export function ComparePage() {
       return;
     }
     const current = new URL(window.location.href);
-    current.searchParams.delete("dealyard_submitted_url");
-    current.searchParams.delete("dealyard_submitted_urls");
+    current.searchParams.delete("dealwatcherer_submitted_url");
+    current.searchParams.delete("dealwatcherer_submitted_urls");
     window.history.replaceState({}, "", `${current.pathname}${current.search}${current.hash}`);
   }, [usedPrefill]);
 

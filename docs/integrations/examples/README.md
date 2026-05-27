@@ -96,7 +96,7 @@ Think of them like laminated sample forms at a front desk:
 ## Recipe companion
 
 These JSON examples deliberately stop short of freezing every client wrapper.
-Use the recipe ledger in [`../config-recipes.md`](../config-recipes.md) when you need to know whether a wrapper is officially documented here or whether only the Dealyard launch record is repo-verified.
+Use the recipe ledger in [`../config-recipes.md`](../config-recipes.md) when you need to know whether a wrapper is officially documented here or whether only the Dealwatcher launch record is repo-verified.
 
 ## Boundary reminder
 

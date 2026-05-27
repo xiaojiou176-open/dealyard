@@ -5,8 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from dealyard.infra import browser_debug
-from dealyard.infra.browser_debug import (
+from dealwatcherer.infra import browser_debug
+from dealwatcherer.infra.browser_debug import (
     classify_browser_debug_state,
     collect_browser_debug_open_pages,
     collect_browser_debug_surfaces,
@@ -15,7 +15,7 @@ from dealyard.infra.browser_debug import (
     sanitize_browser_debug_output,
     write_browser_support_bundle,
 )
-from dealyard.infra.config import Settings
+from dealwatcherer.infra.config import Settings
 from scripts.shared.browser_lane_contract import DEFAULT_SHARED_CHROME_ROOT
 
 
@@ -163,20 +163,20 @@ class _FakePlaywright:
 def test_resolve_browser_debug_contract_builds_default_cdp_url(tmp_path: Path) -> None:
     settings = _make_settings(tmp_path)
     settings.CHROME_USER_DATA_DIR = str(tmp_path / "chrome")
-    settings.CHROME_PROFILE_NAME = "dealyard"
+    settings.CHROME_PROFILE_NAME = "dealwatcherer"
     settings.CHROME_PROFILE_DIRECTORY = "Profile 13"
 
     contract = resolve_browser_debug_contract(settings)
 
     assert contract.cdp_url == "http://127.0.0.1:9333"
-    assert contract.requested_profile_label == "dealyard"
+    assert contract.requested_profile_label == "dealwatcherer"
     assert contract.has_profile_contract is True
 
 
 def test_resolve_browser_debug_contract_requires_three_profile_values(tmp_path: Path) -> None:
     settings = _make_settings(tmp_path)
     settings.CHROME_USER_DATA_DIR = str(tmp_path / "chrome")
-    settings.CHROME_PROFILE_NAME = "dealyard"
+    settings.CHROME_PROFILE_NAME = "dealwatcherer"
 
     contract = resolve_browser_debug_contract(settings)
 
@@ -187,10 +187,10 @@ def test_resolve_browser_debug_contract_requires_three_profile_values(tmp_path: 
 def test_resolve_browser_debug_contract_expands_user_dir_tilde(tmp_path: Path, monkeypatch) -> None:
     settings = _make_settings(tmp_path)
     home_tmp = tmp_path / "home"
-    dedicated_root = home_tmp / ".cache" / "dealyard" / "browser" / "chrome-user-data"
+    dedicated_root = home_tmp / ".cache" / "dealwatcherer" / "browser" / "chrome-user-data"
     monkeypatch.setenv("HOME", str(home_tmp))
-    settings.CHROME_USER_DATA_DIR = "~/.cache/dealyard/browser/chrome-user-data"
-    settings.CHROME_PROFILE_NAME = "dealyard"
+    settings.CHROME_USER_DATA_DIR = "~/.cache/dealwatcherer/browser/chrome-user-data"
+    settings.CHROME_PROFILE_NAME = "dealwatcherer"
     settings.CHROME_PROFILE_DIRECTORY = "Profile 21"
 
     contract = resolve_browser_debug_contract(settings)
@@ -201,7 +201,7 @@ def test_resolve_browser_debug_contract_expands_user_dir_tilde(tmp_path: Path, m
 def test_classify_browser_debug_state_profile_mismatch() -> None:
     status = classify_browser_debug_state(
         attached=True,
-        requested_profile_label="dealyard",
+        requested_profile_label="dealwatcherer",
         observed_profile_label="wrong-profile",
         current_page_url="https://example.com",
     )
@@ -267,7 +267,7 @@ async def test_collect_browser_debug_surfaces_awaits_async_request_response() ->
 async def test_collect_browser_debug_open_pages_sorts_canonical_tabs_first() -> None:
     identity_page = _FakePage(
         url="file:///tmp/repo/.runtime-cache/browser-identity/index.html",
-        title="Dealyard · 9333 · browser lane",
+        title="Dealwatcher · 9333 · browser lane",
         content="<html><body>repo-owned browser lane identity tab</body></html>",
     )
     account_page = _FakePage(
@@ -399,7 +399,7 @@ async def test_diagnose_browser_debug_skips_identity_tab_when_account_tab_exists
     settings = _make_settings(tmp_path)
     identity_page = _FakePage(
         url="file:///tmp/repo/.runtime-cache/browser-identity/index.html",
-        title="Dealyard · 9333 · browser lane",
+        title="Dealwatcher · 9333 · browser lane",
         content="<html><body>repo-owned browser lane identity tab</body></html>",
     )
     account_page = _FakePage(
@@ -427,7 +427,7 @@ async def test_diagnose_browser_debug_skips_identity_tab_when_account_tab_exists
 async def test_diagnose_browser_debug_requires_user_data_dir_for_persistent(tmp_path: Path) -> None:
     settings = _make_settings(tmp_path)
     settings.CHROME_ATTACH_MODE = "persistent"
-    settings.CHROME_PROFILE_NAME = "dealyard"
+    settings.CHROME_PROFILE_NAME = "dealwatcherer"
     settings.CHROME_PROFILE_DIRECTORY = "Profile 13"
 
     payload = await diagnose_browser_debug(settings)
@@ -441,7 +441,7 @@ async def test_diagnose_browser_debug_rejects_legacy_shared_chrome_root(tmp_path
     settings = _make_settings(tmp_path)
     settings.CHROME_ATTACH_MODE = "browser"
     settings.CHROME_USER_DATA_DIR = DEFAULT_SHARED_CHROME_ROOT
-    settings.CHROME_PROFILE_NAME = "dealyard"
+    settings.CHROME_PROFILE_NAME = "dealwatcherer"
     settings.CHROME_PROFILE_DIRECTORY = "Profile 21"
 
     payload = await diagnose_browser_debug(settings)
@@ -456,7 +456,7 @@ async def test_diagnose_browser_debug_bootstraps_start_url_for_persistent_contex
     settings = _make_settings(tmp_path)
     settings.CHROME_ATTACH_MODE = "persistent"
     settings.CHROME_USER_DATA_DIR = str(tmp_path / "chrome")
-    settings.CHROME_PROFILE_NAME = "dealyard"
+    settings.CHROME_PROFILE_NAME = "dealwatcherer"
     settings.CHROME_PROFILE_DIRECTORY = "Profile 13"
     settings.CHROME_START_URL = "https://example.com/health"
     chrome_dir = Path(settings.CHROME_USER_DATA_DIR)
@@ -491,7 +491,7 @@ async def test_diagnose_browser_debug_detects_profile_name_mismatch(tmp_path: Pa
     settings = _make_settings(tmp_path)
     settings.CHROME_ATTACH_MODE = "persistent"
     settings.CHROME_USER_DATA_DIR = str(tmp_path / "chrome")
-    settings.CHROME_PROFILE_NAME = "dealyard"
+    settings.CHROME_PROFILE_NAME = "dealwatcherer"
     settings.CHROME_PROFILE_DIRECTORY = "Profile 13"
     chrome_dir = Path(settings.CHROME_USER_DATA_DIR)
     (chrome_dir / settings.CHROME_PROFILE_DIRECTORY).mkdir(parents=True)

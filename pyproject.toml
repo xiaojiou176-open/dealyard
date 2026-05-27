@@ -3,13 +3,13 @@ requires = ["setuptools>=80.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dealyard"
+name = "dealwatcherer"
 version = "1.0.1"
-description = "Dealyard product backend and worker runtime"
+description = "Dealwatcher product backend and worker runtime"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
-keywords = ["dealyard", "mcp", "price-tracking", "grocery", "fastapi", "preact"]
+keywords = ["dealwatcherer", "mcp", "price-tracking", "grocery", "fastapi", "preact"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
@@ -50,16 +50,16 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://xiaojiou176-open.github.io/dealyard/"
-Repository = "https://github.com/xiaojiou176-open/dealyard"
-Documentation = "https://github.com/xiaojiou176-open/dealyard/blob/main/docs/integrations/README.md"
-Issues = "https://github.com/xiaojiou176-open/dealyard/issues"
-Discussions = "https://github.com/xiaojiou176-open/dealyard/discussions"
-Changelog = "https://github.com/xiaojiou176-open/dealyard/releases"
+Homepage = "https://xiaojiou176-open.github.io/dealwatcherer/"
+Repository = "https://github.com/xiaojiou176-open/dealwatcherer"
+Documentation = "https://github.com/xiaojiou176-open/dealwatcherer/blob/main/docs/integrations/README.md"
+Issues = "https://github.com/xiaojiou176-open/dealwatcherer/issues"
+Discussions = "https://github.com/xiaojiou176-open/dealwatcherer/discussions"
+Changelog = "https://github.com/xiaojiou176-open/dealwatcherer/releases"
 
 [project.scripts]
-dealyard = "dealyard.cli:main"
-dealyard-mcp = "dealyard.mcp.server:main"
+dealwatcherer = "dealwatcherer.cli:main"
+dealwatcherer-mcp = "dealwatcherer.mcp.server:main"
 
 [dependency-groups]
 dev = [
@@ -78,4 +78,4 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["dealyard*"]
+include = ["dealwatcherer*"]

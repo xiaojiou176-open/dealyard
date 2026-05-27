@@ -2,13 +2,13 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-ENV_FILE="${DEALYARD_ENV_FILE:-${ROOT_DIR}/.env}"
-PS_BIN="${DEALYARD_PS_BIN:-ps}"
-OPEN_BIN="${DEALYARD_OPEN_BIN:-open}"
-PYTHON_BIN="${DEALYARD_PYTHON_BIN:-python3}"
-READY_RETRIES="${DEALYARD_READY_RETRIES:-20}"
-MAX_BROWSER_INSTANCES="${DEALYARD_MAX_BROWSER_INSTANCES:-6}"
-ENSURE_TABS_SCRIPT="${ROOT_DIR}/scripts/open_dealyard_account_pages.py"
+ENV_FILE="${DEALWATCHER_ENV_FILE:-${ROOT_DIR}/.env}"
+PS_BIN="${DEALWATCHER_PS_BIN:-ps}"
+OPEN_BIN="${DEALWATCHER_OPEN_BIN:-open}"
+PYTHON_BIN="${DEALWATCHER_PYTHON_BIN:-python3}"
+READY_RETRIES="${DEALWATCHER_READY_RETRIES:-20}"
+MAX_BROWSER_INSTANCES="${DEALWATCHER_MAX_BROWSER_INSTANCES:-6}"
+ENSURE_TABS_SCRIPT="${ROOT_DIR}/scripts/open_dealwatcherer_account_pages.py"
 
 read_env_json() {
   "${PYTHON_BIN}" - "${ENV_FILE}" <<'PY'
@@ -67,7 +67,7 @@ PY
 )"
 
 if [[ -z "${CHROME_USER_DATA_DIR}" || -z "${CHROME_PROFILE_NAME}" || -z "${CHROME_PROFILE_DIRECTORY}" ]]; then
-  echo "Dealyard Chrome launcher refused: CHROME_USER_DATA_DIR, CHROME_PROFILE_NAME, and CHROME_PROFILE_DIRECTORY must all be configured in .env." >&2
+  echo "Dealwatcher Chrome launcher refused: CHROME_USER_DATA_DIR, CHROME_PROFILE_NAME, and CHROME_PROFILE_DIRECTORY must all be configured in .env." >&2
   exit 1
 fi
 
@@ -151,16 +151,16 @@ with urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=1) 
 PY
   then
     ENSURE_JSON="$("${PYTHON_BIN}" "${ENSURE_TABS_SCRIPT}" --env-file "${ENV_FILE}" --json)"
-    echo "Dealyard Chrome launcher: reusing existing dedicated Chrome instance for ${CHROME_PROFILE_NAME} (${CHROME_PROFILE_DIRECTORY})."
+    echo "Dealwatcher Chrome launcher: reusing existing dedicated Chrome instance for ${CHROME_PROFILE_NAME} (${CHROME_PROFILE_DIRECTORY})."
     print_lane_summary "${ENSURE_JSON}"
     exit 0
   fi
-  echo "Dealyard Chrome launcher refused: matching Chrome process exists for ${CHROME_PROFILE_NAME} (${CHROME_PROFILE_DIRECTORY}), but CDP listener ${CHROME_REMOTE_DEBUG_PORT} is not reachable." >&2
+  echo "Dealwatcher Chrome launcher refused: matching Chrome process exists for ${CHROME_PROFILE_NAME} (${CHROME_PROFILE_DIRECTORY}), but CDP listener ${CHROME_REMOTE_DEBUG_PORT} is not reachable." >&2
   exit 1
 fi
 
 if (( TOTAL_BROWSER_INSTANCES > MAX_BROWSER_INSTANCES )); then
-  echo "Dealyard Chrome launcher refused: machine already has ${TOTAL_BROWSER_INSTANCES} browser instances, above Dealyard limit ${MAX_BROWSER_INSTANCES}. Finish non-browser work first or wait for active owners to recover their lanes before launching another dedicated Chrome instance." >&2
+  echo "Dealwatcher Chrome launcher refused: machine already has ${TOTAL_BROWSER_INSTANCES} browser instances, above Dealwatcher limit ${MAX_BROWSER_INSTANCES}. Finish non-browser work first or wait for active owners to recover their lanes before launching another dedicated Chrome instance." >&2
   exit 1
 fi
 
@@ -192,11 +192,11 @@ PY
 done
 
 if [[ "${READY}" != "1" ]]; then
-  echo "Dealyard Chrome launcher failed: dedicated Chrome did not expose a CDP listener on port ${CHROME_REMOTE_DEBUG_PORT}." >&2
+  echo "Dealwatcher Chrome launcher failed: dedicated Chrome did not expose a CDP listener on port ${CHROME_REMOTE_DEBUG_PORT}." >&2
   exit 1
 fi
 
 ENSURE_JSON="$("${PYTHON_BIN}" "${ENSURE_TABS_SCRIPT}" --env-file "${ENV_FILE}" --json)"
 
-echo "Dealyard Chrome launcher: launched dedicated Chrome instance for ${CHROME_PROFILE_NAME} (${CHROME_PROFILE_DIRECTORY}) on port ${CHROME_REMOTE_DEBUG_PORT}."
+echo "Dealwatcher Chrome launcher: launched dedicated Chrome instance for ${CHROME_PROFILE_NAME} (${CHROME_PROFILE_DIRECTORY}) on port ${CHROME_REMOTE_DEBUG_PORT}."
 print_lane_summary "${ENSURE_JSON}"

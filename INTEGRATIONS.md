@@ -1,13 +1,13 @@
 # Integrations
 
-Use this file as the shortest entrypoint to Dealyard's builder-facing surface.
+Use this file as the shortest entrypoint to Dealwatcher's builder-facing surface.
 
 Start here:
 
 - [`llms-install.md`](./llms-install.md)
 - [`docs/integrations/README.md`](./docs/integrations/README.md)
-- [`docs/roadmaps/dealyard-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealyard-api-mcp-substrate-phase1.md)
-- [`plugins/dealyard-builder-pack/README.md`](./plugins/dealyard-builder-pack/README.md)
+- [`docs/roadmaps/dealwatcherer-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealwatcherer-api-mcp-substrate-phase1.md)
+- [`plugins/dealwatcherer-builder-pack/README.md`](./plugins/dealwatcherer-builder-pack/README.md)
 
 Truthful status:
 

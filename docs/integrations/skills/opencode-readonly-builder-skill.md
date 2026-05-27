@@ -1,10 +1,10 @@
-# Dealyard Builder Skill For OpenCode
+# Dealwatcher Builder Skill For OpenCode
 
-Use this skill when OpenCode is connected to Dealyard through the local MCP server or local HTTP runtime.
+Use this skill when OpenCode is connected to Dealwatcher through the local MCP server or local HTTP runtime.
 
 ## Goal
 
-Treat Dealyard as a local-first, compare-first, read-only product truth surface for OpenCode.
+Treat Dealwatcher as a local-first, compare-first, read-only product truth surface for OpenCode.
 
 ## Do first
 
@@ -16,8 +16,8 @@ Treat Dealyard as a local-first, compare-first, read-only product truth surface 
 
 ## Hard boundaries
 
-- Do not present Dealyard as a hosted SaaS.
-- Do not present Dealyard as an official OpenCode plugin.
+- Do not present Dealwatcher as a hosted SaaS.
+- Do not present Dealwatcher as an official OpenCode plugin.
 - Do not invent write-side MCP.
 - Do not assume hosted auth or SDK packaging exists.
 - Do not bypass compare preview and jump straight to durable state assumptions.

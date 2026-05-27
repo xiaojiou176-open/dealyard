@@ -26,7 +26,7 @@ class Ranch99Discovery:
     logger: logging.Logger = field(init=False, repr=False)
 
     def __post_init__(self) -> None:
-        self.logger = logging.getLogger("dealyard.stores.ranch99.discovery")
+        self.logger = logging.getLogger("dealwatcherer.stores.ranch99.discovery")
 
     async def discover_deals(self) -> list[str]:
         links: list[str] = []

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 import httpx
 from selectolax.parser import HTMLParser
 
-from dealyard.providers.cashback.base import CashbackQuotePayload, CashbackQuoteResult
+from dealwatcherer.providers.cashback.base import CashbackQuotePayload, CashbackQuoteResult
 
 
 _PERCENT_RE = re.compile(r"(?P<value>\d+(?:\.\d+)?)\s*%")

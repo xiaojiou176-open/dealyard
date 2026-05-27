@@ -1,21 +1,21 @@
-# Dealyard Prompt Starters
+# Dealwatcher Prompt Starters
 
-These prompts are for builders who have already pointed a local client at the current Dealyard API / MCP truth.
+These prompts are for builders who have already pointed a local client at the current Dealwatcher API / MCP truth.
 
 They are intentionally read-first and local-first.
 
 Before you use any client-specific starter, do this first:
 
-1. read `docs/roadmaps/dealyard-api-mcp-substrate-phase1.md`
-2. run `PYTHONPATH=src uv run python -m dealyard --help`
-3. run `PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json`
+1. read `docs/roadmaps/dealwatcherer-api-mcp-substrate-phase1.md`
+2. run `PYTHONPATH=src uv run python -m dealwatcherer --help`
+3. run `PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json`
 4. inspect the builder starter pack contract
 5. skim `docs/integrations/config-recipes.md`
 6. skim `docs/integrations/examples/README.md`
 
 ## Shared rule before any prompt
 
-Do not ask the client to mutate Dealyard objects as the first move.
+Do not ask the client to mutate Dealwatcher objects as the first move.
 
 Start with:
 
@@ -37,7 +37,7 @@ Also keep this boundary map in mind:
 Use this when you want one repo-owned prompt before choosing a client-specific variant:
 
 ```text
-Treat Dealyard as a local-first, read-only-first product truth surface.
+Treat Dealwatcher as a local-first, read-only-first product truth surface.
 Start by inspecting the shipped tool or route inventory.
 Then check runtime readiness.
 Then inspect the builder starter pack contract.
@@ -61,7 +61,7 @@ Do not invent write-side MCP, hosted auth, SDK packaging, generic operator contr
 - `docs/integrations/recipes/opencode.md`
 - `docs/integrations/recipes/openclaw.md`
 - `docs/integrations/skills/README.md`
-- `docs/integrations/skills/dealyard-readonly-builder-skill.md`
+- `docs/integrations/skills/dealwatcherer-readonly-builder-skill.md`
 - `docs/integrations/skills/claude-code-readonly-builder-skill.md`
 - `docs/integrations/skills/codex-readonly-builder-skill.md`
 - `docs/integrations/skills/openhands-readonly-builder-skill.md`
@@ -71,7 +71,7 @@ Do not invent write-side MCP, hosted auth, SDK packaging, generic operator contr
 ## Claude Code Starter
 
 ```text
-You are connected to a local-first Dealyard runtime.
+You are connected to a local-first Dealwatcher runtime.
 
 Stay inside the current read-only builder contract.
 
@@ -89,7 +89,7 @@ Do not assume write-side MCP, hosted auth, SDK packaging, or remote-safe operato
 ## Codex Starter
 
 ```text
-Treat Dealyard as a local product-truth backend, not as a hosted automation platform.
+Treat Dealwatcher as a local product-truth backend, not as a hosted automation platform.
 
 Start in observation mode:
 1. inspect the shipped tool or route inventory
@@ -105,7 +105,7 @@ Do not invent write-side support or recommend owner or operator mutations as if 
 ## OpenHands Starter
 
 ```text
-You are integrating against a local-first Dealyard runtime.
+You are integrating against a local-first Dealwatcher runtime.
 
 Use the current read-first contract:
 - inspect the shipped MCP tool list
@@ -122,17 +122,17 @@ Explain the boundary between stable now, deferred, and internal-only surfaces be
 ## OpenClaw Starter
 
 ```text
-Treat Dealyard as a local-first, read-only product truth source inside OpenClaw.
+Treat Dealwatcher as a local-first, read-only product truth source inside OpenClaw.
 Start with get_runtime_readiness, then get_builder_starter_pack, then compare_preview, then inspect one watch or watch-group detail only if the compare output looks usable.
 Keep the flow on read-only surfaces: watch tasks, watch groups, recovery inbox, notification settings, and store onboarding cockpit truth.
 Do not assume an official plugin, write-side MCP, hosted auth, SDK packaging, or remote-safe operator control.
-If a plan depends on durable writes or operator-owned actions, stop and mark those paths as outside the current Dealyard builder contract.
+If a plan depends on durable writes or operator-owned actions, stop and mark those paths as outside the current Dealwatcher builder contract.
 ```
 
 ## OpenCode Starter
 
 ```text
-Use Dealyard as a local product truth source for compare-first grocery monitoring.
+Use Dealwatcher as a local product truth source for compare-first grocery monitoring.
 
 First do:
 1. inspect the shipped MCP tool list
@@ -143,5 +143,5 @@ First do:
 6. summarize which surfaces are stable now versus deferred
 
 Keep the integration local-first and read-only-first.
-Do not present Dealyard as a hosted builder platform, official plugin, or write-capable remote control plane.
+Do not present Dealwatcher as a hosted builder platform, official plugin, or write-capable remote control plane.
 ```

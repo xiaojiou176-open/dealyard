@@ -5,8 +5,8 @@ import re
 from pathlib import Path
 from typing import Any
 
-from dealyard.infra.config import PROJECT_ROOT
-from dealyard.stores import (
+from dealwatcherer.infra.config import PROJECT_ROOT
+from dealwatcherer.stores import (
     STORE_CAPABILITY_REGISTRY,
     STORE_REGISTRY,
     build_next_onboarding_step,
@@ -22,9 +22,9 @@ _SECTION_HEADING_RE = re.compile(r"^##\s+(?P<title>.+?)\s*$")
 _MARKDOWN_LINK_RE = re.compile(r"\((?P<path>[^)]+)\)")
 _LIMITED_SUPPORT_TRUTH_SOURCES = [
     "docs/runbooks/store-onboarding-contract.md",
-    "src/dealyard/application/urls.py",
-    "src/dealyard/application/services.py",
-    "src/dealyard/api/schemas.py",
+    "src/dealwatcherer/application/urls.py",
+    "src/dealwatcherer/application/services.py",
+    "src/dealwatcherer/api/schemas.py",
     "frontend/src/pages/ComparePage.tsx",
     "frontend/src/pages/compare/copy.ts",
     "frontend/src/pages/compare/helpers.ts",
@@ -162,12 +162,12 @@ def build_store_onboarding_cockpit(
                     },
                     {
                         "kind": "capability_manifest",
-                        "path": "src/dealyard/stores/manifest.py",
+                        "path": "src/dealwatcherer/stores/manifest.py",
                         "exists": capability is not None,
                     },
                     {
                         "kind": "store_registry",
-                        "path": "src/dealyard/stores/__init__.py",
+                        "path": "src/dealwatcherer/stores/__init__.py",
                         "exists": store_key in registry_keys,
                     },
                     {
@@ -191,12 +191,12 @@ def build_store_onboarding_cockpit(
     ]
     verification_commands = list(runbook_truth["verification_commands"])
     truth_sources = [
-        "src/dealyard/stores/manifest.py",
-        "src/dealyard/stores/__init__.py",
-        "src/dealyard/persistence/store_bindings.py",
-        "src/dealyard/application/urls.py",
-        "src/dealyard/application/services.py",
-        "src/dealyard/api/schemas.py",
+        "src/dealwatcherer/stores/manifest.py",
+        "src/dealwatcherer/stores/__init__.py",
+        "src/dealwatcherer/persistence/store_bindings.py",
+        "src/dealwatcherer/application/urls.py",
+        "src/dealwatcherer/application/services.py",
+        "src/dealwatcherer/api/schemas.py",
         "frontend/src/pages/ComparePage.tsx",
         "frontend/src/pages/compare/copy.ts",
         "frontend/src/pages/compare/helpers.ts",
@@ -296,12 +296,12 @@ def _load_runbook_truth(all_store_keys: list[str]) -> dict[str, Any]:
     adapter_missing_store_keys = [
         store_key
         for store_key in all_store_keys
-        if not (PROJECT_ROOT / "src" / "dealyard" / "stores" / store_key / "adapter.py").is_file()
+        if not (PROJECT_ROOT / "src" / "dealwatcherer" / "stores" / store_key / "adapter.py").is_file()
     ]
     required_files = [
         {
             "kind": "store_adapter",
-            "path_template": "src/dealyard/stores/<store>/adapter.py",
+            "path_template": "src/dealwatcherer/stores/<store>/adapter.py",
             "exists_for_all_supported_stores": not adapter_missing_store_keys,
             "missing_store_keys": adapter_missing_store_keys,
         },
@@ -326,9 +326,9 @@ def _build_store_truth_sources(
     contract_test_paths: list[str],
 ) -> list[str]:
     sources = [
-        "src/dealyard/stores/manifest.py",
-        "src/dealyard/stores/__init__.py",
-        "src/dealyard/persistence/store_bindings.py",
+        "src/dealwatcherer/stores/manifest.py",
+        "src/dealwatcherer/stores/__init__.py",
+        "src/dealwatcherer/persistence/store_bindings.py",
         "docs/runbooks/store-onboarding-contract.md",
     ]
     if adapter_file_path is not None:
@@ -424,7 +424,7 @@ def _parse_related_files(lines: list[str]) -> list[dict[str, Any]]:
 
 
 def _module_to_repo_path(module_name: str | None) -> Path | None:
-    if module_name is None or not module_name.startswith("dealyard."):
+    if module_name is None or not module_name.startswith("dealwatcherer."):
         return None
     return PROJECT_ROOT / "src" / Path(module_name.replace(".", "/")).with_suffix(".py")
 

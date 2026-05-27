@@ -12,9 +12,9 @@ from sqlalchemy import create_engine, inspect as sa_inspect
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.pool import NullPool
 
-from dealyard.infra.config import Settings, settings
-from dealyard.persistence.base import Base
-from dealyard.persistence import models as _models  # noqa: F401
+from dealwatcherer.infra.config import Settings, settings
+from dealwatcherer.persistence.base import Base
+from dealwatcherer.persistence import models as _models  # noqa: F401
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]

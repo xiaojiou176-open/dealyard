@@ -9,14 +9,14 @@ function buildCompareUrl(baseUrl, submittedUrl) {
   const target = new URL(baseUrl);
   target.hash = "#compare";
   if (submittedUrl) {
-    target.searchParams.set("dealyard_submitted_url", submittedUrl);
+    target.searchParams.set("dealwatcherer_submitted_url", submittedUrl);
   }
   return target.toString();
 }
 
 async function getBaseUrl() {
-  const payload = await chrome.storage.sync.get({ dealyardBaseUrl: DEFAULT_BASE_URL });
-  return normalizeBaseUrl(payload.dealyardBaseUrl);
+  const payload = await chrome.storage.sync.get({ dealwatchererBaseUrl: DEFAULT_BASE_URL });
+  return normalizeBaseUrl(payload.dealwatchererBaseUrl);
 }
 
 async function getCurrentTab() {
@@ -75,7 +75,7 @@ async function init() {
   });
 
   document.getElementById("open-docs").addEventListener("click", async () => {
-    await chrome.tabs.create({ url: "https://xiaojiou176-open.github.io/dealyard/quick-start.html" });
+    await chrome.tabs.create({ url: "https://xiaojiou176-open.github.io/dealwatcherer/quick-start.html" });
   });
 }
 

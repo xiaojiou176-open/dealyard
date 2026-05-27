@@ -10,9 +10,9 @@ from typing import AsyncIterator, Final
 
 import aiosqlite
 
-from dealyard.core.models import Offer, RunStats
-from dealyard.infra.config import Settings, migrate_default_legacy_storage, settings
-from dealyard.infra import migrations
+from dealwatcherer.core.models import Offer, RunStats
+from dealwatcherer.infra.config import Settings, migrate_default_legacy_storage, settings
+from dealwatcherer.infra import migrations
 
 
 #########################################################

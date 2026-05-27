@@ -4,9 +4,9 @@ import asyncio
 from dataclasses import dataclass
 from uuid import uuid4
 
-from dealyard.infra.config import Settings
-from dealyard.infra.mailer import EmailNotifier
-from dealyard.providers.email.base import EmailDispatchPayload, EmailDispatchResult
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.infra.mailer import EmailNotifier
+from dealwatcherer.providers.email.base import EmailDispatchPayload, EmailDispatchResult
 
 
 @dataclass(slots=True)

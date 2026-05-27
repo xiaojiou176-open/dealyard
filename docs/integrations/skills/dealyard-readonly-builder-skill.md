@@ -1,10 +1,10 @@
-# Dealyard Read-Only Builder Skill
+# Dealwatcher Read-Only Builder Skill
 
-Use this skill when a coding agent is connected to Dealyard through the local HTTP runtime, the local MCP server, or both.
+Use this skill when a coding agent is connected to Dealwatcher through the local HTTP runtime, the local MCP server, or both.
 
 ## Goal
 
-Treat Dealyard as a local-first, compare-first, read-only-first product truth surface.
+Treat Dealwatcher as a local-first, compare-first, read-only-first product truth surface.
 
 ## Do first
 
@@ -16,12 +16,12 @@ Treat Dealyard as a local-first, compare-first, read-only-first product truth su
 
 ## Stable now
 
-- `PYTHONPATH=src uv run python -m dealyard --help`
-- `PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json`
-- `PYTHONPATH=src uv run python -m dealyard server`
-- `PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json`
-- `PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json`
-- `PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio`
+- `PYTHONPATH=src uv run python -m dealwatcherer --help`
+- `PYTHONPATH=src uv run python -m dealwatcherer builder-starter-pack --json`
+- `PYTHONPATH=src uv run python -m dealwatcherer server`
+- `PYTHONPATH=src uv run python -m dealwatcherer.mcp list-tools --json`
+- `PYTHONPATH=src uv run python -m dealwatcherer.mcp client-starters --json`
+- `PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio`
 - `GET /api/runtime/readiness`
 - `GET /api/runtime/builder-starter-pack`
 - `POST /api/compare/preview`
@@ -45,12 +45,12 @@ Treat Dealyard as a local-first, compare-first, read-only-first product truth su
 
 ## Hard boundaries
 
-- Do not present Dealyard as a hosted SaaS.
-- Do not present Dealyard as an official plugin for Codex, Claude Code, OpenHands, OpenCode, or OpenClaw.
+- Do not present Dealwatcher as a hosted SaaS.
+- Do not present Dealwatcher as an official plugin for Codex, Claude Code, OpenHands, OpenCode, or OpenClaw.
 - Do not invent write-side MCP.
 - Do not treat browser debug lane commands as public builder APIs.
 - Do not bypass compare preview and jump straight to durable state assumptions.
 
 ## Safe summary sentence
 
-Dealyard is a local-first, read-only decision backend for compare-first grocery price intelligence.
+Dealwatcher is a local-first, read-only decision backend for compare-first grocery price intelligence.

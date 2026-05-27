@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 HOOK_SOURCE = ROOT / "scripts" / "git-hooks" / "pre-push"
 HOOK_TARGET = ROOT / ".git" / "hooks" / "pre-push"
-MANAGED_MARKER = "Dealyard managed hook"
+MANAGED_MARKER = "Dealwatcher managed hook"
 
 
 def _ensure_pre_commit_installed() -> None:
@@ -34,7 +34,7 @@ def _install_pre_push() -> None:
         raise RuntimeError("Git metadata directory `.git` is missing; refuse to install hooks.")
     if HOOK_TARGET.exists() and not _existing_hook_is_managed(HOOK_TARGET):
         raise RuntimeError(
-            "Existing .git/hooks/pre-push is not Dealyard-managed. "
+            "Existing .git/hooks/pre-push is not Dealwatcher-managed. "
             "Refuse to overwrite unknown local hook."
         )
     HOOK_TARGET.parent.mkdir(parents=True, exist_ok=True)

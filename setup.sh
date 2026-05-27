@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #########################################################
-# Dealyard Setup Script
+# Dealwatcher Setup Script
 # Automated setup helper for local environment bootstrap
 #########################################################
 
@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 echo "=========================================="
-echo "Dealyard Setup Script"
+echo "Dealwatcher Setup Script"
 echo "=========================================="
 echo ""
 
@@ -112,12 +112,12 @@ echo "   - LLM_API_KEY: only if USE_LLM=true"
 echo "   - SMTP_*: only if you want SMTP email delivery"
 echo ""
 echo "2. Run the first verification pass:"
-echo "   PYTHONPATH=src uv run python -m dealyard maintenance --dry-run"
+echo "   PYTHONPATH=src uv run python -m dealwatcherer maintenance --dry-run"
 echo "   python3 scripts/install_git_hooks.py"
-echo "   PYTHONPATH=src uv run python -m dealyard server"
-echo "   PYTHONPATH=src uv run python -m dealyard worker"
+echo "   PYTHONPATH=src uv run python -m dealwatcherer server"
+echo "   PYTHONPATH=src uv run python -m dealwatcherer worker"
 echo "   # Or use the legacy bridge:"
-echo "   PYTHONPATH=src uv run python -m dealyard legacy --store weee --zip <your-zip-code>"
+echo "   PYTHONPATH=src uv run python -m dealwatcherer legacy --store weee --zip <your-zip-code>"
 echo ""
 echo "3. Read the repository docs for more details:"
 echo "   open README.md for setup notes and verification commands"

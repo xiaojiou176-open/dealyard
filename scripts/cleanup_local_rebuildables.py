@@ -91,7 +91,7 @@ def collect_targets(*, include_heavy: bool) -> list[CleanupTarget]:
 def render_report(targets: list[CleanupTarget], *, dry_run: bool) -> str:
     total = sum(target.size_bytes for target in targets)
     lines = [
-        "Dealyard local rebuildables cleanup",
+        "Dealwatcher local rebuildables cleanup",
         f"mode={'dry-run' if dry_run else 'apply'}",
         f"matched={len(targets)}",
         f"estimated_reclaim_bytes={total}",
@@ -113,7 +113,7 @@ def apply_cleanup(targets: list[CleanupTarget]) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Clean repo-local rebuildable Dealyard artifacts."
+        description="Clean repo-local rebuildable Dealwatcher artifacts."
     )
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--dry-run", action="store_true", help="Show matched local targets without deleting them.")

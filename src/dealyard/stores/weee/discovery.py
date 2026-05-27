@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Final, Iterable, List
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
-from dealyard.infra.playwright_client import PlaywrightClient
+from dealwatcherer.infra.playwright_client import PlaywrightClient
 
 
 #########################################################
@@ -48,7 +48,7 @@ class WeeeDiscovery:
     def __post_init__(self) -> None:
         if not isinstance(self.storage_state_path, Path):
             self.storage_state_path = Path(self.storage_state_path)
-        self.logger = logging.getLogger("dealyard.stores.weee.discovery")
+        self.logger = logging.getLogger("dealwatcherer.stores.weee.discovery")
 
     async def discover_deals(self) -> List[str]:
         if not self.storage_state_path.exists():

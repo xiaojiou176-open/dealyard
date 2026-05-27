@@ -11,7 +11,7 @@
     "wrapper_source_url": "https://docs.anthropic.com/en/docs/claude-code/mcp",
     "wrapper_example_path": "docs/integrations/examples/claude-code.mcp.json",
     "recommended_transport": "stdio",
-    "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
+    "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
     "safe_first_flow": [
       "get_runtime_readiness",
       "get_builder_starter_pack",
@@ -26,15 +26,15 @@
     "distribution_candidate": "marketplace_submission_candidate",
     "listing_status": "not_officially_listed",
     "repo_distribution_artifacts": [
-      "plugins/dealyard-builder-pack/.claude-plugin/plugin.json",
+      "plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json",
       ".claude-plugin/marketplace.json",
-      "plugins/dealyard-builder-pack/.mcp.json",
-      "plugins/dealyard-builder-pack/skills/dealyard-readonly-builder/SKILL.md"
+      "plugins/dealwatcherer-builder-pack/.mcp.json",
+      "plugins/dealwatcherer-builder-pack/skills/dealwatcherer-readonly-builder/SKILL.md"
     ],
     "plugin_status": "Repo-owned Claude Code plugin bundle plus builder pack. Marketplace-submission candidate only; not officially listed.",
     "boundary_reminders": [
       "Do not assume write-side MCP exists.",
-      "Do not present Dealyard as a hosted SaaS.",
+      "Do not present Dealwatcher as a hosted SaaS.",
       "Do not claim recommendation is available through builder or MCP surfaces."
     ]
   },
@@ -50,7 +50,7 @@
     "wrapper_source_url": "https://developers.openai.com/codex/mcp/",
     "wrapper_example_path": "docs/integrations/examples/codex-mcp-config.toml",
     "recommended_transport": "streamable_http",
-    "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http",
+    "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport streamable-http",
     "safe_first_flow": [
       "get_runtime_readiness",
       "get_builder_starter_pack",
@@ -65,10 +65,10 @@
     "distribution_candidate": "plugin_directory_candidate",
     "listing_status": "not_officially_listed",
     "repo_distribution_artifacts": [
-      "plugins/dealyard-builder-pack/.codex-plugin/plugin.json",
+      "plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json",
       "marketplace.json",
-      "plugins/dealyard-builder-pack/.mcp.json",
-      "plugins/dealyard-builder-pack/skills/dealyard-readonly-builder/SKILL.md"
+      "plugins/dealwatcherer-builder-pack/.mcp.json",
+      "plugins/dealwatcherer-builder-pack/skills/dealwatcherer-readonly-builder/SKILL.md"
     ],
     "plugin_status": "Repo-owned Codex plugin bundle plus repo marketplace entry. Plugin Directory candidate only; not officially listed.",
     "boundary_reminders": [
@@ -89,7 +89,7 @@
     "wrapper_source_url": "https://docs.openhands.dev/openhands/usage/cli/mcp-servers",
     "wrapper_example_path": "docs/integrations/examples/openhands-config.toml",
     "recommended_transport": "stdio",
-    "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
+    "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
     "safe_first_flow": [
       "get_runtime_readiness",
       "get_builder_starter_pack",
@@ -127,7 +127,7 @@
     "wrapper_source_url": "https://opencode.ai/docs/mcp-servers/",
     "wrapper_example_path": "docs/integrations/examples/opencode.jsonc",
     "recommended_transport": "stdio",
-    "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
+    "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
     "safe_first_flow": [
       "get_runtime_readiness",
       "get_builder_starter_pack",
@@ -165,7 +165,7 @@
     "wrapper_source_url": "https://docs.openclaw.ai/cli/mcp",
     "wrapper_example_path": "docs/integrations/examples/openclaw-mcp-servers.json",
     "recommended_transport": "stdio",
-    "launch_command": "PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio",
+    "launch_command": "PYTHONPATH=src uv run python -m dealwatcherer.mcp serve --transport stdio",
     "safe_first_flow": [
       "get_runtime_readiness",
       "get_builder_starter_pack",
@@ -183,12 +183,12 @@
       "docs/integrations/prompts/openclaw-starter.md",
       "docs/integrations/skills/openclaw-readonly-builder-skill.md",
       "docs/integrations/recipes/openclaw.md",
-      "plugins/dealyard-builder-pack/.claude-plugin/plugin.json",
-      "plugins/dealyard-builder-pack/.codex-plugin/plugin.json"
+      "plugins/dealwatcherer-builder-pack/.claude-plugin/plugin.json",
+      "plugins/dealwatcherer-builder-pack/.codex-plugin/plugin.json"
     ],
-    "plugin_status": "Repo-owned OpenClaw skill packet exists, but current public ClawHub search/API does not provide fresh listing proof for dealyard-readonly-builder. Treat ClawHub as the intended host surface, not as confirmed live listing proof.",
+    "plugin_status": "Repo-owned OpenClaw skill packet exists, but current public ClawHub search/API does not provide fresh listing proof for dealwatcherer-readonly-builder. Treat ClawHub as the intended host surface, not as confirmed live listing proof.",
     "boundary_reminders": [
-      "Do not treat Dealyard as an OpenClaw runtime base.",
+      "Do not treat Dealwatcher as an OpenClaw runtime base.",
       "Do not assume write-side MCP or operator automation is ready.",
       "Do not treat local-first proof surfaces as hosted control plane guarantees."
     ]

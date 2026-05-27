@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from email.message import EmailMessage
 from typing import Final, Iterable
 
-from dealyard.infra.config import Settings
+from dealwatcherer.infra.config import Settings
 
 
 #########################################################
@@ -35,7 +35,7 @@ class EmailNotifier:
         "<div style=\"max-width:760px;margin:0 auto;background:#ffffff;"
         "border:1px solid #e6e6e6;padding:16px;\">"
         "<div style=\"font-size:22px;font-weight:700;color:#0b5d1e;"
-        "margin-bottom:4px;\">Dealyard Daily Report</div>"
+        "margin-bottom:4px;\">Dealwatcher Daily Report</div>"
         "<div style=\"font-size:12px;color:#666;margin-bottom:16px;\">"
         "{{subject_date}}</div>"
         "<div>{{content}}</div>"
@@ -54,7 +54,7 @@ class EmailNotifier:
         self.logger = logging.getLogger(__name__)
 
     def send_daily_report(self, html_content: str, subject_date: str) -> bool:
-        subject = f"Dealyard Daily Report - {subject_date}"
+        subject = f"Dealwatcher Daily Report - {subject_date}"
         return self.send_custom_report(
             html_content=html_content,
             subject=subject,
@@ -87,7 +87,7 @@ class EmailNotifier:
 
         message = EmailMessage()
         message["Subject"] = subject
-        message["From"] = sender or "dealyard@localhost"
+        message["From"] = sender or "dealwatcherer@localhost"
         message["To"] = ", ".join(recipients)
         message.set_content("This email requires an HTML-capable client.")
         message.add_alternative(html_body, subtype="html", charset="utf-8")

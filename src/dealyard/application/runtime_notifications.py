@@ -6,8 +6,8 @@ from typing import Callable
 from sqlalchemy import desc, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from dealyard.domain.enums import DeliveryStatus, ThresholdType
-from dealyard.persistence.models import (
+from dealwatcherer.domain.enums import DeliveryStatus, ThresholdType
+from dealwatcherer.persistence.models import (
     DeliveryEvent,
     NotificationRule,
     PriceObservation,
@@ -16,7 +16,7 @@ from dealyard.persistence.models import (
     WatchGroupRun,
     WatchTask,
 )
-from dealyard.providers.email import EmailDispatchPayload, EmailProvider
+from dealwatcherer.providers.email import EmailDispatchPayload, EmailProvider
 
 
 def should_notify_task(
@@ -87,10 +87,10 @@ async def dispatch_task_notifications(
 
         payload = EmailDispatchPayload(
             recipient=rule.recipient_email,
-            subject=f"Dealyard alert for task #{task.id}",
+            subject=f"Dealwatcher alert for task #{task.id}",
             template_key=rule.template_key,
             html_body=(
-                f"<h1>Dealyard Alert</h1>"
+                f"<h1>Dealwatcher Alert</h1>"
                 f"<p>{observation.title_snapshot}</p>"
                 f"<p>Listed price: ${observation.listed_price:.2f}</p>"
                 f"<p>Effective price: ${effective_price:.2f}</p>"
@@ -152,10 +152,10 @@ async def dispatch_group_notifications(
 
     payload = EmailDispatchPayload(
         recipient=group.recipient_email,
-        subject=f"Dealyard group alert for group #{group.id}",
+        subject=f"Dealwatcher group alert for group #{group.id}",
         template_key="watch-group-threshold-hit",
         html_body=(
-            f"<h1>Dealyard Group Alert</h1>"
+            f"<h1>Dealwatcher Group Alert</h1>"
             f"<p>{winner['title_snapshot']}</p>"
             f"<p>Store: {winner['store_key']}</p>"
             f"<p>Listed price: ${float(winner['listed_price']):.2f}</p>"

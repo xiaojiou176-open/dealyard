@@ -17,8 +17,8 @@ from playwright.async_api import (
     async_playwright,
 )
 
-from dealyard.infra.config import DEFAULT_DEDICATED_CHROME_USER_DATA_DIR, Settings
-from dealyard.infra.output_redaction import sanitize_browser_debug_output
+from dealwatcherer.infra.config import DEFAULT_DEDICATED_CHROME_USER_DATA_DIR, Settings
+from dealwatcherer.infra.output_redaction import sanitize_browser_debug_output
 
 _ALLOWED_ATTACH_MODES = {"browser", "page", "persistent"}
 _LOGIN_KEYWORDS = (
@@ -479,13 +479,13 @@ async def diagnose_browser_debug(settings: Settings) -> dict[str, Any]:
         return diagnosis
     if (
         contract.has_profile_contract
-        and contract.profile_name == "dealyard"
+        and contract.profile_name == "dealwatcherer"
         and _is_legacy_shared_chrome_root(contract.user_data_dir)
     ):
         diagnosis["reason"] = "legacy_shared_chrome_root"
         diagnosis["profile_truth"]["confirmation_status"] = "legacy_shared_chrome_root"
         diagnosis["next_actions"] = [
-            f"Migrate the dealyard profile into the dedicated Chrome root at {DEFAULT_DEDICATED_CHROME_USER_DATA_DIR}, then launch one dedicated Chrome instance and attach over CDP.",
+            f"Migrate the dealwatcherer profile into the dedicated Chrome root at {DEFAULT_DEDICATED_CHROME_USER_DATA_DIR}, then launch one dedicated Chrome instance and attach over CDP.",
         ]
         return diagnosis
     if contract.attach_mode == "persistent" and not contract.has_profile_contract:
@@ -622,15 +622,15 @@ async def diagnose_browser_debug(settings: Settings) -> dict[str, Any]:
             ]
         elif diagnosis["status"] == "existing_browser_session":
             diagnosis["next_actions"] = [
-                "Reuse the dedicated Dealyard Chrome instance over CDP instead of launching a second browser against the same root.",
+                "Reuse the dedicated Dealwatcher Chrome instance over CDP instead of launching a second browser against the same root.",
             ]
         elif diagnosis["status"] == "profile_mismatch":
             diagnosis["next_actions"] = [
-                "Align CHROME_USER_DATA_DIR, CHROME_PROFILE_NAME, and CHROME_PROFILE_DIRECTORY with the dedicated Dealyard Chrome root/profile, then rerun diagnose-live.",
+                "Align CHROME_USER_DATA_DIR, CHROME_PROFILE_NAME, and CHROME_PROFILE_DIRECTORY with the dedicated Dealwatcher Chrome root/profile, then rerun diagnose-live.",
             ]
         else:
             diagnosis["next_actions"] = [
-                "Inspect current_page/current_console/current_network before deciding whether the dedicated Dealyard Chrome instance is attached and whether any real external blocker remains.",
+                "Inspect current_page/current_console/current_network before deciding whether the dedicated Dealwatcher Chrome instance is attached and whether any real external blocker remains.",
             ]
         return diagnosis
     except ValueError as exc:
@@ -645,12 +645,12 @@ async def diagnose_browser_debug(settings: Settings) -> dict[str, Any]:
         if "Singleton" in error_text or "ProcessSingleton" in error_text:
             diagnosis["status"] = "existing_browser_session"
             diagnosis["next_actions"] = [
-                "The requested Chrome root is already in use. Reuse the dedicated Dealyard Chrome instance over CDP instead of starting a second persistent context.",
+                "The requested Chrome root is already in use. Reuse the dedicated Dealwatcher Chrome instance over CDP instead of starting a second persistent context.",
             ]
         else:
             diagnosis["status"] = "attach_failed"
             diagnosis["next_actions"] = [
-                "Ensure the dedicated Dealyard Chrome instance is running with a reachable CDP listener, then rerun diagnose-live.",
+                "Ensure the dedicated Dealwatcher Chrome instance is running with a reachable CDP listener, then rerun diagnose-live.",
             ]
         return diagnosis
     except Exception as exc:

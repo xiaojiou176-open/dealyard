@@ -7,9 +7,9 @@ from typing import Any, Callable
 from sqlalchemy import desc, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from dealyard.domain.enums import FailureKind, HealthStatus
-from dealyard.infra.config import Settings
-from dealyard.persistence.models import (
+from dealwatcherer.domain.enums import FailureKind, HealthStatus
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.persistence.models import (
     DeliveryEvent,
     EffectivePriceSnapshot,
     PriceObservation,
@@ -20,7 +20,7 @@ from dealyard.persistence.models import (
     WatchTarget,
     WatchTask,
 )
-from dealyard.runtime_preflight import is_placeholder, load_settings_values
+from dealwatcherer.runtime_preflight import is_placeholder, load_settings_values
 
 
 def build_backoff_until(

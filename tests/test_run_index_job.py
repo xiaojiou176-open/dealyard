@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from dealyard.jobs.run_index import RunIndexJob
+from dealwatcherer.jobs.run_index import RunIndexJob
 
 
 def _write_ndjson(path: Path, entries: list[dict]) -> None:

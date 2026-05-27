@@ -4,8 +4,8 @@ from dataclasses import dataclass
 
 import httpx
 
-from dealyard.infra.config import Settings
-from dealyard.providers.email.base import EmailDispatchPayload, EmailDispatchResult
+from dealwatcherer.infra.config import Settings
+from dealwatcherer.providers.email.base import EmailDispatchPayload, EmailDispatchResult
 
 
 @dataclass(slots=True)

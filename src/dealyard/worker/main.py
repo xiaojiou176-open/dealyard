@@ -6,12 +6,12 @@ from uuid import uuid4
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from dealyard.application import ProductService
-from dealyard.infra.config import clear_log_context, set_log_context, settings
-from dealyard.persistence.store_bindings import sync_store_adapter_bindings
-from dealyard.jobs.maintenance import MaintenanceJob, maintenance_lock
-from dealyard.persistence.session import create_session_factory, init_product_database
-from dealyard.runtime_preflight import ensure_runtime_contract_from_settings
+from dealwatcherer.application import ProductService
+from dealwatcherer.infra.config import clear_log_context, set_log_context, settings
+from dealwatcherer.persistence.store_bindings import sync_store_adapter_bindings
+from dealwatcherer.jobs.maintenance import MaintenanceJob, maintenance_lock
+from dealwatcherer.persistence.session import create_session_factory, init_product_database
+from dealwatcherer.runtime_preflight import ensure_runtime_contract_from_settings
 
 
 async def _run_due_tasks(service: ProductService) -> None:
@@ -84,7 +84,7 @@ async def run_worker() -> None:
         trigger="interval",
         seconds=max(int(settings.WORKER_POLL_SECONDS), 10),
         kwargs={"service": service},
-        id="dealyard-due-tasks",
+        id="dealwatcherer-due-tasks",
         replace_existing=True,
     )
     if settings.MAINTENANCE_ENABLED:
@@ -93,7 +93,7 @@ async def run_worker() -> None:
             trigger="cron",
             hour=int(settings.MAINTENANCE_HOUR_LOCAL),
             minute=int(settings.MAINTENANCE_MINUTE_LOCAL),
-            id="dealyard-housekeeping",
+            id="dealwatcherer-housekeeping",
             replace_existing=True,
         )
     scheduler.start()

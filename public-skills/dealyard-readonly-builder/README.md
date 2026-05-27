@@ -1,12 +1,12 @@
-# Dealyard Read-only Builder
+# Dealwatcher Read-only Builder
 
-This bundle teaches an agent how to connect the published Dealyard MCP package
+This bundle teaches an agent how to connect the published Dealwatcher MCP package
 and use its read-only tools safely.
 
 ## What the agent learns here
 
-- how to install the published `dealyard==1.0.1` MCP package
-- which Dealyard MCP tools exist and which three are safe-first
+- how to install the published `dealwatcherer==1.0.1` MCP package
+- which Dealwatcher MCP tools exist and which three are safe-first
 - how to choose between runtime-readiness, builder-starter, compare, watch, and
   recovery reads
 - which claims stay out of bounds
@@ -24,7 +24,7 @@ and use its read-only tools safely.
 Use the published package, not a repo-local checkout:
 
 ```bash
-uvx --from dealyard==1.0.1 dealyard-mcp serve
+uvx --from dealwatcherer==1.0.1 dealwatcherer-mcp serve
 ```
 
 If the host needs a saved MCP config snippet, use the host-specific examples in
@@ -32,7 +32,7 @@ If the host needs a saved MCP config snippet, use the host-specific examples in
 
 ## Hard boundaries
 
-- no hosted Dealyard control plane
+- no hosted Dealwatcher control plane
 - no write-side MCP surface
 - no autonomous recommendation claim
 - no first-party marketplace claim unless that host independently confirms it

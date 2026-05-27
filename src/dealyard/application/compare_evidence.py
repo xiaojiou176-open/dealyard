@@ -5,7 +5,7 @@ import html
 from pathlib import Path
 from typing import Any
 
-from dealyard.stores import STORE_CAPABILITY_REGISTRY
+from dealwatcherer.stores import STORE_CAPABILITY_REGISTRY
 
 
 def _utcnow() -> datetime:
@@ -178,7 +178,7 @@ def build_compare_support_contract(
 
     if intake_status == "unsupported_store_host":
         summary = (
-            "This host is not in the official Dealyard store registry yet. "
+            "This host is not in the official Dealwatcher store registry yet. "
             "The row can stay in compare review and repo-local evidence, but it cannot become live watch state."
         )
         next_step = "Keep it as compare evidence only, or submit a URL from an officially supported store."
@@ -190,7 +190,7 @@ def build_compare_support_contract(
     elif intake_status == "unsupported_store_path":
         summary = (
             "The store host is recognized, but this URL shape is not an officially supported product path yet. "
-            "Dealyard can keep it in compare review and local evidence, but not as live watch state."
+            "Dealwatcher can keep it in compare review and local evidence, but not as live watch state."
         )
         next_step = "Submit a supported product-detail URL for this store, or keep this row as compare evidence only."
         can_create_watch_task = False

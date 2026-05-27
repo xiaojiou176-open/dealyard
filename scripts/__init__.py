@@ -1,1 +1,1 @@
-"""Repo-owned Dealyard script helpers."""
+"""Repo-owned Dealwatcher script helpers."""

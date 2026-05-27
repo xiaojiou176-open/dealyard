@@ -6,7 +6,7 @@ import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-import dealyard.cli as cli
+import dealwatcherer.cli as cli
 
 
 def _make_watch_task_run_dir(
@@ -50,7 +50,7 @@ def test_product_maintenance_cli_dry_run_and_apply(monkeypatch, tmp_path, capsys
         run_id="run-old",
         finished_at=datetime.now(timezone.utc) - timedelta(days=45),
     )
-    old_log = _make_log(logs_dir, "dealyard.log.1", age_days=40)
+    old_log = _make_log(logs_dir, "dealwatcherer.log.1", age_days=40)
 
     monkeypatch.setattr(cli.settings, "RUNS_DIR", runs_dir)
     monkeypatch.setattr(cli.settings, "LOGS_DIR", logs_dir)
@@ -110,13 +110,13 @@ def test_legacy_maintenance_cli_does_not_touch_runtime_namespace(
     runtime_old.mkdir(parents=True, exist_ok=True)
     backups_dir = tmp_path / "legacy-backups"
     backups_dir.mkdir(parents=True, exist_ok=True)
-    old_backup = backups_dir / "dealyard_20240101_000000.db"
+    old_backup = backups_dir / "dealwatcherer_20240101_000000.db"
     old_backup.write_text("backup", encoding="utf-8")
     old_time = (datetime.now(timezone.utc) - timedelta(days=40)).timestamp()
     os.utime(old_backup, (old_time, old_time))
 
     monkeypatch.setattr(cli, "DatabaseRepository", _Repo)
-    monkeypatch.setattr(cli.settings, "DB_PATH", tmp_path / "legacy" / "dealyard.db")
+    monkeypatch.setattr(cli.settings, "DB_PATH", tmp_path / "legacy" / "dealwatcherer.db")
     monkeypatch.setattr(cli.settings, "RUNS_DIR", runs_dir)
     monkeypatch.setattr(cli.settings, "LOGS_DIR", tmp_path / "logs")
     monkeypatch.setattr(cli.settings, "OPERATOR_ARTIFACTS_DIR", tmp_path / "operator")

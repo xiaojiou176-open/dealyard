@@ -111,8 +111,8 @@ jobs:
           root = Path.cwd()
           manifest = json.loads((root / "browser-extension" / "manifest.json").read_text(encoding="utf-8"))
           version = manifest["version"]
-          bundle_dir = root / "dist" / "browser-extension" / f"dealyard-companion-{version}"
-          archive = root / "dist" / "browser-extension" / f"dealyard-companion-{version}.zip"
+          bundle_dir = root / "dist" / "browser-extension" / f"dealwatcherer-companion-{version}"
+          archive = root / "dist" / "browser-extension" / f"dealwatcherer-companion-{version}.zip"
 
           if not bundle_dir.exists():
               raise SystemExit(f"bundle directory missing: {bundle_dir.relative_to(root)}")
@@ -232,23 +232,23 @@ jobs:
       postgres:
         image: postgres:16
         env:
-          POSTGRES_DB: dealyard
-          POSTGRES_USER: dealyard
-          POSTGRES_PASSWORD: dealyard
+          POSTGRES_DB: dealwatcherer
+          POSTGRES_USER: dealwatcherer
+          POSTGRES_PASSWORD: dealwatcherer
         ports:
           - 5432:5432
         options: >-
-          --health-cmd "pg_isready -U dealyard -d dealyard"
+          --health-cmd "pg_isready -U dealwatcherer -d dealwatcherer"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
 
     env:
-      DATABASE_URL: postgresql+psycopg://dealyard:dealyard@127.0.0.1:5432/dealyard
+      DATABASE_URL: postgresql+psycopg://dealwatcherer:dealwatcherer@127.0.0.1:5432/dealwatcherer
       OWNER_EMAIL: owner@example.com
-      OWNER_DISPLAY_NAME: Dealyard Owner
+      OWNER_DISPLAY_NAME: Dealwatcher Owner
       OWNER_BOOTSTRAP_TOKEN: smoke-token
-      POSTMARK_FROM_EMAIL: dealyard@example.com
+      POSTMARK_FROM_EMAIL: dealwatcherer@example.com
       POSTMARK_MESSAGE_STREAM: outbound
       WEBUI_DEV_URL: http://localhost:5173
       APP_BASE_URL: http://127.0.0.1:8000

@@ -16,7 +16,7 @@ from scripts.shared.browser_lane_contract import DEFAULT_SHARED_CHROME_ROOT
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "scripts" / "launch_dealyard_chrome.sh"
+SCRIPT = ROOT / "scripts" / "launch_dealwatcherer_chrome.sh"
 
 
 class ReusableTCPServer(socketserver.TCPServer):
@@ -34,7 +34,7 @@ def _write_env(env_file: Path, *, root: Path, profile_directory: str = "Profile 
         "\n".join(
             [
                 f'CHROME_USER_DATA_DIR="{root}"',
-                "CHROME_PROFILE_NAME=dealyard",
+                "CHROME_PROFILE_NAME=dealwatcherer",
                 f"CHROME_PROFILE_DIRECTORY={profile_directory}",
                 f"CHROME_REMOTE_DEBUG_PORT={port}",
             ]
@@ -126,7 +126,7 @@ def test_launch_script_rejects_missing_contract(tmp_path: Path) -> None:
 
     result = subprocess.run(
         ["bash", str(SCRIPT)],
-        env={**os.environ, "DEALYARD_ENV_FILE": str(env_file)},
+        env={**os.environ, "DEALWATCHER_ENV_FILE": str(env_file)},
         capture_output=True,
         text=True,
     )
@@ -141,7 +141,7 @@ def test_launch_script_rejects_legacy_shared_root(tmp_path: Path) -> None:
         "\n".join(
             [
                 f'CHROME_USER_DATA_DIR="{DEFAULT_SHARED_CHROME_ROOT}"',
-                "CHROME_PROFILE_NAME=dealyard",
+                "CHROME_PROFILE_NAME=dealwatcherer",
                 "CHROME_PROFILE_DIRECTORY=Profile 21",
             ]
         )
@@ -151,7 +151,7 @@ def test_launch_script_rejects_legacy_shared_root(tmp_path: Path) -> None:
 
     result = subprocess.run(
         ["bash", str(SCRIPT)],
-        env={**os.environ, "DEALYARD_ENV_FILE": str(env_file)},
+        env={**os.environ, "DEALWATCHER_ENV_FILE": str(env_file)},
         capture_output=True,
         text=True,
     )
@@ -183,8 +183,8 @@ def test_launch_script_reuses_existing_instance(tmp_path: Path) -> None:
                 ["bash", str(SCRIPT)],
                 env={
                     **os.environ,
-                    "DEALYARD_ENV_FILE": str(env_file),
-                    "DEALYARD_PS_BIN": str(ps_stub),
+                    "DEALWATCHER_ENV_FILE": str(env_file),
+                    "DEALWATCHER_PS_BIN": str(ps_stub),
                 },
                 capture_output=True,
                 text=True,
@@ -214,9 +214,9 @@ def test_launch_script_rejects_matching_process_without_listener(tmp_path: Path)
         ["bash", str(SCRIPT)],
         env={
             **os.environ,
-            "DEALYARD_ENV_FILE": str(env_file),
-            "DEALYARD_PS_BIN": str(ps_stub),
-            "DEALYARD_READY_RETRIES": "1",
+            "DEALWATCHER_ENV_FILE": str(env_file),
+            "DEALWATCHER_PS_BIN": str(ps_stub),
+            "DEALWATCHER_READY_RETRIES": "1",
         },
         capture_output=True,
         text=True,
@@ -238,10 +238,10 @@ def test_launch_script_fails_when_listener_never_appears(tmp_path: Path) -> None
         ["bash", str(SCRIPT)],
         env={
             **os.environ,
-            "DEALYARD_ENV_FILE": str(env_file),
-            "DEALYARD_PS_BIN": str(ps_stub),
-            "DEALYARD_OPEN_BIN": "/usr/bin/true",
-            "DEALYARD_READY_RETRIES": "1",
+            "DEALWATCHER_ENV_FILE": str(env_file),
+            "DEALWATCHER_PS_BIN": str(ps_stub),
+            "DEALWATCHER_OPEN_BIN": "/usr/bin/true",
+            "DEALWATCHER_READY_RETRIES": "1",
         },
         capture_output=True,
         text=True,
@@ -263,16 +263,16 @@ def test_launch_script_rejects_new_launch_when_browser_limit_is_exceeded(tmp_pat
         ["bash", str(SCRIPT)],
         env={
             **os.environ,
-            "DEALYARD_ENV_FILE": str(env_file),
-            "DEALYARD_PS_BIN": str(ps_stub),
-            "DEALYARD_OPEN_BIN": "/usr/bin/true",
+            "DEALWATCHER_ENV_FILE": str(env_file),
+            "DEALWATCHER_PS_BIN": str(ps_stub),
+            "DEALWATCHER_OPEN_BIN": "/usr/bin/true",
         },
         capture_output=True,
         text=True,
     )
 
     assert result.returncode == 1
-    assert "above Dealyard limit 6" in result.stderr
+    assert "above Dealwatcher limit 6" in result.stderr
 
 
 def test_launch_script_succeeds_when_listener_is_already_ready(tmp_path: Path) -> None:
@@ -295,10 +295,10 @@ def test_launch_script_succeeds_when_listener_is_already_ready(tmp_path: Path) -
                 ["bash", str(SCRIPT)],
                 env={
                     **os.environ,
-                    "DEALYARD_ENV_FILE": str(env_file),
-                    "DEALYARD_PS_BIN": str(ps_stub),
-                    "DEALYARD_OPEN_BIN": "/usr/bin/true",
-                    "DEALYARD_READY_RETRIES": "2",
+                    "DEALWATCHER_ENV_FILE": str(env_file),
+                    "DEALWATCHER_PS_BIN": str(ps_stub),
+                    "DEALWATCHER_OPEN_BIN": "/usr/bin/true",
+                    "DEALWATCHER_READY_RETRIES": "2",
                 },
                 capture_output=True,
                 text=True,

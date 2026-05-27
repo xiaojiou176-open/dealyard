@@ -42,8 +42,8 @@ def main() -> int:
 
     if manifest.get("manifest_version") != 3:
         findings.append("manifest_version must equal 3")
-    if manifest.get("name") != "Dealyard Companion":
-        findings.append("manifest name must equal 'Dealyard Companion'")
+    if manifest.get("name") != "Dealwatcher Companion":
+        findings.append("manifest name must equal 'Dealwatcher Companion'")
     if not isinstance(manifest.get("version"), str) or not manifest["version"].strip():
         findings.append("manifest version must be a non-empty string")
 
