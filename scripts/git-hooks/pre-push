@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# DealWatch managed hook. Installed via python3 scripts/install_git_hooks.py.
+# Dealyard managed hook. Installed via python3 scripts/install_git_hooks.py.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT"
 
 if ! command -v actionlint >/dev/null 2>&1; then
-  echo "DealWatch pre-push refused: actionlint is required. Install it first." >&2
+  echo "Dealyard pre-push refused: actionlint is required. Install it first." >&2
   exit 1
 fi
 

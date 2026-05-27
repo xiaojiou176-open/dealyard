@@ -111,7 +111,7 @@ export const COMPARE_COPY = {
   saved: {
     labelWithTitle: { en: "{{title}} · ZIP {{zipCode}}", },
     labelFallback: { en: "Compare evidence · ZIP {{zipCode}}", },
-    shareTitle: { en: "DealWatch compare evidence package", },
+    shareTitle: { en: "Dealyard compare evidence package", },
     shareLabel: { en: "Label: {{value}}", },
     shareSavedAt: { en: "Saved at: {{value}}", },
     shareZip: { en: "ZIP: {{value}}", },
@@ -188,7 +188,7 @@ export const COMPARE_COPY = {
       en: "This URL did not resolve into a supported compare target.",
     },
     unsupportedHostSummary: {
-      en: "This host is not in the official registry yet. DealWatch can keep it in compare review and repo-local evidence, but not as live watch state.",
+      en: "This host is not in the official registry yet. Dealyard can keep it in compare review and repo-local evidence, but not as live watch state.",
     },
     unsupportedPathSummary: {
       en: "The store host is recognized, but this URL shape is not an officially supported product path yet.",

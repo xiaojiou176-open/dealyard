@@ -10,7 +10,7 @@
     }
   },
   "shell": {
-    "eyebrow": "DealWatch Control Cabin",
+    "eyebrow": "Dealyard Control Cabin",
     "title": "Compare-first price intelligence for the real buying decision",
     "summary": "Start with Compare Preview, keep the right candidate alive as a watch task or compare-aware watch group, then use runtime evidence, AI-assisted explanations, recovery guidance, and store/operator surfaces from one place.",
     "productShapeLabel": "Current Product Shape",
@@ -66,7 +66,7 @@
     "form": {
       "eyebrow": "Compare preview",
       "title": "Inspect cross-store URL candidates before you create a task or group",
-      "summary": "Start small: paste the candidate URLs, let DealWatch normalize the basket, then use the decision board to decide whether this should stay in review, become one task, or become a compare-aware group.",
+      "summary": "Start small: paste the candidate URLs, let Dealyard normalize the basket, then use the decision board to decide whether this should stay in review, become one task, or become a compare-aware group.",
       "zipCode": "ZIP Code",
       "productUrls": "Product URLs",
       "productUrlsHelp": "Use one URL per line. The compare preview accepts 2 to 10 non-empty URLs.",
@@ -226,7 +226,7 @@
     "saved": {
       "labelWithTitle": "{{title}} · ZIP {{zipCode}}",
       "labelFallback": "Compare evidence · ZIP {{zipCode}}",
-      "shareTitle": "DealWatch compare evidence package",
+      "shareTitle": "Dealyard compare evidence package",
       "shareLabel": "Label: {{value}}",
       "shareSavedAt": "Saved at: {{value}}",
       "shareZip": "ZIP: {{value}}",
@@ -288,7 +288,7 @@
       "officialPartialSummary": "This row is on an official partial store path. Compare intake is real, but some broader store capabilities are still intentionally deferred.",
       "fetchFailedSummary": "The URL is supported, but the fetch still failed, so this row should not drive a durable decision yet.",
       "unsupportedSummary": "This URL did not resolve into a supported compare target.",
-      "unsupportedHostSummary": "This host is not in the official registry yet. DealWatch can keep it in compare review and repo-local evidence, but not as live watch state.",
+      "unsupportedHostSummary": "This host is not in the official registry yet. Dealyard can keep it in compare review and repo-local evidence, but not as live watch state.",
       "unsupportedPathSummary": "The store host is recognized, but this URL shape is not an officially supported product path yet.",
       "storeDisabledSummary": "The store exists in the official registry, but its runtime binding is disabled, so this row stays evidence-only for now.",
       "listed": "Listed",
@@ -562,7 +562,7 @@
       "registryWarningSummary": "Some store registry truth still needs review. Treat the cockpit as the lead view, then inspect the linked source refs before you widen store claims.",
       "cockpitEyebrow": "Operator + maintainer cockpit",
       "cockpitTitle": "Store Onboarding Cockpit",
-      "cockpitSummary": "This is the store growth dashboard, not a decorative catalog. The table uses the live backend cockpit response, which already merges capability truth, runtime enablement, and onboarding contract evidence, so maintainers can see what is supported today and what a new store still owes before it becomes a real DealWatch product-path adapter.",
+      "cockpitSummary": "This is the store growth dashboard, not a decorative catalog. The table uses the live backend cockpit response, which already merges capability truth, runtime enablement, and onboarding contract evidence, so maintainers can see what is supported today and what a new store still owes before it becomes a real Dealyard product-path adapter.",
       "cockpitBridgeSummary": "The cockpit keeps capability truth, runtime enablement, and onboarding proof in one place so a store can earn product-path status instead of only looking supported on paper.",
       "compareCapableCardTitle": "Compare-capable stores",
       "compareCapableCardSummary": "These are the stores already shaped for compare-first intake instead of only single-link monitoring.",
@@ -964,12 +964,12 @@
       "ctaProof": "Read the proof trail"
     },
     "comparisonPage": {
-      "title": "DealWatch vs. Generic Price Trackers | Compare First, Then Track",
-      "description": "See how DealWatch differs from a generic price tracker by starting with Compare Preview, compare-aware watch groups, AI-assisted explanation, and proof-backed read-only surfaces for Codex, Claude Code, OpenHands, OpenCode, and OpenClaw.",
+      "title": "Dealyard vs. Generic Price Trackers | Compare First, Then Track",
+      "description": "See how Dealyard differs from a generic price tracker by starting with Compare Preview, compare-aware watch groups, AI-assisted explanation, and proof-backed read-only surfaces for Codex, Claude Code, OpenHands, OpenCode, and OpenClaw.",
       "eyebrow": "Comparison",
-      "brandTagline": "DealWatch is not just another single-link tracker.",
-      "heroTitle": "Why DealWatch is not just another generic price tracker",
-      "heroSummary": "A generic price tracker starts after you pick one link. DealWatch starts earlier: compare candidate URLs first, keep cross-store context alive, and only then carry the right candidate into longer-lived watch state. DealWatch is not just another single-link tracker.",
+      "brandTagline": "Dealyard is not just another single-link tracker.",
+      "heroTitle": "Why Dealyard is not just another generic price tracker",
+      "heroSummary": "A generic price tracker starts after you pick one link. Dealyard starts earlier: compare candidate URLs first, keep cross-store context alive, and only then carry the right candidate into longer-lived watch state. Dealyard is not just another single-link tracker.",
       "statusStoresTitle": "Compare context stays alive",
       "statusStoresSummary": "Strong rows can stay together inside a compare-aware watch group instead of collapsing into one link too early.",
       "statusCompareTitle": "Compare-first intake",
@@ -978,13 +978,13 @@
       "statusProofSummary": "Public claims sit behind explicit repository evidence, proof pages, and verification gates.",
       "trackerTitle": "Generic tracker",
       "trackerSummary": "You paste one link, hope it is the right target, and only then discover whether the long-lived record is worth keeping.",
-      "dealyardTitle": "DealWatch",
+      "dealyardTitle": "Dealyard",
       "dealyardSummary": "You compare multiple URLs first, inspect normalized candidates, score inputs, and why-like / why-unlike reasons, then either create a single watch task or keep the candidates alive inside a compare-aware watch group.",
       "tableTitle": "Feature comparison",
-      "tableSummary": "This is the shortest truthful way to explain why DealWatch is product-shaped instead of just scraper-shaped.",
+      "tableSummary": "This is the shortest truthful way to explain why Dealyard is product-shaped instead of just scraper-shaped.",
       "columnCapability": "Capability",
       "columnTracker": "Generic price tracker",
-      "columnDealwatch": "DealWatch",
+      "columnDealwatch": "Dealyard",
       "rowBeforeTaskTitle": "Before-task validation",
       "rowBeforeTaskTracker": "No real intake stage",
       "rowBeforeTaskDealwatch": "Compare Preview checks candidate URLs first",
@@ -1010,7 +1010,7 @@
       "rowLearningCurveTracker": "Often install first, understand later",
       "rowLearningCurveDealwatch": "Public `Comparison`, `Compare Preview`, and `Proof` pages let you grasp the product before local setup",
       "builderTitle": "Why builders and AI tool users care",
-      "builderSummary": "If you are wiring Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or another MCP/API client, this product shape matters because DealWatch exposes truth after compare, not before it.",
+      "builderSummary": "If you are wiring Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or another MCP/API client, this product shape matters because Dealyard exposes truth after compare, not before it.",
       "builderCardCompareTitle": "Compare before automation",
       "builderCardCompareSummary": "The safest builder loop starts with Compare Preview and read-only inspection. It does not assume every submitted link should immediately become durable product state.",
       "builderCardAiTitle": "AI assists explanation, not truth",
@@ -1020,13 +1020,13 @@
       "schema": {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "DealWatch vs. Generic Price Trackers | Compare First, Then Track",
+        "name": "Dealyard vs. Generic Price Trackers | Compare First, Then Track",
         "url": "https://xiaojiou176-open.github.io/dealyard/compare-vs-tracker.html",
-        "description": "See how DealWatch differs from a generic price tracker by starting with Compare Preview, compare-aware watch groups, AI-assisted explanation, and proof-backed read-only surfaces for Codex, Claude Code, OpenHands, OpenCode, and OpenClaw.",
-        "keywords": "DealWatch, generic price tracker, compare-first, Compare Preview, compare-aware watch groups, read-only proof surface, Claude Code, Codex, OpenHands, OpenCode, OpenClaw",
+        "description": "See how Dealyard differs from a generic price tracker by starting with Compare Preview, compare-aware watch groups, AI-assisted explanation, and proof-backed read-only surfaces for Codex, Claude Code, OpenHands, OpenCode, and OpenClaw.",
+        "keywords": "Dealyard, generic price tracker, compare-first, Compare Preview, compare-aware watch groups, read-only proof surface, Claude Code, Codex, OpenHands, OpenCode, OpenClaw",
         "isPartOf": {
           "@type": "WebSite",
-          "name": "DealWatch",
+          "name": "Dealyard",
           "url": "https://xiaojiou176-open.github.io/dealyard/"
         },
         "about": [
@@ -1044,13 +1044,13 @@
       "footerLink": "Open the proof page"
     },
     "index": {
-      "title": "DealWatch | Compare the aisle before you commit",
+      "title": "Dealyard | Compare the aisle before you commit",
       "description": "Compare the aisle before you commit: see the product fast, inspect the proof trail, then move into Quick Start or the builder route only when the story is clear.",
-      "eyebrow": "DealWatch Public Surface",
+      "eyebrow": "Dealyard Public Surface",
       "brandTagline": "See the price move. Check the proof. Then decide.",
       "heroKicker": "Compare-first grocery intelligence",
       "heroTitle": "Compare the aisle before you commit to one cart.",
-      "heroSummary": "DealWatch is strongest when the real job starts before you save a watch: compare the candidate URLs, keep the cross-store basket alive, then carry the winning row into a local runtime with proof, effective-price context, and alert history still attached.",
+      "heroSummary": "Dealyard is strongest when the real job starts before you save a watch: compare the candidate URLs, keep the cross-store basket alive, then carry the winning row into a local runtime with proof, effective-price context, and alert history still attached.",
       "routeCompareTitle": "1. Compare Preview",
       "routeCompareSummary": "See the product on a fixed sample first, before you install anything.",
       "routeProofTitle": "2. Proof",
@@ -1079,13 +1079,13 @@
       "schema": {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "DealWatch",
+        "name": "Dealyard",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web, macOS, Linux, Windows",
         "url": "https://xiaojiou176-open.github.io/dealyard/",
         "description": "Compare-first grocery price intelligence with a recommended first path of Compare Preview, then Proof, then local Quick Start, plus a specialist Builders route.",
         "softwareHelp": "https://xiaojiou176-open.github.io/dealyard/faq.html",
-        "keywords": "DealWatch, Compare Preview, Proof, Quick Start, Builders, compare-first grocery price intelligence",
+        "keywords": "Dealyard, Compare Preview, Proof, Quick Start, Builders, compare-first grocery price intelligence",
         "featureList": [
           "Compare-first grocery URL validation",
           "Public proof trail before local setup",
@@ -1124,10 +1124,10 @@
       "valueCardBuildersLink": "Open Builders",
       "valueFollowupProofLink": "Most visitors should open Proof before they run Quick Start or Builders.",
       "valueFollowupComparisonLink": "Need the 15-second positioning answer? Open Comparison.",
-      "heroVisualAlt": "DealWatch Compare Preview showing supported URLs, normalized results, and match scores from the public sample fixture",
+      "heroVisualAlt": "Dealyard Compare Preview showing supported URLs, normalized results, and match scores from the public sample fixture",
       "heroVisualNote": "The first screen stays anchored to the real compare surface, so the public story starts with evidence instead of a fake promo montage.",
       "storyTitle": "Why this beats a tracker list.",
-      "storySummary": "Most tools start after you already picked one URL. DealWatch starts earlier: compare the aisle first, hold onto cross-store context, then let proof, price history, and alert state travel with the same decision.",
+      "storySummary": "Most tools start after you already picked one URL. Dealyard starts earlier: compare the aisle first, hold onto cross-store context, then let proof, price history, and alert state travel with the same decision.",
       "storyStepInputTitle": "Paste URLs",
       "storyStepInputSummary": "Start with the product URLs you are trying to compare across stores.",
       "storyStepCompareTitle": "Compare Preview",
@@ -1137,7 +1137,7 @@
       "storyStepTrackTitle": "Track price and alerts",
       "storyStepTrackSummary": "Review price history, effective price, health, and delivery evidence from one place.",
       "proofTitle": "One proof pack. No fake certainty.",
-      "proofSummary": "DealWatch is not a marketing shell pretending to be a product. The homepage keeps the promise short, and the proof page carries the command, route, and verifier trail that makes the claim believable.",
+      "proofSummary": "Dealyard is not a marketing shell pretending to be a product. The homepage keeps the promise short, and the proof page carries the command, route, and verifier trail that makes the claim believable.",
       "proofCardCompareTitle": "Compare-first intake",
       "proofCardCompareSummary": "Compare Preview lets you validate cross-store URLs with normalized candidates and explainable match reasons before turning one into a watch task or compare-aware watch group.",
       "proofCardEffectiveTitle": "Effective price awareness",
@@ -1168,7 +1168,7 @@
       "releasePrimaryCta": "Read the latest release",
       "releaseSecondaryCta": "Browse release history",
       "communityTitle": "Community and roadmap",
-      "communitySummary": "DealWatch is now set up to feel active in public, not just technically available.",
+      "communitySummary": "Dealyard is now set up to feel active in public, not just technically available.",
       "communityStatusStartTitle": "Start here",
       "communityStatusStartSummary": "The README start-here section now gives first-time visitors the shortest truthful orientation path.",
       "communityStatusRoadmapTitle": "Roadmap",
@@ -1182,27 +1182,27 @@
       "communityLinkRoadmap": "Roadmap",
       "communityLinkStore": "Suggest the next store",
       "communityLinkStories": "Compare Preview stories",
-      "footerSummary": "DealWatch is an open-source, local-first product repository. It is not a hosted SaaS.",
+      "footerSummary": "Dealyard is an open-source, local-first product repository. It is not a hosted SaaS.",
       "footerCta": "Star the repository"
     },
     "comparePreviewPage": {
-      "title": "DealWatch Compare Preview | Compare First, Then Track",
+      "title": "Dealyard Compare Preview | Compare First, Then Track",
       "description": "Open a read-only sample compare preview, then choose Quick Start, Proof, or Builders depending on whether you want the local runtime, the verifier trail, or read-only agent wiring.",
       "eyebrow": "Compare Preview",
       "brandTagline": "The safest first step in the AI-enhanced product flow.",
       "heroKicker": "Compare evidence for AI-assisted decisions",
       "heroTitle": "Check the product target before you create durable state.",
-      "heroSummary": "Compare Preview exists because ordinary price trackers assume you already know the right product URL. DealWatch starts one step earlier: validate the candidate, compare across stores, inspect deterministic evidence plus AI-assisted explanation, and only then decide whether the row deserves a watch task or a compare-aware watch group.",
+      "heroSummary": "Compare Preview exists because ordinary price trackers assume you already know the right product URL. Dealyard starts one step earlier: validate the candidate, compare across stores, inspect deterministic evidence plus AI-assisted explanation, and only then decide whether the row deserves a watch task or a compare-aware watch group.",
       "schema": {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "DealWatch Compare Preview | Compare First, Then Track",
+        "name": "Dealyard Compare Preview | Compare First, Then Track",
         "url": "https://xiaojiou176-open.github.io/dealyard/compare-preview.html",
         "description": "Open a read-only sample compare preview, then choose Quick Start, Proof, or Builders depending on whether you want the local runtime, the verifier trail, or read-only agent wiring.",
-        "keywords": "DealWatch Compare Preview, compare-first, read-only sample, Quick Start, Proof, Builders",
+        "keywords": "Dealyard Compare Preview, compare-first, read-only sample, Quick Start, Proof, Builders",
         "isPartOf": {
           "@type": "WebSite",
-          "name": "DealWatch",
+          "name": "Dealyard",
           "url": "https://xiaojiou176-open.github.io/dealyard/"
         },
         "about": [
@@ -1323,21 +1323,21 @@
       "footerBuildersLink": "Open Builders"
     },
     "proofPage": {
-      "title": "DealWatch Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence",
-      "description": "See the proof behind DealWatch's AI-assisted compare explanations, read-only MCP/API access for Claude Code, Codex, OpenHands, OpenCode, OpenClaw, runtime commands, and recommendation boundaries.",
+      "title": "Dealyard Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence",
+      "description": "See the proof behind Dealyard's AI-assisted compare explanations, read-only MCP/API access for Claude Code, Codex, OpenHands, OpenCode, OpenClaw, runtime commands, and recommendation boundaries.",
       "eyebrow": "Proof",
       "brandTagline": "Claims mean more when they point back to evidence.",
       "heroTitle": "Public claims, AI guidance, and evidence in one place",
-      "heroSummary": "DealWatch should feel product-ready, but the public story still needs to stay tied to evidence. This page is the shortest route from claim to proof for compare intelligence, AI explanation, recovery guidance, and read-only MCP safe access, not a second full copy of runtime or release truth.",
+      "heroSummary": "Dealyard should feel product-ready, but the public story still needs to stay tied to evidence. This page is the shortest route from claim to proof for compare intelligence, AI explanation, recovery guidance, and read-only MCP safe access, not a second full copy of runtime or release truth.",
       "heroNote": "This page proves repo-side surfaces and command entrypoints. It is not a promise that a hosted deployment has already been re-verified end to end.",
       "schema": {
         "@context": "https://schema.org",
         "@type": "TechArticle",
-        "headline": "DealWatch Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence",
-        "name": "DealWatch Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence",
+        "headline": "Dealyard Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence",
+        "name": "Dealyard Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence",
         "url": "https://xiaojiou176-open.github.io/dealyard/proof.html",
-        "description": "See the proof behind DealWatch's AI-assisted compare explanations, read-only MCP/API access for Claude Code, Codex, OpenHands, OpenCode, OpenClaw, runtime commands, and recommendation boundaries.",
-        "keywords": "DealWatch proof, read-only MCP, Claude Code, Codex, OpenHands, OpenCode, OpenClaw, AI-assisted explanation, compare-first",
+        "description": "See the proof behind Dealyard's AI-assisted compare explanations, read-only MCP/API access for Claude Code, Codex, OpenHands, OpenCode, OpenClaw, runtime commands, and recommendation boundaries.",
+        "keywords": "Dealyard proof, read-only MCP, Claude Code, Codex, OpenHands, OpenCode, OpenClaw, AI-assisted explanation, compare-first",
         "about": [
           "AI-assisted compare explanation",
           "Read-only MCP/API builder access",
@@ -1346,7 +1346,7 @@
         ],
         "isPartOf": {
           "@type": "WebSite",
-          "name": "DealWatch",
+          "name": "Dealyard",
           "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       },
@@ -1408,7 +1408,7 @@
       "claimRowGroupWhy": "Shows that compare-first is not only a one-time intake trick. The runtime can keep several candidates alive and rerank them over time.",
       "claimRowEffectiveTitle": "Effective price matters",
       "claimRowEffectiveProof": "Task detail screenshots and the cashback/effective price loop in the public README",
-      "claimRowEffectiveWhy": "DealWatch is trying to improve decision quality, not only capture raw listed prices.",
+      "claimRowEffectiveWhy": "Dealyard is trying to improve decision quality, not only capture raw listed prices.",
       "claimRowHealthTitle": "Health and delivery state are first-class runtime signals",
       "claimRowHealthProof": "Task detail health state, backoff state, delivery lifecycle fields, and the notifications control surface",
       "claimRowHealthWhy": "Shows the runtime is moving from \"it ran once\" toward \"it can be operated over time.\"",
@@ -1468,16 +1468,16 @@
       "footerCta": "See the comparison page"
     },
     "faqPage": {
-      "title": "DealWatch FAQ | AI Explanations, Stores, MCP, and Product Boundaries",
-      "description": "Get direct answers about DealWatch's AI-assisted compare explanations, store support, PostgreSQL, read-only MCP access, and builder onboarding for Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and recommendation boundaries.",
+      "title": "Dealyard FAQ | AI Explanations, Stores, MCP, and Product Boundaries",
+      "description": "Get direct answers about Dealyard's AI-assisted compare explanations, store support, PostgreSQL, read-only MCP access, and builder onboarding for Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and recommendation boundaries.",
       "eyebrow": "FAQ",
       "brandTagline": "Clear boundaries beat hand-wavy promises.",
       "heroTitle": "Frequently asked questions about AI, scope, setup, and trust",
-      "heroSummary": "DealWatch is easier to trust when the boundaries are explicit, especially around compare-first workflow, AI-assisted explanations, read-only agent access, and what the product still does not promise.",
-      "q1Title": "Is DealWatch a hosted service?",
-      "q1Answer": "No. DealWatch is an open-source, local-first product repository. It is not a hosted SaaS.",
-      "questionHostedTitle": "Is DealWatch a hosted service?",
-      "questionHostedAnswer": "No. DealWatch is an open-source, local-first product repository. It is not a hosted SaaS.",
+      "heroSummary": "Dealyard is easier to trust when the boundaries are explicit, especially around compare-first workflow, AI-assisted explanations, read-only agent access, and what the product still does not promise.",
+      "q1Title": "Is Dealyard a hosted service?",
+      "q1Answer": "No. Dealyard is an open-source, local-first product repository. It is not a hosted SaaS.",
+      "questionHostedTitle": "Is Dealyard a hosted service?",
+      "questionHostedAnswer": "No. Dealyard is an open-source, local-first product repository. It is not a hosted SaaS.",
       "q2Title": "Which stores are live right now?",
       "q2Answer": "Today the repository exposes live store adapters through the current compare-first product surface, and the safest current proof path stays inside Compare Preview plus the store cockpit instead of a hand-maintained count on this page.",
       "questionStoresTitle": "Which stores are live right now?",
@@ -1499,27 +1499,27 @@
       "questionFirstPageTitle": "What is the best first page to open locally?",
       "questionFirstPageAnswer": "Start at `#compare`. The local app now opens there by default because Compare Preview is still the fastest way to understand whether the product target is worth turning into a watch task or should remain inside a compare-aware group.",
       "q7Title": "What does the AI layer actually do?",
-      "q7Answer": "DealWatch uses AI-assisted explanations for compare decisions, watch-group decisions, and recovery guidance. AI helps explain the evidence; it does not replace deterministic product truth.",
+      "q7Answer": "Dealyard uses AI-assisted explanations for compare decisions, watch-group decisions, and recovery guidance. AI helps explain the evidence; it does not replace deterministic product truth.",
       "questionAiTitle": "What does the AI layer actually do?",
-      "questionAiAnswer": "DealWatch uses AI-assisted explanations for compare decisions, watch-group decisions, and recovery guidance. AI helps explain the evidence; it does not replace deterministic product truth.",
-      "q8Title": "Does DealWatch already make buy or wait recommendations?",
+      "questionAiAnswer": "Dealyard uses AI-assisted explanations for compare decisions, watch-group decisions, and recovery guidance. AI helps explain the evidence; it does not replace deterministic product truth.",
+      "q8Title": "Does Dealyard already make buy or wait recommendations?",
       "q8Answer": "Yes, but only inside the local runtime Compare Preview flow. It stays deterministic-first and conservative: it can say wait, re-check later, or abstain, but it still does not claim autonomous buy-now or builder/MCP recommendation support.",
-      "questionRecommendationTitle": "Does DealWatch already make buy or wait recommendations?",
+      "questionRecommendationTitle": "Does Dealyard already make buy or wait recommendations?",
       "questionRecommendationAnswer": "Yes, but only inside the local runtime Compare Preview flow. It stays deterministic-first and conservative: it can say wait, re-check later, or abstain, but it still does not claim autonomous buy-now or builder/MCP recommendation support.",
-      "q9Title": "Can agents call DealWatch safely?",
-      "q9Answer": "Yes. DealWatch now exposes a thin read-only MCP surface plus stable read-oriented API entry points that Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar agent clients can consume, and the repo ships builder starter assets under `docs/integrations/`, including per-client prompt starters, skill cards, `client-starters --json`, and the builder starter pack read surface. Write-side operator actions and maintainer-only browser debug commands still stay outside the default public tool surface.",
-      "questionMcpTitle": "Can agents call DealWatch safely?",
-      "questionMcpAnswer": "Yes. DealWatch now exposes a thin read-only MCP surface plus stable read-oriented API entry points that Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar agent clients can consume, and the repo ships builder starter assets under `docs/integrations/`, including per-client prompt starters, skill cards, `client-starters --json`, and the builder starter pack read surface. Write-side operator actions and maintainer-only browser debug commands still stay outside the default public tool surface.",
+      "q9Title": "Can agents call Dealyard safely?",
+      "q9Answer": "Yes. Dealyard now exposes a thin read-only MCP surface plus stable read-oriented API entry points that Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar agent clients can consume, and the repo ships builder starter assets under `docs/integrations/`, including per-client prompt starters, skill cards, `client-starters --json`, and the builder starter pack read surface. Write-side operator actions and maintainer-only browser debug commands still stay outside the default public tool surface.",
+      "questionMcpTitle": "Can agents call Dealyard safely?",
+      "questionMcpAnswer": "Yes. Dealyard now exposes a thin read-only MCP surface plus stable read-oriented API entry points that Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar agent clients can consume, and the repo ships builder starter assets under `docs/integrations/`, including per-client prompt starters, skill cards, `client-starters --json`, and the builder starter pack read surface. Write-side operator actions and maintainer-only browser debug commands still stay outside the default public tool surface.",
       "schema": {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Is DealWatch a hosted service?",
+            "name": "Is Dealyard a hosted service?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. DealWatch is an open-source, local-first product repository. It is not a hosted SaaS."
+              "text": "No. Dealyard is an open-source, local-first product repository. It is not a hosted SaaS."
             }
           },
           {
@@ -1567,12 +1567,12 @@
             "name": "What does the AI layer actually do?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "DealWatch uses AI-assisted explanations for compare decisions, watch-group decisions, and recovery guidance. AI helps explain the evidence; it does not replace deterministic product truth."
+              "text": "Dealyard uses AI-assisted explanations for compare decisions, watch-group decisions, and recovery guidance. AI helps explain the evidence; it does not replace deterministic product truth."
             }
           },
           {
             "@type": "Question",
-            "name": "Does DealWatch already make buy or wait recommendations?",
+            "name": "Does Dealyard already make buy or wait recommendations?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Yes, but only inside the local runtime Compare Preview flow. It stays deterministic-first and conservative: it can say wait, re-check later, or abstain, but it still does not claim autonomous buy-now or builder/MCP recommendation support."
@@ -1580,10 +1580,10 @@
           },
           {
             "@type": "Question",
-            "name": "Can agents call DealWatch safely?",
+            "name": "Can agents call Dealyard safely?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. DealWatch now exposes a thin read-only MCP surface plus stable read-oriented API entry points that Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar agent clients can consume, and the repo ships builder starter assets under `docs/integrations/`, including per-client prompt starters, skill cards, `client-starters --json`, and the builder starter pack read surface. Write-side operator actions and maintainer-only browser debug commands still stay outside the default public tool surface."
+              "text": "Yes. Dealyard now exposes a thin read-only MCP surface plus stable read-oriented API entry points that Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar agent clients can consume, and the repo ships builder starter assets under `docs/integrations/`, including per-client prompt starters, skill cards, `client-starters --json`, and the builder starter pack read surface. Write-side operator actions and maintainer-only browser debug commands still stay outside the default public tool surface."
             }
           }
         ]
@@ -1593,8 +1593,8 @@
       "footerCta": "Go to Quick Start"
     },
     "buildersPage": {
-      "title": "DealWatch Builders | Read-Only Builder Frontdoor and Runtime Route",
-      "description": "Start with DealWatch's read-only builder frontdoor: human path first, machine path second, then local runtime exports.",
+      "title": "Dealyard Builders | Read-Only Builder Frontdoor and Runtime Route",
+      "description": "Start with Dealyard's read-only builder frontdoor: human path first, machine path second, then local runtime exports.",
       "eyebrow": "Builder Start Here",
       "brandTagline": "Specialist route for developers and agent-builders.",
       "heroKicker": "Builder route map",
@@ -1639,7 +1639,7 @@
       "cardCompareSummaryPrefix": "Use ",
       "cardCompareSummarySuffix": " before assuming any grocery URL deserves durable watch state.",
       "clientMapTitle": "Client map",
-      "clientMapSummary": "These clients consume DealWatch truth. They are not the runtime base that DealWatch runs on.",
+      "clientMapSummary": "These clients consume Dealyard truth. They are not the runtime base that Dealyard runs on.",
       "tableClient": "Client",
       "tablePrompt": "Prompt starter",
       "tableSkill": "Skill card",
@@ -1647,7 +1647,7 @@
       "tableExample": "Example",
       "tableSource": "Source",
       "recipeTitle": "Config recipe ledger",
-      "recipeSummary": "Claude Code, Codex, OpenHands, OpenCode, and OpenClaw now all have copyable local-config examples here, but each one still stays inside the same read-only DealWatch boundary.",
+      "recipeSummary": "Claude Code, Codex, OpenHands, OpenCode, and OpenClaw now all have copyable local-config examples here, but each one still stays inside the same read-only Dealyard boundary.",
       "recipeExportSummary": "Need a machine-readable handoff? The same builder page now points to both per-client and all-clients config export surfaces for CLI, HTTP, and MCP consumers.",
       "linkExampleFile": "Example file",
       "linkOfficialDocs": "Official docs",
@@ -1660,7 +1660,7 @@
       "distributionTitle": "Builder pack, native bundles, and crawlable entrypoints",
       "distributionSummary": "Once the read-only route is clear, this frontdoor also exposes repo-owned builder-pack docs, native bundle candidates, listing-prep inputs, and crawlable machine entrypoints that stay tied back to the same local runtime contract.",
       "distributionPluginTitle": "Builder pack docs",
-      "distributionPluginSummary": "Use the builder pack, prompt starters, skill cards, config recipes, and local config exports as the repo-owned frontdesk for every current DealWatch builder client.",
+      "distributionPluginSummary": "Use the builder pack, prompt starters, skill cards, config recipes, and local config exports as the repo-owned frontdesk for every current Dealyard builder client.",
       "distributionPluginCta": "Open the builder pack docs",
       "distributionSkillCta": "Open the builder skill pack",
       "distributionMarketplaceTitle": "Native bundle candidates",
@@ -1693,23 +1693,23 @@
       "boundaryTitle": "Boundary reminder",
       "boundarySummary": "A good builder frontdoor says both what to open next and what not to assume yet, so the page does not quietly turn into plugin theater.",
       "boundaryPluginTitle": "Bundle candidates, not official listings",
-      "boundaryPluginSummary": "DealWatch now ships repo-owned builder-pack materials for every client, native bundle candidates for Claude Code and Codex, and listing-prep inputs for the broader ecosystem. Some public proof is already live (PyPI and the Official MCP Registry), while OpenClaw still lacks fresh public ClawHub listing proof, OpenHands is closed and unmerged, MCP.so is still not publicly accepted, and the Chrome companion remains not published.",
+      "boundaryPluginSummary": "Dealyard now ships repo-owned builder-pack materials for every client, native bundle candidates for Claude Code and Codex, and listing-prep inputs for the broader ecosystem. Some public proof is already live (PyPI and the Official MCP Registry), while OpenClaw still lacks fresh public ClawHub listing proof, OpenHands is closed and unmerged, MCP.so is still not publicly accepted, and the Chrome companion remains not published.",
       "boundaryHostedTitle": "No hosted control plane",
       "boundaryHostedSummary": "These builder paths are local-first. They do not prove a hosted remote control plane is live today.",
       "boundaryWriteTitle": "No write-side MCP promise",
       "boundaryWriteSummary": "The current builder surface is read-only-first. Maintenance, cleanup, owner bootstrap, and maintainer-only browser debug commands stay outside the builder promise.",
       "boundaryRecommendationTitle": "No recommendation overclaim",
-      "boundaryRecommendationSummary": "DealWatch now ships a local Compare Preview recommendation slice, but builder surfaces still do not expose autonomous or builder-facing buy / wait recommendation support.",
+      "boundaryRecommendationSummary": "Dealyard now ships a local Compare Preview recommendation slice, but builder surfaces still do not expose autonomous or builder-facing buy / wait recommendation support.",
       "footerPrompt": "Need the repo-owned docs next?",
       "footerCta": "Open the config recipe ledger",
       "schema": {
         "@context": "https://schema.org",
         "@type": "TechArticle",
-        "headline": "DealWatch Builders | Read-Only Builder Frontdoor and Runtime Route",
-        "name": "DealWatch Builders",
+        "headline": "Dealyard Builders | Read-Only Builder Frontdoor and Runtime Route",
+        "name": "Dealyard Builders",
         "url": "https://xiaojiou176-open.github.io/dealyard/builders.html",
-        "description": "Use DealWatch as a local-first read-only decision backend through one honest route: human path first, machine path second, then local runtime export surfaces.",
-        "keywords": "DealWatch builders, read-only builder frontdoor, llms.txt, sitemap.xml, builder starter pack JSON, Codex MCP, Claude Code MCP, OpenHands MCP, OpenCode MCP, OpenClaw MCP",
+        "description": "Use Dealyard as a local-first read-only decision backend through one honest route: human path first, machine path second, then local runtime export surfaces.",
+        "keywords": "Dealyard builders, read-only builder frontdoor, llms.txt, sitemap.xml, builder starter pack JSON, Codex MCP, Claude Code MCP, OpenHands MCP, OpenCode MCP, OpenClaw MCP",
         "about": [
           "Human-readable builder frontdoor",
           "Machine-readable client catalog",
@@ -1721,18 +1721,18 @@
         ],
         "isPartOf": {
           "@type": "WebSite",
-          "name": "DealWatch",
+          "name": "Dealyard",
           "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       }
     },
     "useCasesPage": {
-      "title": "DealWatch Use Cases | Compare First, Then Track with AI-Assisted Explanations",
-      "description": "See how DealWatch fits cross-store grocery comparison, AI-assisted decision explanation, compare-aware watch groups, recovery guidance, and cashback-aware price tracking.",
+      "title": "Dealyard Use Cases | Compare First, Then Track with AI-Assisted Explanations",
+      "description": "See how Dealyard fits cross-store grocery comparison, AI-assisted decision explanation, compare-aware watch groups, recovery guidance, and cashback-aware price tracking.",
       "eyebrow": "Use Cases",
-      "brandTagline": "Where DealWatch is strongest today.",
-      "heroTitle": "Where DealWatch fits best right now",
-      "heroSummary": "DealWatch is strongest when the problem is not just “watch one link forever,” but “choose the right target, explain the price decision, and then monitor it with better price context.”",
+      "brandTagline": "Where Dealyard is strongest today.",
+      "heroTitle": "Where Dealyard fits best right now",
+      "heroSummary": "Dealyard is strongest when the problem is not just “watch one link forever,” but “choose the right target, explain the price decision, and then monitor it with better price context.”",
       "case1Title": "Cross-store grocery comparison",
       "case1Summary": "Start with multiple URLs, compare the candidate, and avoid building a durable task around the wrong product.",
       "cardCompareTitle": "Cross-store grocery comparison",
@@ -1792,7 +1792,7 @@
       "schema": {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "DealWatch Use Cases",
+        "name": "Dealyard Use Cases",
         "url": "https://xiaojiou176-open.github.io/dealyard/use-cases.html",
         "description": "Use-case overview for compare-first grocery comparison, compare-aware watch groups, cashback-aware tracking, AI-assisted explanation, and operator recovery.",
         "about": [
@@ -1804,13 +1804,13 @@
         ],
         "isPartOf": {
           "@type": "WebSite",
-          "name": "DealWatch",
+          "name": "Dealyard",
           "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       }
     },
     "quickStartPage": {
-      "title": "DealWatch Quick Start | Local Runtime for Compare Preview, Watch Tasks, and Watch Groups",
+      "title": "Dealyard Quick Start | Local Runtime for Compare Preview, Watch Tasks, and Watch Groups",
       "description": "Use the local runtime path after the static sample compare preview when you want to test your own grocery URLs.",
       "eyebrow": "Quick Start",
       "brandTagline": "Move from Compare Preview into the local runtime.",
@@ -1862,7 +1862,7 @@
       "schema": {
         "@context": "https://schema.org",
         "@type": "HowTo",
-        "name": "DealWatch Quick Start",
+        "name": "Dealyard Quick Start",
         "description": "Use the local runtime path after the static sample compare preview when you want to compare your own grocery URLs.",
         "step": [
           {
@@ -1884,10 +1884,10 @@
       }
     },
     "communityPage": {
-      "title": "DealWatch Community | Discussions, Roadmap, and Store Requests",
-      "description": "Find the right public entrypoint for DealWatch discussions, roadmap requests, store suggestions, support questions, and release updates.",
+      "title": "Dealyard Community | Discussions, Roadmap, and Store Requests",
+      "description": "Find the right public entrypoint for Dealyard discussions, roadmap requests, store suggestions, support questions, and release updates.",
       "eyebrow": "Community",
-      "brandTagline": "The public front desk for DealWatch.",
+      "brandTagline": "The public front desk for Dealyard.",
       "heroTitle": "Where to go for questions, updates, and store requests",
       "heroSummary": "The best community experience is not “open anything and hope.” It is knowing exactly where each kind of feedback belongs.",
       "cardStartTitle": "Start here",
@@ -1934,9 +1934,9 @@
       "schema": {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "DealWatch Community",
+        "name": "Dealyard Community",
         "url": "https://xiaojiou176-open.github.io/dealyard/community.html",
-        "description": "Public entrypoints for DealWatch discussions, roadmap questions, store requests, release updates, and support flows.",
+        "description": "Public entrypoints for Dealyard discussions, roadmap questions, store requests, release updates, and support flows.",
         "about": [
           "GitHub Discussions",
           "Store requests",
@@ -1945,32 +1945,32 @@
         ],
         "isPartOf": {
           "@type": "WebSite",
-          "name": "DealWatch",
+          "name": "Dealyard",
           "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       }
     },
     "notFoundPage": {
-      "title": "DealWatch | Page not found",
-      "description": "The page you asked for does not exist. Use the DealWatch home page, quick start, or FAQ instead.",
-      "eyebrow": "DealWatch",
+      "title": "Dealyard | Page not found",
+      "description": "The page you asked for does not exist. Use the Dealyard home page, quick start, or FAQ instead.",
+      "eyebrow": "Dealyard",
       "brandTagline": "That route is missing, but the product surface is still here.",
       "heroKicker": "404",
       "heroTitle": "Wrong link. Right next step.",
-      "heroSummary": "The page you requested does not exist. If you are trying to understand DealWatch fast, start with the product home, the quick start, or the Compare Preview walkthrough.",
+      "heroSummary": "The page you requested does not exist. If you are trying to understand Dealyard fast, start with the product home, the quick start, or the Compare Preview walkthrough.",
       "heroHomeCta": "Go to Home",
       "heroQuickStartCta": "Open Quick Start",
-      "heroVisualAlt": "DealWatch Compare Preview showing supported URLs, normalized results, and match scores from the public sample fixture",
+      "heroVisualAlt": "Dealyard Compare Preview showing supported URLs, normalized results, and match scores from the public sample fixture",
       "heroVisualNote": "Go back to the clearest product evidence surface instead of a decorative placeholder.",
       "schema": {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "DealWatch | Page not found",
+        "name": "Dealyard | Page not found",
         "url": "https://xiaojiou176-open.github.io/dealyard/404.html",
-        "description": "The page you asked for does not exist. Use the DealWatch home page, quick start, or FAQ instead.",
+        "description": "The page you asked for does not exist. Use the Dealyard home page, quick start, or FAQ instead.",
         "isPartOf": {
           "@type": "WebSite",
-          "name": "DealWatch",
+          "name": "Dealyard",
           "url": "https://xiaojiou176-open.github.io/dealyard/"
         }
       }

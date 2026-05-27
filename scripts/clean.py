@@ -6,7 +6,7 @@ import sys
 
 def main() -> int:
     print(
-        "scripts/clean.py refused: this legacy wide-delete entrypoint is no longer allowed because it can wipe protected DealWatch evidence and browser identity anchors. Use `PYTHONPATH=src uv run python -m dealyard maintenance --dry-run|--apply`, `python3 scripts/cleanup_local_rebuildables.py --dry-run|--apply [--heavy]`, or `python3 scripts/cleanup_operator_artifacts.py --dry-run|--apply` instead.",
+        "scripts/clean.py refused: this legacy wide-delete entrypoint is no longer allowed because it can wipe protected Dealyard evidence and browser identity anchors. Use `PYTHONPATH=src uv run python -m dealyard maintenance --dry-run|--apply`, `python3 scripts/cleanup_local_rebuildables.py --dry-run|--apply [--heavy]`, or `python3 scripts/cleanup_operator_artifacts.py --dry-run|--apply` instead.",
         file=sys.stderr,
     )
     return 1

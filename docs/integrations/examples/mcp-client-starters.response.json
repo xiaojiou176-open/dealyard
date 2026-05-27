@@ -34,7 +34,7 @@
     "plugin_status": "Repo-owned Claude Code plugin bundle plus builder pack. Marketplace-submission candidate only; not officially listed.",
     "boundary_reminders": [
       "Do not assume write-side MCP exists.",
-      "Do not present DealWatch as a hosted SaaS.",
+      "Do not present Dealyard as a hosted SaaS.",
       "Do not claim recommendation is available through builder or MCP surfaces."
     ]
   },
@@ -188,7 +188,7 @@
     ],
     "plugin_status": "Repo-owned OpenClaw skill packet exists, but current public ClawHub search/API does not provide fresh listing proof for dealyard-readonly-builder. Treat ClawHub as the intended host surface, not as confirmed live listing proof.",
     "boundary_reminders": [
-      "Do not treat DealWatch as an OpenClaw runtime base.",
+      "Do not treat Dealyard as an OpenClaw runtime base.",
       "Do not assume write-side MCP or operator automation is ready.",
       "Do not treat local-first proof surfaces as hosted control plane guarantees."
     ]

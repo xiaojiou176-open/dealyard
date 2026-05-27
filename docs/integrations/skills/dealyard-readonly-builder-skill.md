@@ -1,10 +1,10 @@
-# DealWatch Read-Only Builder Skill
+# Dealyard Read-Only Builder Skill
 
-Use this skill when a coding agent is connected to DealWatch through the local HTTP runtime, the local MCP server, or both.
+Use this skill when a coding agent is connected to Dealyard through the local HTTP runtime, the local MCP server, or both.
 
 ## Goal
 
-Treat DealWatch as a local-first, compare-first, read-only-first product truth surface.
+Treat Dealyard as a local-first, compare-first, read-only-first product truth surface.
 
 ## Do first
 
@@ -45,12 +45,12 @@ Treat DealWatch as a local-first, compare-first, read-only-first product truth s
 
 ## Hard boundaries
 
-- Do not present DealWatch as a hosted SaaS.
-- Do not present DealWatch as an official plugin for Codex, Claude Code, OpenHands, OpenCode, or OpenClaw.
+- Do not present Dealyard as a hosted SaaS.
+- Do not present Dealyard as an official plugin for Codex, Claude Code, OpenHands, OpenCode, or OpenClaw.
 - Do not invent write-side MCP.
 - Do not treat browser debug lane commands as public builder APIs.
 - Do not bypass compare preview and jump straight to durable state assumptions.
 
 ## Safe summary sentence
 
-DealWatch is a local-first, read-only decision backend for compare-first grocery price intelligence.
+Dealyard is a local-first, read-only decision backend for compare-first grocery price intelligence.

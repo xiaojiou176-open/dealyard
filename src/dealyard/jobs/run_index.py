@@ -271,7 +271,7 @@ class RunIndexJob:
             "th{background:#f2f2f2;}"
             "h2{margin-top:24px;}"
             "</style></head><body>"
-            "<h1>DealWatch Runs Index</h1>"
+            "<h1>Dealyard Runs Index</h1>"
             f"<p>Total Confirmed: {totals.get('confirmed', 0)}</p>"
             f"<p>Total Checked: {totals.get('checked', 0)}</p>"
             f"<p>Total Failures: {totals.get('failures', 0)}</p>"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #########################################################
-# DealWatch Setup Script
+# Dealyard Setup Script
 # Automated setup helper for local environment bootstrap
 #########################################################
 
@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 echo "=========================================="
-echo "DealWatch Setup Script"
+echo "Dealyard Setup Script"
 echo "=========================================="
 echo ""
 

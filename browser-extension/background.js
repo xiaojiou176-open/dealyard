@@ -23,7 +23,7 @@ function buildCompareUrl(baseUrl, submittedUrl) {
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: CONTEXT_MENU_ID,
-    title: "Open in DealWatch Compare",
+    title: "Open in Dealyard Compare",
     contexts: ["page", "link"],
   });
 });

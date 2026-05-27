@@ -1595,7 +1595,7 @@ async def generate_recommendation_replay_campaign(
         "non_seeded_ingest_result": non_seeded_ingest_result,
         "readiness_verdict": "not_launch_ready",
         "boundary_note": (
-            "This campaign proves that DealWatch can seed, harvest native compare-origin evidence, ingest non-seeded runtime evidence, replay, review, and summarize "
+            "This campaign proves that Dealyard can seed, harvest native compare-origin evidence, ingest non-seeded runtime evidence, replay, review, and summarize "
             "internal recommendation artifacts without leaking them into public surfaces. It does not prove recommendation is ready for public launch."
         ),
         "summary": {

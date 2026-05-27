@@ -50,7 +50,7 @@ if [[ -z "${DATABASE_URL:-}" ]]; then
 fi
 
 export OWNER_EMAIL="${OWNER_EMAIL:-owner@example.com}"
-export OWNER_DISPLAY_NAME="${OWNER_DISPLAY_NAME:-DealWatch Owner}"
+export OWNER_DISPLAY_NAME="${OWNER_DISPLAY_NAME:-Dealyard Owner}"
 export OWNER_BOOTSTRAP_TOKEN="${OWNER_BOOTSTRAP_TOKEN:-smoke-token}"
 export POSTMARK_FROM_EMAIL="${POSTMARK_FROM_EMAIL:-dealyard@example.com}"
 export POSTMARK_MESSAGE_STREAM="${POSTMARK_MESSAGE_STREAM:-outbound}"

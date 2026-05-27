@@ -1,6 +1,6 @@
-# DealWatch MCP Tool Map
+# Dealyard MCP Tool Map
 
-These are the stable read-only tools exposed by the published DealWatch MCP.
+These are the stable read-only tools exposed by the published Dealyard MCP.
 
 ## Safe-first tools
 

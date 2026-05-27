@@ -29,7 +29,7 @@ REQUIRED_SCRIPTS = {
 
 REQUIRED_SERVER_FIELDS = {
     "name": EXPECTED_MCP_NAME,
-    "title": "DealWatch",
+    "title": "Dealyard",
 }
 
 

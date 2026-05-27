@@ -513,7 +513,7 @@ def test_mailer_send_daily_report(monkeypatch) -> None:
     monkeypatch.setattr(EmailNotifier, "send_custom_report", _send_custom)
 
     notifier.send_daily_report("<b>ok</b>", "2026-01-01")
-    assert "DealWatch Daily Report" in called["subject"]
+    assert "Dealyard Daily Report" in called["subject"]
     assert called["date"] == "2026-01-01"
 
 

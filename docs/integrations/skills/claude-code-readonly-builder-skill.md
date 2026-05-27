@@ -1,10 +1,10 @@
-# DealWatch Builder Skill For Claude Code
+# Dealyard Builder Skill For Claude Code
 
-Use this skill when Claude Code is connected to DealWatch through the local MCP server or local HTTP runtime.
+Use this skill when Claude Code is connected to Dealyard through the local MCP server or local HTTP runtime.
 
 ## Goal
 
-Treat DealWatch as a local-first, compare-first, read-only product truth surface.
+Treat Dealyard as a local-first, compare-first, read-only product truth surface.
 
 ## Do first
 
@@ -16,8 +16,8 @@ Treat DealWatch as a local-first, compare-first, read-only product truth surface
 
 ## Hard boundaries
 
-- Do not present DealWatch as a hosted SaaS.
-- Do not present DealWatch as an official Claude Code plugin.
+- Do not present Dealyard as a hosted SaaS.
+- Do not present Dealyard as an official Claude Code plugin.
 - Do not invent write-side MCP.
 - Do not treat browser debug lane commands as public builder APIs.
 - Do not bypass compare preview and jump straight to durable state assumptions.

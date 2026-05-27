@@ -217,7 +217,7 @@ def collect_entries() -> tuple[list[AuditEntry], int]:
                 mtime=_format_mtime(PERSISTENT_BROWSER_ROOT),
                 classification="persistent_browser_profile",
                 cleanup_lane="keep",
-                notes="Dedicated DealWatch Chrome root. Persistent browser workspace; exclude from TTL, cache budget cleanup, and rebuildable cleanup.",
+                notes="Dedicated Dealyard Chrome root. Persistent browser workspace; exclude from TTL, cache budget cleanup, and rebuildable cleanup.",
             )
         )
     if EXTERNAL_CACHE_DIR.exists():
@@ -264,7 +264,7 @@ def build_summary() -> AuditSummary:
 
 def render_text(summary: AuditSummary) -> str:
     lines = [
-        "DealWatch runtime footprint audit",
+        "Dealyard runtime footprint audit",
         "scope=repo-owned-internal-and-external",
         f"repo_total_bytes={summary.repo_total_bytes}",
         f"repo_total_human_size={summary.repo_total_human_size}",
@@ -306,7 +306,7 @@ def render_json(summary: AuditSummary) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Audit DealWatch repo-local runtime and rebuildable footprint."
+        description="Audit Dealyard repo-local runtime and rebuildable footprint."
     )
     parser.add_argument(
         "--format",

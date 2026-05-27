@@ -1,11 +1,11 @@
 ---
 name: dealyard-readonly-builder
-description: Safe-first builder route for DealWatch. Start with runtime readiness and the builder starter pack before deeper reads.
+description: Safe-first builder route for Dealyard. Start with runtime readiness and the builder starter pack before deeper reads.
 ---
 
-# DealWatch Read-Only Builder
+# Dealyard Read-Only Builder
 
-Use DealWatch as a local-first, read-only decision backend.
+Use Dealyard as a local-first, read-only decision backend.
 
 ## Safe First Flow
 

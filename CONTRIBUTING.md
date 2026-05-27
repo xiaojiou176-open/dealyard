@@ -9,7 +9,7 @@ If you want a high-signal first contribution, start with one of these:
 - Strengthen task detail, effective price, or notification evidence in the UI.
 - Tighten docs and verification so public claims keep matching product reality.
 
-The goal is not to add noise. The best contribution is one that makes DealWatch easier to trust, use, or extend.
+The goal is not to add noise. The best contribution is one that makes Dealyard easier to trust, use, or extend.
 
 ## Ground Rules
 
@@ -18,8 +18,8 @@ The goal is not to add noise. The best contribution is one that makes DealWatch 
 - Do not track `.agents/`, `.agent/`, `.codex/`, `.claude/`, `.runtime-cache/`, `logs/`, `log/`, or `*.log`.
 - Do not commit secrets, local databases, browser state, or runtime artifacts.
 - Do not commit host-specific absolute paths, macOS temp-path literals, or personal sample markers into tracked text files.
-- Do not introduce `killall`, `pkill`, broad `kill -9`, `osascript`, `System Events`, direct `process.kill(...)`, or direct `os.kill(...)`; DealWatch must stay on repo-owned browser/runtime cleanup entrypoints.
-- Do not use `scripts/clean.py`; it is a hard-stop legacy entrypoint and no longer participates in DealWatch cleanup.
+- Do not introduce `killall`, `pkill`, broad `kill -9`, `osascript`, `System Events`, direct `process.kill(...)`, or direct `os.kill(...)`; Dealyard must stay on repo-owned browser/runtime cleanup entrypoints.
+- Do not use `scripts/clean.py`; it is a hard-stop legacy entrypoint and no longer participates in Dealyard cleanup.
 - Keep changes surgical.
 
 ## Local Setup
@@ -42,7 +42,7 @@ pre-commit run --all-files
 
 ### Required Development
 
-DealWatch now uses a five-layer verification contract. Think of it like airport security:
+Dealyard now uses a five-layer verification contract. Think of it like airport security:
 
 - `pre-commit` = the fast bag scan
 - `pre-push` = the gate before the plane leaves
@@ -181,7 +181,7 @@ python3 scripts/verify_public_demo_interaction.py
 
 ## Dependency Maintenance Wave
 
-DealWatch treats automated dependency PRs as a **separate maintenance wave**, not as default cargo for a product, closure, or governance-hardening branch.
+Dealyard treats automated dependency PRs as a **separate maintenance wave**, not as default cargo for a product, closure, or governance-hardening branch.
 
 The practical rule is:
 
@@ -222,7 +222,7 @@ Repository note:
 
 ## Dedicated Browser Lane
 
-DealWatch's canonical maintainer browser lane is now a repo-owned Google Chrome instance:
+Dealyard's canonical maintainer browser lane is now a repo-owned Google Chrome instance:
 
 - dedicated root: `~/.cache/dealyard/browser/chrome-user-data`
 - canonical profile: `dealyard` / `Profile 21`
@@ -234,7 +234,7 @@ Use the launcher first:
 ./scripts/launch_dealyard_chrome.sh
 ```
 
-That helper launches or reuses one dedicated DealWatch browser lane and ensures:
+That helper launches or reuses one dedicated Dealyard browser lane and ensures:
 
 - a generated local identity tab under `.runtime-cache/browser-identity/index.html`
 - canonical account/order tabs for Target / Safeway / Walmart / Weee
@@ -254,8 +254,8 @@ PYTHONPATH=src .venv/bin/python scripts/report_dealyard_login_state.py --env-fil
 
 Optional human-facing identity overrides:
 
-- `DEALWATCH_BROWSER_IDENTITY_LABEL`
-- `DEALWATCH_BROWSER_IDENTITY_ACCENT`
+- `DEALYARD_BROWSER_IDENTITY_LABEL`
+- `DEALYARD_BROWSER_IDENTITY_ACCENT`
 
 Treat the identity tab as the human-facing anchor for this repo's browser lane:
 
@@ -267,5 +267,5 @@ Treat the identity tab as the human-facing anchor for this repo's browser lane:
 
 - Include fresh verification evidence.
 - Update `README.md`, `SECURITY.md`, and `SUPPORT.md` when public behavior changes.
-- Prefer product-facing improvements that help a first-time visitor understand why DealWatch exists and how to try it.
+- Prefer product-facing improvements that help a first-time visitor understand why Dealyard exists and how to try it.
 - Confirm every commit in the pull request includes `Signed-off-by:`.

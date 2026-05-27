@@ -1,4 +1,4 @@
-# DealWatch Starter Prompt For OpenCode
+# Dealyard Starter Prompt For OpenCode
 
 This pack treats OpenCode as a generic local MCP/API client unless a stricter client contract is proven elsewhere.
 
@@ -20,8 +20,8 @@ The current OpenCode wrapper shape is also documented in [`docs/integrations/rec
 ## Starter prompt
 
 ```text
-Use DealWatch as a local compare-first truth backend.
+Use Dealyard as a local compare-first truth backend.
 Start with runtime readiness, then get_builder_starter_pack, then compare preview, then inspect watch/group/runtime/notification/store truth through read-only surfaces.
-Do not assume OpenCode has any special DealWatch plugin or write-side control path.
+Do not assume OpenCode has any special Dealyard plugin or write-side control path.
 If your plan requires durable writes, operator automation, hosted auth, or SDK semantics, stop and mark those as outside the current repo-supported builder surface.
 ```

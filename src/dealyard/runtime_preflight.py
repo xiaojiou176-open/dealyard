@@ -334,7 +334,7 @@ def validate_runtime(values: dict[str, str], *, target: str) -> tuple[list[Check
 
 def render_report(checks: list[CheckResult], warnings: list[CheckResult], *, env_source: str, target: str) -> str:
     lines = [
-        "DealWatch Runtime Preflight",
+        "Dealyard Runtime Preflight",
         f"target={target}",
         f"source={env_source}",
         "",

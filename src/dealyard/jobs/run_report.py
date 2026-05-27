@@ -282,7 +282,7 @@ class RunReportJob:
             "th,td{border:1px solid #ddd;padding:8px;text-align:left;font-size:14px;}"
             "th{background:#f2f2f2;}"
             "</style></head><body>"
-            "<h1>DealWatch Run Report</h1>"
+            "<h1>Dealyard Run Report</h1>"
             f"<p>Recent Runs: {recent.get('runs', 0)}</p>"
             f"<p>Recent Parse Rate: {recent.get('parse_rate', 0.0)}</p>"
             f"<p>Recent Error Rate: {recent.get('error_rate', 0.0)}</p>"

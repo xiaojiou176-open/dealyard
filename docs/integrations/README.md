@@ -1,19 +1,19 @@
-# DealWatch Builder Integrations
+# Dealyard Builder Integrations
 
 ## Purpose
 
-This directory is the repo-native builder starter pack for DealWatch.
+This directory is the repo-native builder starter pack for Dealyard.
 
 In plain English:
 
 - the API, MCP, and CLI doors already exist
 - this pack tells developers and agent-builders which door to use first
-- it gives local-first examples without pretending DealWatch is already an SDK or hosted builder platform
+- it gives local-first examples without pretending Dealyard is already an SDK or hosted builder platform
 - it includes a client config recipe ledger so wrapper honesty is part of the contract instead of tribal knowledge
 
 Use this directory when the question is:
 
-> "I am wiring Claude Code, Codex, Cline, OpenHands, OpenCode, OpenClaw, or a similar client to DealWatch. Where do I start, what is safe, and what should I not assume yet?"
+> "I am wiring Claude Code, Codex, Cline, OpenHands, OpenCode, OpenClaw, or a similar client to Dealyard. Where do I start, what is safe, and what should I not assume yet?"
 
 ## What this pack is
 
@@ -155,8 +155,8 @@ The stable part is:
 | Claude Code | register the local stdio MCP command, then read the substrate doc | `get_runtime_readiness` -> `get_builder_starter_pack` -> `compare_preview` -> `list_watch_tasks` or `list_watch_groups` | no write-side MCP, no hosted remote control plane |
 | Codex | point Codex at the local runtime plus the streamable-HTTP MCP contract | `get_runtime_readiness` -> `get_builder_starter_pack` -> `compare_preview` -> one detail read | no SDK, no multi-tenant auth story |
 | OpenHands | keep the client in observation mode first even though the repo-owned skill packet already exists | runtime readiness -> builder starter pack -> compare preview -> recovery or store cockpit reads | `OpenHands/extensions#151` is currently closed and unmerged; do not call it an active accepted host surface |
-| OpenCode | treat DealWatch as a local product truth source, not as a hosted platform service | MCP discovery -> builder starter pack -> compare preview -> watch or group detail | ecosystem-listing candidate only, no first-party store claim |
-| OpenClaw | treat DealWatch as a local compare-first truth backend or workflow shell dependency, not as a runtime base | `get_runtime_readiness` -> `get_builder_starter_pack` -> `compare_preview` -> watch or group reads -> recovery or store cockpit reads | ClawHub is still the intended public host surface, but current public search/API evidence is not strong enough to claim a live listing |
+| OpenCode | treat Dealyard as a local product truth source, not as a hosted platform service | MCP discovery -> builder starter pack -> compare preview -> watch or group detail | ecosystem-listing candidate only, no first-party store claim |
+| OpenClaw | treat Dealyard as a local compare-first truth backend or workflow shell dependency, not as a runtime base | `get_runtime_readiness` -> `get_builder_starter_pack` -> `compare_preview` -> watch or group reads -> recovery or store cockpit reads | ClawHub is still the intended public host surface, but current public search/API evidence is not strong enough to claim a live listing |
 
 Use the recipe ledger when you need the next level of honesty:
 
@@ -178,7 +178,7 @@ Use the export surfaces when you want the next level of convenience:
 
 ## Official distribution reality by client
 
-This is the shortest honest matrix for what the official platform surface is, what DealWatch
+This is the shortest honest matrix for what the official platform surface is, what Dealyard
 ships in-repo today, and what we still must **not** claim.
 
 | Client | Official public surface | Repo-owned artifact now | Honest status today |
@@ -200,7 +200,7 @@ The protocol itself now also has an official public registry surface:
   - `https://modelcontextprotocol.io/registry/quickstart`
   - `https://modelcontextprotocol.io/registry/package-types`
   - `https://modelcontextprotocol.io/specification/draft/basic/server-discovery`
-- repo-owned DealWatch reality today:
+- repo-owned Dealyard reality today:
   - the local read-only MCP server already exists
   - the Python package metadata now includes publish-oriented `readme`, `license`, `project.urls`, and console-script entrypoints in `pyproject.toml`
   - CI now also guards that package surface through `scripts/verify_package_publish_surface.py` plus an sdist/wheel build in the main `test` lane
@@ -212,7 +212,7 @@ The protocol itself now also has an official public registry surface:
 
 In plain English:
 
-DealWatch now has both halves of the MCP story: the product side and the registry/package side are both public.
+Dealyard now has both halves of the MCP story: the product side and the registry/package side are both public.
 
 That means the remaining stop line is no longer “publish the first package.”
 It is:
@@ -294,7 +294,7 @@ Per-client skill files:
 
 ## Repo-owned builder pack, native bundle candidates, and listing-prep assets
 
-DealWatch now ships a **repo-owned builder pack**, **native plugin bundle candidates where the
+Dealyard now ships a **repo-owned builder pack**, **native plugin bundle candidates where the
 platform already supports them**, and **listing-prep assets** for the broader builder/public
 frontdoor.
 

@@ -63,7 +63,7 @@
       ],
       "boundary_reminders": [
         "Do not assume write-side MCP exists.",
-        "Do not present DealWatch as a hosted SaaS.",
+        "Do not present Dealyard as a hosted SaaS.",
         "Do not claim recommendation is available through builder or MCP surfaces."
       ],
       "docs": {
@@ -300,7 +300,7 @@
         "https://github.com/xiaojiou176-open/dealyard/blob/main/plugins/dealyard-builder-pack/.codex-plugin/plugin.json"
       ],
       "boundary_reminders": [
-        "Do not treat DealWatch as an OpenClaw runtime base.",
+        "Do not treat Dealyard as an OpenClaw runtime base.",
         "Do not assume write-side MCP or operator automation is ready.",
         "Do not treat local-first proof surfaces as hosted control plane guarantees."
       ],

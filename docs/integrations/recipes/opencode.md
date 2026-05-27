@@ -1,8 +1,8 @@
-# DealWatch Recipe For OpenCode
+# Dealyard Recipe For OpenCode
 
 ## Honest status
 
-- DealWatch launch record: `repo-verified`
+- Dealyard launch record: `repo-verified`
 - OpenCode wrapper syntax: `official_wrapper_documented`
 - Recipe kind: `official`
 - Current posture: `local-first`, `read-only-first`, `compare-first`
@@ -16,7 +16,7 @@ PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ## OpenCode wrapper example
 
 OpenCode documents local MCP entries inside `opencode.jsonc`.
-The current DealWatch translation looks like:
+The current Dealyard translation looks like:
 
 ```jsonc
 {
@@ -38,7 +38,7 @@ The same example lives in repo-owned form at [`../examples/opencode.jsonc`](../e
 
 ## What is actually stable here
 
-The current repo verifies the DealWatch-side handoff:
+The current repo verifies the Dealyard-side handoff:
 
 - local stdio launch
 - builder starter pack contract
@@ -51,7 +51,7 @@ OpenCode's docs now publish the local `mcp` config shape directly, so this wrapp
 
 - Official docs: <https://opencode.ai/docs/mcp-servers/>
 - Current repo-owned contract:
-  - local DealWatch launch command
+  - local Dealyard launch command
   - builder starter pack contract
   - prompt starter and skill card
 

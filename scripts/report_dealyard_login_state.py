@@ -33,7 +33,7 @@ from dealyard.infra.output_redaction import sanitize_local_output
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Report whether each DealWatch browser lane target currently looks like homepage-logged-in, account-page-logged-in, or reauth-required."
+        description="Report whether each Dealyard browser lane target currently looks like homepage-logged-in, account-page-logged-in, or reauth-required."
     )
     parser.add_argument(
         "--env-file",
@@ -216,7 +216,7 @@ def inspect_target(
 
 def select_context_for_target(contexts: list[Any], target: BrowserLaneTargetSpec) -> Any:
     if not contexts:
-        raise ValueError("DealWatch browser login-state report requires at least one browser context.")
+        raise ValueError("Dealyard browser login-state report requires at least one browser context.")
     for context in contexts:
         pages = getattr(context, "pages", [])
         if any(
@@ -233,7 +233,7 @@ def select_context_for_target(contexts: list[Any], target: BrowserLaneTargetSpec
 def render_text(payload: dict[str, Any]) -> str:
     payload = sanitize_local_output(payload)
     lines = [
-        "DealWatch browser login-state report",
+        "Dealyard browser login-state report",
         f"cdp_url={payload['cdp_url']}",
         f"browser_user_data_dir={payload['browser_user_data_dir']}",
         f"profile_display_name={payload['profile_display_name']}",
@@ -254,7 +254,7 @@ def main() -> int:
     contract = resolve_contract(
         values,
         env_file=env_file,
-        caller_name="DealWatch browser login-state report",
+        caller_name="Dealyard browser login-state report",
     )
     payload: dict[str, Any] = {
         "cdp_url": contract.cdp_url,
@@ -280,7 +280,7 @@ def main() -> int:
             payload["sites"] = [observation.to_dict() for observation in observations]
     except Exception as exc:
         raise SystemExit(
-            f"DealWatch browser login-state report failed: could not attach to {contract.cdp_url} ({exc}). Launch or reuse the dedicated browser lane first."
+            f"Dealyard browser login-state report failed: could not attach to {contract.cdp_url} ({exc}). Launch or reuse the dedicated browser lane first."
         ) from exc
 
     if args.json:

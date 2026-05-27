@@ -1,10 +1,10 @@
-# DealWatch MCP Install For Cline
+# Dealyard MCP Install For Cline
 
 This file is the shortest reviewer-facing install path for Cline.
 
 In plain English:
 
-- DealWatch is a **local-first, read-only-first** MCP server
+- Dealyard is a **local-first, read-only-first** MCP server
 - the current honest Cline path is **local stdio**
 - this repo is **not** a hosted remote control plane and **not** a write-side automation server
 
@@ -63,13 +63,13 @@ Add this entry inside `mcpServers`:
 
 Important detail:
 
-- open the cloned DealWatch repo as the working folder before you use the server
+- open the cloned Dealyard repo as the working folder before you use the server
 - the `PYTHONPATH=src` setting is required because the module is launched from this repo checkout
 - `OWNER_BOOTSTRAP_TOKEN` must be a **non-empty local secret string** so the runtime preflight can start; it is a local bootstrap guard, not a public hosted credential
 
 ## 3. What success looks like
 
-After Cline reloads MCP settings, DealWatch should appear as a local MCP server.
+After Cline reloads MCP settings, Dealyard should appear as a local MCP server.
 
 The first honest tool flow is:
 

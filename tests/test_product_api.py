@@ -985,7 +985,7 @@ def test_product_api_create_and_run_watch_group_and_webhook(tmp_path, monkeypatc
         assert group_delivery["watch_group_id"] == group_id
         webhook_response = client.post(
             "/api/webhooks/postmark",
-            headers={"X-DealWatch-Webhook-Token": "test-webhook-token"},
+            headers={"X-Dealyard-Webhook-Token": "test-webhook-token"},
             json={"RecordType": "Delivery", "MessageID": group_delivery["message_id"]},
         )
         assert webhook_response.status_code == 200
@@ -1569,7 +1569,7 @@ def test_product_api_builder_client_config_endpoint(tmp_path, monkeypatch) -> No
     assert payload["client"] == "codex"
     assert payload["recommended_transport"] == "streamable_http"
     assert payload["wrapper_example_path"] == "docs/integrations/examples/codex-mcp-config.toml"
-    assert payload["recipe_markdown"].startswith("# DealWatch Recipe For Codex")
+    assert payload["recipe_markdown"].startswith("# Dealyard Recipe For Codex")
     assert payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
     assert payload["read_surfaces"]["cli"].endswith("dealyard builder-client-config codex --json")
     assert payload["read_surfaces"]["http"] == "GET /api/runtime/builder-client-config/codex"

@@ -36,8 +36,8 @@ def test_write_browser_identity_page_writes_under_runtime_cache(tmp_path: Path) 
     result = write_browser_identity_page(
         repo_root=tmp_path,
         env={
-            "DEALWATCH_BROWSER_IDENTITY_LABEL": "DealWatch Lane",
-            "DEALWATCH_BROWSER_IDENTITY_ACCENT": "#2563eb",
+            "DEALYARD_BROWSER_IDENTITY_LABEL": "Dealyard Lane",
+            "DEALYARD_BROWSER_IDENTITY_ACCENT": "#2563eb",
         },
         cdp_url="http://127.0.0.1:9333",
         cdp_port=9333,
@@ -52,6 +52,6 @@ def test_write_browser_identity_page_writes_under_runtime_cache(tmp_path: Path) 
     assert result.identity_url.startswith("file://")
 
     payload = result.identity_path.read_text(encoding="utf-8")
-    assert "DealWatch Lane" in payload
+    assert "Dealyard Lane" in payload
     assert "#2563eb" in payload
     assert "/tmp/chrome-user-data" in payload

@@ -2494,7 +2494,7 @@ async def test_product_service_builder_client_config_exports_copyable_example(tm
     assert payload["client"] == "codex"
     assert payload["wrapper_example_path"] == "docs/integrations/examples/codex-mcp-config.toml"
     assert payload["recommended_transport"] == "streamable_http"
-    assert payload["recipe_markdown"].startswith("# DealWatch Recipe For Codex")
+    assert payload["recipe_markdown"].startswith("# Dealyard Recipe For Codex")
     assert payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
     assert payload["read_surfaces"]["http"] == "GET /api/runtime/builder-client-config/codex"
     assert "http://127.0.0.1:8000/mcp" in payload["wrapper_example_content"]

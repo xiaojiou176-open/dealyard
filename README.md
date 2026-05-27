@@ -1,4 +1,4 @@
-# DealWatch
+# Dealyard
 <!-- mcp-name: io.github.xiaojiou176-open/dealyard -->
 
 [![CI](https://github.com/xiaojiou176-open/dealyard/actions/workflows/ci.yml/badge.svg)](https://github.com/xiaojiou176-open/dealyard/actions/workflows/ci.yml)
@@ -8,18 +8,18 @@
 
 **Compare the aisle before you commit to one cart.**
 
-DealWatch turns “which grocery URL is actually the right target?” into one product-shaped loop: compare candidate URLs first, keep cross-store context alive, then carry the right row into a watch task or compare-aware watch group with proof, effective-price history, and alert state attached.
+Dealyard turns “which grocery URL is actually the right target?” into one product-shaped loop: compare candidate URLs first, keep cross-store context alive, then carry the right row into a watch task or compare-aware watch group with proof, effective-price history, and alert state attached.
 
-The public boundary stays strict on purpose: DealWatch is local-first, compare-first, and evidence-first. It is not a hosted SaaS, not a generic shopping chatbot, and not an autonomous buying agent. AI helps explain compare, watch-group, and recovery decisions, but deterministic product truth still leads.
+The public boundary stays strict on purpose: Dealyard is local-first, compare-first, and evidence-first. It is not a hosted SaaS, not a generic shopping chatbot, and not an autonomous buying agent. AI helps explain compare, watch-group, and recovery decisions, but deterministic product truth still leads.
 
 [Try the Sample Compare](https://xiaojiou176-open.github.io/dealyard/compare-preview.html#sample-compare-demo) · [See the Proof](https://xiaojiou176-open.github.io/dealyard/proof.html) · [Run Local Quick Start](https://xiaojiou176-open.github.io/dealyard/quick-start.html) · [Releases](https://github.com/xiaojiou176-open/dealyard/releases/latest)  
 Specialist route: [Builder Route](https://xiaojiou176-open.github.io/dealyard/builders.html)
 
-![DealWatch control cabin brand bridge showing compare preview, artifact evidence, and notification surfaces](./assets/social/social-preview-1280x640.png)
+![Dealyard control cabin brand bridge showing compare preview, artifact evidence, and notification surfaces](./assets/social/social-preview-1280x640.png)
 
 The first public screen below is the actual Compare Preview evidence surface, using the same read-only sample fixture linked from the public site.
 
-![DealWatch Compare Preview showing supported URLs, normalized results, and match scores from the public sample fixture](./assets/screens/compare-preview.png)
+![Dealyard Compare Preview showing supported URLs, normalized results, and match scores from the public sample fixture](./assets/screens/compare-preview.png)
 
 ## Start Here
 
@@ -133,14 +133,14 @@ Think of these as the front-desk actions at the end of the same route:
 
 ### 4. Keep the builder boundary honest
 
-- DealWatch is **not** a hosted multi-tenant builder platform today.
+- Dealyard is **not** a hosted multi-tenant builder platform today.
 - The current MCP layer is **read-only first**.
 - The current repo does **not** ship a formal SDK.
 - If your plan needs durable writes, owner bootstrap, maintenance, cleanup, or provider webhooks, you are already outside the current builder promise.
 
 ## What The AI Layer Actually Means
 
-DealWatch is not a shopping chatbot and not a generic autonomous agent.
+Dealyard is not a shopping chatbot and not a generic autonomous agent.
 
 Today, AI is used to strengthen three real product surfaces:
 
@@ -173,7 +173,7 @@ What AI does **not** do yet:
 
 ## Store Support Truth
 
-DealWatch now treats store support like shelf labels instead of hallway folklore.
+Dealyard now treats store support like shelf labels instead of hallway folklore.
 
 In plain English:
 
@@ -196,13 +196,13 @@ The canonical capability truth for this lives in:
 - the Store Onboarding Cockpit in the WebUI settings surface, which exposes the manifest-backed matrix together with the runbook-backed onboarding contract
 - [`docs/runbooks/store-onboarding-contract.md`](./docs/runbooks/store-onboarding-contract.md) as the canonical onboarding/runbook prose that the cockpit parses and surfaces
 
-## Why DealWatch Exists
+## Why Dealyard Exists
 
 Most price trackers stop at a single product URL, so cross-store comparison still happens by hand.
 
 Most manual workflows also split the job into separate tools: one place to compare links, another place to monitor prices, and yet another place to think about cashback or alerts.
 
-DealWatch exists to collapse that loop into one product flow: compare first, then create a watch task or compare-aware watch group, then track listed price, effective price, health, and alert history from the same control cabin.
+Dealyard exists to collapse that loop into one product flow: compare first, then create a watch task or compare-aware watch group, then track listed price, effective price, health, and alert history from the same control cabin.
 
 ## Quick Start
 
@@ -270,7 +270,7 @@ If PostgreSQL fails to recover cleanly after an interrupted Docker run, reset th
 
 ### 6. Runtime hygiene and repo-local cleanup
 
-DealWatch keeps the repo-local runtime namespace intentionally small:
+Dealyard keeps the repo-local runtime namespace intentionally small:
 
 - `.runtime-cache/` for product runtime evidence
 - `.runtime-cache/operator/` for repo-owned operator evidence and debug bundles
@@ -283,7 +283,7 @@ Use the same path labels consistently:
 - `operator evidence`: preserved maintainer bundles under `.runtime-cache/operator`
 - `dependency rebuildable`: `.venv`, `.pnpm-store`, and `frontend/node_modules`
 - `disposable generated`: `build/`, `frontend/dist`, and `.pytest_cache`
-- `tool-local ignore-only`: `.serena/` for local MCP/code-navigation cache that should stay ignored and outside DealWatch cache governance
+- `tool-local ignore-only`: `.serena/` for local MCP/code-navigation cache that should stay ignored and outside Dealyard cache governance
 
 Start with the footprint audit when you want a repo-owned size snapshot before reclaiming anything:
 
@@ -330,29 +330,29 @@ This keeps only the latest `gif-frames*` PNG directory under `.runtime-cache/ope
 
 Shared-layer and machine-wide paths remain outside the repo cleanup execution boundary:
 
-- `.serena/` is a local MCP/tool cache namespace; keep it ignored, but do not count it toward DealWatch cache budgets or cleanup ledgers
+- `.serena/` is a local MCP/tool cache namespace; keep it ignored, but do not count it toward Dealyard cache budgets or cleanup ledgers
 - `~/.cache/uv` is a shared-layer package cache
 - `~/.cache/pre-commit` is a shared-layer hook environment cache
 - `~/.cache/node/corepack` is a shared-layer Node/corepack cache
 - `~/Library/Caches/ms-playwright` is a shared-layer browser cache
 - `~/.npm` is a shared-layer package cache
 - macOS user temp trees outside the repo are not repo-native cleanup targets
-- Docker global caches, images, and volumes are not DealWatch repo cleanup targets
+- Docker global caches, images, and volumes are not Dealyard repo cleanup targets
 
 Do not mislabel shared-layer reclaim as repo reclaim.
 
 Host / process safety is part of the same hygiene contract:
 
-- DealWatch never uses `killall`, `pkill`, broad `kill -9`, `osascript`, `System Events`, or direct raw signal helpers to clean up the host.
+- Dealyard never uses `killall`, `pkill`, broad `kill -9`, `osascript`, `System Events`, or direct raw signal helpers to clean up the host.
 - Browser/session recovery must stay on repo-owned entrypoints and ownership checks, not on global desktop automation.
-- `./scripts/launch_dealyard_chrome.sh` also refuses to open another DealWatch Chrome lane when the machine already has more than six browser instances.
+- `./scripts/launch_dealyard_chrome.sh` also refuses to open another Dealyard Chrome lane when the machine already has more than six browser instances.
 - Run `python3 scripts/verify_host_process_safety.py` before asking CI to trust a change that touches runtime, browser, scripts, tests, or workflows.
 
 ### 7. Optional AI explainers and recovery copilot
 
-DealWatch now supports an optional AI explain layer on top of deterministic compare, group, and recovery evidence.
+Dealyard now supports an optional AI explain layer on top of deterministic compare, group, and recovery evidence.
 
-Think of this as readable captions on top of the control cabin, not a robot grabbing the wheel. AI helps explain the state; it does not replace the state or turn DealWatch into a general-purpose agent.
+Think of this as readable captions on top of the control cabin, not a robot grabbing the wheel. AI helps explain the state; it does not replace the state or turn Dealyard into a general-purpose agent.
 
 Keep these rules in mind:
 
@@ -376,7 +376,7 @@ AI_RECOVERY_COPILOT_ENABLED=true
 
 If you want local contract coverage without a remote provider, you can also set `AI_PROVIDER=fake`. That path is meant for deterministic testing and local validation, not for claiming a real remote AI provider is live.
 
-When you want the smallest honest Switchyard-backed slice, keep the DealWatch envelope contract in place and swap only the provider supply path:
+When you want the smallest honest Switchyard-backed slice, keep the Dealyard envelope contract in place and swap only the provider supply path:
 
 ```bash
 USE_LLM=true
@@ -413,9 +413,9 @@ Think of this lane as the repair bay, not the main shipping road:
 - `login_required` is a diagnosis state, not an automatic stop sign
 - the emitted debug JSON/support bundles redact local filesystem roots and drop page-title fields before they are printed or preserved
 - the old shared-root contract is deprecated for `dealyard`; do not keep it under the default macOS Chrome profile root
-- the long-term DealWatch browser contract is a dedicated root at `~/.cache/dealyard/browser/chrome-user-data`
+- the long-term Dealyard browser contract is a dedicated root at `~/.cache/dealyard/browser/chrome-user-data`
 - the preferred long-term mode is `CHROME_ATTACH_MODE=browser` against one dedicated Chrome instance with a stable CDP listener
-- the first move into the dedicated root can still require one fresh manual sign-in, because stores can treat the migrated DealWatch workspace as a newly trusted browser
+- the first move into the dedicated root can still require one fresh manual sign-in, because stores can treat the migrated Dealyard workspace as a newly trusted browser
 - once that dedicated root has been re-authenticated, prefer reusing the same Chrome instance; in this repository's current live verification, Target / Safeway / Walmart / Weee all report `account_page_logged_in` when the dedicated lane already has the canonical account tabs open, while a fresh temporary probe can still be stricter if that tab set is missing
 - when no current page exists yet, maintainers can pair the complete profile contract with `CHROME_START_URL` to bootstrap a throwaway page without pretending this proves a real authenticated profile
 
@@ -435,14 +435,14 @@ PYTHONPATH=src .venv/bin/python scripts/report_dealyard_login_state.py --env-fil
 The launch helper now behaves like a repo-owned browser concierge instead of a bare port opener:
 
 - it writes a local identity tab under `.runtime-cache/browser-identity/index.html`
-- it opens that `file://` identity tab as the human-facing left-most anchor for the canonical DealWatch browser lane
+- it opens that `file://` identity tab as the human-facing left-most anchor for the canonical Dealyard browser lane
 - it ensures canonical account/order pages for Target / Safeway / Walmart / Weee exist in the same dedicated Chrome instance
 - it reuses the existing dedicated browser instead of second-launching the same root when the instance is already alive
 
 The optional human-facing identity env overrides are:
 
-- `DEALWATCH_BROWSER_IDENTITY_LABEL`
-- `DEALWATCH_BROWSER_IDENTITY_ACCENT`
+- `DEALYARD_BROWSER_IDENTITY_LABEL`
+- `DEALYARD_BROWSER_IDENTITY_ACCENT`
 
 The login-state reporter intentionally stays lightweight and reports each store as one of:
 
@@ -451,7 +451,7 @@ The login-state reporter intentionally stays lightweight and reports each store 
 - `reauth_required`
 
 Use that report when you need to answer "did the browser keep the session?" without relying on a quick visual guess.
-The reporter now reuses matching existing account tabs first and only falls back to a temporary canonical probe when no matching tab exists, so the current live lane does not get downgraded just because a fresh redirect path is stricter than the page already open in the dedicated DealWatch browser.
+The reporter now reuses matching existing account tabs first and only falls back to a temporary canonical probe when no matching tab exists, so the current live lane does not get downgraded just because a fresh redirect path is stricter than the page already open in the dedicated Dealyard browser.
 
 ### 8. Store onboarding cockpit and thin MCP
 
@@ -461,7 +461,7 @@ Wave 4 adds two maintainer/platform surfaces:
   The settings page now exposes a capability matrix, runtime binding status, official support tiers, onboarding checklist, verification commands, and source-of-truth refs for live stores.
   Current machine-readable tier truth is: `weee`, `ranch99`, `target`, `safeway`, and `walmart` are `official_full` for the current product path, while Walmart still stays `default_enabled=false` and `manual-product-url-only` for discovery.
 - **Thin read-only MCP server**
-  DealWatch can now expose product truth to an MCP client without re-implementing business logic or exposing high-risk operator actions.
+  Dealyard can now expose product truth to an MCP client without re-implementing business logic or exposing high-risk operator actions.
 
 The first MCP cut is intentionally read-only. It exposes:
 
@@ -504,7 +504,7 @@ PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 
 ### 9. Builder Starter Pack
 
-If you are wiring a developer tool or agent client against DealWatch, start with the smallest honest loop:
+If you are wiring a developer tool or agent client against Dealyard, start with the smallest honest loop:
 
 ```bash
 PYTHONPATH=src uv run python -m dealyard server
@@ -517,7 +517,7 @@ Then read these in order:
 - [`docs/roadmaps/dealyard-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealyard-api-mcp-substrate-phase1.md)
 - [`docs/integrations/README.md`](./docs/integrations/README.md)
 
-This pack is for developers and agent-builders who want to wire Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or a similar client to DealWatch truth without over-reading the current boundary.
+This pack is for developers and agent-builders who want to wire Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or a similar client to Dealyard truth without over-reading the current boundary.
 
 It deliberately does **not** promise:
 
@@ -572,7 +572,7 @@ The current product runtime now also supports **compare-aware watch groups**, **
 
 Read the newest public release notes at [Latest Release](https://github.com/xiaojiou176-open/dealyard/releases/latest), and use [Releases](https://github.com/xiaojiou176-open/dealyard/releases) when you want the full history.
 
-If you want a lightweight reason to keep DealWatch on hand, leave a Star now so the next release, proof update, or sample compare improvement is easy to find again.
+If you want a lightweight reason to keep Dealyard on hand, leave a Star now so the next release, proof update, or sample compare improvement is easy to find again.
 
 ## Roadmap
 
@@ -597,7 +597,7 @@ If you want a lightweight reason to keep DealWatch on hand, leave a Star now so 
 - **GitHub Pages is the current public surface**
   The current public read path is `local-first + GitHub Pages`. `render.yaml` remains an optional deployment blueprint, not a guaranteed live runtime promise.
 - **Current GitHub public entry**
-  DealWatch is published from the current GitHub public entry: `https://github.com/xiaojiou176-open/dealyard`
+  Dealyard is published from the current GitHub public entry: `https://github.com/xiaojiou176-open/dealyard`
 - **Secret scanning is enforced in CI**
   Secret scanning is enforced in CI, and local scans remain recommended developer-side protection.
 - **Maintainer verification shortcuts**
@@ -605,7 +605,7 @@ If you want a lightweight reason to keep DealWatch on hand, leave a Star now so 
 
 ## Verification Lanes
 
-DealWatch is now a **Heavy / Dual-runtime** repository with browser and external-proof surfaces.
+Dealyard is now a **Heavy / Dual-runtime** repository with browser and external-proof surfaces.
 That means the repo keeps plenty of checks, but they do not all belong in the same default local
 path.
 

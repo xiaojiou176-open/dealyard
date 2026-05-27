@@ -1,15 +1,15 @@
-# DealWatch API / MCP Substrate Phase 1
+# Dealyard API / MCP Substrate Phase 1
 
 ## Status
 
 > **Status:** active phase-1.1 reference for developers and agent-builders.
-> This is the formal builder-facing contract for the current DealWatch API / MCP substrate.
+> This is the formal builder-facing contract for the current Dealyard API / MCP substrate.
 > It describes what an external builder can consume **today** from a local-first runtime.
 > It does **not** claim hosted maturity, SDK packaging, multi-tenant auth, write-side MCP, or builder-facing recommendation parity beyond the shipped local Compare Preview advisory slice.
 
 ## What this document is for
 
-Think of this file as the front desk for the current DealWatch builder story.
+Think of this file as the front desk for the current Dealyard builder story.
 
 It answers four practical questions:
 
@@ -25,9 +25,9 @@ This is intentionally a **builder contract**, not a hosted platform page and not
 ### Intended readers
 
 1. **Developers**
-   - people calling the local DealWatch runtime over HTTP
+   - people calling the local Dealyard runtime over HTTP
 2. **Agent-builders**
-   - people wiring a local MCP client or automation loop against DealWatch read surfaces
+   - people wiring a local MCP client or automation loop against Dealyard read surfaces
   - common examples today: Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or a custom MCP/API client
 
 ### Not the intended promise set
@@ -58,7 +58,7 @@ Phase 1 still assumes the current repo truth:
 
 In plain English:
 
-> DealWatch already has a real front door.
+> Dealyard already has a real front door.
 > It does not yet have a hotel-style hosted reception desk with keys for many tenants.
 
 ## Local runtime entrypoints
@@ -205,7 +205,7 @@ Once the API server is running, FastAPI exposes:
 - `/docs`
 - `/redoc`
 
-Use them as discovery aids, not as the only source of truth for what DealWatch promises to builders.
+Use them as discovery aids, not as the only source of truth for what Dealyard promises to builders.
 
 If you want exact repo anchors instead of prose, use:
 
@@ -242,28 +242,28 @@ The stable contract is:
 
 ## Ecosystem framing
 
-Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar clients are best understood as **consumers** of DealWatch.
+Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar clients are best understood as **consumers** of Dealyard.
 
 That means you can honestly say:
 
-- DealWatch exposes a read-only API / MCP surface those clients can consume
+- Dealyard exposes a read-only API / MCP surface those clients can consume
 
 Do **not** flip the relationship and say:
 
-- DealWatch runs on Claude Code
-- DealWatch is built on Codex
+- Dealyard runs on Claude Code
+- Dealyard is built on Codex
 - OpenHands, OpenCode, or OpenClaw is the runtime base
 
 ## Ownership and auth boundary
 
-DealWatch currently behaves like a **single-owner, local-first runtime**, not a multi-tenant hosted platform.
+Dealyard currently behaves like a **single-owner, local-first runtime**, not a multi-tenant hosted platform.
 
 Important consequences:
 
 - `DATABASE_URL` is runtime wiring, not an end-user API key
 - `OWNER_BOOTSTRAP_TOKEN` is owner setup only, not a general builder credential
 - `POSTMARK_WEBHOOK_TOKEN` is provider callback verification, not a general API token
-- `POSTMARK_SERVER_TOKEN` is provider plumbing, not DealWatch API auth
+- `POSTMARK_SERVER_TOKEN` is provider plumbing, not Dealyard API auth
 - the current API surface does **not** establish a generic bearer-token or tenant auth contract
 
 The practical rule is simple:

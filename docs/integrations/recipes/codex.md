@@ -1,8 +1,8 @@
-# DealWatch Recipe For Codex
+# Dealyard Recipe For Codex
 
 ## Honest status
 
-- DealWatch launch record: `repo-verified`
+- Dealyard launch record: `repo-verified`
 - Codex wrapper syntax: `official_wrapper_documented`
 - Recipe kind: `official`
 - Current posture: `local-first`, `read-only-first`, `compare-first`
@@ -11,7 +11,7 @@
 ## Codex wrapper example
 
 Codex now has an official MCP config surface in `~/.codex/config.toml`.
-For DealWatch, the cleanest current translation is to pair that official wrapper with the repo-owned HTTP-facing transport:
+For Dealyard, the cleanest current translation is to pair that official wrapper with the repo-owned HTTP-facing transport:
 
 ```bash
 PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http
@@ -34,7 +34,7 @@ The same example lives in repo-owned form at [`../examples/codex-mcp-config.toml
 
 ## What is actually stable here
 
-This repo verifies the DealWatch side of the handoff:
+This repo verifies the Dealyard side of the handoff:
 
 - the local streamable HTTP launch command above
 - the read-only MCP inventory
@@ -42,7 +42,7 @@ This repo verifies the DealWatch side of the handoff:
 - the safe-first flow
 
 Codex's own docs now document the MCP page, the config file location, and the `mcp_servers.<name>` / `codex mcp add ... --url ...` shape directly.
-That makes the wrapper syntax itself official, while DealWatch still keeps the product promise read-only-first and local-first.
+That makes the wrapper syntax itself official, while Dealyard still keeps the product promise read-only-first and local-first.
 
 ## Evidence basis
 
@@ -65,7 +65,7 @@ That makes the wrapper syntax itself official, while DealWatch still keeps the p
 
 Do not translate this recipe into:
 
-- "DealWatch runs on Codex"
+- "Dealyard runs on Codex"
 - packaged SDK claims
 - official plugin claims
 - write-side MCP assumptions

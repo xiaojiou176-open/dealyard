@@ -1,8 +1,8 @@
-# DealWatch Recipe For OpenClaw
+# Dealyard Recipe For OpenClaw
 
 ## Honest status
 
-- DealWatch launch record: `repo-verified`
+- Dealyard launch record: `repo-verified`
 - OpenClaw wrapper syntax: `official_wrapper_documented`
 - Recipe kind: `official`
 - Current posture: `local-first`, `read-only-first`, `compare-first`
@@ -16,7 +16,7 @@ PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ## OpenClaw wrapper example
 
 OpenClaw's MCP docs currently document saved MCP server definitions under `mcp.servers`.
-The current DealWatch translation looks like:
+The current Dealyard translation looks like:
 
 ```json
 {
@@ -38,7 +38,7 @@ The same example lives in repo-owned form at [`../examples/openclaw-mcp-servers.
 
 ## What is actually stable here
 
-The stable part is the DealWatch side:
+The stable part is the Dealyard side:
 
 - local MCP launch
 - builder starter pack contract
@@ -47,12 +47,12 @@ The stable part is the DealWatch side:
 - safe-first flow
 
 OpenClaw's own docs now publish both `openclaw mcp serve` and the saved `mcp.servers` registry shape, so this config wrapper can be treated as official syntax.
-That still does **not** upgrade DealWatch into an OpenClaw runtime base or official plugin.
+That still does **not** upgrade Dealyard into an OpenClaw runtime base or official plugin.
 
 ## Evidence basis
 
 - Current repo-owned contract:
-  - local DealWatch launch command
+  - local Dealyard launch command
   - builder starter pack contract
   - repo-owned prompt starter and skill card
 

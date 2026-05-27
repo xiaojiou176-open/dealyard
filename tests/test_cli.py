@@ -69,7 +69,7 @@ def test_cli_builder_client_config_prints_json(monkeypatch, capsys) -> None:
     assert payload["client"] == "codex"
     assert payload["recommended_transport"] == "streamable_http"
     assert payload["wrapper_example_path"] == "docs/integrations/examples/codex-mcp-config.toml"
-    assert payload["recipe_markdown"].startswith("# DealWatch Recipe For Codex")
+    assert payload["recipe_markdown"].startswith("# Dealyard Recipe For Codex")
     assert payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
     assert payload["read_surfaces"]["cli"].endswith("dealyard builder-client-config codex --json")
     assert payload["read_surfaces"]["http"] == "GET /api/runtime/builder-client-config/codex"

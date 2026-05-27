@@ -40,8 +40,8 @@ def main() -> int:
         findings.append("site/feed.xml root element must be Atom <feed>")
 
     feed_title = get_text(root.find("atom:title", ATOM_NS))
-    if feed_title != "DealWatch Updates":
-        findings.append("site/feed.xml missing canonical feed title: DealWatch Updates")
+    if feed_title != "Dealyard Updates":
+        findings.append("site/feed.xml missing canonical feed title: Dealyard Updates")
 
     feed_id = get_text(root.find("atom:id", ATOM_NS))
     if feed_id != CANONICAL_FEED_URL:

@@ -246,7 +246,7 @@ jobs:
     env:
       DATABASE_URL: postgresql+psycopg://dealyard:dealyard@127.0.0.1:5432/dealyard
       OWNER_EMAIL: owner@example.com
-      OWNER_DISPLAY_NAME: DealWatch Owner
+      OWNER_DISPLAY_NAME: Dealyard Owner
       OWNER_BOOTSTRAP_TOKEN: smoke-token
       POSTMARK_FROM_EMAIL: dealyard@example.com
       POSTMARK_MESSAGE_STREAM: outbound

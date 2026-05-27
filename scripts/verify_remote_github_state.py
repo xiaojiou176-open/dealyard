@@ -172,7 +172,7 @@ def main() -> int:
     findings: list[str] = []
     manual_checks: list[str] = []
 
-    print("DealWatch Remote GitHub State")
+    print("Dealyard Remote GitHub State")
     print(f"authenticated={'yes' if auth_enabled else 'no'}")
     print(f"repo_status={repo_status}")
     print(f"branch_status={branch_status}")

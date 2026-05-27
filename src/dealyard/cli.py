@@ -104,7 +104,7 @@ def _print_main_help(stream: object) -> None:
 
 def _parse_legacy_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="DealWatch legacy SQLite bridge importer (deprecated)"
+        description="Dealyard legacy SQLite bridge importer (deprecated)"
     )
     parser.add_argument(
         "--store",
@@ -127,13 +127,13 @@ def _parse_legacy_args(argv: list[str]) -> argparse.Namespace:
 
 def _parse_legacy_maintenance_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="DealWatch legacy SQLite bridge maintenance (deprecated)"
+        description="Dealyard legacy SQLite bridge maintenance (deprecated)"
     )
     return parser.parse_args(argv)
 
 
 def _parse_bootstrap_args(argv: list[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="DealWatch owner bootstrap")
+    parser = argparse.ArgumentParser(description="Dealyard owner bootstrap")
     parser.add_argument("--email", default=settings.OWNER_EMAIL)
     parser.add_argument("--display-name", default=settings.OWNER_DISPLAY_NAME)
     parser.add_argument("--token", default="")
@@ -142,7 +142,7 @@ def _parse_bootstrap_args(argv: list[str]) -> argparse.Namespace:
 
 def _parse_maintenance_args(argv: list[str]) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="DealWatch product runtime maintenance"
+        description="Dealyard product runtime maintenance"
     )
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument(
@@ -159,7 +159,7 @@ def _parse_maintenance_args(argv: list[str]) -> argparse.Namespace:
 
 
 def _parse_builder_starter_pack_args(argv: list[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="DealWatch builder starter pack")
+    parser = argparse.ArgumentParser(description="Dealyard builder starter pack")
     parser.add_argument(
         "--json",
         action="store_true",
@@ -169,7 +169,7 @@ def _parse_builder_starter_pack_args(argv: list[str]) -> argparse.Namespace:
 
 
 def _parse_builder_client_config_args(argv: list[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="DealWatch builder client config export")
+    parser = argparse.ArgumentParser(description="Dealyard builder client config export")
     parser.add_argument(
         "client",
         nargs="?",
@@ -394,7 +394,7 @@ async def _run_product_maintenance(argv: list[str]) -> int:
     with maintenance_lock(lock_path) as acquired:
         if not acquired:
             logger.warning("Product maintenance skipped because the maintenance lock is busy: %s", lock_path)
-            print("DealWatch maintenance\nstatus=skipped\nreason=lock-busy")
+            print("Dealyard maintenance\nstatus=skipped\nreason=lock-busy")
             return 0
 
         job = MaintenanceJob(
@@ -447,7 +447,7 @@ async def _run_builder_starter_pack(argv: list[str]) -> int:
     if args.json:
         print(json.dumps(payload, ensure_ascii=False, indent=2))
     else:
-        print("DealWatch builder starter pack")
+        print("Dealyard builder starter pack")
         print(f"surface_version={payload['surface_version']}")
         print(f"public_builder_page={payload['public_builder_page']}")
         print(f"builder_pack={payload['docs']['builder_pack']}")
@@ -468,7 +468,7 @@ async def _run_builder_client_config(argv: list[str]) -> int:
         print(json.dumps(payload, ensure_ascii=False, indent=2))
     else:
         if args.all:
-            print("DealWatch builder client config bundle")
+            print("Dealyard builder client config bundle")
             print(f"client_count={payload['client_count']}")
             for item in payload["clients"]:
                 print(f"- {item['client']}: {item['wrapper_example_path']}")
@@ -480,21 +480,21 @@ async def _run_builder_client_config(argv: list[str]) -> int:
 
 
 async def _run_probe_live(argv: list[str]) -> int:
-    _parse_browser_debug_args(argv, description="DealWatch maintainer browser debug probe")
+    _parse_browser_debug_args(argv, description="Dealyard maintainer browser debug probe")
     payload = await probe_browser_debug(settings)
     print(json.dumps(sanitize_browser_debug_output(payload), ensure_ascii=False, indent=2))
     return 0
 
 
 async def _run_diagnose_live(argv: list[str]) -> int:
-    _parse_browser_debug_args(argv, description="DealWatch maintainer browser debug diagnosis")
+    _parse_browser_debug_args(argv, description="Dealyard maintainer browser debug diagnosis")
     payload = await diagnose_browser_debug(settings)
     print(json.dumps(sanitize_browser_debug_output(payload), ensure_ascii=False, indent=2))
     return 0
 
 
 async def _run_support_bundle(argv: list[str]) -> int:
-    _parse_browser_debug_args(argv, description="DealWatch maintainer browser debug support bundle")
+    _parse_browser_debug_args(argv, description="Dealyard maintainer browser debug support bundle")
     diagnosis = await diagnose_browser_debug(settings)
     bundle = write_browser_support_bundle(settings, diagnosis)
     print(json.dumps(sanitize_browser_debug_output(bundle), ensure_ascii=False, indent=2))
@@ -539,7 +539,7 @@ def main() -> None:
     if command == LEGACY_ALIAS:
         raise SystemExit(asyncio.run(_run_legacy(sys.argv[2:])))
 
-    print(f"Unknown DealWatch command: {command}.", file=sys.stderr)
+    print(f"Unknown Dealyard command: {command}.", file=sys.stderr)
     print("", file=sys.stderr)
     _print_main_help(sys.stderr)
     raise SystemExit(2)

@@ -100,7 +100,7 @@ REQUIRED_PHRASES = {
     ROOT / "AGENTS.md": [
         "Product data: PostgreSQL via `DATABASE_URL`",
         "Legacy import source: `.legacy-runtime/data/dealyard.db`",
-        "Only signal a repo-recorded positive child PID that DealWatch itself spawned.",
+        "Only signal a repo-recorded positive child PID that Dealyard itself spawned.",
         "`scripts/clean.py` is now a forbidden legacy entrypoint.",
         "python3 scripts/verify_host_process_safety.py",
     ],

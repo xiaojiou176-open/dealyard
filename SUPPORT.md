@@ -20,4 +20,4 @@ Do not use public issues for security issues. Follow the private process describ
 
 ## Scope
 
-Support covers the public DealWatch repository, its documented product runtime, the public compare preview surface, and the GitHub Pages public entrypoint.
+Support covers the public Dealyard repository, its documented product runtime, the public compare preview surface, and the GitHub Pages public entrypoint.

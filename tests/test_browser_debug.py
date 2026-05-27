@@ -267,7 +267,7 @@ async def test_collect_browser_debug_surfaces_awaits_async_request_response() ->
 async def test_collect_browser_debug_open_pages_sorts_canonical_tabs_first() -> None:
     identity_page = _FakePage(
         url="file:///tmp/repo/.runtime-cache/browser-identity/index.html",
-        title="DealWatch · 9333 · browser lane",
+        title="Dealyard · 9333 · browser lane",
         content="<html><body>repo-owned browser lane identity tab</body></html>",
     )
     account_page = _FakePage(
@@ -399,7 +399,7 @@ async def test_diagnose_browser_debug_skips_identity_tab_when_account_tab_exists
     settings = _make_settings(tmp_path)
     identity_page = _FakePage(
         url="file:///tmp/repo/.runtime-cache/browser-identity/index.html",
-        title="DealWatch · 9333 · browser lane",
+        title="Dealyard · 9333 · browser lane",
         content="<html><body>repo-owned browser lane identity tab</body></html>",
     )
     account_page = _FakePage(

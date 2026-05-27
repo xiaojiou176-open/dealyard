@@ -1,7 +1,7 @@
 {
   "surface_version": "phase1",
   "product_shape": {
-    "name": "DealWatch",
+    "name": "Dealyard",
     "positioning": "AI-enhanced, compare-first grocery price intelligence",
     "runtime": "local-first",
     "builder_posture": "read-only-first"
@@ -122,7 +122,7 @@
   },
   "skill_pack": {
     "path": "docs/integrations/skills/dealyard-readonly-builder-skill.md",
-    "intent": "Copyable builder skill card for coding agents that should stay inside the current read-only DealWatch contract."
+    "intent": "Copyable builder skill card for coding agents that should stay inside the current read-only Dealyard contract."
   },
   "docs": {
     "builder_pack": "docs/integrations/README.md",

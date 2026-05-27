@@ -1,6 +1,6 @@
 # Distribution
 
-This file is the shortest truthful distribution ledger for DealWatch.
+This file is the shortest truthful distribution ledger for Dealyard.
 
 ## Current repo-owned distribution reality
 
@@ -11,7 +11,7 @@ This file is the shortest truthful distribution ledger for DealWatch.
 | GitHub release/tag | [`releases/latest`](https://github.com/xiaojiou176-open/dealyard/releases/latest) | one canonical public release `v0.1.2` | live |
 | Python package | [`pypi.org/project/dealyard/`](https://pypi.org/project/dealyard/) | `dealyard==1.0.1` is published on PyPI and matches the current MCP package surface | live |
 | Official MCP Registry | [`registry.modelcontextprotocol.io/v0.1/servers?search=dealyard`](https://registry.modelcontextprotocol.io/v0.1/servers?search=dealyard) | `io.github.xiaojiou176-open/dealyard` is published and searchable | live |
-| ClawHub skill | current public ClawHub search/API does not provide stable DealWatch listing proof | repo-owned `dealyard-readonly-builder` skill packet and manifest exist, but the host-side live claim is not fresh enough to publish as fact | no_fresh_public_evidence |
+| ClawHub skill | current public ClawHub search/API does not provide stable Dealyard listing proof | repo-owned `dealyard-readonly-builder` skill packet and manifest exist, but the host-side live claim is not fresh enough to publish as fact | no_fresh_public_evidence |
 | Cline MCP Marketplace | submission receipt [`cline/mcp-marketplace#1325`](https://github.com/cline/mcp-marketplace/issues/1325) | repo-side reviewer cargo already landed on `main` via [`dealyard#29`](https://github.com/xiaojiou176-open/dealyard/pull/29); external intake is now waiting on maintainer review | review-pending |
 | OpenHands/extensions | closed PR [`OpenHands/extensions#151`](https://github.com/OpenHands/extensions/pull/151); PR [`#152`](https://github.com/OpenHands/extensions/pull/152) is the retired predecessor | repo-owned OpenHands skill packet still exists, but `#151` is closed and unmerged, so it does not count as accepted host proof | closed_unmerged_not_accepted |
 | MCP.so submission | submission receipt [`chatmcp/mcpso#1558`](https://github.com/chatmcp/mcpso/issues/1558); guessed public page [`mcp.so/server/dealyard`](https://mcp.so/server/dealyard) still renders `Project not found` today | server intake issue `#1558` is filed, but there is still no public listing receipt | submission_done_platform_not_accepted_yet |

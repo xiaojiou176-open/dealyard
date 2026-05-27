@@ -324,7 +324,7 @@ async def test_mcp_runtime_reads_compare_and_store_cockpit(monkeypatch, tmp_path
     monkeypatch.setattr(mcp_server_module, "prepare_product_runtime", _noop_prepare)
     monkeypatch.setattr(mcp_server_module, "get_product_service", lambda: service)
 
-    runtime = mcp_server_module.DealWatchMcpRuntime()
+    runtime = mcp_server_module.DealyardMcpRuntime()
     compare_payload = await runtime.compare_preview(
         submitted_urls=[
             "https://www.sayweee.com/zh/product/Asian-Honey-Pears-3ct/5869",

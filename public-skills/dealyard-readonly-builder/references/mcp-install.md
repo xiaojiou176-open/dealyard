@@ -1,4 +1,4 @@
-# Install The Published DealWatch MCP
+# Install The Published Dealyard MCP
 
 Use the published PyPI package, not a repo-local `PYTHONPATH=src` shortcut.
 

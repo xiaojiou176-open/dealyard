@@ -1,10 +1,10 @@
-# DealWatch Chrome Companion
+# Dealyard Chrome Companion
 
-This package is the repo-owned Chrome extension companion for DealWatch.
+This package is the repo-owned Chrome extension companion for Dealyard.
 
 In plain English:
 
-- it is a browser helper for the local-first DealWatch runtime
+- it is a browser helper for the local-first Dealyard runtime
 - it is **not** the primary product surface
 - it is **not** a hosted control plane
 - it is prepared so the remaining work is the Chrome Web Store dashboard submission step, not missing repo files
@@ -12,9 +12,9 @@ In plain English:
 ## What it does
 
 - opens the local `#compare` route directly from the current tab
-- pre-fills the current page URL into the DealWatch compare form
+- pre-fills the current page URL into the Dealyard compare form
 - provides a context-menu shortcut for the same action
-- lets the operator configure the local DealWatch base URL
+- lets the operator configure the local Dealyard base URL
 
 ## What it does not do
 

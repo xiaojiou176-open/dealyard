@@ -129,7 +129,7 @@ def test_resolve_contract_requires_full_profile_contract(tmp_path: Path) -> None
                 "CHROME_PROFILE_NAME": "dealyard",
             },
             env_file=tmp_path / ".env",
-            caller_name="DealWatch browser login-state report",
+            caller_name="Dealyard browser login-state report",
         )
 
     assert "CHROME_USER_DATA_DIR, CHROME_PROFILE_NAME, and CHROME_PROFILE_DIRECTORY" in str(exc_info.value)
@@ -144,7 +144,7 @@ def test_resolve_contract_rejects_legacy_shared_root(tmp_path: Path) -> None:
                 "CHROME_PROFILE_DIRECTORY": "Profile 21",
             },
             env_file=tmp_path / ".env",
-            caller_name="DealWatch browser login-state report",
+            caller_name="Dealyard browser login-state report",
         )
 
     assert "must not point at the legacy shared Chrome root" in str(exc_info.value)

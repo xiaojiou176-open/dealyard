@@ -6,7 +6,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 echo "=========================================="
-echo "DealWatch Bootstrap"
+echo "Dealyard Bootstrap"
 echo "=========================================="
 echo ""
 

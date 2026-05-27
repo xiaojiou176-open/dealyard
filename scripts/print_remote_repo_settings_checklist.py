@@ -66,7 +66,7 @@ def main() -> int:
             """
         )
 
-    print("DealWatch Remote Repository Settings Checklist")
+    print("Dealyard Remote Repository Settings Checklist")
     print("")
     print(f"authenticated={'yes' if bool(TOKEN) else 'no'}")
     print("")

@@ -275,7 +275,7 @@ class ReadonlyProductMcpBridge:
         return await self._with_session(lambda service, session: service.get_store_onboarding_cockpit(session))
 
 
-class DealWatchMcpRuntime(ReadonlyProductMcpBridge):
+class DealyardMcpRuntime(ReadonlyProductMcpBridge):
     def __init__(self, service_factory: Callable[[], ProductService] | None = None) -> None:
         super().__init__(service_factory or get_product_service)
 
@@ -290,11 +290,11 @@ async def _runtime_lifespan(_: FastMCP):
 
 
 def create_mcp_server(bridge: ReadonlyProductMcpBridge | None = None) -> FastMCP:
-    readonly_bridge = bridge or DealWatchMcpRuntime()
+    readonly_bridge = bridge or DealyardMcpRuntime()
     server = FastMCP(
         name="dealyard",
         instructions=(
-            "Read-only DealWatch MCP server. It exposes compare, watch, runtime, notification, "
+            "Read-only Dealyard MCP server. It exposes compare, watch, runtime, notification, "
             "store-binding, and store-onboarding cockpit truth without maintenance, cleanup, "
             "legacy import, or write-side operator actions."
         ),
@@ -371,15 +371,15 @@ def list_client_starter_specs() -> list[dict[str, Any]]:
 
 
 def _build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="DealWatch read-only MCP server")
+    parser = argparse.ArgumentParser(description="Dealyard read-only MCP server")
     subcommands = parser.add_subparsers(dest="command", required=True)
 
-    list_tools_parser = subcommands.add_parser("list-tools", help="Print the registered DealWatch MCP tools.")
+    list_tools_parser = subcommands.add_parser("list-tools", help="Print the registered Dealyard MCP tools.")
     list_tools_parser.add_argument("--json", action="store_true", help="Emit JSON instead of a plain-text list.")
 
     client_starters_parser = subcommands.add_parser(
         "client-starters",
-        help="Print repo-owned DealWatch starter metadata for local MCP/API clients.",
+        help="Print repo-owned Dealyard starter metadata for local MCP/API clients.",
     )
     client_starters_parser.add_argument(
         "--client",
@@ -390,7 +390,7 @@ def _build_parser() -> argparse.ArgumentParser:
 
     client_config_parser = subcommands.add_parser(
         "client-config",
-        help="Print one repo-owned DealWatch client config export.",
+        help="Print one repo-owned Dealyard client config export.",
     )
     client_config_target = client_config_parser.add_mutually_exclusive_group(required=True)
     client_config_target.add_argument(
@@ -405,7 +405,7 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     client_config_parser.add_argument("--json", action="store_true", help="Emit JSON instead of the raw config body.")
 
-    serve_parser = subcommands.add_parser("serve", help="Run the DealWatch MCP server.")
+    serve_parser = subcommands.add_parser("serve", help="Run the Dealyard MCP server.")
     serve_parser.add_argument(
         "--transport",
         choices=("stdio", "sse", "streamable-http"),
@@ -481,7 +481,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(json.dumps(payload, indent=2, sort_keys=True))
         else:
             if args.all:
-                print("DealWatch builder client config bundle")
+                print("Dealyard builder client config bundle")
                 print(f"client_count: {payload['client_count']}")
                 print(f"cli: {payload['read_surfaces']['cli']}")
                 print(f"http: {payload['read_surfaces']['http']}")

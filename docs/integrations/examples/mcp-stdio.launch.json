@@ -17,6 +17,6 @@
   },
   "notes": [
     "This is a client-agnostic launch record, not an official config syntax for any single tool.",
-    "Use it to map the DealWatch MCP stdio process into Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or another stdio-capable client."
+    "Use it to map the Dealyard MCP stdio process into Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or another stdio-capable client."
   ]
 }
