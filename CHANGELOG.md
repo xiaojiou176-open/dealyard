@@ -78,10 +78,10 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
-- `dealwatch` is now the only live repository and package name.
+- `dealyard` is now the only live repository and package name.
 - Product runtime surface is fully `.runtime-cache/` + PostgreSQL; `var/` is no longer part of the runtime contract.
 - Docker and Compose topology target API + worker + frontend + PostgreSQL.
 - Public documentation now leads with product value, screenshots, and release-driven trust signals.
-- `python -m dealwatch` requires an explicit product subcommand.
+- `python -m dealyard` requires an explicit product subcommand.
 - The repository public story is product-first; SQLite remains import-only.
 - The AI analyzer now treats `dspy` as an optional runtime dependency instead of a required base install.

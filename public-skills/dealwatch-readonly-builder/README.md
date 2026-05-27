@@ -5,7 +5,7 @@ and use its read-only tools safely.
 
 ## What the agent learns here
 
-- how to install the published `dealwatch==1.0.1` MCP package
+- how to install the published `dealyard==1.0.1` MCP package
 - which DealWatch MCP tools exist and which three are safe-first
 - how to choose between runtime-readiness, builder-starter, compare, watch, and
   recovery reads
@@ -24,7 +24,7 @@ and use its read-only tools safely.
 Use the published package, not a repo-local checkout:
 
 ```bash
-uvx --from dealwatch==1.0.1 dealwatch-mcp serve
+uvx --from dealyard==1.0.1 dealyard-mcp serve
 ```
 
 If the host needs a saved MCP config snippet, use the host-specific examples in

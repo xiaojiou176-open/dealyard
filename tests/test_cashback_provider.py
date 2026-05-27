@@ -3,8 +3,8 @@ from __future__ import annotations
 import httpx
 import pytest
 
-from dealwatch.providers.cashback.base import CashbackQuotePayload
-from dealwatch.providers.cashback.cashback_monitor import CashbackMonitorProvider
+from dealyard.providers.cashback.base import CashbackQuotePayload
+from dealyard.providers.cashback.cashback_monitor import CashbackMonitorProvider
 
 
 class _FakeClient:
@@ -28,7 +28,7 @@ class _FakeClient:
 
 @pytest.mark.asyncio
 async def test_cashback_monitor_provider_parses_percent(monkeypatch) -> None:
-    monkeypatch.setattr("dealwatch.providers.cashback.cashback_monitor.httpx.AsyncClient", _FakeClient)
+    monkeypatch.setattr("dealyard.providers.cashback.cashback_monitor.httpx.AsyncClient", _FakeClient)
     provider = CashbackMonitorProvider()
     quote = await provider.fetch_quote(
         CashbackQuotePayload(

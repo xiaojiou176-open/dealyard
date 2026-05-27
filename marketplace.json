@@ -1,12 +1,12 @@
 {
-  "name": "dealwatch-builders",
+  "name": "dealyard-builders",
   "owner": {
     "name": "xiaojiou176-open"
   },
   "plugins": [
     {
-      "name": "dealwatch-builder-pack",
-      "source": "./plugins/dealwatch-builder-pack"
+      "name": "dealyard-builder-pack",
+      "source": "./plugins/dealyard-builder-pack"
     }
   ]
 }

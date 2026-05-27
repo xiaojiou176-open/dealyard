@@ -14,20 +14,20 @@ Codex now has an official MCP config surface in `~/.codex/config.toml`.
 For DealWatch, the cleanest current translation is to pair that official wrapper with the repo-owned HTTP-facing transport:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport streamable-http
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http
 ```
 
 The current Codex config then looks like:
 
 ```toml
-[mcp_servers.dealwatch]
+[mcp_servers.dealyard]
 url = "http://127.0.0.1:8000/mcp"
 ```
 
 You can also register the same endpoint from the CLI:
 
 ```bash
-codex mcp add dealwatch --url http://127.0.0.1:8000/mcp
+codex mcp add dealyard --url http://127.0.0.1:8000/mcp
 ```
 
 The same example lives in repo-owned form at [`../examples/codex-mcp-config.toml`](../examples/codex-mcp-config.toml).

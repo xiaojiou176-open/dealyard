@@ -7,17 +7,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 FORBIDDEN_SNIPPETS = {
-    ROOT / "src" / "dealwatch" / "application" / "services.py": [
+    ROOT / "src" / "dealyard" / "application" / "services.py": [
         "run.error_message = str(exc)",
         "task.last_error_message = str(exc)",
     ],
 }
 
 ALLOWED_PRINT_FILES = {
-    ROOT / "src" / "dealwatch" / "cli.py",
-    ROOT / "src" / "dealwatch" / "mcp" / "server.py",
-    ROOT / "src" / "dealwatch" / "runtime_preflight.py",
-    ROOT / "src" / "dealwatch" / "stores" / "base_adapter.py",
+    ROOT / "src" / "dealyard" / "cli.py",
+    ROOT / "src" / "dealyard" / "mcp" / "server.py",
+    ROOT / "src" / "dealyard" / "runtime_preflight.py",
+    ROOT / "src" / "dealyard" / "stores" / "base_adapter.py",
 }
 
 

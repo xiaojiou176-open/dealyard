@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 from scripts.shared.browser_lane_contract import DEFAULT_SHARED_CHROME_ROOT
-from scripts.report_dealwatch_login_state import (
+from scripts.report_dealyard_login_state import (
     inspect_target,
     render_text,
     resolve_contract,
@@ -126,7 +126,7 @@ def test_resolve_contract_requires_full_profile_contract(tmp_path: Path) -> None
         resolve_contract(
             {
                 "CHROME_CDP_URL": "http://127.0.0.1:9333",
-                "CHROME_PROFILE_NAME": "dealwatch",
+                "CHROME_PROFILE_NAME": "dealyard",
             },
             env_file=tmp_path / ".env",
             caller_name="DealWatch browser login-state report",
@@ -140,7 +140,7 @@ def test_resolve_contract_rejects_legacy_shared_root(tmp_path: Path) -> None:
         resolve_contract(
             {
                 "CHROME_USER_DATA_DIR": DEFAULT_SHARED_CHROME_ROOT,
-                "CHROME_PROFILE_NAME": "dealwatch",
+                "CHROME_PROFILE_NAME": "dealyard",
                 "CHROME_PROFILE_DIRECTORY": "Profile 21",
             },
             env_file=tmp_path / ".env",
@@ -154,8 +154,8 @@ def test_render_text_redacts_browser_root() -> None:
     text = render_text(
         {
             "cdp_url": "http://127.0.0.1:9333",
-            "browser_user_data_dir": "/tmp/dealwatch-chrome",
-            "profile_display_name": "dealwatch",
+            "browser_user_data_dir": "/tmp/dealyard-chrome",
+            "profile_display_name": "dealyard",
             "profile_directory": "Profile 21",
             "sites": [
                 {
@@ -168,7 +168,7 @@ def test_render_text_redacts_browser_root() -> None:
         }
     )
 
-    assert "browser_user_data_dir=<local-path>/dealwatch-chrome" in text
+    assert "browser_user_data_dir=<local-path>/dealyard-chrome" in text
     assert "- Target account | state=homepage_logged_in" in text
 
 
@@ -362,8 +362,8 @@ def test_render_text_includes_site_error_when_present() -> None:
     text = render_text(
         {
             "cdp_url": "http://127.0.0.1:9333",
-            "browser_user_data_dir": "/tmp/dealwatch-chrome",
-            "profile_display_name": "dealwatch",
+            "browser_user_data_dir": "/tmp/dealyard-chrome",
+            "profile_display_name": "dealyard",
             "profile_directory": "Profile 21",
             "sites": [
                 {

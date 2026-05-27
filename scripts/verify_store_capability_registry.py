@@ -7,8 +7,8 @@ import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
-INIT_FILE = ROOT / "src/dealwatch/stores/__init__.py"
-MANIFEST_FILE = ROOT / "src/dealwatch/stores/manifest.py"
+INIT_FILE = ROOT / "src/dealyard/stores/__init__.py"
+MANIFEST_FILE = ROOT / "src/dealyard/stores/manifest.py"
 REQUIRED_FIELDS = {
     "store_id",
     "support_tier",

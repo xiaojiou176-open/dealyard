@@ -8,12 +8,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FEED = ROOT / "site" / "feed.xml"
 ATOM_NS = {"atom": "http://www.w3.org/2005/Atom"}
-CANONICAL_SITE_URL = "https://xiaojiou176-open.github.io/dealwatch/"
+CANONICAL_SITE_URL = "https://xiaojiou176-open.github.io/dealyard/"
 CANONICAL_FEED_URL = f"{CANONICAL_SITE_URL}feed.xml"
 REQUIRED_ENTRIES = {
-    "Latest release notes": "https://github.com/xiaojiou176-open/dealwatch/releases/latest",
-    "Release history": "https://github.com/xiaojiou176-open/dealwatch/releases",
-    "Changelog": "https://github.com/xiaojiou176-open/dealwatch/blob/main/CHANGELOG.md",
+    "Latest release notes": "https://github.com/xiaojiou176-open/dealyard/releases/latest",
+    "Release history": "https://github.com/xiaojiou176-open/dealyard/releases",
+    "Changelog": "https://github.com/xiaojiou176-open/dealyard/blob/main/CHANGELOG.md",
 }
 
 

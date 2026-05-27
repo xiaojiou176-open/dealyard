@@ -22,7 +22,7 @@ From the repo root:
 cp .env.example .env
 docker compose up -d postgres
 uv sync --frozen
-PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
 ```
 
 Why these two commands matter:
@@ -48,9 +48,9 @@ Add this entry inside `mcpServers`:
 ```json
 {
   "mcpServers": {
-    "dealwatch": {
+    "dealyard": {
       "command": "uv",
-      "args": ["run", "python", "-m", "dealwatch.mcp", "serve", "--transport", "stdio"],
+      "args": ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
       "env": {
         "PYTHONPATH": "src",
         "OWNER_BOOTSTRAP_TOKEN": "set-a-local-random-string"
@@ -88,7 +88,7 @@ The first honest tool flow is:
 ## Troubleshooting
 
 - If port `15432` is already occupied on your machine, start the local PostgreSQL service on another free port and point `DATABASE_URL` at that port before launching the MCP server.
-- If the server exits immediately, re-run `PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json` first; that is the fastest way to confirm the local runtime and MCP surface are both reachable.
+- If the server exits immediately, re-run `PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json` first; that is the fastest way to confirm the local runtime and MCP surface are both reachable.
 
 ## Read next
 

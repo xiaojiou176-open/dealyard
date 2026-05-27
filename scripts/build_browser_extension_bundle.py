@@ -15,8 +15,8 @@ DIST_ROOT = ROOT / "dist" / "browser-extension"
 def main() -> int:
     manifest = json.loads((EXTENSION_ROOT / "manifest.json").read_text(encoding="utf-8"))
     version = manifest["version"]
-    bundle_dir = DIST_ROOT / f"dealwatch-companion-{version}"
-    archive_path = DIST_ROOT / f"dealwatch-companion-{version}.zip"
+    bundle_dir = DIST_ROOT / f"dealyard-companion-{version}"
+    archive_path = DIST_ROOT / f"dealyard-companion-{version}.zip"
 
     if bundle_dir.exists():
         shutil.rmtree(bundle_dir)

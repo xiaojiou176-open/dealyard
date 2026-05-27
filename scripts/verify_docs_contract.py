@@ -19,9 +19,9 @@ REQUIRED_SNIPPETS = {
         "Verification Lanes",
         "Compare Preview",
         "compare-aware watch group",
-        "python -m dealwatch server",
-        "python -m dealwatch worker",
-        "python -m dealwatch bootstrap-owner",
+        "python -m dealyard server",
+        "python -m dealyard worker",
+        "python -m dealyard bootstrap-owner",
     ],
     ROOT / "CONTRIBUTING.md": [
         "Keep changes surgical",

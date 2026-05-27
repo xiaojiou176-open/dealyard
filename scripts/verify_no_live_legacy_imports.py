@@ -7,15 +7,15 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = [
-    ROOT / "src/dealwatch/api",
-    ROOT / "src/dealwatch/application",
-    ROOT / "src/dealwatch/worker",
-    ROOT / "src/dealwatch/persistence",
+    ROOT / "src/dealyard/api",
+    ROOT / "src/dealyard/application",
+    ROOT / "src/dealyard/worker",
+    ROOT / "src/dealyard/persistence",
     ROOT / "scripts/product_smoke.py",
     ROOT / "scripts/smoke_product.sh",
 ]
 PATTERNS = [
-    re.compile(r"\bfrom\s+dealwatch\.legacy\.db_repo\s+import\b"),
+    re.compile(r"\bfrom\s+dealyard\.legacy\.db_repo\s+import\b"),
     re.compile(r"\bDatabaseRepository\b"),
     re.compile(r"\blegacy-import\b"),
     re.compile(r"\blegacy-maintenance\b"),

@@ -1,18 +1,18 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.xiaojiou176-open/dealwatch",
+  "name": "io.github.xiaojiou176-open/dealyard",
   "title": "DealWatch",
   "description": "Local-first grocery price intelligence with a read-only MCP server.",
-  "websiteUrl": "https://xiaojiou176-open.github.io/dealwatch/",
+  "websiteUrl": "https://xiaojiou176-open.github.io/dealyard/",
   "repository": {
-    "url": "https://github.com/xiaojiou176-open/dealwatch",
+    "url": "https://github.com/xiaojiou176-open/dealyard",
     "source": "github"
   },
   "version": "1.0.1",
   "packages": [
     {
       "registryType": "pypi",
-      "identifier": "dealwatch",
+      "identifier": "dealyard",
       "version": "1.0.1",
       "transport": {
         "type": "stdio"

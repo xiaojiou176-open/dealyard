@@ -43,10 +43,10 @@ This extension exists to hand the current product page into the local DealWatch 
 
 ## Support URLs
 
-- Homepage: `https://xiaojiou176-open.github.io/dealwatch/`
-- Support: `https://github.com/xiaojiou176-open/dealwatch/blob/main/SUPPORT.md`
-- Privacy / security: `https://github.com/xiaojiou176-open/dealwatch/blob/main/SECURITY.md`
-- Source: `https://github.com/xiaojiou176-open/dealwatch`
+- Homepage: `https://xiaojiou176-open.github.io/dealyard/`
+- Support: `https://github.com/xiaojiou176-open/dealyard/blob/main/SUPPORT.md`
+- Privacy / security: `https://github.com/xiaojiou176-open/dealyard/blob/main/SECURITY.md`
+- Source: `https://github.com/xiaojiou176-open/dealyard`
 
 ## Suggested visual assets
 

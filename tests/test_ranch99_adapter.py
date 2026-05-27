@@ -2,12 +2,12 @@ import sys
 
 import pytest
 
-from dealwatch.core.models import Offer, PriceContext
-from dealwatch.infra.config import Settings
-from dealwatch.stores.ranch99 import adapter as ranch99_adapter_module
-from dealwatch.stores.ranch99.adapter import Ranch99Adapter
-from dealwatch.stores.ranch99.discovery import Ranch99Discovery
-from dealwatch.stores.ranch99.parser import Ranch99Parser
+from dealyard.core.models import Offer, PriceContext
+from dealyard.infra.config import Settings
+from dealyard.stores.ranch99 import adapter as ranch99_adapter_module
+from dealyard.stores.ranch99.adapter import Ranch99Adapter
+from dealyard.stores.ranch99.discovery import Ranch99Discovery
+from dealyard.stores.ranch99.parser import Ranch99Parser
 
 
 class _FakePage:

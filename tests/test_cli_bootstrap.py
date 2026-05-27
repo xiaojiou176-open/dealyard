@@ -7,7 +7,7 @@ import sys
 import pytest
 from pydantic import SecretStr
 
-from dealwatch import cli
+from dealyard import cli
 
 
 def test_parse_bootstrap_args_accepts_token() -> None:
@@ -35,7 +35,7 @@ def test_cli_help_flag_prints_main_help(monkeypatch) -> None:
     monkeypatch.setattr(sys, "argv", ["python", "--help"])
     with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
         cli.main()
-    assert "Usage: python -m dealwatch <command> [...]." in stdout.getvalue()
+    assert "Usage: python -m dealyard <command> [...]." in stdout.getvalue()
     assert "Runtime commands:" in stdout.getvalue()
     assert "Builder discovery commands:" in stdout.getvalue()
     assert "Operator-only maintainer commands:" in stdout.getvalue()

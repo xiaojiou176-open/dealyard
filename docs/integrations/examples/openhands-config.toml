@@ -1,4 +1,4 @@
 [mcp]
 stdio_servers = [
-  { name = "dealwatch", command = "uv", args = ["run", "python", "-m", "dealwatch.mcp", "serve", "--transport", "stdio"], env = { PYTHONPATH = "src" } }
+  { name = "dealyard", command = "uv", args = ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"], env = { PYTHONPATH = "src" } }
 ]

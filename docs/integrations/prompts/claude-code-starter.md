@@ -3,7 +3,7 @@
 Use this after registering the local stdio MCP server from [`../recipes/claude-code.md`](../recipes/claude-code.md):
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 ## Safe first objective

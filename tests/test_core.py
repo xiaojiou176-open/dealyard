@@ -4,14 +4,14 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
-from dealwatch.core.artifacts import ArtifactManager
-from dealwatch.core.models import AnomalyReason, DealEvent, Offer, PriceContext, RunStats
-from dealwatch.core.pipeline import MonitoringPipeline
-from dealwatch.core.rules import RulesEngine
-from dealwatch.infra.config import Settings
-from dealwatch.legacy.db_repo import DatabaseRepository
-from dealwatch.infra.obs.health_check import HealthMonitor
-from dealwatch.stores.base_adapter import BaseStoreAdapter
+from dealyard.core.artifacts import ArtifactManager
+from dealyard.core.models import AnomalyReason, DealEvent, Offer, PriceContext, RunStats
+from dealyard.core.pipeline import MonitoringPipeline
+from dealyard.core.rules import RulesEngine
+from dealyard.infra.config import Settings
+from dealyard.legacy.db_repo import DatabaseRepository
+from dealyard.infra.obs.health_check import HealthMonitor
+from dealyard.stores.base_adapter import BaseStoreAdapter
 
 
 def _build_offer(price: float) -> Offer:
@@ -238,8 +238,8 @@ def test_health_monitor_escapes_html() -> None:
 
 @pytest.mark.asyncio
 async def test_db_legacy_fallback(tmp_path, monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr("dealwatch.legacy.db_repo.settings.ENABLE_LEGACY_FALLBACK", True)
-    db_path = tmp_path / "dealwatch.db"
+    monkeypatch.setattr("dealyard.legacy.db_repo.settings.ENABLE_LEGACY_FALLBACK", True)
+    db_path = tmp_path / "dealyard.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
     context_hash = PriceContext(region="00000").get_hash()
@@ -275,8 +275,8 @@ async def test_db_legacy_fallback_blocked_without_unique_mapping(
     tmp_path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    monkeypatch.setattr("dealwatch.legacy.db_repo.settings.ENABLE_LEGACY_FALLBACK", True)
-    db_path = tmp_path / "dealwatch.db"
+    monkeypatch.setattr("dealyard.legacy.db_repo.settings.ENABLE_LEGACY_FALLBACK", True)
+    db_path = tmp_path / "dealyard.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
     context_hash = PriceContext(region="00000").get_hash()
@@ -301,7 +301,7 @@ async def test_db_legacy_fallback_blocked_without_unique_mapping(
 
 @pytest.mark.asyncio
 async def test_db_historical_low(tmp_path) -> None:
-    db_path = tmp_path / "dealwatch.db"
+    db_path = tmp_path / "dealyard.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
     context_hash = PriceContext(region="00000").get_hash()
@@ -334,7 +334,7 @@ async def test_db_historical_low(tmp_path) -> None:
 
 @pytest.mark.asyncio
 async def test_cleanup_keeps_latest_when_low_is_outside_window(tmp_path) -> None:
-    db_path = tmp_path / "dealwatch.db"
+    db_path = tmp_path / "dealyard.db"
     repo = DatabaseRepository(db_path)
     await repo.initialize()
     context_hash = PriceContext(region="00000").get_hash()

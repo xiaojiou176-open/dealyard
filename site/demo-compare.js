@@ -1,7 +1,7 @@
 const SAMPLE_FIXTURE_PATH = "./data/compare-preview-sample.json";
 
 function siteT(key, fallback) {
-  return window.dealwatchSiteI18n?.t?.(key, fallback) ?? fallback;
+  return window.dealyardSiteI18n?.t?.(key, fallback) ?? fallback;
 }
 
 function escapeHtml(value) {
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
-  document.addEventListener("dealwatch:localechange", () => {
+  document.addEventListener("dealyard:localechange", () => {
     if (results.classList.contains("is-hidden")) {
       status.textContent = siteT(
         "site.comparePreviewPage.sampleStatusIdle",

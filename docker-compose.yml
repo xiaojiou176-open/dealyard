@@ -1,18 +1,18 @@
 services:
   postgres:
     image: postgres:16
-    container_name: dealwatch-postgres
+    container_name: dealyard-postgres
     environment:
-      POSTGRES_DB: dealwatch
-      POSTGRES_USER: dealwatch
-      POSTGRES_PASSWORD: dealwatch
+      POSTGRES_DB: dealyard
+      POSTGRES_USER: dealyard
+      POSTGRES_PASSWORD: dealyard
       PGDATA: /data/postgres
     ports:
       - "${POSTGRES_PORT:-15432}:5432"
     volumes:
-      - dealwatch-postgres:/data/postgres
+      - dealyard-postgres:/data/postgres
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U dealwatch -d dealwatch"]
+      test: ["CMD-SHELL", "pg_isready -U dealyard -d dealyard"]
       interval: 5s
       timeout: 5s
       retries: 20
@@ -21,11 +21,11 @@ services:
     build:
       context: .
       target: runtime
-    container_name: dealwatch-api
+    container_name: dealyard-api
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql+psycopg://dealwatch:dealwatch@postgres:5432/dealwatch
+      DATABASE_URL: postgresql+psycopg://dealyard:dealyard@postgres:5432/dealyard
     depends_on:
       postgres:
         condition: service_healthy
@@ -33,7 +33,7 @@ services:
       - ./.runtime-cache:/app/.runtime-cache
     ports:
       - "${API_PORT:-8000}:8000"
-    command: ["python", "-m", "dealwatch", "server"]
+    command: ["python", "-m", "dealyard", "server"]
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=3)"]
       interval: 5s
@@ -44,11 +44,11 @@ services:
     build:
       context: .
       target: runtime
-    container_name: dealwatch-worker
+    container_name: dealyard-worker
     env_file:
       - .env
     environment:
-      DATABASE_URL: postgresql+psycopg://dealwatch:dealwatch@postgres:5432/dealwatch
+      DATABASE_URL: postgresql+psycopg://dealyard:dealyard@postgres:5432/dealyard
     depends_on:
       postgres:
         condition: service_healthy
@@ -56,11 +56,11 @@ services:
         condition: service_healthy
     volumes:
       - ./.runtime-cache:/app/.runtime-cache
-    command: ["python", "-m", "dealwatch", "worker"]
+    command: ["python", "-m", "dealyard", "worker"]
 
   frontend:
     image: node:22-bookworm-slim
-    container_name: dealwatch-frontend
+    container_name: dealyard-frontend
     working_dir: /app/frontend
     environment:
       CI: "true"
@@ -72,4 +72,4 @@ services:
     command: ["sh", "-lc", "corepack enable && pnpm install --config.confirmModulesPurge=false && pnpm dev --host 0.0.0.0"]
 
 volumes:
-  dealwatch-postgres:
+  dealyard-postgres:

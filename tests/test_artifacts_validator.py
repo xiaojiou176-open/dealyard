@@ -1,8 +1,8 @@
 from datetime import datetime, timezone
 
-from dealwatch.core.artifacts import ArtifactManager
-from dealwatch.core.models import Offer, PriceContext
-from dealwatch.core.validator import DataValidator
+from dealyard.core.artifacts import ArtifactManager
+from dealyard.core.models import Offer, PriceContext
+from dealyard.core.validator import DataValidator
 
 
 def _build_offer(price: float, title: str = "Valid Title") -> Offer:

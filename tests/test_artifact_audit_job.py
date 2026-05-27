@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from dealwatch.jobs.artifact_audit import ArtifactAuditJob
+from dealyard.jobs.artifact_audit import ArtifactAuditJob
 
 
 def _write_ndjson(path: Path, entries: list[dict]) -> None:
@@ -286,7 +286,7 @@ def test_artifact_audit_job_cli_main(monkeypatch, tmp_path: Path) -> None:
         ],
     )
 
-    from dealwatch.jobs import artifact_audit
+    from dealyard.jobs import artifact_audit
 
     try:
         artifact_audit.main()

@@ -1,10 +1,10 @@
 ---
-name: dealwatch-readonly-builder
+name: dealyard-readonly-builder
 description: Teach the agent how to connect the published DealWatch MCP package, choose the right read-only tool, and guide the user through the compare-first safe path without claiming hosted or write-capable features.
 triggers:
-  - dealwatch
-  - dealwatch setup
-  - dealwatch mcp
+  - dealyard
+  - dealyard setup
+  - dealyard mcp
   - compare preview
   - watch group
 ---

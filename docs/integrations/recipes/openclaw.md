@@ -10,7 +10,7 @@
 ## Repo-owned launch command
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 ## OpenClaw wrapper example
@@ -22,9 +22,9 @@ The current DealWatch translation looks like:
 {
   "mcp": {
     "servers": {
-      "dealwatch": {
+      "dealyard": {
         "command": "uv",
-        "args": ["run", "python", "-m", "dealwatch.mcp", "serve", "--transport", "stdio"],
+        "args": ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
         "env": {
           "PYTHONPATH": "src"
         }

@@ -2,12 +2,12 @@ import sys
 
 import pytest
 
-from dealwatch.core.models import Offer, PriceContext
-from dealwatch.infra.config import Settings
-from dealwatch.stores.walmart import adapter as walmart_adapter_module
-from dealwatch.stores.walmart.adapter import WalmartAdapter
-from dealwatch.stores.walmart.discovery import WalmartDiscovery
-from dealwatch.stores.walmart.parser import WalmartParser
+from dealyard.core.models import Offer, PriceContext
+from dealyard.infra.config import Settings
+from dealyard.stores.walmart import adapter as walmart_adapter_module
+from dealyard.stores.walmart.adapter import WalmartAdapter
+from dealyard.stores.walmart.discovery import WalmartDiscovery
+from dealyard.stores.walmart.parser import WalmartParser
 
 
 class _FakePage:

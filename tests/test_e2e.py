@@ -13,16 +13,16 @@ import pytest
 
 from playwright.async_api import Error as PlaywrightError
 
-from dealwatch.core.ai_analyzer import AIAnalyzer
-from dealwatch.core.artifacts import ArtifactManager
-from dealwatch.core.models import Offer, PriceContext
-from dealwatch.core.pipeline import MonitoringPipeline
-from dealwatch.infra.config import Settings
-from dealwatch.legacy.db_repo import DatabaseRepository
-from dealwatch.infra.mailer import EmailNotifier
-from dealwatch.infra.obs.health_check import HealthMonitor
-from dealwatch.stores.base_adapter import BaseStoreAdapter
-from dealwatch.infra.playwright_client import PlaywrightClient
+from dealyard.core.ai_analyzer import AIAnalyzer
+from dealyard.core.artifacts import ArtifactManager
+from dealyard.core.models import Offer, PriceContext
+from dealyard.core.pipeline import MonitoringPipeline
+from dealyard.infra.config import Settings
+from dealyard.legacy.db_repo import DatabaseRepository
+from dealyard.infra.mailer import EmailNotifier
+from dealyard.infra.obs.health_check import HealthMonitor
+from dealyard.stores.base_adapter import BaseStoreAdapter
+from dealyard.infra.playwright_client import PlaywrightClient
 
 
 class _E2EAdapter(BaseStoreAdapter):
@@ -125,7 +125,7 @@ def _site_text(locale: str, key: str) -> str:
 
 @pytest.mark.asyncio
 async def test_e2e_pipeline_artifacts_ai(tmp_path) -> None:
-    db_path = tmp_path / "dealwatch.db"
+    db_path = tmp_path / "dealyard.db"
     settings = Settings(
         DB_PATH=db_path,
         USE_LLM=False,
@@ -204,7 +204,7 @@ async def test_e2e_playwright_local_site(tmp_path, monkeypatch) -> None:
 
     server, base_url = _start_http_server(site_dir)
     try:
-        db_path = tmp_path / "dealwatch.db"
+        db_path = tmp_path / "dealyard.db"
         settings = Settings(
             DB_PATH=db_path,
             USE_LLM=False,

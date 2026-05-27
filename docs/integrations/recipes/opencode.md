@@ -10,7 +10,7 @@
 ## Repo-owned launch command
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 ## OpenCode wrapper example
@@ -22,9 +22,9 @@ The current DealWatch translation looks like:
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
-    "dealwatch": {
+    "dealyard": {
       "type": "local",
-      "command": ["uv", "run", "python", "-m", "dealwatch.mcp", "serve", "--transport", "stdio"],
+      "command": ["uv", "run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
       "environment": {
         "PYTHONPATH": "src"
       },

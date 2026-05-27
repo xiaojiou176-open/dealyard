@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from dealwatch import cli
+from dealyard import cli
 
 
 def test_cli_help_flag_is_a_stable_discovery_path(monkeypatch, capsys) -> None:
@@ -34,9 +34,9 @@ def test_cli_builder_starter_pack_prints_json(monkeypatch, capsys) -> None:
 
     assert excinfo.value.code == 0
     assert payload["surface_version"] == "phase1"
-    assert payload["launch_contract"]["cli_builder_starter_pack"].endswith("dealwatch builder-starter-pack --json")
-    assert payload["launch_contract"]["mcp_client_starters"].endswith("dealwatch.mcp client-starters --json")
-    assert payload["launch_contract"]["mcp_streamable_http"].endswith("dealwatch.mcp serve --transport streamable-http")
+    assert payload["launch_contract"]["cli_builder_starter_pack"].endswith("dealyard builder-starter-pack --json")
+    assert payload["launch_contract"]["mcp_client_starters"].endswith("dealyard.mcp client-starters --json")
+    assert payload["launch_contract"]["mcp_streamable_http"].endswith("dealyard.mcp serve --transport streamable-http")
     assert payload["launch_contract"]["mcp_streamable_http_endpoint"] == "http://127.0.0.1:8000/mcp"
     assert payload["client_starters"]["openclaw"] == "docs/integrations/prompts/openclaw-starter.md"
     assert payload["client_adapter_recipes"]["claude_code"] == "docs/integrations/recipes/claude-code.md"
@@ -52,7 +52,7 @@ def test_cli_builder_starter_pack_prints_json(monkeypatch, capsys) -> None:
     assert payload["client_wrapper_examples"]["openclaw"] == "docs/integrations/examples/openclaw-mcp-servers.json"
     assert payload["client_wrapper_surfaces"]["openhands"] == "config_toml_mcp_stdio_servers"
     assert payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
-    assert payload["skill_pack"]["path"] == "docs/integrations/skills/dealwatch-readonly-builder-skill.md"
+    assert payload["skill_pack"]["path"] == "docs/integrations/skills/dealyard-readonly-builder-skill.md"
     assert captured.err == ""
 
 
@@ -71,7 +71,7 @@ def test_cli_builder_client_config_prints_json(monkeypatch, capsys) -> None:
     assert payload["wrapper_example_path"] == "docs/integrations/examples/codex-mcp-config.toml"
     assert payload["recipe_markdown"].startswith("# DealWatch Recipe For Codex")
     assert payload["docs"]["config_recipes"] == "docs/integrations/config-recipes.md"
-    assert payload["read_surfaces"]["cli"].endswith("dealwatch builder-client-config codex --json")
+    assert payload["read_surfaces"]["cli"].endswith("dealyard builder-client-config codex --json")
     assert payload["read_surfaces"]["http"] == "GET /api/runtime/builder-client-config/codex"
     assert "http://127.0.0.1:8000/mcp" in payload["wrapper_example_content"]
     assert captured.err == ""
@@ -90,7 +90,7 @@ def test_cli_builder_client_config_all_prints_json(monkeypatch, capsys) -> None:
     assert payload["export_kind"] == "builder_client_configs"
     assert payload["client_count"] == 5
     assert payload["client_ids"] == ["claude-code", "codex", "openhands", "opencode", "openclaw"]
-    assert payload["read_surfaces"]["cli"].endswith("dealwatch builder-client-config --all --json")
+    assert payload["read_surfaces"]["cli"].endswith("dealyard builder-client-config --all --json")
     assert payload["read_surfaces"]["http"] == "GET /api/runtime/builder-client-configs"
     assert payload["read_surfaces"]["mcp_tool"] == "list_builder_client_configs"
     assert captured.err == ""

@@ -1,10 +1,10 @@
 # DealWatch
-<!-- mcp-name: io.github.xiaojiou176-open/dealwatch -->
+<!-- mcp-name: io.github.xiaojiou176-open/dealyard -->
 
-[![CI](https://github.com/xiaojiou176-open/dealwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/xiaojiou176-open/dealwatch/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/xiaojiou176-open/dealwatch/actions/workflows/codeql.yml/badge.svg)](https://github.com/xiaojiou176-open/dealwatch/actions/workflows/codeql.yml)
+[![CI](https://github.com/xiaojiou176-open/dealyard/actions/workflows/ci.yml/badge.svg)](https://github.com/xiaojiou176-open/dealyard/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/xiaojiou176-open/dealyard/actions/workflows/codeql.yml/badge.svg)](https://github.com/xiaojiou176-open/dealyard/actions/workflows/codeql.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-14213d.svg)](./LICENSE)
-[![Release](https://img.shields.io/github/v/release/xiaojiou176-open/dealwatch?display_name=tag)](https://github.com/xiaojiou176-open/dealwatch/releases)
+[![Release](https://img.shields.io/github/v/release/xiaojiou176-open/dealyard?display_name=tag)](https://github.com/xiaojiou176-open/dealyard/releases)
 
 **Compare the aisle before you commit to one cart.**
 
@@ -12,8 +12,8 @@ DealWatch turns “which grocery URL is actually the right target?” into one p
 
 The public boundary stays strict on purpose: DealWatch is local-first, compare-first, and evidence-first. It is not a hosted SaaS, not a generic shopping chatbot, and not an autonomous buying agent. AI helps explain compare, watch-group, and recovery decisions, but deterministic product truth still leads.
 
-[Try the Sample Compare](https://xiaojiou176-open.github.io/dealwatch/compare-preview.html#sample-compare-demo) · [See the Proof](https://xiaojiou176-open.github.io/dealwatch/proof.html) · [Run Local Quick Start](https://xiaojiou176-open.github.io/dealwatch/quick-start.html) · [Releases](https://github.com/xiaojiou176-open/dealwatch/releases/latest)  
-Specialist route: [Builder Route](https://xiaojiou176-open.github.io/dealwatch/builders.html)
+[Try the Sample Compare](https://xiaojiou176-open.github.io/dealyard/compare-preview.html#sample-compare-demo) · [See the Proof](https://xiaojiou176-open.github.io/dealyard/proof.html) · [Run Local Quick Start](https://xiaojiou176-open.github.io/dealyard/quick-start.html) · [Releases](https://github.com/xiaojiou176-open/dealyard/releases/latest)  
+Specialist route: [Builder Route](https://xiaojiou176-open.github.io/dealyard/builders.html)
 
 ![DealWatch control cabin brand bridge showing compare preview, artifact evidence, and notification surfaces](./assets/social/social-preview-1280x640.png)
 
@@ -31,14 +31,14 @@ Recommended first path for most visitors:
 
 Choose the first door that matches your real goal:
 
-- [`Compare Preview`](https://xiaojiou176-open.github.io/dealwatch/compare-preview.html#sample-compare-demo): start here when you want the fastest truthful product tour before you install anything.
-- [`Quick Start`](https://xiaojiou176-open.github.io/dealwatch/quick-start.html): use this path when you are ready to turn the sample product tour into the local runtime for your own grocery URLs.
-- [`Builders`](https://xiaojiou176-open.github.io/dealwatch/builders.html): use this specialist path when you want the honest read-only MCP/API route for Codex, Claude Code, OpenHands, OpenCode, OpenClaw, and similar builder clients, with repo-owned distribution assets available after the route is clear.
+- [`Compare Preview`](https://xiaojiou176-open.github.io/dealyard/compare-preview.html#sample-compare-demo): start here when you want the fastest truthful product tour before you install anything.
+- [`Quick Start`](https://xiaojiou176-open.github.io/dealyard/quick-start.html): use this path when you are ready to turn the sample product tour into the local runtime for your own grocery URLs.
+- [`Builders`](https://xiaojiou176-open.github.io/dealyard/builders.html): use this specialist path when you want the honest read-only MCP/API route for Codex, Claude Code, OpenHands, OpenCode, OpenClaw, and similar builder clients, with repo-owned distribution assets available after the route is clear.
 
 If you need the next most useful follow-up after that first door:
 
-- [`Proof`](https://xiaojiou176-open.github.io/dealwatch/proof.html): open this when you want the claim-to-evidence map behind the public story.
-- [`Comparison`](https://xiaojiou176-open.github.io/dealwatch/compare-vs-tracker.html): open this when you want the shortest "why this is not a generic price tool" answer.
+- [`Proof`](https://xiaojiou176-open.github.io/dealyard/proof.html): open this when you want the claim-to-evidence map behind the public story.
+- [`Comparison`](https://xiaojiou176-open.github.io/dealyard/compare-vs-tracker.html): open this when you want the shortest "why this is not a generic price tool" answer.
 
 ## Public Entry Points
 
@@ -65,7 +65,7 @@ Most visitors should follow one short sequence:
 - **Releases**
   Follow the stable GitHub releases surface for the newest notes instead of relying on hand-copied version text inside docs pages.
 - **Decision Memo**
-  Use [`docs/roadmaps/dealwatch-decision-memo.md`](./docs/roadmaps/dealwatch-decision-memo.md) when you need the post-archive strategic SSOT before turning copy, roadmap, or implementation questions back into open debate.
+  Use [`docs/roadmaps/dealyard-decision-memo.md`](./docs/roadmaps/dealyard-decision-memo.md) when you need the post-archive strategic SSOT before turning copy, roadmap, or implementation questions back into open debate.
 - **Distribution**
   Use [`DISTRIBUTION.md`](./DISTRIBUTION.md) when you want the shortest truthful ready-vs-live ledger for GitHub Pages, release, package metadata, builder bundles, and registry/listing-prep status.
 - **Integrations**
@@ -75,7 +75,7 @@ Most visitors should follow one short sequence:
 - **Cline Install**
   Use [`llms-install.md`](./llms-install.md) when you want the shortest reviewer-facing Cline install path, the exact `cline_mcp_settings.json` entry, and the local-stdio boundary without reading the whole integration handbook first.
 - **Native Plugin Bundles**
-  Use [`plugins/dealwatch-builder-pack/README.md`](./plugins/dealwatch-builder-pack/README.md), [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json), and [`marketplace.json`](./marketplace.json) when you want the repo-owned Claude Code and Codex package artifacts that now back the builder story. They are package candidates, not official listings.
+  Use [`plugins/dealyard-builder-pack/README.md`](./plugins/dealyard-builder-pack/README.md), [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json), and [`marketplace.json`](./marketplace.json) when you want the repo-owned Claude Code and Codex package artifacts that now back the builder story. They are package candidates, not official listings.
 - **Chrome Companion**
   Use [`browser-extension/README.md`](./browser-extension/README.md) when you want the repo-owned Chrome companion package, listing notes, and bundle build/verify scripts that leave only the Chrome Web Store dashboard submission step outside the repo.
 - **Builder Machine Frontdoor**
@@ -98,22 +98,22 @@ If you are here as a developer or agent-builder, start with the smallest honest 
 
 ### 2. Read the contract and repo-native examples
 
-- Read [`docs/roadmaps/dealwatch-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealwatch-api-mcp-substrate-phase1.md) for the stable vs deferred vs internal-only split.
+- Read [`docs/roadmaps/dealyard-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealyard-api-mcp-substrate-phase1.md) for the stable vs deferred vs internal-only split.
 - Then open [`docs/integrations/README.md`](./docs/integrations/README.md) for repo-native examples, prompt starters, config recipes, the builder skill card, and local onboarding flows for Claude Code, Codex, OpenHands, OpenCode, OpenClaw, and similar builder clients.
-- If you need the platform-native package layer for the platforms that already support it, open [`plugins/dealwatch-builder-pack/README.md`](./plugins/dealwatch-builder-pack/README.md) after the builder pack. Today that native bundle layer exists for Claude Code and Codex only.
+- If you need the platform-native package layer for the platforms that already support it, open [`plugins/dealyard-builder-pack/README.md`](./plugins/dealyard-builder-pack/README.md) after the builder pack. Today that native bundle layer exists for Claude Code and Codex only.
 
 ### 3. Use the local runtime export path
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp client-starters --json
-PYTHONPATH=src uv run python -m dealwatch builder-starter-pack --json
-PYTHONPATH=src uv run python -m dealwatch builder-client-config --all --json
-PYTHONPATH=src uv run python -m dealwatch builder-client-config codex --json
-PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json
-PYTHONPATH=src uv run python -m dealwatch.mcp client-config --all --json
-PYTHONPATH=src uv run python -m dealwatch.mcp client-config --client codex --json
-PYTHONPATH=src uv run python -m dealwatch server
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json
+PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json
+PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json
+PYTHONPATH=src uv run python -m dealyard builder-client-config codex --json
+PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealyard.mcp client-config --all --json
+PYTHONPATH=src uv run python -m dealyard.mcp client-config --client codex --json
+PYTHONPATH=src uv run python -m dealyard server
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 Think of these as the front-desk actions at the end of the same route:
@@ -192,7 +192,7 @@ In plain English:
 
 The canonical capability truth for this lives in:
 
-- [`src/dealwatch/stores/manifest.py`](./src/dealwatch/stores/manifest.py)
+- [`src/dealyard/stores/manifest.py`](./src/dealyard/stores/manifest.py)
 - the Store Onboarding Cockpit in the WebUI settings surface, which exposes the manifest-backed matrix together with the runbook-backed onboarding contract
 - [`docs/runbooks/store-onboarding-contract.md`](./docs/runbooks/store-onboarding-contract.md) as the canonical onboarding/runbook prose that the cockpit parses and surfaces
 
@@ -208,20 +208,20 @@ DealWatch exists to collapse that loop into one product flow: compare first, the
 
 Choose the door that matches your real goal before you start typing commands:
 
-- If you only want the first truthful product tour, stay on [`Compare Preview`](https://xiaojiou176-open.github.io/dealwatch/compare-preview.html#sample-compare-demo).
+- If you only want the first truthful product tour, stay on [`Compare Preview`](https://xiaojiou176-open.github.io/dealyard/compare-preview.html#sample-compare-demo).
 - If you want the local runtime for your own grocery URLs, use this Quick Start path.
-- If you are wiring a read-only builder client, jump back to [`Builders`](https://xiaojiou176-open.github.io/dealwatch/builders.html).
+- If you are wiring a read-only builder client, jump back to [`Builders`](https://xiaojiou176-open.github.io/dealyard/builders.html).
 
 ### 1. Try the sample compare preview before you install anything
 
-- [`Sample compare preview`](https://xiaojiou176-open.github.io/dealwatch/compare-preview.html#sample-compare-demo): load a fixed public fixture, inspect match reasons, and keep the whole experience read-only.
+- [`Sample compare preview`](https://xiaojiou176-open.github.io/dealyard/compare-preview.html#sample-compare-demo): load a fixed public fixture, inspect match reasons, and keep the whole experience read-only.
 - The sample compare preview is static on purpose. It saves no data and does not pretend to be a hosted SaaS.
 
 ### 2. Move into local runtime only after the sample makes sense
 
-- [`Not a generic price tool`](https://xiaojiou176-open.github.io/dealwatch/compare-vs-tracker.html)
-- [`Compare Preview`](https://xiaojiou176-open.github.io/dealwatch/compare-preview.html)
-- [`Proof`](https://xiaojiou176-open.github.io/dealwatch/proof.html)
+- [`Not a generic price tool`](https://xiaojiou176-open.github.io/dealyard/compare-vs-tracker.html)
+- [`Compare Preview`](https://xiaojiou176-open.github.io/dealyard/compare-preview.html)
+- [`Proof`](https://xiaojiou176-open.github.io/dealyard/proof.html)
 
 ### 3. Run the fastest local stack when you want to compare your own URLs
 
@@ -243,9 +243,9 @@ This is the same transition the public site now makes explicit:
 ./scripts/bootstrap.sh
 cp .env.example .env
 
-PYTHONPATH=src uv run python -m dealwatch maintenance --dry-run
-PYTHONPATH=src uv run python -m dealwatch server
-PYTHONPATH=src uv run python -m dealwatch worker
+PYTHONPATH=src uv run python -m dealyard maintenance --dry-run
+PYTHONPATH=src uv run python -m dealyard server
+PYTHONPATH=src uv run python -m dealyard worker
 
 cd frontend
 nvm use
@@ -254,9 +254,9 @@ pnpm install --frozen-lockfile
 pnpm dev --host 0.0.0.0
 ```
 
-Canonical CLI entrypoints stay under `python -m dealwatch bootstrap-owner`,
-`python -m dealwatch server`, `python -m dealwatch worker`, and
-`python -m dealwatch maintenance`.
+Canonical CLI entrypoints stay under `python -m dealyard bootstrap-owner`,
+`python -m dealyard server`, `python -m dealyard worker`, and
+`python -m dealyard maintenance`.
 
 ### 5. Try these sample URLs once the local stack is up
 
@@ -295,15 +295,15 @@ python3 scripts/audit_runtime_footprint.py --format json
 Use the product maintenance command when you want the repo to prune old runtime logs, reports, and watch-task run artifacts without touching shared machine caches:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch maintenance --dry-run
-PYTHONPATH=src uv run python -m dealwatch maintenance --apply
+PYTHONPATH=src uv run python -m dealyard maintenance --dry-run
+PYTHONPATH=src uv run python -m dealyard maintenance --apply
 ```
 
 The runtime maintenance contract now also enforces a repo-owned lightweight cache budget:
 
 - `CACHE_BUDGET_BYTES=4294967296` by default (4 GiB)
-- the budget covers `.runtime-cache/**` plus `~/.cache/dealwatch/**`
-- `~/.cache/dealwatch/browser/chrome-user-data/**` is a protected persistent browser workspace and is excluded from TTL/cap cleanup
+- the budget covers `.runtime-cache/**` plus `~/.cache/dealyard/**`
+- `~/.cache/dealyard/browser/chrome-user-data/**` is a protected persistent browser workspace and is excluded from TTL/cap cleanup
 - it does **not** include `.venv`, `.pnpm-store`, `frontend/node_modules`, `.legacy-runtime`, or shared machine caches
 
 Use the repo-local rebuildables cleanup script when you explicitly want to reclaim local dependency copies or temporary operator artifacts:
@@ -345,7 +345,7 @@ Host / process safety is part of the same hygiene contract:
 
 - DealWatch never uses `killall`, `pkill`, broad `kill -9`, `osascript`, `System Events`, or direct raw signal helpers to clean up the host.
 - Browser/session recovery must stay on repo-owned entrypoints and ownership checks, not on global desktop automation.
-- `./scripts/launch_dealwatch_chrome.sh` also refuses to open another DealWatch Chrome lane when the machine already has more than six browser instances.
+- `./scripts/launch_dealyard_chrome.sh` also refuses to open another DealWatch Chrome lane when the machine already has more than six browser instances.
 - Run `python3 scripts/verify_host_process_safety.py` before asking CI to trust a change that touches runtime, browser, scripts, tests, or workflows.
 
 ### 7. Optional AI explainers and recovery copilot
@@ -401,9 +401,9 @@ The product mainline still uses `storage_state_<zip>.json`.
 The browser debug lane is a separate maintainer-only path for real browser attach, diagnosis, and support bundles:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch probe-live
-PYTHONPATH=src uv run python -m dealwatch diagnose-live
-PYTHONPATH=src uv run python -m dealwatch support-bundle
+PYTHONPATH=src uv run python -m dealyard probe-live
+PYTHONPATH=src uv run python -m dealyard diagnose-live
+PYTHONPATH=src uv run python -m dealyard support-bundle
 ```
 
 Think of this lane as the repair bay, not the main shipping road:
@@ -412,8 +412,8 @@ Think of this lane as the repair bay, not the main shipping road:
 - the debug lane answers “which browser/session did we actually attach to?”
 - `login_required` is a diagnosis state, not an automatic stop sign
 - the emitted debug JSON/support bundles redact local filesystem roots and drop page-title fields before they are printed or preserved
-- the old shared-root contract is deprecated for `dealwatch`; do not keep it under the default macOS Chrome profile root
-- the long-term DealWatch browser contract is a dedicated root at `~/.cache/dealwatch/browser/chrome-user-data`
+- the old shared-root contract is deprecated for `dealyard`; do not keep it under the default macOS Chrome profile root
+- the long-term DealWatch browser contract is a dedicated root at `~/.cache/dealyard/browser/chrome-user-data`
 - the preferred long-term mode is `CHROME_ATTACH_MODE=browser` against one dedicated Chrome instance with a stable CDP listener
 - the first move into the dedicated root can still require one fresh manual sign-in, because stores can treat the migrated DealWatch workspace as a newly trusted browser
 - once that dedicated root has been re-authenticated, prefer reusing the same Chrome instance; in this repository's current live verification, Target / Safeway / Walmart / Weee all report `account_page_logged_in` when the dedicated lane already has the canonical account tabs open, while a fresh temporary probe can still be stricter if that tab set is missing
@@ -424,12 +424,12 @@ One-time migration and long-term launch now use repo-owned entrypoints:
 ```bash
 # First, fully quit any real Google Chrome process still using the default
 # macOS Chrome profile root.
-python3 scripts/migrate_dealwatch_chrome_profile.py --dry-run
-python3 scripts/migrate_dealwatch_chrome_profile.py --apply
+python3 scripts/migrate_dealyard_chrome_profile.py --dry-run
+python3 scripts/migrate_dealyard_chrome_profile.py --apply
 python3 scripts/check_runtime_env.py --target startup --env-file .env
-./scripts/launch_dealwatch_chrome.sh
-python3 scripts/open_dealwatch_account_pages.py --env-file .env
-PYTHONPATH=src .venv/bin/python scripts/report_dealwatch_login_state.py --env-file .env --json
+./scripts/launch_dealyard_chrome.sh
+python3 scripts/open_dealyard_account_pages.py --env-file .env
+PYTHONPATH=src .venv/bin/python scripts/report_dealyard_login_state.py --env-file .env --json
 ```
 
 The launch helper now behaves like a repo-owned browser concierge instead of a bare port opener:
@@ -493,13 +493,13 @@ That boundary is intentional. Think of this server as a read-only observation wi
 To inspect the registered MCP tools locally:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
 ```
 
 To run the local-first MCP server over `stdio`:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 ### 9. Builder Starter Pack
@@ -507,14 +507,14 @@ PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
 If you are wiring a developer tool or agent client against DealWatch, start with the smallest honest loop:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch server
-PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard server
+PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 Then read these in order:
 
-- [`docs/roadmaps/dealwatch-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealwatch-api-mcp-substrate-phase1.md)
+- [`docs/roadmaps/dealyard-api-mcp-substrate-phase1.md`](./docs/roadmaps/dealyard-api-mcp-substrate-phase1.md)
 - [`docs/integrations/README.md`](./docs/integrations/README.md)
 
 This pack is for developers and agent-builders who want to wire Claude Code, Codex, OpenHands, OpenCode, OpenClaw, or a similar client to DealWatch truth without over-reading the current boundary.
@@ -532,7 +532,7 @@ If you want repo-native builder examples instead of only command references, con
 - [`docs/integrations/README.md`](./docs/integrations/README.md)
 - [`docs/integrations/prompt-starters.md`](./docs/integrations/prompt-starters.md)
 - [`docs/integrations/skills/README.md`](./docs/integrations/skills/README.md)
-- [`docs/integrations/skills/dealwatch-readonly-builder-skill.md`](./docs/integrations/skills/dealwatch-readonly-builder-skill.md)
+- [`docs/integrations/skills/dealyard-readonly-builder-skill.md`](./docs/integrations/skills/dealyard-readonly-builder-skill.md)
 - [`site/builders.html`](./site/builders.html)
 
 ## Good Fit / Not A Fit
@@ -545,21 +545,21 @@ If you want repo-native builder examples instead of only command references, con
 ## Proof, Not Claims
 
 - **Compare-first intake**
-  [`POST /api/compare/preview`](https://xiaojiou176-open.github.io/dealwatch/proof.html) is the real first product step behind the public story.
+  [`POST /api/compare/preview`](https://xiaojiou176-open.github.io/dealyard/proof.html) is the real first product step behind the public story.
 - **One product loop, not disconnected demos**
   Compare Preview, watch task creation, task detail, and notification settings still point to one product story instead of four separate screenshots.
 - **Runtime and release truth have authority surfaces**
   Runtime truth stays in the runtime contract, public proof stays on the proof page, and release truth stays in the GitHub Releases surface instead of being hand-copied into every public page.
 - **Post-archive strategy has its own contract**
-  [`docs/roadmaps/dealwatch-decision-memo.md`](./docs/roadmaps/dealwatch-decision-memo.md) records the locked strategic boundaries after the archive deep-read, including local-first posture, read-only MCP boundary, systematic i18n requirement, and recommendation defer order.
+  [`docs/roadmaps/dealyard-decision-memo.md`](./docs/roadmaps/dealyard-decision-memo.md) records the locked strategic boundaries after the archive deep-read, including local-first posture, read-only MCP boundary, systematic i18n requirement, and recommendation defer order.
 - **Maintainer closeout ledgers stay behind the public first-success path**
   Repo-side convergence notes, dated hard-cut overlays, and live deployment ledgers still exist for maintainers, but they are no longer part of the public front-door reading route. Use the proof page, Compare Preview, and releases first; pull the deeper closeout ledgers only when you are actively auditing repo state.
 
 Deep proof lives in:
 
-- [`Proof`](https://xiaojiou176-open.github.io/dealwatch/proof.html)
-- [`Compare Preview`](https://xiaojiou176-open.github.io/dealwatch/compare-preview.html)
-- [`Releases`](https://github.com/xiaojiou176-open/dealwatch/releases)
+- [`Proof`](https://xiaojiou176-open.github.io/dealyard/proof.html)
+- [`Compare Preview`](https://xiaojiou176-open.github.io/dealyard/compare-preview.html)
+- [`Releases`](https://github.com/xiaojiou176-open/dealyard/releases)
 
 | Compare Preview | Task Detail | Notifications |
 | --- | --- | --- |
@@ -570,7 +570,7 @@ The current product runtime now also supports **compare-aware watch groups**, **
 
 ## Release Notes
 
-Read the newest public release notes at [Latest Release](https://github.com/xiaojiou176-open/dealwatch/releases/latest), and use [Releases](https://github.com/xiaojiou176-open/dealwatch/releases) when you want the full history.
+Read the newest public release notes at [Latest Release](https://github.com/xiaojiou176-open/dealyard/releases/latest), and use [Releases](https://github.com/xiaojiou176-open/dealyard/releases) when you want the full history.
 
 If you want a lightweight reason to keep DealWatch on hand, leave a Star now so the next release, proof update, or sample compare improvement is easy to find again.
 
@@ -593,15 +593,15 @@ If you want a lightweight reason to keep DealWatch on hand, leave a Star now so 
 - **Product source of truth is PostgreSQL**
   Product source of truth is PostgreSQL via `DATABASE_URL`.
 - **SQLite remains a one-way import bridge**
-  SQLite remains a one-way import bridge from `.legacy-runtime/data/dealwatch.db`.
+  SQLite remains a one-way import bridge from `.legacy-runtime/data/dealyard.db`.
 - **GitHub Pages is the current public surface**
   The current public read path is `local-first + GitHub Pages`. `render.yaml` remains an optional deployment blueprint, not a guaranteed live runtime promise.
 - **Current GitHub public entry**
-  DealWatch is published from the current GitHub public entry: `https://github.com/xiaojiou176-open/dealwatch`
+  DealWatch is published from the current GitHub public entry: `https://github.com/xiaojiou176-open/dealyard`
 - **Secret scanning is enforced in CI**
   Secret scanning is enforced in CI, and local scans remain recommended developer-side protection.
 - **Maintainer verification shortcuts**
-  `PYTHONPATH=src uv run python -m dealwatch maintenance --dry-run`, `./scripts/test.sh -q`, and `pnpm -C frontend build` are the compact local baseline trio. Add `./scripts/smoke_product_hermetic.sh` plus the public-surface verifiers only when you need deeper manual confidence.
+  `PYTHONPATH=src uv run python -m dealyard maintenance --dry-run`, `./scripts/test.sh -q`, and `pnpm -C frontend build` are the compact local baseline trio. Add `./scripts/smoke_product_hermetic.sh` plus the public-surface verifiers only when you need deeper manual confidence.
 
 ## Verification Lanes
 

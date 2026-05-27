@@ -4,11 +4,11 @@ from pathlib import Path
 
 import pytest
 
-from dealwatch.core.models import SkipReason
-from dealwatch.core.models import Offer, PriceContext
-from dealwatch.core.artifacts import ArtifactManager
-from dealwatch.stores.base_adapter import BaseStoreAdapter, SkipParse, safe_parse
-import dealwatch.stores as stores
+from dealyard.core.models import SkipReason
+from dealyard.core.models import Offer, PriceContext
+from dealyard.core.artifacts import ArtifactManager
+from dealyard.stores.base_adapter import BaseStoreAdapter, SkipParse, safe_parse
+import dealyard.stores as stores
 
 
 class _DummyAdapter(BaseStoreAdapter):
@@ -100,7 +100,7 @@ async def test_base_adapter_test_adapter(monkeypatch, capsys) -> None:
                 unit_price_info={},
             )
 
-    monkeypatch.setattr("dealwatch.stores.base_adapter.PlaywrightClient", _Client)
+    monkeypatch.setattr("dealyard.stores.base_adapter.PlaywrightClient", _Client)
     monkeypatch.setitem(stores.STORE_REGISTRY, "dummy", _Adapter)
 
     await BaseStoreAdapter.test_adapter("https://example.com/product")
@@ -134,7 +134,7 @@ async def test_base_adapter_test_adapter_parse_none(monkeypatch, capsys) -> None
         async def parse_product(self, url: str):
             return None
 
-    monkeypatch.setattr("dealwatch.stores.base_adapter.PlaywrightClient", _Client)
+    monkeypatch.setattr("dealyard.stores.base_adapter.PlaywrightClient", _Client)
     monkeypatch.setitem(stores.STORE_REGISTRY, "dummy", _Adapter)
 
     await BaseStoreAdapter.test_adapter("https://example.com/product")

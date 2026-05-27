@@ -57,7 +57,7 @@ OVERCLAIM_PATTERNS = (
     re.compile(r"\bofficial marketplace listing\b", re.I),
     re.compile(r"\bofficial registry listing\b", re.I),
     re.compile(r"\bruntime[- ]base\b", re.I),
-    re.compile(r"\bdealwatch runs on (?:codex|claude code|openhands|opencode|openclaw)\b", re.I),
+    re.compile(r"\bdealyard runs on (?:codex|claude code|openhands|opencode|openclaw)\b", re.I),
     re.compile(r"\bbuilt on (?:codex|claude code|openhands|opencode|openclaw)\b", re.I),
 )
 

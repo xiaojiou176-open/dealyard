@@ -10,7 +10,7 @@
 ## Repo-owned launch command
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ```
 
 ## OpenHands wrapper example
@@ -21,7 +21,7 @@ The current local DealWatch translation looks like:
 ```toml
 [mcp]
 stdio_servers = [
-  { name = "dealwatch", command = "uv", args = ["run", "python", "-m", "dealwatch.mcp", "serve", "--transport", "stdio"], env = { PYTHONPATH = "src" } }
+  { name = "dealyard", command = "uv", args = ["run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"], env = { PYTHONPATH = "src" } }
 ]
 ```
 

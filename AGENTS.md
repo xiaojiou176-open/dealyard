@@ -12,7 +12,7 @@
 
 ## Non-Negotiables
 
-- `dealwatch` is the only live name
+- `dealyard` is the only live name
 - No `tracker` aliases
 - No `var/` runtime paths
 - No new product writes to legacy SQLite as the product source of truth
@@ -21,19 +21,19 @@
 ## Runtime Truth
 
 - Product data: PostgreSQL via `DATABASE_URL`
-- Legacy import source: `.legacy-runtime/data/dealwatch.db`
+- Legacy import source: `.legacy-runtime/data/dealyard.db`
 - Runtime artifacts: `.runtime-cache/`
 - Repo-local operator artifacts: `.runtime-cache/operator/`
-- Repo-owned external cache root: `~/.cache/dealwatch/`
-- Dedicated DealWatch browser root: `~/.cache/dealwatch/browser/chrome-user-data/`
-- Product runtime maintenance entrypoint: `python -m dealwatch maintenance --dry-run|--apply`
+- Repo-owned external cache root: `~/.cache/dealyard/`
+- Dedicated DealWatch browser root: `~/.cache/dealyard/browser/chrome-user-data/`
+- Product runtime maintenance entrypoint: `python -m dealyard maintenance --dry-run|--apply`
 - Repo-local rebuildable cleanup entrypoint: `python scripts/cleanup_local_rebuildables.py --dry-run|--apply [--heavy]`
 - Runtime schema bootstrap: `PRODUCT_AUTO_CREATE_SCHEMA` is a temporary bootstrap bridge, not the long-term authoritative migration workflow
 
 ## Expected Working Areas
 
-- `src/dealwatch/core/`, `src/dealwatch/stores/`: engine
-- `src/dealwatch/persistence/`, `src/dealwatch/application/`, `src/dealwatch/api/`, `src/dealwatch/worker/`: product
+- `src/dealyard/core/`, `src/dealyard/stores/`: engine
+- `src/dealyard/persistence/`, `src/dealyard/application/`, `src/dealyard/api/`, `src/dealyard/worker/`: product
 - `frontend/`: WebUI
 
 ## Verification Baseline
@@ -63,7 +63,7 @@
 - Do **not** introduce `killall`, `pkill`, broad `kill -9`, `osascript`, `System Events`, `loginwindow`, `CGSession`, `showForceQuitPanel`, `kAEShowApplicationWindow`, `aevt,apwn`, `AppleEvent`, direct `process.kill(...)`, or direct `os.kill(...)` into repo code, tests, scripts, or CI.
 - Only signal a repo-recorded positive child PID that DealWatch itself spawned.
 - `scripts/clean.py` is now a forbidden legacy entrypoint. Do not resurrect wide-delete cleanup; use the canonical maintenance and cleanup commands instead.
-- Browser/profile cleanup must stay on repo-owned entrypoints such as `./scripts/launch_dealwatch_chrome.sh`, `python3 scripts/open_dealwatch_account_pages.py`, `python3 scripts/cleanup_local_rebuildables.py`, and `python -m dealwatch maintenance --dry-run|--apply`; if ownership is ambiguous, refuse and report it instead of guessing.
+- Browser/profile cleanup must stay on repo-owned entrypoints such as `./scripts/launch_dealyard_chrome.sh`, `python3 scripts/open_dealyard_account_pages.py`, `python3 scripts/cleanup_local_rebuildables.py`, and `python -m dealyard maintenance --dry-run|--apply`; if ownership is ambiguous, refuse and report it instead of guessing.
 - The repository guard for this boundary is `python3 scripts/verify_host_process_safety.py`; keep both CI and pre-commit green.
 
 ## Git / GitHub Closeout Boundary
@@ -80,7 +80,7 @@
 ## Browser / Profile Isolation
 
 - This machine is a **multi-repo** environment. Do not assume any existing Chrome / Chromium window, tab, profile, or debug listener belongs to DealWatch.
-- The long-term DealWatch browser contract now uses a dedicated Chrome root at `~/.cache/dealwatch/browser/chrome-user-data/`.
+- The long-term DealWatch browser contract now uses a dedicated Chrome root at `~/.cache/dealyard/browser/chrome-user-data/`.
 - Before browser work, inspect the current machine state and decide whether the target instance is provably DealWatch-owned or not.
 - If the machine already has **more than 6 browser instances**, do not open another one just to "try one more time". Finish non-browser work first or wait for active owners to recover their resources.
 - Only attach to a browser instance when you can prove it is DealWatch-owned:
@@ -91,7 +91,7 @@
   - `CHROME_USER_DATA_DIR`
   - `CHROME_PROFILE_NAME`
   - `CHROME_PROFILE_DIRECTORY`
-- The old shared-root contract is deprecated for `dealwatch`; do not point `CHROME_USER_DATA_DIR` at the default macOS Google Chrome user-data root when `CHROME_PROFILE_NAME=dealwatch`.
+- The old shared-root contract is deprecated for `dealyard`; do not point `CHROME_USER_DATA_DIR` at the default macOS Google Chrome user-data root when `CHROME_PROFILE_NAME=dealyard`.
 - Before running the one-time migration into the dedicated DealWatch root, fully quit any real Google Chrome process still using the default macOS Google Chrome user-data root.
 - The preferred long-term mode is one dedicated DealWatch Chrome instance plus CDP attach:
   - launch the instance against the dedicated root
@@ -115,15 +115,15 @@
 ## Resource Hygiene
 
 - Only clean DealWatch-owned rebuildables, caches, temp directories, browser profiles, Docker artifacts, and operator byproducts.
-- Repo-owned lightweight cache budget now targets `.runtime-cache/**` plus `~/.cache/dealwatch/**`.
-- `~/.cache/dealwatch/browser/chrome-user-data/**` is a persistent dedicated browser workspace. Exclude it from TTL cleanup, cache budget reclamation, and rebuildable cleanup.
+- Repo-owned lightweight cache budget now targets `.runtime-cache/**` plus `~/.cache/dealyard/**`.
+- `~/.cache/dealyard/browser/chrome-user-data/**` is a persistent dedicated browser workspace. Exclude it from TTL cleanup, cache budget reclamation, and rebuildable cleanup.
 - `.runtime-cache/browser-identity/**` is a repo-owned browser lane identity anchor. Keep it out of rebuildable cleanup unless the browser lane itself is being intentionally rotated.
 - `.serena/` is a local MCP/tool cache namespace. Keep it ignored, but do not count it as DealWatch-owned cache and do not include it in DealWatch cleanup/budget ledgers.
 - Shared-layer caches such as `~/.cache/uv`, `~/.cache/pre-commit`, `~/.cache/node/corepack`, `~/Library/Caches/ms-playwright`, and `~/.npm` remain audit-only and must not be auto-cleaned by DealWatch.
 - Prefer repo-owned cleanup entrypoints before ad-hoc shell deletion:
   - `python3 scripts/cleanup_local_rebuildables.py --dry-run|--apply [--heavy]`
   - `python3 scripts/audit_runtime_footprint.py`
-  - `python -m dealwatch maintenance --dry-run|--apply`
+  - `python -m dealyard maintenance --dry-run|--apply`
 - When browser/Docker/cache ownership is part of the task, load the repo-local skill `resource-hygiene-and-browser-isolation`.
 - Do **not** run global cleanup like `docker system prune -a`, and do not delete containers / images / volumes you cannot prove belong to DealWatch.
 - Do **not** delete shared browser caches, shared temp trees, or another repo's cloned profiles/tabs just because they look large.

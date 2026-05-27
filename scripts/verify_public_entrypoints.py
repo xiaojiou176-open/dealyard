@@ -18,27 +18,27 @@ SITE_LLMS = ROOT / "site" / "llms.txt"
 REQUIRED_SNIPPETS = {
     README: [
         "## Start Here",
-        "https://xiaojiou176-open.github.io/dealwatch/compare-preview.html#sample-compare-demo",
-        "https://xiaojiou176-open.github.io/dealwatch/quick-start.html",
-        "https://xiaojiou176-open.github.io/dealwatch/builders.html",
-        "Specialist route: [Builder Route](https://xiaojiou176-open.github.io/dealwatch/builders.html)",
-        "https://xiaojiou176-open.github.io/dealwatch/compare-preview.html",
-        "https://xiaojiou176-open.github.io/dealwatch/proof.html",
+        "https://xiaojiou176-open.github.io/dealyard/compare-preview.html#sample-compare-demo",
+        "https://xiaojiou176-open.github.io/dealyard/quick-start.html",
+        "https://xiaojiou176-open.github.io/dealyard/builders.html",
+        "Specialist route: [Builder Route](https://xiaojiou176-open.github.io/dealyard/builders.html)",
+        "https://xiaojiou176-open.github.io/dealyard/compare-preview.html",
+        "https://xiaojiou176-open.github.io/dealyard/proof.html",
         "./site/builders.html",
         "./site/llms.txt",
         "./site/data/builder-client-catalog.json",
         "./site/data/builder-client-starters.json",
         "./site/data/builder-starter-pack.json",
         "./site/data/builder-client-configs.json",
-        "https://github.com/xiaojiou176-open/dealwatch/releases/latest",
+        "https://github.com/xiaojiou176-open/dealyard/releases/latest",
     ],
     SITE_INDEX: [
         "./compare-preview.html#sample-compare-demo",
         "./quick-start.html",
         "./builders.html",
         "./proof.html",
-        "https://github.com/xiaojiou176-open/dealwatch/releases/latest",
-        "https://github.com/xiaojiou176-open/dealwatch/discussions",
+        "https://github.com/xiaojiou176-open/dealyard/releases/latest",
+        "https://github.com/xiaojiou176-open/dealyard/discussions",
     ],
     SITE_PROOF: [
         "python3 scripts/verify_docs_contract.py",
@@ -46,42 +46,42 @@ REQUIRED_SNIPPETS = {
         "python3 scripts/verify_site_surface.py",
         "python3 scripts/verify_remote_github_state.py",
         "python3 scripts/print_remote_repo_settings_checklist.py",
-        "https://github.com/xiaojiou176-open/dealwatch/releases/latest",
+        "https://github.com/xiaojiou176-open/dealyard/releases/latest",
     ],
     ROOT / "site" / "compare-preview.html": [
         "1 local-runtime API route",
     ],
     SITE_BUILDERS: [
-        "https://github.com/xiaojiou176-open/dealwatch/blob/main/docs/roadmaps/dealwatch-api-mcp-substrate-phase1.md",
+        "https://github.com/xiaojiou176-open/dealyard/blob/main/docs/roadmaps/dealyard-api-mcp-substrate-phase1.md",
         "./data/builder-client-catalog.json",
         "./data/builder-client-starters.json",
         "./data/builder-starter-pack.json",
         "./data/builder-client-configs.json",
-        "https://github.com/xiaojiou176-open/dealwatch/tree/main/docs/integrations",
+        "https://github.com/xiaojiou176-open/dealyard/tree/main/docs/integrations",
     ],
     SITE_COMMUNITY: [
-        "https://github.com/xiaojiou176-open/dealwatch#start-here",
-        "https://github.com/xiaojiou176-open/dealwatch#roadmap",
+        "https://github.com/xiaojiou176-open/dealyard#start-here",
+        "https://github.com/xiaojiou176-open/dealyard#roadmap",
     ],
     SITE_LLMS: [
-        "https://xiaojiou176-open.github.io/dealwatch/builders.html",
-        "https://xiaojiou176-open.github.io/dealwatch/data/builder-client-catalog.json",
-        "https://xiaojiou176-open.github.io/dealwatch/data/builder-client-starters.json",
-        "https://xiaojiou176-open.github.io/dealwatch/data/builder-starter-pack.json",
-        "https://xiaojiou176-open.github.io/dealwatch/data/builder-client-configs.json",
-        "https://github.com/xiaojiou176-open/dealwatch/releases/latest",
-        "https://github.com/xiaojiou176-open/dealwatch#start-here",
-        "https://github.com/xiaojiou176-open/dealwatch#roadmap",
+        "https://xiaojiou176-open.github.io/dealyard/builders.html",
+        "https://xiaojiou176-open.github.io/dealyard/data/builder-client-catalog.json",
+        "https://xiaojiou176-open.github.io/dealyard/data/builder-client-starters.json",
+        "https://xiaojiou176-open.github.io/dealyard/data/builder-starter-pack.json",
+        "https://xiaojiou176-open.github.io/dealyard/data/builder-client-configs.json",
+        "https://github.com/xiaojiou176-open/dealyard/releases/latest",
+        "https://github.com/xiaojiou176-open/dealyard#start-here",
+        "https://github.com/xiaojiou176-open/dealyard#roadmap",
     ],
     SITE_FEED: [
-        "https://github.com/xiaojiou176-open/dealwatch/releases/latest",
-        "https://github.com/xiaojiou176-open/dealwatch/releases",
-        "https://github.com/xiaojiou176-open/dealwatch/blob/main/CHANGELOG.md",
+        "https://github.com/xiaojiou176-open/dealyard/releases/latest",
+        "https://github.com/xiaojiou176-open/dealyard/releases",
+        "https://github.com/xiaojiou176-open/dealyard/blob/main/CHANGELOG.md",
     ],
 }
 
 FORBIDDEN_RELEASE_TAG_PATTERNS = (
-    "https://github.com/xiaojiou176-open/dealwatch/releases/tag/v",
+    "https://github.com/xiaojiou176-open/dealyard/releases/tag/v",
     "/releases/tag/v",
 )
 
@@ -164,9 +164,9 @@ def _assert_first_hop_targets(path: Path, findings: list[str]) -> None:
 def _assert_readme_start_here_order(text: str, findings: list[str]) -> None:
     try:
         start_here = text.index("## Start Here")
-        compare_preview = text.index("https://xiaojiou176-open.github.io/dealwatch/compare-preview.html#sample-compare-demo", start_here)
-        quick_start = text.index("https://xiaojiou176-open.github.io/dealwatch/quick-start.html", start_here)
-        builders = text.index("https://xiaojiou176-open.github.io/dealwatch/builders.html", start_here)
+        compare_preview = text.index("https://xiaojiou176-open.github.io/dealyard/compare-preview.html#sample-compare-demo", start_here)
+        quick_start = text.index("https://xiaojiou176-open.github.io/dealyard/quick-start.html", start_here)
+        builders = text.index("https://xiaojiou176-open.github.io/dealyard/builders.html", start_here)
     except ValueError as exc:
         findings.append(f"README.md missing ordered Start Here route evidence: {exc}")
         return

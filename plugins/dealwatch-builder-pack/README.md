@@ -8,7 +8,7 @@ It currently ships:
 - `.claude-plugin/plugin.json` for Claude Code plugin packaging
 - `.codex-plugin/plugin.json` for Codex plugin packaging
 - `.mcp.json` for the shared local DealWatch MCP wiring
-- `skills/dealwatch-readonly-builder/SKILL.md` for the safe-first route and boundary reminders
+- `skills/dealyard-readonly-builder/SKILL.md` for the safe-first route and boundary reminders
 
 Use this pack when you want a repo-owned distribution candidate that still points back to the
 same local-first DealWatch runtime.

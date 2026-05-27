@@ -19,7 +19,7 @@ Use this directory when the question is:
 
 - a local-first onboarding pack
 - a read-only-first builder pack
-- a practical companion to [`../roadmaps/dealwatch-api-mcp-substrate-phase1.md`](../roadmaps/dealwatch-api-mcp-substrate-phase1.md)
+- a practical companion to [`../roadmaps/dealyard-api-mcp-substrate-phase1.md`](../roadmaps/dealyard-api-mcp-substrate-phase1.md)
 - a place for concrete request and response shapes, starter prompts, config recipes, skill cards, and a repo-owned MCP inventory snapshot
 
 ## What this pack is not
@@ -34,18 +34,18 @@ Use this directory when the question is:
 Use these commands as the stable local-first launch contract:
 
 ```bash
-PYTHONPATH=src uv run python -m dealwatch --help
-PYTHONPATH=src uv run python -m dealwatch builder-starter-pack --json
-PYTHONPATH=src uv run python -m dealwatch builder-client-config codex --json
-PYTHONPATH=src uv run python -m dealwatch builder-client-config --all --json
-PYTHONPATH=src uv run python -m dealwatch server
-PYTHONPATH=src uv run python -m dealwatch worker
-PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json
-PYTHONPATH=src uv run python -m dealwatch.mcp client-starters --json
-PYTHONPATH=src uv run python -m dealwatch.mcp client-config --client codex --json
-PYTHONPATH=src uv run python -m dealwatch.mcp client-config --all --json
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio
-PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport streamable-http
+PYTHONPATH=src uv run python -m dealyard --help
+PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json
+PYTHONPATH=src uv run python -m dealyard builder-client-config codex --json
+PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json
+PYTHONPATH=src uv run python -m dealyard server
+PYTHONPATH=src uv run python -m dealyard worker
+PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json
+PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json
+PYTHONPATH=src uv run python -m dealyard.mcp client-config --client codex --json
+PYTHONPATH=src uv run python -m dealyard.mcp client-config --all --json
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
+PYTHONPATH=src uv run python -m dealyard.mcp serve --transport streamable-http
 ```
 
 These commands mean:
@@ -70,13 +70,13 @@ These commands mean:
 
 If you are new, do this in order instead of wandering through the repo:
 
-1. read [`../roadmaps/dealwatch-api-mcp-substrate-phase1.md`](../roadmaps/dealwatch-api-mcp-substrate-phase1.md)
-2. run `PYTHONPATH=src uv run python -m dealwatch --help`
-3. run `PYTHONPATH=src uv run python -m dealwatch builder-starter-pack --json`
-4. run `PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json`
-5. run `PYTHONPATH=src uv run python -m dealwatch.mcp client-starters --json`
-6. run `PYTHONPATH=src uv run python -m dealwatch builder-client-config codex --json`
-7. run `PYTHONPATH=src uv run python -m dealwatch builder-client-config --all --json`
+1. read [`../roadmaps/dealyard-api-mcp-substrate-phase1.md`](../roadmaps/dealyard-api-mcp-substrate-phase1.md)
+2. run `PYTHONPATH=src uv run python -m dealyard --help`
+3. run `PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json`
+4. run `PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json`
+5. run `PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json`
+6. run `PYTHONPATH=src uv run python -m dealyard builder-client-config codex --json`
+7. run `PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json`
 8. inspect `GET /api/runtime/builder-starter-pack`
 9. inspect `GET /api/runtime/builder-client-config/codex`
 10. inspect `GET /api/runtime/builder-client-configs`
@@ -169,8 +169,8 @@ Use the recipe ledger when you need the next level of honesty:
 
 Use the export surfaces when you want the next level of convenience:
 
-- `PYTHONPATH=src uv run python -m dealwatch builder-client-config codex --json`
-- `PYTHONPATH=src uv run python -m dealwatch builder-client-config --all --json`
+- `PYTHONPATH=src uv run python -m dealyard builder-client-config codex --json`
+- `PYTHONPATH=src uv run python -m dealyard builder-client-config --all --json`
 - `GET /api/runtime/builder-client-config/codex`
 - `GET /api/runtime/builder-client-configs`
 - `get_builder_client_config`
@@ -183,12 +183,12 @@ ships in-repo today, and what we still must **not** claim.
 
 | Client | Official public surface | Repo-owned artifact now | Honest status today |
 | --- | --- | --- | --- |
-| Claude Code | official marketplace + custom marketplaces | [`plugins/dealwatch-builder-pack/.claude-plugin/plugin.json`](../../plugins/dealwatch-builder-pack/.claude-plugin/plugin.json), [`.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) | marketplace-submission candidate, **not officially listed** |
-| Codex | Plugin Directory + repo/personal marketplace | [`plugins/dealwatch-builder-pack/.codex-plugin/plugin.json`](../../plugins/dealwatch-builder-pack/.codex-plugin/plugin.json), [`../../marketplace.json`](../../marketplace.json) | Plugin Directory candidate, **not officially listed** |
-| Cline | MCP Marketplace issue intake | [`../../llms-install.md`](../../llms-install.md), [`../../assets/marketplace/dealwatch-cline-logo-400.png`](../../assets/marketplace/dealwatch-cline-logo-400.png) | marketplace-submission candidate, **not officially listed** |
+| Claude Code | official marketplace + custom marketplaces | [`plugins/dealyard-builder-pack/.claude-plugin/plugin.json`](../../plugins/dealyard-builder-pack/.claude-plugin/plugin.json), [`.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) | marketplace-submission candidate, **not officially listed** |
+| Codex | Plugin Directory + repo/personal marketplace | [`plugins/dealyard-builder-pack/.codex-plugin/plugin.json`](../../plugins/dealyard-builder-pack/.codex-plugin/plugin.json), [`../../marketplace.json`](../../marketplace.json) | Plugin Directory candidate, **not officially listed** |
+| Cline | MCP Marketplace issue intake | [`../../llms-install.md`](../../llms-install.md), [`../../assets/marketplace/dealyard-cline-logo-400.png`](../../assets/marketplace/dealyard-cline-logo-400.png) | marketplace-submission candidate, **not officially listed** |
 | OpenHands | global skill registry | [`./skills/openhands-readonly-builder-skill.md`](./skills/openhands-readonly-builder-skill.md) | `OpenHands/extensions#151` is closed and unmerged after maintainer-requested changes; [`#152`](https://github.com/OpenHands/extensions/pull/152) is the retired predecessor |
 | OpenCode | ecosystem listing | [`./recipes/opencode.md`](./recipes/opencode.md), [`./examples/opencode.jsonc`](./examples/opencode.jsonc) | ecosystem-listing candidate, **not officially listed** |
-| OpenClaw | ClawHub public registry | [`./recipes/openclaw.md`](./recipes/openclaw.md), [`./skills/openclaw-readonly-builder-skill.md`](./skills/openclaw-readonly-builder-skill.md), compatible bundle assets under [`plugins/dealwatch-builder-pack/`](../../plugins/dealwatch-builder-pack/) | repo-owned OpenClaw cargo is ready, but current public ClawHub search/API evidence is not strong enough to claim a live listing |
+| OpenClaw | ClawHub public registry | [`./recipes/openclaw.md`](./recipes/openclaw.md), [`./skills/openclaw-readonly-builder-skill.md`](./skills/openclaw-readonly-builder-skill.md), compatible bundle assets under [`plugins/dealyard-builder-pack/`](../../plugins/dealyard-builder-pack/) | repo-owned OpenClaw cargo is ready, but current public ClawHub search/API evidence is not strong enough to claim a live listing |
 
 ## Official MCP Registry reality
 
@@ -206,8 +206,8 @@ The protocol itself now also has an official public registry surface:
   - CI now also guards that package surface through `scripts/verify_package_publish_surface.py` plus an sdist/wheel build in the main `test` lane
   - the builder docs and bundle assets already describe the local-first launch path
 - honest status today:
-  - public package is live on PyPI as `dealwatch==1.0.1`
-  - the Official MCP Registry entry is live as `io.github.xiaojiou176-open/dealwatch`
+  - public package is live on PyPI as `dealyard==1.0.1`
+  - the Official MCP Registry entry is live as `io.github.xiaojiou176-open/dealyard`
   - the repo still stays local-first and read-only even though the registry layer is now published
 
 In plain English:
@@ -225,7 +225,7 @@ It is:
 
 Start here:
 
-- [`../roadmaps/dealwatch-api-mcp-substrate-phase1.md`](../roadmaps/dealwatch-api-mcp-substrate-phase1.md)
+- [`../roadmaps/dealyard-api-mcp-substrate-phase1.md`](../roadmaps/dealyard-api-mcp-substrate-phase1.md)
 - [`./config-recipes.md`](./config-recipes.md)
 - [`./examples/README.md`](./examples/README.md)
 - [`./prompt-starters.md`](./prompt-starters.md)
@@ -282,7 +282,7 @@ Shared prompt summary:
 Copyable builder skill card:
 
 - [`./skills/README.md`](./skills/README.md)
-- [`./skills/dealwatch-readonly-builder-skill.md`](./skills/dealwatch-readonly-builder-skill.md)
+- [`./skills/dealyard-readonly-builder-skill.md`](./skills/dealyard-readonly-builder-skill.md)
 
 Per-client skill files:
 
@@ -305,7 +305,7 @@ The honest current shape is still local-first:
 - one repo-owned client starter registry plus a builder starter pack read surface
 - one starter prompt file per named client
 - one shared skill card plus client-specific skill cards
-- one shared native bundle at [`../../plugins/dealwatch-builder-pack/`](../../plugins/dealwatch-builder-pack/) for Claude Code and Codex, plus repo marketplaces at [`../../.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) and [`../../marketplace.json`](../../marketplace.json)
+- one shared native bundle at [`../../plugins/dealyard-builder-pack/`](../../plugins/dealyard-builder-pack/) for Claude Code and Codex, plus repo marketplaces at [`../../.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) and [`../../marketplace.json`](../../marketplace.json)
 - one crawlable public frontdoor across `builders.html`, `llms.txt`, `feed.xml`, `sitemap.xml`, and the social preview asset
 
 Not every client has a native package today:

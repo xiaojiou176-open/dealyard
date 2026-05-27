@@ -19,9 +19,9 @@ COPY . /app
 
 RUN uv sync --frozen --no-dev --no-editable
 RUN python -m playwright install chromium
-RUN useradd --create-home --home-dir /home/dealwatch --shell /usr/sbin/nologin dealwatch \
-    && chown -R dealwatch:dealwatch /app
+RUN useradd --create-home --home-dir /home/dealyard --shell /usr/sbin/nologin dealyard \
+    && chown -R dealyard:dealyard /app
 
-USER dealwatch
+USER dealyard
 
-CMD ["python", "-m", "dealwatch", "server"]
+CMD ["python", "-m", "dealyard", "server"]

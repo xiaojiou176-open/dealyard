@@ -2,7 +2,7 @@ from datetime import datetime, timezone
 
 import pytest
 
-from dealwatch.core.models import AnomalyReason, DealEvent, Offer, PriceContext, RunStats
+from dealyard.core.models import AnomalyReason, DealEvent, Offer, PriceContext, RunStats
 
 
 def test_price_context_hash_stable() -> None:

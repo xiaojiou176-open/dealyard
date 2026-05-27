@@ -33,7 +33,7 @@ from scripts.shared.browser_lane_targets import (
     target_matches_existing_url,
     target_matches_existing_url_for_mode,
 )
-from dealwatch.infra.output_redaction import sanitize_local_output
+from dealyard.infra.output_redaction import sanitize_local_output
 
 
 def parse_args() -> argparse.Namespace:

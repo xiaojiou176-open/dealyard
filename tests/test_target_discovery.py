@@ -2,7 +2,7 @@ import gzip
 
 import pytest
 
-from dealwatch.stores.target.discovery import TargetDiscovery
+from dealyard.stores.target.discovery import TargetDiscovery
 
 
 class _FakeResponse:
@@ -49,7 +49,7 @@ async def test_target_discovery_uses_pdp_sitemaps(monkeypatch) -> None:
     """
     gzipped_xml = gzip.compress(product_xml.encode("utf-8"))
     monkeypatch.setattr(
-        "dealwatch.stores.target.discovery.httpx.AsyncClient",
+        "dealyard.stores.target.discovery.httpx.AsyncClient",
         lambda **kwargs: _FakeClient(
             [
                 _FakeResponse(index_xml),

@@ -2,7 +2,7 @@ import asyncio
 
 import pytest
 
-from dealwatch.stores.weee.discovery import WeeeDiscovery
+from dealyard.stores.weee.discovery import WeeeDiscovery
 
 
 class _FakeLocator:

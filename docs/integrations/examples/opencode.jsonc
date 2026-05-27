@@ -1,10 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
-    "dealwatch": {
+    "dealyard": {
       "type": "local",
       "enabled": true,
-      "command": ["uv", "run", "python", "-m", "dealwatch.mcp", "serve", "--transport", "stdio"],
+      "command": ["uv", "run", "python", "-m", "dealyard.mcp", "serve", "--transport", "stdio"],
       "environment": {
         "PYTHONPATH": "src"
       }

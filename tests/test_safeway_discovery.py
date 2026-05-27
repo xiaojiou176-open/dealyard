@@ -1,6 +1,6 @@
 import pytest
 
-from dealwatch.stores.safeway.discovery import SafewayDiscovery
+from dealyard.stores.safeway.discovery import SafewayDiscovery
 
 
 @pytest.mark.asyncio

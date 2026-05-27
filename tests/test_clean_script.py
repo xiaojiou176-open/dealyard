@@ -23,9 +23,9 @@ def test_clean_script_refuses_and_preserves_protected_runtime_paths(capsys, tmp_
     temp_dir = operator_dir / "temp"
 
     _touch(runtime_dir / "browser-identity" / "index.html", text="<html></html>")
-    _touch(runtime_dir / "logs" / "dealwatch.log")
+    _touch(runtime_dir / "logs" / "dealyard.log")
     _touch(runtime_dir / "runs" / "watch-tasks" / "run.json", text="{}")
-    _touch(legacy_dir / "data" / "dealwatch.db", text="sqlite")
+    _touch(legacy_dir / "data" / "dealyard.db", text="sqlite")
     _touch(smoke_dir / "keep.txt")
     _touch(temp_dir / "keep.txt")
 
@@ -35,9 +35,9 @@ def test_clean_script_refuses_and_preserves_protected_runtime_paths(capsys, tmp_
     assert exit_code == 1
     assert "legacy wide-delete entrypoint is no longer allowed" in captured.err
     assert (runtime_dir / "browser-identity" / "index.html").exists()
-    assert (runtime_dir / "logs" / "dealwatch.log").exists()
+    assert (runtime_dir / "logs" / "dealyard.log").exists()
     assert (runtime_dir / "runs" / "watch-tasks" / "run.json").exists()
-    assert (legacy_dir / "data" / "dealwatch.db").exists()
+    assert (legacy_dir / "data" / "dealyard.db").exists()
     assert (smoke_dir / "keep.txt").exists()
     assert (temp_dir / "keep.txt").exists()
 

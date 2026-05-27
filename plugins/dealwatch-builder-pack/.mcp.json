@@ -1,12 +1,12 @@
 {
   "mcpServers": {
-    "dealwatch": {
+    "dealyard": {
       "command": "uv",
       "args": [
         "run",
         "python",
         "-m",
-        "dealwatch.mcp",
+        "dealyard.mcp",
         "serve",
         "--transport",
         "stdio"

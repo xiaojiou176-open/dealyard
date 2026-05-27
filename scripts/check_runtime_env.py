@@ -12,7 +12,7 @@ PLACEHOLDER_VALUES = {
     "",
     "change-me",
     "owner@example.com",
-    "dealwatch@example.com",
+    "dealyard@example.com",
     "__required_database_url__",
     "__required_owner_email__",
     "__required_owner_bootstrap_token__",
@@ -307,14 +307,14 @@ def validate_runtime(values: dict[str, str], *, target: str) -> tuple[list[Check
         )
     if (
         all(profile_contract_values.values())
-        and profile_contract_values["CHROME_PROFILE_NAME"] == "dealwatch"
+        and profile_contract_values["CHROME_PROFILE_NAME"] == "dealyard"
         and _is_legacy_shared_chrome_root(profile_contract_values["CHROME_USER_DATA_DIR"])
     ):
         checks.append(
             CheckResult(
                 ok=False,
                 key="browser_profile_root",
-                message="The legacy shared Chrome root is no longer allowed for the dealwatch profile. Migrate to ~/.cache/dealwatch/browser/chrome-user-data and use the dedicated single-instance CDP attach path.",
+                message="The legacy shared Chrome root is no longer allowed for the dealyard profile. Migrate to ~/.cache/dealyard/browser/chrome-user-data and use the dedicated single-instance CDP attach path.",
             )
         )
 

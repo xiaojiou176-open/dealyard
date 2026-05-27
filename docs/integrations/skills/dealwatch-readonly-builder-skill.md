@@ -16,12 +16,12 @@ Treat DealWatch as a local-first, compare-first, read-only-first product truth s
 
 ## Stable now
 
-- `PYTHONPATH=src uv run python -m dealwatch --help`
-- `PYTHONPATH=src uv run python -m dealwatch builder-starter-pack --json`
-- `PYTHONPATH=src uv run python -m dealwatch server`
-- `PYTHONPATH=src uv run python -m dealwatch.mcp list-tools --json`
-- `PYTHONPATH=src uv run python -m dealwatch.mcp client-starters --json`
-- `PYTHONPATH=src uv run python -m dealwatch.mcp serve --transport stdio`
+- `PYTHONPATH=src uv run python -m dealyard --help`
+- `PYTHONPATH=src uv run python -m dealyard builder-starter-pack --json`
+- `PYTHONPATH=src uv run python -m dealyard server`
+- `PYTHONPATH=src uv run python -m dealyard.mcp list-tools --json`
+- `PYTHONPATH=src uv run python -m dealyard.mcp client-starters --json`
+- `PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio`
 - `GET /api/runtime/readiness`
 - `GET /api/runtime/builder-starter-pack`
 - `POST /api/compare/preview`

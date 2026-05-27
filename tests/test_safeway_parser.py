@@ -1,8 +1,8 @@
 import pytest
 
-from dealwatch.core.models import PriceContext, SkipReason
-from dealwatch.stores.base_adapter import SkipParse
-from dealwatch.stores.safeway.parser import SafewayParser
+from dealyard.core.models import PriceContext, SkipReason
+from dealyard.stores.base_adapter import SkipParse
+from dealyard.stores.safeway.parser import SafewayParser
 
 
 class _FakePage:

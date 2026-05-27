@@ -35,7 +35,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-clone_dir="${tmp_dir}/dealwatch-fresh-clone"
+clone_dir="${tmp_dir}/dealyard-fresh-clone"
 
 git clone --quiet "file://${ROOT}" "${clone_dir}"
 git -C "${clone_dir}" checkout --quiet "${SCAN_REF}"
