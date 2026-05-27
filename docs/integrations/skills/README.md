@@ -1,12 +1,12 @@
-# DealWatch Builder Skill Pack
+# Dealyard Builder Skill Pack
 
-This directory is for copyable skill cards that help coding agents stay inside the current DealWatch builder contract.
+This directory is for copyable skill cards that help coding agents stay inside the current Dealyard builder contract.
 
 In plain English:
 
 - prompt starters tell an agent what to do first in one session
 - skill cards tell an agent what rules to keep following across the session
-- neither one alone proves every host registry is live, and neither one upgrades DealWatch into a hosted integration or SDK promise
+- neither one alone proves every host registry is live, and neither one upgrades Dealyard into a hosted integration or SDK promise
 
 Current skill cards:
 

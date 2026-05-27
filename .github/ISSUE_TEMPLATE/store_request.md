@@ -1,6 +1,6 @@
 ---
 name: Store request
-about: Suggest a new store or merchant for DealWatch
+about: Suggest a new store or merchant for Dealyard
 title: "[Store] "
 labels: store-request
 assignees: ""
@@ -8,7 +8,7 @@ assignees: ""
 
 ## Store
 
-## Why it fits DealWatch
+## Why it fits Dealyard
 
 ## Example product URLs
 

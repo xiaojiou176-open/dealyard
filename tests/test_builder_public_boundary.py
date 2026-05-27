@@ -19,9 +19,9 @@ def test_builder_public_boundary_main_passes_for_honest_surface(monkeypatch, tmp
     builders = tmp_path / "site" / "builders.html"
     llms = tmp_path / "site" / "llms.txt"
 
-    _write(readme, "DealWatch is not a hosted multi-tenant builder platform today.\nThe current repo does **not** ship a formal SDK.\n")
+    _write(readme, "Dealyard is not a hosted multi-tenant builder platform today.\nThe current repo does **not** ship a formal SDK.\n")
     _write(integrations, "This is not a hosted multi-tenant control plane guide.\nThis is not a write-side automation guide.\n")
-    _write(config_recipes, "These recipes do not mean:\n- DealWatch now ships a published marketplace listing\n- write-side MCP is ready\n")
+    _write(config_recipes, "These recipes do not mean:\n- Dealyard now ships a published marketplace listing\n- write-side MCP is ready\n")
     _write(prompt_starters, "- deferred: write-side MCP, hosted auth, SDK packaging, multi-tenant control plane\n")
     _write(examples_readme, "They are **not**:\n- frozen SDK schemas\n- hosted API guarantees\n")
     _write(builders, "Bundle candidates only.\nNo hosted control plane.\nNo write-side MCP promise.\nNo official listing.\n")
@@ -56,9 +56,9 @@ def test_builder_public_boundary_collects_positive_overclaim(monkeypatch, tmp_pa
     builders = tmp_path / "site" / "builders.html"
     llms = tmp_path / "site" / "llms.txt"
 
-    _write(readme, "DealWatch is the hosted platform for Codex agents.\n")
+    _write(readme, "Dealyard is the hosted platform for Codex agents.\n")
     _write(integrations, "This is not a hosted multi-tenant control plane guide.\nThis is not a write-side automation guide.\n")
-    _write(config_recipes, "These recipes do not mean:\n- DealWatch now ships a published marketplace listing\n")
+    _write(config_recipes, "These recipes do not mean:\n- Dealyard now ships a published marketplace listing\n")
     _write(prompt_starters, "- deferred: write-side MCP, hosted auth, SDK packaging, multi-tenant control plane\n")
     _write(examples_readme, "They are **not**:\n- frozen SDK schemas\n")
     _write(builders, "Bundle candidates only.\nNo hosted control plane.\nNo write-side MCP promise.\nNo official listing.\n")
@@ -95,12 +95,12 @@ def test_builder_public_boundary_allows_negative_context(monkeypatch, tmp_path: 
 
     _write(
         readme,
-        "DealWatch is not a hosted multi-tenant builder platform today.\n"
+        "Dealyard is not a hosted multi-tenant builder platform today.\n"
         "The current repo does **not** ship a formal SDK.\n"
-        "Do not present DealWatch as an official plugin marketplace surface.\n",
+        "Do not present Dealyard as an official plugin marketplace surface.\n",
     )
     _write(integrations, "This is not a hosted multi-tenant control plane guide.\nThis is not a write-side automation guide.\n")
-    _write(config_recipes, "These recipes do not mean:\n- DealWatch now ships a published marketplace listing\n- write-side MCP is ready\n")
+    _write(config_recipes, "These recipes do not mean:\n- Dealyard now ships a published marketplace listing\n- write-side MCP is ready\n")
     _write(prompt_starters, "- deferred: write-side MCP, hosted auth, SDK packaging, multi-tenant control plane\n")
     _write(examples_readme, "They are **not**:\n- frozen SDK schemas\n- hosted API guarantees\n")
     _write(builders, "Bundle candidates only.\nNo hosted control plane.\nNo write-side MCP promise.\nNo official listing.\n")
@@ -139,18 +139,18 @@ def test_builder_public_boundary_allows_bullet_after_negative_heading(
 
     _write(
         readme,
-        "DealWatch is not a hosted multi-tenant builder platform today.\n"
+        "Dealyard is not a hosted multi-tenant builder platform today.\n"
         "The current repo does **not** ship a formal SDK.\n",
     )
     _write(
         integrations,
-        "Codex should not treat DealWatch as:\n"
+        "Codex should not treat Dealyard as:\n"
         "- a hosted platform\n"
         "- a packaged SDK\n"
         "This is not a write-side automation guide.\n"
         "This is not a hosted multi-tenant control plane guide.\n",
     )
-    _write(config_recipes, "These recipes do not mean:\n- DealWatch now ships a published marketplace listing\n- write-side MCP is ready\n")
+    _write(config_recipes, "These recipes do not mean:\n- Dealyard now ships a published marketplace listing\n- write-side MCP is ready\n")
     _write(prompt_starters, "- deferred: write-side MCP, hosted auth, SDK packaging, multi-tenant control plane\n")
     _write(examples_readme, "They are **not**:\n- frozen SDK schemas\n- hosted API guarantees\n")
     _write(builders, "Bundle candidates only.\nNo hosted control plane.\nNo write-side MCP promise.\nNo official listing.\n")
@@ -187,10 +187,10 @@ def test_builder_public_boundary_collects_overclaim_from_added_frontdoor_file(
     builders = tmp_path / "site" / "builders.html"
     llms = tmp_path / "site" / "llms.txt"
 
-    _write(readme, "DealWatch is not a hosted multi-tenant builder platform today.\nThe current repo does **not** ship a formal SDK.\n")
+    _write(readme, "Dealyard is not a hosted multi-tenant builder platform today.\nThe current repo does **not** ship a formal SDK.\n")
     _write(integrations, "This is not a hosted multi-tenant control plane guide.\nThis is not a write-side automation guide.\n")
-    _write(config_recipes, "These recipes do not mean:\n- DealWatch now ships a published marketplace listing\n")
-    _write(prompt_starters, "DealWatch runs on Codex.\n")
+    _write(config_recipes, "These recipes do not mean:\n- Dealyard now ships a published marketplace listing\n")
+    _write(prompt_starters, "Dealyard runs on Codex.\n")
     _write(examples_readme, "They are **not**:\n- frozen SDK schemas\n")
     _write(builders, "Bundle candidates only.\nNo hosted control plane.\nNo write-side MCP promise.\nNo official listing.\n")
     _write(llms, "Not a hosted SaaS.\nNot a hosted plugin runtime for Claude Code or Codex.\n")
@@ -226,9 +226,9 @@ def test_builder_public_boundary_fails_when_required_phrase_is_missing(
     builders = tmp_path / "site" / "builders.html"
     llms = tmp_path / "site" / "llms.txt"
 
-    _write(readme, "DealWatch is not a hosted multi-tenant builder platform today.\n")
+    _write(readme, "Dealyard is not a hosted multi-tenant builder platform today.\n")
     _write(integrations, "This is not a hosted multi-tenant control plane guide.\nThis is not a write-side automation guide.\n")
-    _write(config_recipes, "These recipes do not mean:\n- DealWatch now ships a published marketplace listing\n")
+    _write(config_recipes, "These recipes do not mean:\n- Dealyard now ships a published marketplace listing\n")
     _write(prompt_starters, "- deferred: write-side MCP, hosted auth, SDK packaging, multi-tenant control plane\n")
     _write(examples_readme, "They are **not**:\n- frozen SDK schemas\n- hosted API guarantees\n")
     _write(builders, "<p>Bundle candidates only.</p><p>No hosted control plane.</p><p>No write-side MCP promise.</p><p>No official listing.</p>")

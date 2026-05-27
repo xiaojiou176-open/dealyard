@@ -72,22 +72,22 @@ SAFETY_RULES = (
     SafetyRule(
         name="process_kill",
         pattern=re.compile(r"\bprocess\.kill\s*\("),
-        message="direct `process.kill(...)` is forbidden; DealWatch must not emit raw host signals from repo code.",
+        message="direct `process.kill(...)` is forbidden; Dealyard must not emit raw host signals from repo code.",
     ),
     SafetyRule(
         name="os_kill",
         pattern=re.compile(r"\bos\.kill\s*\("),
-        message="direct `os.kill(...)` is forbidden; DealWatch must not emit raw host signals from repo code.",
+        message="direct `os.kill(...)` is forbidden; Dealyard must not emit raw host signals from repo code.",
     ),
     SafetyRule(
         name="osascript",
         pattern=re.compile(r"\bosascript\b"),
-        message="`osascript` is forbidden in executable DealWatch paths; browser control must stay on repo-owned contracts.",
+        message="`osascript` is forbidden in executable Dealyard paths; browser control must stay on repo-owned contracts.",
     ),
     SafetyRule(
         name="system_events",
         pattern=re.compile(r"System Events"),
-        message="desktop-wide `System Events` automation is forbidden in DealWatch worker/test/runtime paths.",
+        message="desktop-wide `System Events` automation is forbidden in Dealyard worker/test/runtime paths.",
     ),
     SafetyRule(
         name="loginwindow_force_quit",
@@ -97,7 +97,7 @@ SAFETY_RULES = (
     SafetyRule(
         name="appleevent",
         pattern=re.compile(r"\bAppleEvent\b|NSAppleEventManager"),
-        message="AppleEvent-driven app/session control is forbidden in DealWatch executable paths.",
+        message="AppleEvent-driven app/session control is forbidden in Dealyard executable paths.",
     ),
 )
 

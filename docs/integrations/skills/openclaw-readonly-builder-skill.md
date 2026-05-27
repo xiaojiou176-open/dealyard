@@ -1,10 +1,10 @@
-# DealWatch Builder Skill For OpenClaw
+# Dealyard Builder Skill For OpenClaw
 
-Use this skill when OpenClaw is connected to DealWatch through the local MCP server or local HTTP runtime.
+Use this skill when OpenClaw is connected to Dealyard through the local MCP server or local HTTP runtime.
 
 ## Goal
 
-Treat DealWatch as a local-first, compare-first, read-only product truth surface inside OpenClaw.
+Treat Dealyard as a local-first, compare-first, read-only product truth surface inside OpenClaw.
 
 ## Do first
 
@@ -16,8 +16,8 @@ Treat DealWatch as a local-first, compare-first, read-only product truth surface
 
 ## Hard boundaries
 
-- Do not present DealWatch as a hosted SaaS.
-- Do not present DealWatch as an official OpenClaw plugin.
-- Do not present DealWatch as an OpenClaw runtime base.
+- Do not present Dealyard as a hosted SaaS.
+- Do not present Dealyard as an official OpenClaw plugin.
+- Do not present Dealyard as an OpenClaw runtime base.
 - Do not invent write-side MCP.
 - Do not bypass compare preview and jump straight to durable state assumptions.

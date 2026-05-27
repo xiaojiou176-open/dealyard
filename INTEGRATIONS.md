@@ -1,6 +1,6 @@
 # Integrations
 
-Use this file as the shortest entrypoint to DealWatch's builder-facing surface.
+Use this file as the shortest entrypoint to Dealyard's builder-facing surface.
 
 Start here:
 

@@ -141,7 +141,7 @@ class SwitchyardServiceNarrativeProvider:
                 ensure_ascii=False,
             ),
             "system": (
-                "You are DealWatch's AI explanation layer.\n"
+                "You are Dealyard's AI explanation layer.\n"
                 "Hard rules:\n"
                 "1) Never change deterministic product truth.\n"
                 "2) Never invent prices, winners, health states, or missing evidence.\n"
@@ -258,7 +258,7 @@ class OpenAiCompatibleNarrativeProvider:
                 {
                     "role": "system",
                     "content": (
-                        "You are DealWatch's AI explanation layer.\n"
+                        "You are Dealyard's AI explanation layer.\n"
                         "Hard rules:\n"
                         "1) Never change deterministic product truth.\n"
                         "2) Never invent prices, winners, health states, or missing evidence.\n"

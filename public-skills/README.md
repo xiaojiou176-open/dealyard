@@ -1,4 +1,4 @@
-This directory holds DealWatch public skill bundles for external skill registries.
+This directory holds Dealyard public skill bundles for external skill registries.
 
 Each bundle here must ship four things together:
 

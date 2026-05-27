@@ -279,7 +279,7 @@ def test_public_comparison_page_switches_locale_and_keeps_assets() -> None:
                 page = browser.new_page(viewport={"width": 1440, "height": 1400})
                 page.goto(f"{base_url}/compare-vs-tracker.html", wait_until="networkidle")
 
-                expect_title = "Why DealWatch is not just another generic price tracker"
+                expect_title = "Why Dealyard is not just another generic price tracker"
                 expect_builder = "Why builders and AI tool users care"
                 expect_description = _site_text("en", "site.comparisonPage.description")
                 assert expect_title in page.locator("h1").inner_text()
@@ -446,7 +446,7 @@ def test_public_proof_page_schema_switches_locale() -> None:
 
                 assert "Public claims, AI guidance, and evidence in one place" in page.locator("h1").inner_text()
                 schema = json.loads(page.locator("script[type='application/ld+json']").first.text_content() or "{}")
-                assert schema["headline"] == "DealWatch Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence"
+                assert schema["headline"] == "Dealyard Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence"
                 assert "Codex" in schema["keywords"]
 
                 page.locator('[data-locale-option="zh-CN"]').click()
@@ -522,7 +522,7 @@ def test_public_proof_page_schema_switches_locale() -> None:
 
                 assert "Public claims, AI guidance, and evidence in one place" in page.locator("h1").inner_text()
                 schema = json.loads(page.locator("script[type='application/ld+json']").first.text_content() or "{}")
-                assert schema["headline"] == "DealWatch Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence"
+                assert schema["headline"] == "Dealyard Proof | AI Explanation, Recovery Guidance, and Read-Only MCP Evidence"
                 assert "Codex" in schema["keywords"]
 
                 page.locator('[data-locale-option="zh-CN"]').click()

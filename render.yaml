@@ -19,7 +19,7 @@ services:
       - key: OWNER_EMAIL
         sync: false
       - key: OWNER_DISPLAY_NAME
-        value: DealWatch Owner
+        value: Dealyard Owner
       - key: OWNER_BOOTSTRAP_TOKEN
         sync: false
       - key: APP_BASE_URL

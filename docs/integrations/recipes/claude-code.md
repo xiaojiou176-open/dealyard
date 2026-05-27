@@ -1,8 +1,8 @@
-# DealWatch Recipe For Claude Code
+# Dealyard Recipe For Claude Code
 
 ## Honest status
 
-- DealWatch launch record: `repo-verified`
+- Dealyard launch record: `repo-verified`
 - Claude Code wrapper syntax: `official_wrapper_documented`
 - Recipe kind: `official`
 - Current posture: `local-first`, `read-only-first`, `compare-first`
@@ -21,7 +21,7 @@ Claude Code's MCP docs currently describe both:
 - project-scoped `.mcp.json` with `mcpServers`, `command`, `args`, and `env`
 - `claude mcp add --transport stdio --scope project <name> -- <command> [args...]`
 
-When the config file lives at the repo root, the current DealWatch translation looks like:
+When the config file lives at the repo root, the current Dealyard translation looks like:
 
 ```json
 {

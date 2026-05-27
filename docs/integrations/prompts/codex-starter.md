@@ -1,6 +1,6 @@
-# DealWatch Starter Prompt For Codex
+# Dealyard Starter Prompt For Codex
 
-Use this after connecting Codex to the local DealWatch MCP server or the local HTTP runtime.
+Use this after connecting Codex to the local Dealyard MCP server or the local HTTP runtime.
 The current repo-owned Codex wrapper translation lives in [`docs/integrations/recipes/codex.md`](../recipes/codex.md).
 
 ## Safe first order
@@ -15,14 +15,14 @@ The current repo-owned Codex wrapper translation lives in [`docs/integrations/re
 
 ## Boundary reminder
 
-Codex should treat DealWatch as:
+Codex should treat Dealyard as:
 
 - local-first
 - read-only-first
 - compare-first
 - owner-scoped runtime truth
 
-Codex should **not** treat DealWatch as:
+Codex should **not** treat Dealyard as:
 
 - a hosted platform
 - a write-capable MCP control plane
@@ -31,7 +31,7 @@ Codex should **not** treat DealWatch as:
 ## Starter prompt
 
 ```text
-Connect to DealWatch as a local read-only truth surface.
+Connect to Dealyard as a local read-only truth surface.
 Start with get_runtime_readiness, then get_builder_starter_pack, then compare_preview.
 Use the compare result to decide what to inspect next, but do not create or mutate product state through MCP.
 If you need durable writes, maintenance, owner bootstrap, or webhook behavior, stop and surface that those paths are outside the current builder contract.

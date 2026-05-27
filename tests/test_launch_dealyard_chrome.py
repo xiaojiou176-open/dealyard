@@ -126,7 +126,7 @@ def test_launch_script_rejects_missing_contract(tmp_path: Path) -> None:
 
     result = subprocess.run(
         ["bash", str(SCRIPT)],
-        env={**os.environ, "DEALWATCH_ENV_FILE": str(env_file)},
+        env={**os.environ, "DEALYARD_ENV_FILE": str(env_file)},
         capture_output=True,
         text=True,
     )
@@ -151,7 +151,7 @@ def test_launch_script_rejects_legacy_shared_root(tmp_path: Path) -> None:
 
     result = subprocess.run(
         ["bash", str(SCRIPT)],
-        env={**os.environ, "DEALWATCH_ENV_FILE": str(env_file)},
+        env={**os.environ, "DEALYARD_ENV_FILE": str(env_file)},
         capture_output=True,
         text=True,
     )
@@ -183,8 +183,8 @@ def test_launch_script_reuses_existing_instance(tmp_path: Path) -> None:
                 ["bash", str(SCRIPT)],
                 env={
                     **os.environ,
-                    "DEALWATCH_ENV_FILE": str(env_file),
-                    "DEALWATCH_PS_BIN": str(ps_stub),
+                    "DEALYARD_ENV_FILE": str(env_file),
+                    "DEALYARD_PS_BIN": str(ps_stub),
                 },
                 capture_output=True,
                 text=True,
@@ -214,9 +214,9 @@ def test_launch_script_rejects_matching_process_without_listener(tmp_path: Path)
         ["bash", str(SCRIPT)],
         env={
             **os.environ,
-            "DEALWATCH_ENV_FILE": str(env_file),
-            "DEALWATCH_PS_BIN": str(ps_stub),
-            "DEALWATCH_READY_RETRIES": "1",
+            "DEALYARD_ENV_FILE": str(env_file),
+            "DEALYARD_PS_BIN": str(ps_stub),
+            "DEALYARD_READY_RETRIES": "1",
         },
         capture_output=True,
         text=True,
@@ -238,10 +238,10 @@ def test_launch_script_fails_when_listener_never_appears(tmp_path: Path) -> None
         ["bash", str(SCRIPT)],
         env={
             **os.environ,
-            "DEALWATCH_ENV_FILE": str(env_file),
-            "DEALWATCH_PS_BIN": str(ps_stub),
-            "DEALWATCH_OPEN_BIN": "/usr/bin/true",
-            "DEALWATCH_READY_RETRIES": "1",
+            "DEALYARD_ENV_FILE": str(env_file),
+            "DEALYARD_PS_BIN": str(ps_stub),
+            "DEALYARD_OPEN_BIN": "/usr/bin/true",
+            "DEALYARD_READY_RETRIES": "1",
         },
         capture_output=True,
         text=True,
@@ -263,16 +263,16 @@ def test_launch_script_rejects_new_launch_when_browser_limit_is_exceeded(tmp_pat
         ["bash", str(SCRIPT)],
         env={
             **os.environ,
-            "DEALWATCH_ENV_FILE": str(env_file),
-            "DEALWATCH_PS_BIN": str(ps_stub),
-            "DEALWATCH_OPEN_BIN": "/usr/bin/true",
+            "DEALYARD_ENV_FILE": str(env_file),
+            "DEALYARD_PS_BIN": str(ps_stub),
+            "DEALYARD_OPEN_BIN": "/usr/bin/true",
         },
         capture_output=True,
         text=True,
     )
 
     assert result.returncode == 1
-    assert "above DealWatch limit 6" in result.stderr
+    assert "above Dealyard limit 6" in result.stderr
 
 
 def test_launch_script_succeeds_when_listener_is_already_ready(tmp_path: Path) -> None:
@@ -295,10 +295,10 @@ def test_launch_script_succeeds_when_listener_is_already_ready(tmp_path: Path) -
                 ["bash", str(SCRIPT)],
                 env={
                     **os.environ,
-                    "DEALWATCH_ENV_FILE": str(env_file),
-                    "DEALWATCH_PS_BIN": str(ps_stub),
-                    "DEALWATCH_OPEN_BIN": "/usr/bin/true",
-                    "DEALWATCH_READY_RETRIES": "2",
+                    "DEALYARD_ENV_FILE": str(env_file),
+                    "DEALYARD_PS_BIN": str(ps_stub),
+                    "DEALYARD_OPEN_BIN": "/usr/bin/true",
+                    "DEALYARD_READY_RETRIES": "2",
                 },
                 capture_output=True,
                 text=True,

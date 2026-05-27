@@ -1,12 +1,12 @@
-# DealWatch Read-only Builder
+# Dealyard Read-only Builder
 
-This bundle teaches an agent how to connect the published DealWatch MCP package
+This bundle teaches an agent how to connect the published Dealyard MCP package
 and use its read-only tools safely.
 
 ## What the agent learns here
 
 - how to install the published `dealyard==1.0.1` MCP package
-- which DealWatch MCP tools exist and which three are safe-first
+- which Dealyard MCP tools exist and which three are safe-first
 - how to choose between runtime-readiness, builder-starter, compare, watch, and
   recovery reads
 - which claims stay out of bounds
@@ -32,7 +32,7 @@ If the host needs a saved MCP config snippet, use the host-specific examples in
 
 ## Hard boundaries
 
-- no hosted DealWatch control plane
+- no hosted Dealyard control plane
 - no write-side MCP surface
 - no autonomous recommendation claim
 - no first-party marketplace claim unless that host independently confirms it

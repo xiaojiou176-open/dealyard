@@ -48,7 +48,7 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
         ),
         "boundary_reminders": [
             "Do not assume write-side MCP exists.",
-            "Do not present DealWatch as a hosted SaaS.",
+            "Do not present Dealyard as a hosted SaaS.",
             "Do not claim recommendation is available through builder or MCP surfaces.",
         ],
     },
@@ -216,7 +216,7 @@ _CLIENT_STARTER_SPECS: list[dict[str, Any]] = [
             "not as confirmed live listing proof."
         ),
         "boundary_reminders": [
-            "Do not treat DealWatch as an OpenClaw runtime base.",
+            "Do not treat Dealyard as an OpenClaw runtime base.",
             "Do not assume write-side MCP or operator automation is ready.",
             "Do not treat local-first proof surfaces as hosted control plane guarantees.",
         ],
@@ -558,7 +558,7 @@ def build_builder_starter_pack_payload() -> dict[str, Any]:
     return {
         "surface_version": "phase1",
         "product_shape": {
-            "name": "DealWatch",
+            "name": "Dealyard",
             "positioning": "AI-enhanced, compare-first grocery price intelligence",
             "runtime": "local-first",
             "builder_posture": "read-only-first",
@@ -641,7 +641,7 @@ def build_builder_starter_pack_payload() -> dict[str, Any]:
         },
         "skill_pack": {
             "path": "docs/integrations/skills/dealyard-readonly-builder-skill.md",
-            "intent": "Copyable builder skill card for coding agents that should stay inside the current read-only DealWatch contract.",
+            "intent": "Copyable builder skill card for coding agents that should stay inside the current read-only Dealyard contract.",
         },
         "docs": {
             "builder_pack": "docs/integrations/README.md",
@@ -653,7 +653,7 @@ def build_builder_starter_pack_payload() -> dict[str, Any]:
         },
         "public_builder_page": "site/builders.html",
         "warning": (
-            "Treat DealWatch as a local-first read-only decision backend. "
+            "Treat Dealyard as a local-first read-only decision backend. "
             "Do not present it as a hosted SaaS, formal SDK, official listing, "
             "or write-capable remote control plane."
         ),

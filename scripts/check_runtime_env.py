@@ -335,7 +335,7 @@ def validate_runtime(values: dict[str, str], *, target: str) -> tuple[list[Check
 
 def render_report(checks: list[CheckResult], warnings: list[CheckResult], *, env_source: str, target: str) -> str:
     lines = [
-        "DealWatch Runtime Preflight",
+        "Dealyard Runtime Preflight",
         f"target={target}",
         f"source={env_source}",
         "",
@@ -384,7 +384,7 @@ def ensure_runtime_contract_from_settings(settings_obj: Any, target: str) -> Non
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="DealWatch runtime environment preflight")
+    parser = argparse.ArgumentParser(description="Dealyard runtime environment preflight")
     parser.add_argument("--env-file", type=Path, default=None, help="Path to a dotenv-style file to validate")
     parser.add_argument("--target", default="render", choices=["render", "generic", "ci-smoke", "startup"], help="Validation profile")
     args = parser.parse_args()

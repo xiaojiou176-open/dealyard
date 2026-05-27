@@ -95,7 +95,7 @@ class Settings(BaseSettings):
     POSTMARK_WEBHOOK_TOKEN: SecretStr = SecretStr("")
     POSTMARK_MESSAGE_STREAM: str = "outbound"
     OWNER_EMAIL: str = "owner@example.com"
-    OWNER_DISPLAY_NAME: str = "DealWatch Owner"
+    OWNER_DISPLAY_NAME: str = "Dealyard Owner"
     OWNER_BOOTSTRAP_TOKEN: SecretStr = SecretStr("")
     APP_BASE_URL: str = "http://127.0.0.1:8000"
     API_HOST: str = "0.0.0.0"

@@ -1,45 +1,45 @@
-# DealWatch Chrome Companion Listing Notes
+# Dealyard Chrome Companion Listing Notes
 
 Use this file when you submit the repo-owned Chrome companion package to the Chrome Web Store.
 
 ## Suggested title
 
-`DealWatch Companion`
+`Dealyard Companion`
 
 ## Short description
 
-`Open DealWatch Compare from the current grocery product page and keep the local-first workflow one click away.`
+`Open Dealyard Compare from the current grocery product page and keep the local-first workflow one click away.`
 
 ## Full description
 
-DealWatch Companion is the browser helper for the local-first DealWatch runtime.
+Dealyard Companion is the browser helper for the local-first Dealyard runtime.
 
-It helps you take the current grocery product page and open DealWatch's compare-first workflow without pretending the extension itself is the product runtime.
+It helps you take the current grocery product page and open Dealyard's compare-first workflow without pretending the extension itself is the product runtime.
 
 What it does:
 
-- opens the local DealWatch `#compare` route
+- opens the local Dealyard `#compare` route
 - pre-fills the current tab URL into the compare form
 - provides a context-menu shortcut for the same action
-- lets you configure the local DealWatch base URL
+- lets you configure the local Dealyard base URL
 
 What it does not do:
 
 - it does not run compare logic inside the extension
-- it does not replace the DealWatch API / worker / WebUI runtime
+- it does not replace the Dealyard API / worker / WebUI runtime
 - it does not expose write-side automation
 - it does not claim hosted SaaS behavior
 
 ## Single-purpose statement
 
-This extension exists to hand the current product page into the local DealWatch compare flow faster.
+This extension exists to hand the current product page into the local Dealyard compare flow faster.
 
 ## Permission explanations
 
-- `activeTab`: read the current tab URL when you ask the extension to open DealWatch Compare
-- `tabs`: open the DealWatch local runtime in a new tab
-- `storage`: remember the local DealWatch base URL
-- `contextMenus`: offer a right-click "Open in DealWatch Compare" shortcut
+- `activeTab`: read the current tab URL when you ask the extension to open Dealyard Compare
+- `tabs`: open the Dealyard local runtime in a new tab
+- `storage`: remember the local Dealyard base URL
+- `contextMenus`: offer a right-click "Open in Dealyard Compare" shortcut
 
 ## Support URLs
 

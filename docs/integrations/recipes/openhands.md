@@ -1,8 +1,8 @@
-# DealWatch Recipe For OpenHands
+# Dealyard Recipe For OpenHands
 
 ## Honest status
 
-- DealWatch launch record: `repo-verified`
+- Dealyard launch record: `repo-verified`
 - OpenHands wrapper syntax: `official_wrapper_documented`
 - Recipe kind: `official`
 - Current posture: `observation-first`, `local-first`, `read-only-first`
@@ -16,7 +16,7 @@ PYTHONPATH=src uv run python -m dealyard.mcp serve --transport stdio
 ## OpenHands wrapper example
 
 OpenHands documents MCP server entries in `~/.openhands/config.toml`, including local `stdio_servers`.
-The current local DealWatch translation looks like:
+The current local Dealyard translation looks like:
 
 ```toml
 [mcp]
@@ -29,14 +29,14 @@ The same example lives in repo-owned form at [`../examples/openhands-config.toml
 
 ## What is actually stable here
 
-The stable part is the DealWatch side:
+The stable part is the Dealyard side:
 
 - local stdio MCP launch
 - read-only builder surface
 - compare-first safe-first flow
 
 OpenHands' own docs also document broader MCP server management.
-DealWatch keeps the story smaller here:
+Dealyard keeps the story smaller here:
 
 - local-first
 - direct read-first MCP entry

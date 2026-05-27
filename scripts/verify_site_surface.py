@@ -36,7 +36,7 @@ PAGE_REQUIREMENTS = {
         '<link rel="icon" href="./favicon.svg" type="image/svg+xml" />',
         '<link rel="manifest" href="./site.webmanifest" />',
         'meta name="twitter:card" content="summary_large_image"',
-        'meta property="og:site_name" content="DealWatch"',
+        'meta property="og:site_name" content="Dealyard"',
         "Latest release",
         'data-i18n="site.index.valueCardQuickStartTitle"',
         'data-i18n="site.index.valueCardBuildersTitle"',
@@ -70,7 +70,7 @@ PAGE_REQUIREMENTS = {
         'data-i18n="site.comparePreviewPage.footerBuildersLink"',
     ],
     SITE / "compare-vs-tracker.html": [
-        "DealWatch is not just another single-link tracker.",
+        "Dealyard is not just another single-link tracker.",
         '<link rel="icon" href="./favicon.svg" type="image/svg+xml" />',
         '<link rel="manifest" href="./site.webmanifest" />',
         'meta name="twitter:card" content="summary_large_image"',
@@ -88,7 +88,7 @@ PAGE_REQUIREMENTS = {
         'data-i18n-json="site.useCasesPage.schema"',
     ],
     SITE / "community.html": [
-        "The public front desk for DealWatch.",
+        "The public front desk for Dealyard.",
         '<link rel="icon" href="./favicon.svg" type="image/svg+xml" />',
         '<link rel="manifest" href="./site.webmanifest" />',
         'meta name="twitter:card" content="summary_large_image"',

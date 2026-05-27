@@ -1,17 +1,17 @@
-# DealWatch Builder Pack
+# Dealyard Builder Pack
 
-This bundle turns the current DealWatch builder frontdoor into concrete platform-native package
+This bundle turns the current Dealyard builder frontdoor into concrete platform-native package
 artifacts for the platforms that already expose official plugin systems today.
 
 It currently ships:
 
 - `.claude-plugin/plugin.json` for Claude Code plugin packaging
 - `.codex-plugin/plugin.json` for Codex plugin packaging
-- `.mcp.json` for the shared local DealWatch MCP wiring
+- `.mcp.json` for the shared local Dealyard MCP wiring
 - `skills/dealyard-readonly-builder/SKILL.md` for the safe-first route and boundary reminders
 
 Use this pack when you want a repo-owned distribution candidate that still points back to the
-same local-first DealWatch runtime.
+same local-first Dealyard runtime.
 
 ## Safe First Flow
 

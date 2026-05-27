@@ -35,7 +35,7 @@ class EmailNotifier:
         "<div style=\"max-width:760px;margin:0 auto;background:#ffffff;"
         "border:1px solid #e6e6e6;padding:16px;\">"
         "<div style=\"font-size:22px;font-weight:700;color:#0b5d1e;"
-        "margin-bottom:4px;\">DealWatch Daily Report</div>"
+        "margin-bottom:4px;\">Dealyard Daily Report</div>"
         "<div style=\"font-size:12px;color:#666;margin-bottom:16px;\">"
         "{{subject_date}}</div>"
         "<div>{{content}}</div>"
@@ -54,7 +54,7 @@ class EmailNotifier:
         self.logger = logging.getLogger(__name__)
 
     def send_daily_report(self, html_content: str, subject_date: str) -> bool:
-        subject = f"DealWatch Daily Report - {subject_date}"
+        subject = f"Dealyard Daily Report - {subject_date}"
         return self.send_custom_report(
             html_content=html_content,
             subject=subject,

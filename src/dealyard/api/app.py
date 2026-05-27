@@ -55,7 +55,7 @@ async def lifespan(_: FastAPI):
 
 
 def create_app() -> FastAPI:
-    app = FastAPI(title="DealWatch API", version="1.0.0", lifespan=lifespan)
+    app = FastAPI(title="Dealyard API", version="1.0.0", lifespan=lifespan)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=_build_allowed_origins(settings.WEBUI_DEV_URL, settings.APP_BASE_URL),
@@ -470,7 +470,7 @@ def create_app() -> FastAPI:
             expected_token = str(configured_token).strip()
         if not expected_token:
             raise HTTPException(status_code=503, detail="postmark_webhook_not_configured")
-        provided_token = request.headers.get("X-DealWatch-Webhook-Token", "").strip()
+        provided_token = request.headers.get("X-Dealyard-Webhook-Token", "").strip()
         if not provided_token or not compare_digest(provided_token, expected_token):
             raise HTTPException(status_code=401, detail="invalid_postmark_webhook_signature")
 

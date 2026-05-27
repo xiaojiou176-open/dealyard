@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "DealWatch Companion",
+  "name": "Dealyard Companion",
   "version": "0.1.0",
-  "description": "Open DealWatch Compare from the current grocery product page and keep the local-first workflow one click away.",
+  "description": "Open Dealyard Compare from the current grocery product page and keep the local-first workflow one click away.",
   "minimum_chrome_version": "120",
   "permissions": [
     "activeTab",
@@ -11,7 +11,7 @@
     "contextMenus"
   ],
   "action": {
-    "default_title": "DealWatch Companion",
+    "default_title": "Dealyard Companion",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "assets/icon-16.png",

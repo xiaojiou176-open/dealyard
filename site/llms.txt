@@ -1,4 +1,4 @@
-# DealWatch
+# Dealyard
 
 > AI-enhanced, compare-first grocery price intelligence with compare preview, compare-aware watch groups, effective price, recovery guidance, and safe read-only MCP access.
 

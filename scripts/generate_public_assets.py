@@ -227,7 +227,7 @@ TASK_DETAIL_FIXTURE = {
 SOCIAL_CARD_SPECS = [
     {
         "output": HERO_SCREEN,
-        "eyebrow": "DealWatch control cabin",
+        "eyebrow": "Dealyard control cabin",
         "title": "Know what to compare before you create the task.",
         "subtitle": "Compare URLs first, then move into evidence, price history, and notifications without changing product context.",
         "chips": ["Compare Preview", "Artifact Evidence", "Notifications"],
@@ -236,7 +236,7 @@ SOCIAL_CARD_SPECS = [
     },
     {
         "output": SOCIAL_SCREEN,
-        "eyebrow": "DealWatch public surface",
+        "eyebrow": "Dealyard public surface",
         "title": "Compare first. Track with evidence after.",
         "subtitle": "Cross-store grocery tracking with compare preview, evidence cards, effective price, and alert history.",
         "chips": ["Compare Preview", "Artifact Evidence", "Alerts"],
@@ -245,7 +245,7 @@ SOCIAL_CARD_SPECS = [
     },
     {
         "output": OG_HOME,
-        "eyebrow": "DealWatch homepage",
+        "eyebrow": "Dealyard homepage",
         "title": "See the product shape before you install anything.",
         "subtitle": "The homepage shows compare preview, task evidence, and notification policy as one product story.",
         "chips": ["Homepage", "Proof", "Release surface"],
@@ -292,7 +292,7 @@ SOCIAL_CARD_SPECS = [
         "output": OG_COMPARISON,
         "eyebrow": "Why not a generic tracker",
         "title": "Decide what deserves a watch task first.",
-        "subtitle": "DealWatch starts earlier than a single-link tracker by making comparison the intake step, not an afterthought.",
+        "subtitle": "Dealyard starts earlier than a single-link tracker by making comparison the intake step, not an afterthought.",
         "chips": ["Comparison", "Compare first", "Decision quality"],
         "primary": COMPARE_SCREEN,
         "support_mode": "none",
@@ -590,7 +590,7 @@ async def capture_compare_gif(context, temp_dir: Path):
   <body>
     <div class="shell">
       <div class="hero">
-        <div class="kicker">DealWatch Compare Preview</div>
+        <div class="kicker">Dealyard Compare Preview</div>
         <h1>Validate the target before you create the task.</h1>
         <p class="lede">{intro_copy}</p>
       </div>

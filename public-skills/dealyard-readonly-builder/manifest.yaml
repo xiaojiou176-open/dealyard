@@ -1,16 +1,16 @@
 schema_version: 1
 name: dealyard-readonly-builder
-display_name: DealWatch Read-only Builder
+display_name: Dealyard Read-only Builder
 version: 1.1.0
 summary: >
-  Public skill bundle for DealWatch that packages MCP install guidance, a
+  Public skill bundle for Dealyard that packages MCP install guidance, a
   read-only tool map, and a safe-first compare workflow for OpenHands/OpenClaw
   style hosts.
 homepage: https://github.com/xiaojiou176-open/dealyard
 repository: https://github.com/xiaojiou176-open/dealyard
 license: MIT
 authors:
-  - name: DealWatch
+  - name: Dealyard
 entrypoints:
   skill_markdown: SKILL.md
 compatibility:
@@ -21,8 +21,8 @@ compatibility:
     mode: skill publish plus published MCP config
     published_listing: false
 capabilities:
-  - install the published DealWatch MCP package in host-specific config
-  - expose the stable read-only DealWatch tool inventory
+  - install the published Dealyard MCP package in host-specific config
+  - expose the stable read-only Dealyard tool inventory
   - route builders into the safe-first runtime and compare path
   - preserve honest local-first boundary wording
 boundaries:

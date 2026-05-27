@@ -70,7 +70,7 @@ class MaintenanceSummary:
     def render_text(self) -> str:
         mode = "dry-run" if self.dry_run else "apply"
         lines = [
-            "DealWatch maintenance",
+            "Dealyard maintenance",
             f"mode={mode}",
             f"matched={self.matched_count}",
             f"estimated_reclaim_bytes={self.estimated_bytes}",

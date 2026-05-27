@@ -36,8 +36,8 @@ def _write_env(env_file: Path, *, root: Path, port: int) -> None:
                 "CHROME_PROFILE_DIRECTORY=Profile 21",
                 f"CHROME_CDP_URL=http://127.0.0.1:{port}",
                 f"CHROME_REMOTE_DEBUG_PORT={port}",
-                "DEALWATCH_BROWSER_IDENTITY_LABEL=DealWatch Lane",
-                "DEALWATCH_BROWSER_IDENTITY_ACCENT=#2563eb",
+                "DEALYARD_BROWSER_IDENTITY_LABEL=Dealyard Lane",
+                "DEALYARD_BROWSER_IDENTITY_ACCENT=#2563eb",
             ]
         )
         + "\n",
@@ -109,7 +109,7 @@ def test_open_dealyard_account_pages_writes_identity_and_creates_targets(tmp_pat
     assert result.returncode == 0, result.stderr
     payload = json.loads(result.stdout)
     assert payload["ok"] is True
-    assert payload["identity_label"] == "DealWatch Lane"
+    assert payload["identity_label"] == "Dealyard Lane"
     assert payload["identity_accent"] == "#2563eb"
     assert payload["identity_page_path"].endswith(".runtime-cache/browser-identity/index.html")
     assert payload["identity_page_url"].startswith("file://")

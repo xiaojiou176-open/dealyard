@@ -1,6 +1,0 @@
-{
-  "name": "dealyard-builder-pack",
-  "displayName": "DealWatch Builder Pack",
-  "description": "Read-only builder frontdoor for DealWatch with local MCP wiring and compare-first guidance.",
-  "version": "0.1.0"
-}

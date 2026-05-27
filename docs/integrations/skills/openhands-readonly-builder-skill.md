@@ -1,10 +1,10 @@
-# DealWatch Builder Skill For OpenHands
+# Dealyard Builder Skill For OpenHands
 
-Use this skill when OpenHands is connected to DealWatch through the local MCP server or local HTTP runtime.
+Use this skill when OpenHands is connected to Dealyard through the local MCP server or local HTTP runtime.
 
 ## Goal
 
-Keep OpenHands on the observation path inside DealWatch's local-first, read-only builder contract.
+Keep OpenHands on the observation path inside Dealyard's local-first, read-only builder contract.
 
 ## Do first
 
@@ -16,8 +16,8 @@ Keep OpenHands on the observation path inside DealWatch's local-first, read-only
 
 ## Hard boundaries
 
-- Do not present DealWatch as a hosted SaaS.
-- Do not present DealWatch as an official OpenHands plugin.
+- Do not present Dealyard as a hosted SaaS.
+- Do not present Dealyard as an official OpenHands plugin.
 - Do not invent write-side MCP.
 - Do not assume destructive automation is safe by default.
 - Do not bypass compare preview and jump straight to durable state assumptions.
