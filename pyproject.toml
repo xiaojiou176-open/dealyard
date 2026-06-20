@@ -24,7 +24,7 @@ classifiers = [
 dependencies = [
   "playwright==1.58.0",
   "pydantic~=2.4",
-  "pydantic-settings~=2.0",
+  "pydantic-settings~=2.14",
   "aiosqlite~=0.20.0",
   "PyYAML~=6.0",
   "fastapi~=0.121.0",
