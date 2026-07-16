@@ -100,7 +100,7 @@ mako==1.3.11
     # via alembic
 markupsafe==3.0.3
     # via mako
-mcp==1.26.0
+mcp==1.28.1
     # via dealwatcherer
 mf2py==2.0.1
     # via extruct
